@@ -1,0 +1,7 @@
+{
+  "_fv": 24,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"21\" y=\"54\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"entity_is_elytra_flying\"><value name=\"entity\"><block type=\"source_entity_from_deps\"></block></value></block></value><statement name=\"DO0\"><block type=\"entity_set_sneak\"><value name=\"entitycheck\"><block type=\"entity_from_deps\"></block></value><value name=\"booleancheck\"><block type=\"logic_boolean\"><field name=\"BOOL\">TRUE</field></block></value></block></statement></block></next></block></xml>"
+  }
+}

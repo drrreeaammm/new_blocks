@@ -1,0 +1,9 @@
+{
+  "parent": "new_blocks:custom/lava_extractor",
+  "textures": {
+    "all": "new_blocks:blocks/extractor_bottom",
+    "particle": "new_blocks:blocks/extractor_bottom",
+    "0": "new_blocks:blocks/furnace_side",
+    "1": "new_blocks:blocks/extractor_bottom"
+  }
+}

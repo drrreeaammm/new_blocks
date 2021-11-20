@@ -1,0 +1,7 @@
+{
+  "parent": "new_blocks:custom/ninjastar",
+  "textures": {
+    "0": "new_blocks:blocks/ninjastar",
+    "particle": "new_blocks:items/ninja_star"
+  }
+}

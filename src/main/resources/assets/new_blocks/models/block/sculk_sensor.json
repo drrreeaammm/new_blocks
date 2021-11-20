@@ -1,0 +1,11 @@
+{
+  "parent": "new_blocks:custom/sculk_sensor",
+  "textures": {
+    "all": "new_blocks:blocks/sculk_sensor_side",
+    "particle": "new_blocks:blocks/sculk_sensor_side",
+    "2": "new_blocks:blocks/sculk_sensor_bottom",
+    "3": "new_blocks:blocks/sculk_sensor_side",
+    "5": "new_blocks:blocks/sculk_sensor_anim",
+    "6": "new_blocks:blocks/sculk_sensor_top"
+  }
+}

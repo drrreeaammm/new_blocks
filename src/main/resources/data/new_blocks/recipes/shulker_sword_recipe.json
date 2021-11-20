@@ -1,0 +1,24 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:shulker_shell"
+    },
+    "1": {
+      "item": "minecraft:shulker_shell"
+    },
+    "2": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "new_blocks:shulker_sword",
+    "count": 1
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "iron_katana",
+    "customModelName": "Normal",
+    "name": "Iron Katana",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Axe",
+    "harvestLevel": 0,
+    "efficiency": 0.0,
+    "attackSpeed": 2.6,
+    "enchantability": 2,
+    "damageVsEntity": 1.0,
+    "usageCount": 340,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "Items.IRON_INGOT"
+      }
+    ],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "IronKatanaLivingEntityIsHitWithTool"
+    }
+  }
+}

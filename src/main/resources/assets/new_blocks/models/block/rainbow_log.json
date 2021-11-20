@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/rainbow_log_top",
+    "up": "new_blocks:blocks/rainbow_log_top",
+    "north": "new_blocks:blocks/rainbow_log",
+    "east": "new_blocks:blocks/rainbow_log",
+    "south": "new_blocks:blocks/rainbow_log",
+    "west": "new_blocks:blocks/rainbow_log",
+    "particle": "new_blocks:blocks/rainbow_log_top"
+  }
+}

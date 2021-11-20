@@ -1,0 +1,17 @@
+{
+  "_fv": 24,
+  "_type": "musicdisc",
+  "definition": {
+    "texture": "theenddisc",
+    "name": "Music disc",
+    "description": "Naps the Block - Tall",
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "music": {
+      "value": "CUSTOM:tall"
+    },
+    "specialInfo": [],
+    "hasGlow": false
+  }
+}

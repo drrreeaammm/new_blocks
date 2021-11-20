@@ -1,0 +1,26 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "3 5"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:ruby"
+    },
+    "2": {
+      "item": "new_blocks:ruby"
+    },
+    "3": {
+      "item": "new_blocks:ruby"
+    },
+    "5": {
+      "item": "new_blocks:ruby"
+    }
+  },
+  "result": {
+    "item": "new_blocks:ruby_armor_boots",
+    "count": 1
+  }
+}

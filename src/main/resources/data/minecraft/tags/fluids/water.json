@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "new_blocks:rainbow_water",
+    "new_blocks:rainbow_water_flowing",
+    "new_blocks:sculk_fluid",
+    "new_blocks:sculk_fluid_flowing",
+    "new_blocks:wet_mud",
+    "new_blocks:wet_mud_flowing",
+    "new_blocks:fresh_water",
+    "new_blocks:fresh_water_flowing"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "new_blocks:custom/sword_in_the_stone_no_sword",
+  "textures": {
+    "all": "new_blocks:blocks/sword_in_the_stone_cobble",
+    "particle": "new_blocks:blocks/sword_in_the_stone_cobble",
+    "0": "new_blocks:blocks/sword_in_the_stone_cobble",
+    "6": "new_blocks:blocks/sword_in_the_stone_air"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_fv": 24,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Potion of Clearing",
+    "splashName": "Splash Potion of Clearing",
+    "lingeringName": "Lingering Potion of Clearing",
+    "arrowName": "Arrow of Clearing",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:Clearing"
+        },
+        "duration": 30,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

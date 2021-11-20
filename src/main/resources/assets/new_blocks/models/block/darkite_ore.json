@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "new_blocks:blocks/darkite_ore",
+    "particle": "new_blocks:blocks/darkite_ore"
+  }
+}

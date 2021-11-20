@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "new_blocks:block/ender_grass_block"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "new_blocks:tanzanite"
+    },
+    "title": {
+      "translate": "advancements.tanzanite_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.tanzanite_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tanzanite_advancement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "new_blocks:tanzanite",
+            "count": {
+              "min": 1,
+              "max": 32769
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 1,
+    "recipes": [
+      "new_blocks:tanzanite_boots_recipe",
+      "new_blocks:tanzanite_leggings_recipe",
+      "new_blocks:tanzanite_chestplate_recipe",
+      "new_blocks:tanzanite_helmet_recipe"
+    ]
+  },
+  "parent": "minecraft:story/mine_diamond"
+}

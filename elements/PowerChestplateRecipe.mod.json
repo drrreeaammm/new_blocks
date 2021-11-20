@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Tanzanite"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Tanzanite"
+      },
+      {
+        "value": "Items.IRON_CHESTPLATE"
+      },
+      {
+        "value": "CUSTOM:Tanzanite"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Tanzanite"
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:EnergyPowered.body"
+    },
+    "name": "power_chestplate_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:SculkVine"
+      },
+      {
+        "value": "CUSTOM:SculkVine"
+      },
+      {
+        "value": "CUSTOM:SculkVine"
+      },
+      {
+        "value": "CUSTOM:SculkVine"
+      },
+      {
+        "value": "CUSTOM:SculkVine"
+      },
+      {
+        "value": "CUSTOM:SculkVine"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "Items.BOWL"
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:SculkSoup"
+    },
+    "name": "sculk_soup_recipe",
+    "namespace": "mod"
+  }
+}

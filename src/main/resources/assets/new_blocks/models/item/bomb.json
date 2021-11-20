@@ -1,0 +1,8 @@
+{
+  "parent": "new_blocks:custom/bomb",
+  "textures": {
+    "0": "new_blocks:blocks/bomb",
+    "1": "new_blocks:blocks/texture",
+    "particle": "new_blocks:items/shulkerturretranged"
+  }
+}

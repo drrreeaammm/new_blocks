@@ -1,0 +1,39 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:tanzanite"
+    },
+    "2": {
+      "item": "new_blocks:tanzanite"
+    },
+    "3": {
+      "item": "new_blocks:tanzanite"
+    },
+    "4": {
+      "item": "new_blocks:tanzanite"
+    },
+    "5": {
+      "item": "new_blocks:tanzanite"
+    },
+    "6": {
+      "item": "new_blocks:tanzanite"
+    },
+    "7": {
+      "item": "new_blocks:tanzanite"
+    },
+    "8": {
+      "item": "new_blocks:tanzanite"
+    }
+  },
+  "result": {
+    "item": "new_blocks:tanzanite_armor_chestplate",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/end_stone",
+    "up": "new_blocks:blocks/end_grass_block_side",
+    "north": "new_blocks:blocks/end_grass_block",
+    "east": "new_blocks:blocks/end_grass_block",
+    "south": "new_blocks:blocks/end_grass_block",
+    "west": "new_blocks:blocks/end_grass_block",
+    "particle": "new_blocks:blocks/end_stone"
+  }
+}

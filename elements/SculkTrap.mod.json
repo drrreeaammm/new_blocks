@@ -1,0 +1,144 @@
+{
+  "_fv": 24,
+  "_type": "block",
+  "definition": {
+    "texture": "sculk_block_trap_bottom_side",
+    "textureTop": "sculk_block_trap",
+    "textureLeft": "sculk_block_trap_bottom_side",
+    "textureFront": "sculk_block_trap_bottom_side",
+    "textureRight": "sculk_block_trap_bottom_side",
+    "textureBack": "sculk_block_trap_bottom_side",
+    "renderType": 10,
+    "customModelName": "Normal",
+    "rotationMode": 0,
+    "emissiveRendering": false,
+    "displayFluidOverlay": false,
+    "itemTexture": "",
+    "particleTexture": "",
+    "tintType": "No tint",
+    "isItemTinted": false,
+    "hasTransparency": false,
+    "connectedSides": false,
+    "transparencyType": "SOLID",
+    "disableOffset": false,
+    "boundingBoxes": [
+      {
+        "mx": 0.0,
+        "my": 0.0,
+        "mz": 0.0,
+        "Mx": 16.0,
+        "My": 16.0,
+        "Mz": 16.0,
+        "subtract": false
+      }
+    ],
+    "name": "Sculk Trap",
+    "specialInfo": [],
+    "hardness": 2.8499999999999996,
+    "resistance": 4.5,
+    "hasGravity": false,
+    "isWaterloggable": false,
+    "creativeTab": {
+      "value": "CUSTOM:DeepDarkTab"
+    },
+    "destroyTool": "pickaxe",
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 1,
+    "useLootTableForDrops": false,
+    "enchantPowerBonus": 0.0,
+    "plantsGrowOn": false,
+    "canRedstoneConnect": false,
+    "lightOpacity": 15,
+    "material": {
+      "value": "ROCK"
+    },
+    "tickRate": 40,
+    "tickRandomly": false,
+    "isReplaceable": false,
+    "canProvidePower": false,
+    "emittedRedstonePower": {
+      "fixedValue": 15.0
+    },
+    "colorOnMap": "DEFAULT",
+    "creativePickItem": {
+      "value": ""
+    },
+    "offsetType": "NONE",
+    "aiPathNodeType": "DAMAGE_OTHER",
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "isLadder": false,
+    "slipperiness": 0.4,
+    "speedFactor": 0.7000000000000001,
+    "jumpFactor": 0.6,
+    "reactionToPushing": "NORMAL",
+    "isNotColidable": false,
+    "isCustomSoundType": true,
+    "soundOnStep": {
+      "value": "GROUND"
+    },
+    "breakSound": {
+      "value": "CUSTOM:sculk_break"
+    },
+    "stepSound": {
+      "value": "CUSTOM:sculk_step_block"
+    },
+    "placeSound": {
+      "value": "CUSTOM:sculk_place"
+    },
+    "hitSound": {
+      "value": "CUSTOM:sculk_hit"
+    },
+    "fallSound": {
+      "value": "CUSTOM:sculk_break"
+    },
+    "luminance": 0,
+    "unbreakable": false,
+    "breakHarvestLevel": 1,
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "CUSTOM:Sculk"
+    },
+    "particleSpawningShape": "Spread",
+    "particleSpawningRadious": 0.5,
+    "particleAmount": 4,
+    "hasInventory": false,
+    "guiBoundTo": "<NONE>",
+    "openGUIOnRightClick": false,
+    "inventorySize": 9,
+    "inventoryStackSize": 64,
+    "inventoryDropWhenDestroyed": true,
+    "inventoryComparatorPower": true,
+    "inventoryOutSlotIDs": [],
+    "inventoryInSlotIDs": [],
+    "hasEnergyStorage": false,
+    "energyInitial": 0,
+    "energyCapacity": 400000,
+    "energyMaxReceive": 200,
+    "energyMaxExtract": 200,
+    "isFluidTank": false,
+    "fluidCapacity": 8000,
+    "fluidRestrictions": [],
+    "onEntityWalksOn": {
+      "name": "SculkTrapEntityWalksOnTheBlock"
+    },
+    "spawnWorldTypes": [
+      "CUSTOM:DeepDark"
+    ],
+    "restrictionBiomes": [],
+    "blocksToReplace": [
+      {
+        "value": "CUSTOM:Grimstone"
+      }
+    ],
+    "frequencyPerChunks": 18,
+    "frequencyOnChunk": 2,
+    "minGenerateHeight": 8,
+    "maxGenerateHeight": 60,
+    "generateCondition": {
+      "name": "SculkTrapAdditionalGenerationCondition"
+    }
+  }
+}

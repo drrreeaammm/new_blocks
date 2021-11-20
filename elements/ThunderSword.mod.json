@@ -1,0 +1,30 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "thundersword",
+    "customModelName": "Normal",
+    "name": "Thunder Sword",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 0,
+    "efficiency": 4.0,
+    "attackSpeed": 1.2999999999999998,
+    "enchantability": 14,
+    "damageVsEntity": 3.0,
+    "usageCount": 670,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "ThunderSwordLivingEntityIsHitWithTool"
+    }
+  }
+}

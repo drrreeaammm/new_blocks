@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "new_blocks:sculk_trap"
+    },
+    "title": {
+      "translate": "advancements.i_killed_the_warden_and_all_i_got_was_this_stupid_t_shirt.title"
+    },
+    "description": {
+      "translate": "advancements.i_killed_the_warden_and_all_i_got_was_this_stupid_t_shirt.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "i_killed_the_warden_and_all_i_got_was_this_stupid_t_shirt": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "parent": "minecraft:adventure/very_very_frightening"
+}

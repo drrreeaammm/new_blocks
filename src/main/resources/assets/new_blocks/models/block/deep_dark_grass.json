@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/deepdarkgrassbottom",
+    "up": "new_blocks:blocks/deepdarkgrasstop",
+    "north": "new_blocks:blocks/deepdarkgrassside",
+    "east": "new_blocks:blocks/deepdarkgrassside",
+    "south": "new_blocks:blocks/deepdarkgrassside",
+    "west": "new_blocks:blocks/deepdarkgrassside",
+    "particle": "new_blocks:blocks/deepdarkgrassbottom"
+  }
+}

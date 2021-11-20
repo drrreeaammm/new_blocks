@@ -1,0 +1,11 @@
+{
+  "parent": "new_blocks:custom/viridescentcampfire",
+  "textures": {
+    "all": "new_blocks:blocks/viridescentcampfirelog",
+    "particle": "new_blocks:blocks/viridescentcampfirelog",
+    "2": "new_blocks:blocks/viridescentcampfirelog",
+    "3": "new_blocks:blocks/viridescentcampfireloglit",
+    "4": "new_blocks:blocks/viridescentcampfire",
+    "5": "new_blocks:blocks/viridescentcampfireair"
+  }
+}

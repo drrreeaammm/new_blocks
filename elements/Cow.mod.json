@@ -1,0 +1,21 @@
+{
+  "_fv": 24,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Potion of Cow",
+    "splashName": "Splash Potion of Cow",
+    "lingeringName": "Lingering Potion of Cow",
+    "arrowName": "Arrow of Cow",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:CowagerEffect"
+        },
+        "duration": 20,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": false
+      }
+    ]
+  }
+}

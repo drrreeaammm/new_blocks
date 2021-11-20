@@ -1,0 +1,41 @@
+{
+  "_fv": 24,
+  "_type": "overlay",
+  "definition": {
+    "priority": "NORMAL",
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "darkness.png",
+          "use1Xscale": true,
+          "name": "darkness.png",
+          "x": 6,
+          "y": 143
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "darkness.png",
+          "use1Xscale": true,
+          "name": "darkness.png",
+          "x": 321,
+          "y": 8
+        }
+      }
+    ],
+    "baseTexture": "darkness_overlay.png",
+    "overlayTarget": "Ingame",
+    "displayCondition": {
+      "name": "DarknessOverlayDisplayOverlayIngame"
+    },
+    "gridSettings": {
+      "sx": 45,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

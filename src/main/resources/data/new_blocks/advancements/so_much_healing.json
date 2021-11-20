@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "new_blocks:medkit"
+    },
+    "title": {
+      "translate": "advancements.so_much_healing.title"
+    },
+    "description": {
+      "translate": "advancements.so_much_healing.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "so_much_healing": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 5
+  },
+  "parent": "new_blocks:lots_of_healing"
+}

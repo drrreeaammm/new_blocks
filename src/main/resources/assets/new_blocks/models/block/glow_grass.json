@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/glowgrassbottom",
+    "up": "new_blocks:blocks/glowgrasstop",
+    "north": "new_blocks:blocks/glowgrassside",
+    "east": "new_blocks:blocks/glowgrassside",
+    "south": "new_blocks:blocks/glowgrassside",
+    "west": "new_blocks:blocks/glowgrassside",
+    "particle": "new_blocks:blocks/glowgrassbottom"
+  }
+}

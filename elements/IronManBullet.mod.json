@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "shooter",
+    "customModelName": "Normal",
+    "name": "Iron Man Bullet Shooter",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": false,
+    "usageCount": 100,
+    "actionSound": {
+      "value": "CUSTOM:iron_man_bullet_shoot"
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "onRangedItemUsed": {
+      "name": "IronManBulletRangedItemUsed"
+    },
+    "bulletPower": 1.0,
+    "bulletDamage": 2.8,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": ""
+    },
+    "bulletModel": "Modeliron_man_bullet",
+    "customBulletModelTexture": "iron_man_bullet.png",
+    "onBulletHitsBlock": {
+      "name": "IronManBulletBulletHitsBlock"
+    },
+    "onBulletHitsEntity": {
+      "name": "IronManBulletBulletHitsBlock"
+    }
+  }
+}

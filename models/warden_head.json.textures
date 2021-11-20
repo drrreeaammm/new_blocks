@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "warden_head"
+      },
+      "name": "default"
+    }
+  }
+}

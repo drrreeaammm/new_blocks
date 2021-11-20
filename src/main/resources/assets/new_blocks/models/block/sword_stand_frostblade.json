@@ -1,0 +1,10 @@
+{
+  "parent": "new_blocks:custom/sword_in_the_stone_frost",
+  "textures": {
+    "all": "new_blocks:blocks/sword_in_the_stone_cobble",
+    "particle": "new_blocks:blocks/sword_in_the_stone_cobble",
+    "0": "new_blocks:blocks/sword_in_the_stone_cobble",
+    "5": "new_blocks:blocks/sword_in_the_frostblade",
+    "6": "new_blocks:blocks/sword_in_the_stone_air"
+  }
+}

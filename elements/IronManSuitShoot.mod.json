@@ -1,0 +1,12 @@
+{
+  "_fv": 24,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "Z",
+    "keyBindingName": "Iron Man Chestplate Shoot",
+    "keyBindingCategoryKey": "gameplay",
+    "onKeyPressed": {
+      "name": "IronManSuitShootOnKeyPressed"
+    }
+  }
+}

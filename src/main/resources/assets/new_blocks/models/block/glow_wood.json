@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "new_blocks:blocks/glow_log_side",
+    "particle": "new_blocks:blocks/glow_log_side"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "new_blocks:big_sculk_vine",
+    "new_blocks:sculk_vine"
+  ]
+}

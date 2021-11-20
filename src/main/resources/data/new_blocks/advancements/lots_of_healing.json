@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "new_blocks:medkit"
+    },
+    "title": {
+      "translate": "advancements.lots_of_healing.title"
+    },
+    "description": {
+      "translate": "advancements.lots_of_healing.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "lots_of_healing": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 5
+  },
+  "parent": "new_blocks:healing_pro"
+}

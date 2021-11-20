@@ -1,0 +1,26 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:fir_log"
+    },
+    "1": {
+      "item": "new_blocks:fir_log"
+    },
+    "2": {
+      "item": "new_blocks:fir_log"
+    },
+    "3": {
+      "item": "new_blocks:fir_log"
+    }
+  },
+  "result": {
+    "item": "new_blocks:fir_wood",
+    "count": 3
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "_fv": 24,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "G",
+    "keyBindingName": "Tank Shoot",
+    "keyBindingCategoryKey": "gameplay",
+    "onKeyPressed": {
+      "name": "TankShootOnKeyPressed"
+    }
+  }
+}

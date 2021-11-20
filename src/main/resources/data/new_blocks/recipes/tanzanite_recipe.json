@@ -1,0 +1,16 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:tanzanite_block"
+    }
+  },
+  "result": {
+    "item": "new_blocks:tanzanite",
+    "count": 9
+  }
+}

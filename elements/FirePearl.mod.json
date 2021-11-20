@@ -1,0 +1,51 @@
+{
+  "_fv": 24,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "flame_pearl",
+    "customModelName": "Normal",
+    "name": "Flame Pearl",
+    "specialInfo": [
+      "Faster. Farther. Flamier?..."
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "stackSize": 16,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": true,
+    "usageCount": 1,
+    "actionSound": {
+      "value": "entity.enderpearl.throw"
+    },
+    "hasGlow": false,
+    "animation": "none",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "onRangedItemUsed": {
+      "name": "FirePearlRangedItemUsed"
+    },
+    "bulletPower": 1.4,
+    "bulletDamage": 0.6,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:FLAMEPEARLITEMTEXTURe"
+    },
+    "bulletModel": "Default",
+    "customBulletModelTexture": "",
+    "onBulletHitsBlock": {
+      "name": "FirePearlBulletHitsBlock"
+    },
+    "onBulletHitsEntity": {
+      "name": "FirePearlBulletHitsLivingEntity"
+    },
+    "onBulletFlyingTick": {
+      "name": "FirePearlWhileBulletFlyingTick"
+    }
+  }
+}

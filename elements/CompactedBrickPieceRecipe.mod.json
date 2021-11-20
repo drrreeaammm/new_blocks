@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:BrickHousePiece"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:BrickHousePiece"
+      },
+      {
+        "value": "CUSTOM:BrickHousePiece"
+      },
+      {
+        "value": "CUSTOM:BrickHousePiece"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:BrickHousePiece"
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:CompactedBrickPiece"
+    },
+    "name": "compacted_brick_piece_recipe",
+    "namespace": "mod"
+  }
+}

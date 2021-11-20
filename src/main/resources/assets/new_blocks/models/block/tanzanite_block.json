@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/tanazite_block",
+    "up": "new_blocks:blocks/tanazite_block",
+    "north": "new_blocks:blocks/tanazite_block",
+    "east": "new_blocks:blocks/tanazite_block",
+    "south": "new_blocks:blocks/tanazite_block",
+    "west": "new_blocks:blocks/tanazite_block",
+    "particle": "new_blocks:blocks/tanazite_block"
+  }
+}

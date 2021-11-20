@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "new_blocks:deep_dark_dirt",
+    "new_blocks:deep_dark_grass",
+    "new_blocks:dormant_deep_dark_grass"
+  ]
+}

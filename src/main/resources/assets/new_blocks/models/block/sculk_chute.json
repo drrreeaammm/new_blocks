@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/sculk_block_1_1",
+    "up": "new_blocks:blocks/sculk_block_1_1",
+    "north": "new_blocks:blocks/sculk_chute",
+    "east": "new_blocks:blocks/sculk_chute",
+    "south": "new_blocks:blocks/sculk_chute",
+    "west": "new_blocks:blocks/sculk_chute",
+    "particle": "new_blocks:blocks/sculk_block_1_1"
+  }
+}

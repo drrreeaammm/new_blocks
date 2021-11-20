@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/dark_log_top",
+    "up": "new_blocks:blocks/dark_log_top",
+    "north": "new_blocks:blocks/dark_wood_side",
+    "east": "new_blocks:blocks/dark_wood_side",
+    "south": "new_blocks:blocks/dark_wood_side",
+    "west": "new_blocks:blocks/dark_wood_side",
+    "particle": "new_blocks:blocks/dark_log_top"
+  }
+}

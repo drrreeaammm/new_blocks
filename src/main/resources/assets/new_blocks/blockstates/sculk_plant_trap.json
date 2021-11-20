@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=upper": {
+      "model": "new_blocks:block/sculk_plant_trap"
+    },
+    "half=lower": {
+      "model": "new_blocks:block/sculk_plant_trap_bottom"
+    }
+  }
+}

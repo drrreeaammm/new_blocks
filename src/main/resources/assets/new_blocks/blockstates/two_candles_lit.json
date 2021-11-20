@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "new_blocks:block/two_candles_lit"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/blue_sand",
+    "up": "new_blocks:blocks/blue_sand",
+    "north": "new_blocks:blocks/blue_sand",
+    "east": "new_blocks:blocks/blue_sand",
+    "south": "new_blocks:blocks/blue_sand",
+    "west": "new_blocks:blocks/blue_sand",
+    "particle": "new_blocks:blocks/blue_sand"
+  }
+}

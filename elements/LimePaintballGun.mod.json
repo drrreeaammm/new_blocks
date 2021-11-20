@@ -1,0 +1,40 @@
+{
+  "_fv": 24,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "lime_paintball_gun",
+    "customModelName": "Normal",
+    "name": "Green Paintball Gun",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": "Blocks.WOOL#5"
+    },
+    "shootConstantly": false,
+    "usageCount": 155,
+    "actionSound": {
+      "value": "CUSTOM:balloon_pop"
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 0.9,
+    "bulletDamage": 2.0,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "Items.SNOWBALL"
+    },
+    "bulletModel": "Default",
+    "customBulletModelTexture": "",
+    "onBulletHitsBlock": {
+      "name": "LimePaintballGunBulletHitsBlock"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "2 "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:stick"
+    },
+    "1": {
+      "item": "minecraft:string"
+    },
+    "2": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "item": "new_blocks:dynamite_stick",
+    "count": 2
+  }
+}

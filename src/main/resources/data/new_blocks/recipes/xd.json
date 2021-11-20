@@ -1,0 +1,16 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:tanzanite_armor_boots"
+    }
+  },
+  "result": {
+    "item": "minecraft:fire",
+    "count": 10
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "_fv": 24,
+  "_type": "armor",
+  "definition": {
+    "enableHelmet": true,
+    "textureHelmet": "shulkerhelmet",
+    "enableBody": true,
+    "textureBody": "shulkerchestplate",
+    "enableLeggings": true,
+    "textureLeggings": "shulkerleggings",
+    "enableBoots": true,
+    "textureBoots": "shulkerboots",
+    "onHelmetTick": {
+      "name": "ShulkerHelmetTickEvent"
+    },
+    "onBodyTick": {
+      "name": "ShulkerBodyTickEvent"
+    },
+    "onBootsTick": {
+      "name": "ShulkerBootsTickEvent"
+    },
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "armorTextureFile": "shulker_",
+    "helmetName": "Shulker Helmet",
+    "bodyName": "Shulker Chestplate",
+    "leggingsName": "Shulker Leggings",
+    "bootsName": "Shulker Boots",
+    "helmetSpecialInfo": [],
+    "bodySpecialInfo": [],
+    "leggingsSpecialInfo": [],
+    "bootsSpecialInfo": [],
+    "helmetModelName": "Default",
+    "helmetModelPart": "Helmet",
+    "helmetModelTexture": "From armor",
+    "bodyModelName": "Default",
+    "bodyModelPart": "Body",
+    "armsModelPartL": "Arms L",
+    "armsModelPartR": "Arms R",
+    "bodyModelTexture": "From armor",
+    "leggingsModelName": "Default",
+    "leggingsModelPartL": "Leggings L",
+    "leggingsModelPartR": "Leggings R",
+    "leggingsModelTexture": "From armor",
+    "bootsModelName": "Default",
+    "bootsModelPartL": "Boots L",
+    "bootsModelPartR": "Boots R",
+    "bootsModelTexture": "From armor",
+    "helmetImmuneToFire": false,
+    "bodyImmuneToFire": false,
+    "leggingsImmuneToFire": false,
+    "bootsImmuneToFire": false,
+    "maxDamage": 41,
+    "damageValueHelmet": 2,
+    "damageValueBody": 6,
+    "damageValueLeggings": 5,
+    "damageValueBoots": 2,
+    "enchantability": 17,
+    "toughness": 3.9999999999999996,
+    "knockbackResistance": 0.2,
+    "equipSound": {
+      "value": "entity.shulker.open"
+    },
+    "repairItems": [
+      {
+        "value": "Blocks.SHULKER_BOX"
+      }
+    ]
+  }
+}

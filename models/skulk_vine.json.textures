@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "skulk_block",
+        "1": "skulk_two"
+      },
+      "name": "default"
+    }
+  }
+}

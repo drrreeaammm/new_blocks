@@ -1,0 +1,42 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:sand"
+    },
+    "1": {
+      "item": "minecraft:sand"
+    },
+    "2": {
+      "item": "minecraft:sand"
+    },
+    "3": {
+      "item": "minecraft:sand"
+    },
+    "4": {
+      "item": "minecraft:blue_dye"
+    },
+    "5": {
+      "item": "minecraft:sand"
+    },
+    "6": {
+      "item": "minecraft:sand"
+    },
+    "7": {
+      "item": "minecraft:sand"
+    },
+    "8": {
+      "item": "minecraft:sand"
+    }
+  },
+  "result": {
+    "item": "new_blocks:blue_sand",
+    "count": 8
+  }
+}

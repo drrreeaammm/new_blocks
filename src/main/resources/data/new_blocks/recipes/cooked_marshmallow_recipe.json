@@ -1,0 +1,12 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:campfire_cooking",
+  "experience": 1,
+  "cookingtime": 550,
+  "ingredient": {
+    "item": "new_blocks:marshmallow"
+  },
+  "result": {
+    "item": "new_blocks:cooked_marshmallow"
+  }
+}

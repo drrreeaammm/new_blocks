@@ -1,0 +1,36 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    " 7 "
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:sculk_vine"
+    },
+    "1": {
+      "item": "new_blocks:sculk_vine"
+    },
+    "2": {
+      "item": "new_blocks:sculk_vine"
+    },
+    "3": {
+      "item": "new_blocks:sculk_vine"
+    },
+    "4": {
+      "item": "new_blocks:sculk_vine"
+    },
+    "5": {
+      "item": "new_blocks:sculk_vine"
+    },
+    "7": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "result": {
+    "item": "new_blocks:sculk_soup",
+    "count": 1
+  }
+}

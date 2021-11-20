@@ -1,0 +1,7 @@
+{
+  "parent": "block/fence_inventory",
+  "textures": {
+    "texture": "new_blocks:blocks/mangrove_planks",
+    "particle": "new_blocks:blocks/mangrove_planks"
+  }
+}

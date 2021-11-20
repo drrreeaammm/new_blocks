@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "new_blocks:block/sword_stand_flameblade"
+    },
+    "facing=east": {
+      "model": "new_blocks:block/sword_stand_flameblade",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "new_blocks:block/sword_stand_flameblade",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "new_blocks:block/sword_stand_flameblade",
+      "y": 270
+    }
+  }
+}

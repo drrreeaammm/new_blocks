@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "big_sword",
+        "missing": "big_sword"
+      },
+      "name": "default"
+    }
+  }
+}

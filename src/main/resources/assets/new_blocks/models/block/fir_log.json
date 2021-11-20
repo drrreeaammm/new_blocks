@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/sussychip",
+    "up": "new_blocks:blocks/sussychip",
+    "north": "new_blocks:blocks/oak_log",
+    "east": "new_blocks:blocks/oak_log",
+    "south": "new_blocks:blocks/oak_log",
+    "west": "new_blocks:blocks/oak_log",
+    "particle": "new_blocks:blocks/sussychip"
+  }
+}

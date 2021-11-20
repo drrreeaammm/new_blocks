@@ -1,0 +1,101 @@
+{
+  "_fv": 24,
+  "_type": "plant",
+  "definition": {
+    "renderType": 12,
+    "texture": "sculk_bush",
+    "textureBottom": "",
+    "customModelName": "Cross model",
+    "itemTexture": "",
+    "particleTexture": "",
+    "tintType": "No tint",
+    "isItemTinted": false,
+    "plantType": "normal",
+    "staticPlantGenerationType": "Flower",
+    "suspiciousStewEffect": "SLOWNESS",
+    "suspiciousStewDuration": 8,
+    "growapableSpawnType": "Cave",
+    "growapableMaxHeight": 3,
+    "doublePlantGenerationType": "Flower",
+    "customBoundingBox": true,
+    "disableOffset": false,
+    "boundingBoxes": [
+      {
+        "mx": 3.0,
+        "my": 0.0,
+        "mz": 3.0,
+        "Mx": 10.0,
+        "My": 7.0,
+        "Mz": 10.0,
+        "subtract": false
+      }
+    ],
+    "name": "Sculk Bush",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:DeepDarkTab"
+    },
+    "hardness": 0.30000000000000004,
+    "resistance": 0.0,
+    "luminance": 3,
+    "unbreakable": false,
+    "isCustomSoundType": false,
+    "soundOnStep": {
+      "value": "PLANT"
+    },
+    "breakSound": {
+      "value": ""
+    },
+    "stepSound": {
+      "value": "block.grass.step"
+    },
+    "placeSound": {
+      "value": "CUSTOM:skulk_clicking_1"
+    },
+    "hitSound": {
+      "value": "block.grass.hit"
+    },
+    "fallSound": {
+      "value": "block.grass.fall"
+    },
+    "useLootTableForDrops": false,
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 0,
+    "forceTicking": true,
+    "emissiveRendering": true,
+    "hasTileEntity": false,
+    "isReplaceable": true,
+    "colorOnMap": "DEFAULT",
+    "creativePickItem": {
+      "value": ""
+    },
+    "offsetType": "XZ",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 100,
+    "fireSpreadSpeed": 60,
+    "jumpFactor": 1.0,
+    "speedFactor": 1.0,
+    "canBePlacedOn": [
+      {
+        "value": "CUSTOM:SculkChute"
+      },
+      {
+        "value": "CUSTOM:SkulkBlock"
+      },
+      {
+        "value": "CUSTOM:Grimstone"
+      }
+    ],
+    "frequencyOnChunks": 24,
+    "spawnWorldTypes": [
+      "CUSTOM:DeepDark"
+    ],
+    "restrictionBiomes": [],
+    "patchSize": 16,
+    "onBlockAdded": {
+      "name": "SculkBushPlantAdded"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:diamond"
+    },
+    "1": {
+      "item": "new_blocks:tanzanite"
+    },
+    "2": {
+      "item": "minecraft:emerald"
+    },
+    "3": {
+      "item": "new_blocks:tanzanite"
+    },
+    "4": {
+      "item": "minecraft:lapis_block"
+    },
+    "5": {
+      "item": "new_blocks:tanzanite"
+    },
+    "6": {
+      "item": "minecraft:emerald"
+    },
+    "7": {
+      "item": "new_blocks:tanzanite"
+    },
+    "8": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "new_blocks:power_one_upgrade",
+    "count": 1
+  }
+}

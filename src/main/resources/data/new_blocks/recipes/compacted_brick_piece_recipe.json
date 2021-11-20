@@ -1,0 +1,30 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    " 7 "
+  ],
+  "key": {
+    "1": {
+      "item": "new_blocks:brick_house_piece"
+    },
+    "3": {
+      "item": "new_blocks:brick_house_piece"
+    },
+    "4": {
+      "item": "new_blocks:brick_house_piece"
+    },
+    "5": {
+      "item": "new_blocks:brick_house_piece"
+    },
+    "7": {
+      "item": "new_blocks:brick_house_piece"
+    }
+  },
+  "result": {
+    "item": "new_blocks:compacted_brick_piece",
+    "count": 1
+  }
+}

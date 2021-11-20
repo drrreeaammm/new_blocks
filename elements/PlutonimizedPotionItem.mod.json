@@ -1,0 +1,21 @@
+{
+  "_fv": 24,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Plutonimized",
+    "splashName": "Splash Plutonimized",
+    "lingeringName": "Lingering Plutonimized",
+    "arrowName": "Arrow of Plutonimized",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:Plutonimized"
+        },
+        "duration": 3600,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

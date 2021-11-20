@@ -1,0 +1,49 @@
+{
+  "_fv": 24,
+  "_type": "dimension",
+  "definition": {
+    "biomesInDimension": [
+      {
+        "value": "CUSTOM:VeryDeepDarkBiome"
+      }
+    ],
+    "worldGenType": "Nether like gen",
+    "mainFillerBlock": {
+      "value": "CUSTOM:DarkGrimstone"
+    },
+    "fluidBlock": {
+      "value": "CUSTOM:SculkChute"
+    },
+    "airColor": {
+      "value": -14474189,
+      "falpha": 0.0
+    },
+    "canRespawnHere": false,
+    "hasFog": true,
+    "isDark": true,
+    "doesWaterVaporize": false,
+    "sleepResult": "BED_EXPLODES",
+    "hasSkyLight": false,
+    "imitateOverworldBehaviour": false,
+    "onPlayerEntersDimension": {
+      "name": "VeryDeepDarkPlayerEntersDimension"
+    },
+    "portalFrame": {
+      "value": ""
+    },
+    "portalParticles": {
+      "value": "CUSTOM:Sculk"
+    },
+    "portalLuminance": 6,
+    "portalSound": {
+      "value": "block.portal.ambient"
+    },
+    "igniterName": "Deep Dark Portal Igniter",
+    "igniterTab": {
+      "value": "No creative tab entry"
+    },
+    "texture": "",
+    "portalTexture": "skulk",
+    "enablePortal": false
+  }
+}

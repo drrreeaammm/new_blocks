@@ -1,0 +1,20 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Entities",
+    "items": [],
+    "blocks": [],
+    "functions": [],
+    "entities": [
+      {
+        "value": "CUSTOM:FireBender"
+      },
+      {
+        "value": "EntityBlaze"
+      }
+    ],
+    "name": "fire_entities",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:gold_plate"
+    },
+    "2": {
+      "item": "new_blocks:gold_plate"
+    },
+    "3": {
+      "item": "new_blocks:redstone_plate"
+    },
+    "4": {
+      "item": "minecraft:gold_block"
+    },
+    "5": {
+      "item": "new_blocks:redstone_plate"
+    },
+    "6": {
+      "item": "new_blocks:gold_plate"
+    },
+    "7": {
+      "item": "new_blocks:redstone_plate"
+    },
+    "8": {
+      "item": "new_blocks:gold_plate"
+    }
+  },
+  "result": {
+    "item": "new_blocks:iron_man_chestplate",
+    "count": 1
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "new_blocks:deep_dark_wood",
+    "new_blocks:deep_dark_log"
+  ]
+}

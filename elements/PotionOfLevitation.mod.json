@@ -1,0 +1,29 @@
+{
+  "_fv": 24,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "glass_bottle_je2_be2",
+    "customModelName": "Normal",
+    "name": "Potion Of Levitation",
+    "rarity": "COMMON",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "BREWING"
+    },
+    "stackSize": 0,
+    "nutritionalValue": 0,
+    "saturation": 0.0,
+    "eatingSpeed": 38,
+    "resultItem": {
+      "value": "Items.GLASS_BOTTLE"
+    },
+    "forDogs": false,
+    "isAlwaysEdible": true,
+    "animation": "drink",
+    "hasGlow": false,
+    "onEaten": {
+      "name": "PotionOfLevitationFoodEaten"
+    }
+  }
+}

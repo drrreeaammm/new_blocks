@@ -1,0 +1,115 @@
+{
+  "_fv": 24,
+  "_type": "biome",
+  "definition": {
+    "name": "Flower Plains",
+    "groundBlock": {
+      "value": "Blocks.GRASS"
+    },
+    "undergroundBlock": {
+      "value": "Blocks.DIRT#0"
+    },
+    "grassColor": {
+      "value": -7422892,
+      "falpha": 0.0
+    },
+    "foliageColor": {
+      "value": -6171806,
+      "falpha": 0.0
+    },
+    "waterColor": {
+      "value": -15768670,
+      "falpha": 0.0
+    },
+    "waterFogColor": {
+      "value": -15764830,
+      "falpha": 0.0
+    },
+    "ambientSound": {
+      "value": ""
+    },
+    "additionsSound": {
+      "value": ""
+    },
+    "music": {
+      "value": ""
+    },
+    "moodSound": {
+      "value": ""
+    },
+    "moodSoundDelay": 6000,
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "CUSTOM:Sculk"
+    },
+    "particlesProbability": 0.5,
+    "biomeCategory": "PLAINS",
+    "parent": {
+      "value": "mutated_forest"
+    },
+    "rainingPossibility": 0.5,
+    "temperature": 1.3,
+    "baseHeight": 0.0,
+    "heightVariation": 0.0,
+    "biomeType": "WARM",
+    "spawnBiome": true,
+    "biomeWeight": 1,
+    "biomeDictionaryTypes": [
+      "PLAINS",
+      "OVERWORLD",
+      "LUSH"
+    ],
+    "grassPerChunk": 8,
+    "seagrassPerChunk": 0,
+    "flowersPerChunk": 11,
+    "mushroomsPerChunk": 0,
+    "bigMushroomsChunk": 0,
+    "sandPatchesPerChunk": 0,
+    "gravelPatchesPerChunk": 0,
+    "reedsPerChunk": 0,
+    "cactiPerChunk": 0,
+    "treesPerChunk": 0,
+    "vanillaTreeType": "Default",
+    "treeType": 0,
+    "minHeight": 7,
+    "maxWaterDepth": 0,
+    "treeStem": {
+      "value": ""
+    },
+    "treeBranch": {
+      "value": ""
+    },
+    "treeVines": {
+      "value": ""
+    },
+    "treeFruits": {
+      "value": ""
+    },
+    "spawnStronghold": false,
+    "spawnMineshaft": false,
+    "spawnPillagerOutpost": false,
+    "villageType": "plains",
+    "spawnWoodlandMansion": false,
+    "spawnJungleTemple": false,
+    "spawnDesertPyramid": false,
+    "spawnIgloo": false,
+    "spawnOceanMonument": false,
+    "spawnShipwreck": false,
+    "oceanRuinType": "NONE",
+    "defaultFeatures": [
+      "Ores",
+      "Caves"
+    ],
+    "spawnEntries": [
+      {
+        "entity": {
+          "value": "EntityAnimal"
+        },
+        "minGroup": 4,
+        "maxGroup": 4,
+        "weight": 8,
+        "spawnType": "ambient"
+      }
+    ]
+  }
+}

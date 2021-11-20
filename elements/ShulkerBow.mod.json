@@ -1,0 +1,40 @@
+{
+  "_fv": 24,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "bow_je2_be1",
+    "customModelName": "Normal",
+    "name": "Shulker Bow",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": false,
+    "usageCount": 327,
+    "actionSound": {
+      "value": "entity.shulker.shoot"
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 0.6,
+    "bulletDamage": 3.0,
+    "bulletKnockback": 0,
+    "bulletParticles": true,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": ""
+    },
+    "bulletModel": "Modelshulker_bullet_item",
+    "customBulletModelTexture": "shulker_bullet_item.png",
+    "onBulletHitsEntity": {
+      "name": "ShulkerBowBulletHitsLivingEntity"
+    }
+  }
+}

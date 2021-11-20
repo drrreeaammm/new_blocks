@@ -1,0 +1,36 @@
+{
+  "_fv": 24,
+  "_type": "structure",
+  "definition": {
+    "structure": "beneath_end_city_ship",
+    "randomlyRotateStructure": true,
+    "surfaceDetectionType": "First block",
+    "spawnProbability": 11000,
+    "minCountPerChunk": 1,
+    "maxCountPerChunk": 1,
+    "spawnLocation": "Air",
+    "spawnHeightOffset": 10,
+    "spawnXOffset": 0,
+    "spawnZOffset": 0,
+    "spawnWorldTypes": [
+      "CUSTOM:Beneath"
+    ],
+    "restrictionBlocks": [
+      {
+        "value": "Blocks.VOID_AIR"
+      },
+      {
+        "value": "Blocks.CAVE_AIR"
+      },
+      {
+        "value": "Blocks.AIR"
+      }
+    ],
+    "restrictionBiomes": [
+      {
+        "value": "CUSTOM:RockBottom"
+      }
+    ],
+    "ignoreBlocks": "STRUCTURE_BLOCK"
+  }
+}

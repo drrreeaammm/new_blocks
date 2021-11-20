@@ -1,0 +1,75 @@
+{
+  "_fv": 24,
+  "_type": "armor",
+  "definition": {
+    "enableHelmet": true,
+    "textureHelmet": "iron_man_helmet",
+    "enableBody": true,
+    "textureBody": "iron_man_chestplate",
+    "enableLeggings": true,
+    "textureLeggings": "iron_man_leggings",
+    "enableBoots": true,
+    "textureBoots": "iron_man_boots",
+    "onBootsTick": {
+      "name": "IronManBootsTickEvent"
+    },
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "armorTextureFile": "iron_man_",
+    "helmetName": "Iron Man Helmet",
+    "bodyName": "Iron Man Chestplate",
+    "leggingsName": "Iron Man Leggings",
+    "bootsName": "Iron Man Boots",
+    "helmetSpecialInfo": [],
+    "bodySpecialInfo": [
+      "Press the z button",
+      "or the button you choose",
+      "to shoot!"
+    ],
+    "leggingsSpecialInfo": [],
+    "bootsSpecialInfo": [
+      "Sneak while wearing",
+      "to fly!"
+    ],
+    "helmetModelName": "Default",
+    "helmetModelPart": "Helmet",
+    "helmetModelTexture": "From armor",
+    "bodyModelName": "Default",
+    "bodyModelPart": "Body",
+    "armsModelPartL": "Arms L",
+    "armsModelPartR": "Arms R",
+    "bodyModelTexture": "From armor",
+    "leggingsModelName": "Default",
+    "leggingsModelPartL": "Leggings L",
+    "leggingsModelPartR": "Leggings R",
+    "leggingsModelTexture": "From armor",
+    "bootsModelName": "Default",
+    "bootsModelPartL": "Boots L",
+    "bootsModelPartR": "Boots R",
+    "bootsModelTexture": "From armor",
+    "helmetImmuneToFire": false,
+    "bodyImmuneToFire": false,
+    "leggingsImmuneToFire": false,
+    "bootsImmuneToFire": false,
+    "maxDamage": 39,
+    "damageValueHelmet": 3,
+    "damageValueBody": 8,
+    "damageValueLeggings": 7,
+    "damageValueBoots": 2,
+    "enchantability": 17,
+    "toughness": 3.7,
+    "knockbackResistance": 0.2,
+    "equipSound": {
+      "value": "item.armor.equip_iron"
+    },
+    "repairItems": [
+      {
+        "value": "CUSTOM:GoldPlate"
+      },
+      {
+        "value": "CUSTOM:RedstonePlate"
+      }
+    ]
+  }
+}

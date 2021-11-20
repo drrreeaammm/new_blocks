@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 4,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:DeepDarkPlanks"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:DeepDarkPlanks"
+      },
+      {
+        "value": "CUSTOM:DeepDarkPlanks"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:DeepDarkPlanks"
+      },
+      {
+        "value": "CUSTOM:DeepDarkPlanks"
+      },
+      {
+        "value": "CUSTOM:DeepDarkPlanks"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:DeepDarkStairs"
+    },
+    "name": "deep_dark_stairs_recipe",
+    "namespace": "mod"
+  }
+}

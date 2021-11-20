@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=upper": {
+      "model": "new_blocks:block/sculk_shroom"
+    },
+    "half=lower": {
+      "model": "new_blocks:block/sculk_shroom_bottom"
+    }
+  }
+}

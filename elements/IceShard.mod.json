@@ -1,0 +1,37 @@
+{
+  "_fv": 24,
+  "_type": "item",
+  "definition": {
+    "renderType": 0,
+    "texture": "ice_shard",
+    "customModelName": "Normal",
+    "name": "Ice Shard",
+    "rarity": "COMMON",
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "stackSize": 64,
+    "enchantability": 0,
+    "useDuration": 0,
+    "toolType": 1.7000000000000002,
+    "damageCount": 86,
+    "recipeRemainder": {
+      "value": ""
+    },
+    "destroyAnyBlock": false,
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "enableMeleeDamage": true,
+    "damageVsEntity": 5.6,
+    "specialInfo": [],
+    "hasGlow": false,
+    "guiBoundTo": "<NONE>",
+    "inventorySize": 9,
+    "inventoryStackSize": 64,
+    "onEntityHitWith": {
+      "name": "IceShardLivingEntityIsHitWithItem"
+    },
+    "hasDispenseBehavior": false
+  }
+}

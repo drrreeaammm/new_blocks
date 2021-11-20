@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "addition": {
+    "item": "new_blocks:fire_upgrade"
+  },
+  "result": {
+    "item": "new_blocks:fire_tipped_diamond_sword"
+  }
+}

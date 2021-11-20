@@ -1,0 +1,9 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:stonecutting",
+  "count": 8,
+  "ingredient": {
+    "item": "minecraft:gold_block"
+  },
+  "result": "new_blocks:gold_plate"
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "new_blocks:custom/paraglider",
+  "textures": {
+    "6": "new_blocks:blocks/stiched_texture",
+    "particle": "new_blocks:items/stiched_texture"
+  }
+}

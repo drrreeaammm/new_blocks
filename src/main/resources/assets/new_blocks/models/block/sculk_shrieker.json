@@ -1,0 +1,8 @@
+{
+  "parent": "new_blocks:custom/sculk_shrieker",
+  "textures": {
+    "all": "new_blocks:blocks/skulk_block",
+    "particle": "new_blocks:blocks/skulk_block",
+    "0": "new_blocks:blocks/shriecker"
+  }
+}

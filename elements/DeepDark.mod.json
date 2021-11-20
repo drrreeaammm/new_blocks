@@ -1,0 +1,61 @@
+{
+  "_fv": 24,
+  "_type": "dimension",
+  "definition": {
+    "biomesInDimension": [
+      {
+        "value": "CUSTOM:DeepDarkBiome"
+      },
+      {
+        "value": "CUSTOM:SculkVineCaves"
+      },
+      {
+        "value": "CUSTOM:ModifiedDeepDark"
+      },
+      {
+        "value": "CUSTOM:DeepDarkMountains"
+      },
+      {
+        "value": "CUSTOM:BigSculkCaverns"
+      }
+    ],
+    "worldGenType": "Normal world gen",
+    "mainFillerBlock": {
+      "value": "CUSTOM:Grimstone"
+    },
+    "fluidBlock": {
+      "value": "CUSTOM:SculkChute"
+    },
+    "airColor": {
+      "value": -10788989,
+      "falpha": 0.0
+    },
+    "canRespawnHere": false,
+    "hasFog": true,
+    "isDark": true,
+    "doesWaterVaporize": false,
+    "sleepResult": "DENY",
+    "hasSkyLight": false,
+    "imitateOverworldBehaviour": false,
+    "onPlayerEntersDimension": {
+      "name": "DeepDarkPlayerEntersDimension"
+    },
+    "portalFrame": {
+      "value": "CUSTOM:GrimstoneBricks"
+    },
+    "portalParticles": {
+      "value": "CUSTOM:Sculk"
+    },
+    "portalLuminance": 6,
+    "portalSound": {
+      "value": "block.portal.ambient"
+    },
+    "igniterName": "Deep Dark Portal Igniter",
+    "igniterTab": {
+      "value": "No creative tab entry"
+    },
+    "texture": "troll",
+    "portalTexture": "skulk",
+    "enablePortal": true
+  }
+}

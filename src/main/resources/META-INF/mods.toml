@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="https://github.com/DreamOnGitHub/new_blocks/commit/9f6e9be23fb3388b03f2153e862e84beabc55a8d"
+
+[[mods]]
+modId="new_blocks"
+version="Release 1.2.1"
+displayName="New Blocks"
+credits="https://github.com/DreamOnGitHub"
+displayURL="https://github.com/DreamOnGitHub/new_blocks"
+authors="Dream/DreamOnGitHub"
+description='''
+New Blocks
+'''
+
+[[dependencies.new_blocks]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5]"
+    ordering="NONE"
+    side="BOTH"
+
+
+
+[[dependencies.new_blocks]]
+    modId="geckolib"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
+

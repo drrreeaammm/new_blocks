@@ -1,0 +1,34 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "shulkersword",
+    "customModelName": "Normal",
+    "name": "Shulker Sword",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 0,
+    "efficiency": 3.5,
+    "attackSpeed": 1.0,
+    "enchantability": 16,
+    "damageVsEntity": 5.3,
+    "usageCount": 2300,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "Items.SHULKER_SHELL"
+      }
+    ],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "ShulkerSwordLivingEntityIsHitWithTool"
+    }
+  }
+}

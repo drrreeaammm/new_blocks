@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "new_blocks:blocks/mangrove_log",
+    "top": "new_blocks:blocks/mangrove_log",
+    "side": "new_blocks:blocks/mangrove_log"
+  }
+}

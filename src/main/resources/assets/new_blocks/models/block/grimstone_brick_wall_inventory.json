@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "new_blocks:blocks/grimstone_bricks",
+    "particle": "new_blocks:blocks/grimstone_bricks"
+  }
+}

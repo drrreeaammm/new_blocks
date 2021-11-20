@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "new_blocks:blocks/wood_stair",
+    "top": "new_blocks:blocks/wood_stair",
+    "side": "new_blocks:blocks/wood_stair"
+  }
+}

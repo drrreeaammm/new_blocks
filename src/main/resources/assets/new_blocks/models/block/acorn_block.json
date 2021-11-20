@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/acorn_block_bottom",
+    "up": "new_blocks:blocks/acorn_block_top",
+    "north": "new_blocks:blocks/acorn_block",
+    "east": "new_blocks:blocks/acorn_block",
+    "south": "new_blocks:blocks/acorn_block",
+    "west": "new_blocks:blocks/acorn_block",
+    "particle": "new_blocks:blocks/acorn_block_bottom"
+  }
+}

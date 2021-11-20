@@ -1,0 +1,107 @@
+{
+  "_fv": 24,
+  "_type": "plant",
+  "definition": {
+    "renderType": 12,
+    "texture": "big_sculk_vine",
+    "textureBottom": "",
+    "customModelName": "Cross model",
+    "itemTexture": "sculk_vine",
+    "particleTexture": "",
+    "tintType": "No tint",
+    "isItemTinted": false,
+    "plantType": "growapable",
+    "staticPlantGenerationType": "Flower",
+    "suspiciousStewEffect": "SPEED",
+    "suspiciousStewDuration": 5,
+    "growapableSpawnType": "Plains",
+    "growapableMaxHeight": 14,
+    "doublePlantGenerationType": "Flower",
+    "customBoundingBox": false,
+    "disableOffset": false,
+    "boundingBoxes": [
+      {
+        "mx": 0.0,
+        "my": 0.0,
+        "mz": 0.0,
+        "Mx": 16.0,
+        "My": 16.0,
+        "Mz": 16.0,
+        "subtract": false
+      }
+    ],
+    "name": "Big Sculk Vine",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:DeepDarkTab"
+    },
+    "hardness": 0.6,
+    "resistance": 0.0,
+    "luminance": 2,
+    "unbreakable": false,
+    "isCustomSoundType": false,
+    "soundOnStep": {
+      "value": "PLANT"
+    },
+    "breakSound": {
+      "value": ""
+    },
+    "stepSound": {
+      "value": ""
+    },
+    "placeSound": {
+      "value": ""
+    },
+    "hitSound": {
+      "value": ""
+    },
+    "fallSound": {
+      "value": ""
+    },
+    "useLootTableForDrops": false,
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 1,
+    "forceTicking": true,
+    "emissiveRendering": true,
+    "hasTileEntity": false,
+    "isReplaceable": true,
+    "colorOnMap": "DEFAULT",
+    "creativePickItem": {
+      "value": ""
+    },
+    "offsetType": "XZ",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 20,
+    "fireSpreadSpeed": 33,
+    "jumpFactor": 1.0,
+    "speedFactor": 1.0,
+    "canBePlacedOn": [
+      {
+        "value": "CUSTOM:SculkChute"
+      },
+      {
+        "value": "CUSTOM:SkulkBlock"
+      },
+      {
+        "value": "CUSTOM:SculkVine"
+      },
+      {
+        "value": "CUSTOM:Grimstone"
+      },
+      {
+        "value": "CUSTOM:SculkStone"
+      }
+    ],
+    "frequencyOnChunks": 30,
+    "spawnWorldTypes": [
+      "CUSTOM:DeepDark"
+    ],
+    "restrictionBiomes": [],
+    "patchSize": 17,
+    "onEntityCollides": {
+      "name": "SculkVineMobplayerCollidesWithPlant"
+    }
+  }
+}

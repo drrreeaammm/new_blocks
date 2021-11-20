@@ -1,0 +1,32 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "namelessblade",
+    "customModelName": "Normal",
+    "name": "Nameless Blade",
+    "specialInfo": [
+      "This deadly blade's story was lost to the endless sands of time."
+    ],
+    "creativeTab": {
+      "value": "TOOLS"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 0,
+    "efficiency": 4.0,
+    "attackSpeed": 1.5,
+    "enchantability": 16,
+    "damageVsEntity": 5.8,
+    "usageCount": 2100,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "NamelessBladeLivingEntityIsHitWithTool"
+    }
+  }
+}

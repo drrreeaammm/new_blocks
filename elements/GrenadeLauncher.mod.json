@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "grenade_launcher",
+    "customModelName": "Normal",
+    "name": "Grenade Launcher",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": "CUSTOM:Grenade"
+    },
+    "shootConstantly": false,
+    "usageCount": 225,
+    "actionSound": {
+      "value": "CUSTOM:grenade_throw"
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 225.0,
+    "onRangedItemUsed": {
+      "name": "GrenadeLauncherRangedItemUsed"
+    },
+    "bulletPower": 1.0999999999999999,
+    "bulletDamage": 1.0,
+    "bulletKnockback": 0,
+    "bulletParticles": true,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:Grenade"
+    },
+    "bulletModel": "Default",
+    "customBulletModelTexture": "",
+    "onBulletHitsBlock": {
+      "name": "GrenadeBulletHitsBlock"
+    },
+    "onBulletHitsEntity": {
+      "name": "GrenadeBulletHitsLivingEntity"
+    }
+  }
+}

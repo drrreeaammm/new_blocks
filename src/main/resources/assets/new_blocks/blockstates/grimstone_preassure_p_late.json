@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "new_blocks:block/grimstone_preassure_p_late"
+    },
+    "powered=true": {
+      "model": "new_blocks:block/grimstone_preassure_p_late_down"
+    }
+  }
+}

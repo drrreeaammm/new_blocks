@@ -1,0 +1,33 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "fameblade",
+    "customModelName": "Normal",
+    "name": "Fadeblade",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 2,
+    "efficiency": 4.0,
+    "attackSpeed": 1.2999999999999998,
+    "enchantability": 6,
+    "damageVsEntity": 10.5,
+    "usageCount": 2971,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onRightClickedInAir": {
+      "name": "FrostbladeRightClickedInAir"
+    },
+    "onEntityHitWith": {
+      "name": "FadeBladeLivingEntityIsHitWithTool"
+    }
+  }
+}

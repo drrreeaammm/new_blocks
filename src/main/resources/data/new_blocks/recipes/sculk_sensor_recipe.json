@@ -1,0 +1,29 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:sculk_vine"
+    },
+    "2": {
+      "item": "new_blocks:sculk_vine"
+    },
+    "3": {
+      "item": "new_blocks:skulk_block"
+    },
+    "4": {
+      "item": "new_blocks:skulk_block"
+    },
+    "5": {
+      "item": "new_blocks:skulk_block"
+    }
+  },
+  "result": {
+    "item": "new_blocks:sculk_sensor",
+    "count": 1
+  }
+}

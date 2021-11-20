@@ -1,0 +1,32 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "rainbow_sword",
+    "customModelName": "Normal",
+    "name": "Rainbow Sword",
+    "specialInfo": [
+      "If you have Random 4 on this best to run away after you hit something..."
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 0,
+    "efficiency": 4.0,
+    "attackSpeed": 2.1999999999999997,
+    "enchantability": 16,
+    "damageVsEntity": 4.0,
+    "usageCount": 450,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "RainbowSwordLivingEntityIsHitWithTool"
+    }
+  }
+}

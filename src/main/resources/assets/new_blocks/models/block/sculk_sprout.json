@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "new_blocks:blocks/sculk_sprout",
+    "particle": "new_blocks:blocks/sculk_sprout"
+  }
+}

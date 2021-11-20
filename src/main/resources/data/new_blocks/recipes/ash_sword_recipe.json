@@ -1,0 +1,27 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1",
+    "23",
+    " 5"
+  ],
+  "key": {
+    "1": {
+      "item": "new_blocks:ash"
+    },
+    "2": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "3": {
+      "item": "new_blocks:ash"
+    },
+    "5": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "new_blocks:ash_sword",
+    "count": 1
+  }
+}

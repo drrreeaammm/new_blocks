@@ -1,0 +1,13 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "2": "viridescentcampfirelog",
+        "3": "viridescentcampfireloglit",
+        "4": "viridescentcampfire",
+        "5": "viridescentcampfireair"
+      },
+      "name": "default"
+    }
+  }
+}

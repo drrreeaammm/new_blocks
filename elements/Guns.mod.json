@@ -1,0 +1,32 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:Rifle"
+      },
+      {
+        "value": "CUSTOM:Minigun"
+      },
+      {
+        "value": "CUSTOM:SniperRifile"
+      },
+      {
+        "value": "CUSTOM:SniperBullet"
+      },
+      {
+        "value": "CUSTOM:Pistol"
+      },
+      {
+        "value": "CUSTOM:Bullet"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "entities": [],
+    "name": "guns",
+    "namespace": "mod"
+  }
+}

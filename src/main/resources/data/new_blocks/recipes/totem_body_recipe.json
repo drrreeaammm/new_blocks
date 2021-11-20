@@ -1,0 +1,26 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 "
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:totem_of_undying_shard"
+    },
+    "1": {
+      "item": "new_blocks:totem_of_undying_shard"
+    },
+    "2": {
+      "item": "new_blocks:totem_of_undying_shard"
+    },
+    "4": {
+      "item": "new_blocks:totem_of_undying_shard"
+    }
+  },
+  "result": {
+    "item": "new_blocks:totem_of_undying_body",
+    "count": 1
+  }
+}

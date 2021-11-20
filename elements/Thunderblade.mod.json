@@ -1,0 +1,33 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "thunderblade",
+    "customModelName": "Normal",
+    "name": "Thunderblade",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 2,
+    "efficiency": 4.0,
+    "attackSpeed": 1.2999999999999998,
+    "enchantability": 6,
+    "damageVsEntity": 6.0,
+    "usageCount": 2971,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onRightClickedInAir": {
+      "name": "ThunderbladeRightClickedInAir"
+    },
+    "onEntityHitWith": {
+      "name": "ThunderbladeLivingEntityIsHitWithTool"
+    }
+  }
+}

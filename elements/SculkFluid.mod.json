@@ -1,0 +1,47 @@
+{
+  "_fv": 24,
+  "_type": "fluid",
+  "definition": {
+    "name": "Sculk Fluid",
+    "bucketName": "Bucket of Sculk",
+    "textureStill": "skulk",
+    "textureFlowing": "skulk",
+    "tintType": "No tint",
+    "canMultiply": false,
+    "flowRate": 27,
+    "levelDecrease": 2,
+    "slopeFindDistance": 3,
+    "spawnParticles": false,
+    "dripParticle": {
+      "value": "CUSTOM:Sculk"
+    },
+    "flowStrength": -2.0,
+    "luminosity": 0,
+    "density": 1000,
+    "viscosity": 1000,
+    "isGas": false,
+    "temperature": 300,
+    "type": "WATER",
+    "generateBucket": true,
+    "textureBucket": "",
+    "creativeTab": {
+      "value": "MISC"
+    },
+    "emptySound": {
+      "value": ""
+    },
+    "rarity": "COMMON",
+    "specialInfo": [],
+    "resistance": 100.0,
+    "luminance": 0,
+    "lightOpacity": 0,
+    "emissiveRendering": false,
+    "tickRate": 10,
+    "flammability": 29,
+    "fireSpreadSpeed": 6,
+    "colorOnMap": "DEFAULT",
+    "frequencyOnChunks": 0,
+    "spawnWorldTypes": [],
+    "restrictionBiomes": []
+  }
+}

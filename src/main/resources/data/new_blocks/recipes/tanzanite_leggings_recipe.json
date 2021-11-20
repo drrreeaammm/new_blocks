@@ -1,0 +1,36 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "6 8"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:tanzanite"
+    },
+    "1": {
+      "item": "new_blocks:tanzanite"
+    },
+    "2": {
+      "item": "new_blocks:tanzanite"
+    },
+    "3": {
+      "item": "new_blocks:tanzanite"
+    },
+    "5": {
+      "item": "new_blocks:tanzanite"
+    },
+    "6": {
+      "item": "new_blocks:tanzanite"
+    },
+    "8": {
+      "item": "new_blocks:tanzanite"
+    }
+  },
+  "result": {
+    "item": "new_blocks:tanzanite_armor_leggings",
+    "count": 1
+  }
+}

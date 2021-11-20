@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=upper": {
+      "model": "new_blocks:block/purple_lilac"
+    },
+    "half=lower": {
+      "model": "new_blocks:block/purple_lilac_bottom"
+    }
+  }
+}

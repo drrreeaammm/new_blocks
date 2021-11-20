@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "new_blocks:block/wood_slab"
+    },
+    "type=top": {
+      "model": "new_blocks:block/wood_slab_top"
+    },
+    "type=double": {
+      "model": "new_blocks:block/wood_slab_full"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "new_blocks:custom/grenade_held",
+  "textures": {
+    "0": "new_blocks:blocks/grenade_held",
+    "missing": "new_blocks:blocks/",
+    "particle": "new_blocks:items/grenade"
+  }
+}

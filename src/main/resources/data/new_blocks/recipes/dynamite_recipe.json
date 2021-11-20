@@ -1,0 +1,16 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "result": {
+    "item": "new_blocks:dynamite_stick",
+    "count": 9
+  }
+}

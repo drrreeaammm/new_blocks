@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/deepslate_top",
+    "up": "new_blocks:blocks/deepslate_top",
+    "north": "new_blocks:blocks/deepslate",
+    "east": "new_blocks:blocks/deepslate",
+    "south": "new_blocks:blocks/deepslate",
+    "west": "new_blocks:blocks/deepslate",
+    "particle": "new_blocks:blocks/deepslate_top"
+  }
+}

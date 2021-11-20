@@ -1,0 +1,26 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Entities",
+    "items": [],
+    "blocks": [],
+    "functions": [],
+    "entities": [
+      {
+        "value": "CUSTOM:Sniper"
+      },
+      {
+        "value": "CUSTOM:Bomber"
+      },
+      {
+        "value": "CUSTOM:Swordsman"
+      },
+      {
+        "value": "CUSTOM:RangedSoldier"
+      }
+    ],
+    "name": "army",
+    "namespace": "mod"
+  }
+}

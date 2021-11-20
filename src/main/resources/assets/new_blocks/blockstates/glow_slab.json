@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "new_blocks:block/glow_slab"
+    },
+    "type=top": {
+      "model": "new_blocks:block/glow_slab_top"
+    },
+    "type=double": {
+      "model": "new_blocks:block/glow_slab_full"
+    }
+  }
+}

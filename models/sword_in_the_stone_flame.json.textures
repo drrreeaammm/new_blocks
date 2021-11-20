@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "3": "sword_in_the_stone_flameblade",
+        "4": "sword_in_the_stone_cobble",
+        "5": "sword_in_the_stone_air"
+      },
+      "name": "default"
+    }
+  }
+}

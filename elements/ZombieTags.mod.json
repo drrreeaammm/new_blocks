@@ -1,0 +1,50 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Entities",
+    "items": [],
+    "blocks": [],
+    "functions": [],
+    "entities": [
+      {
+        "value": "CUSTOM:BetterZombie"
+      },
+      {
+        "value": "CUSTOM:BetterZombie1"
+      },
+      {
+        "value": "CUSTOM:BetterZombie10"
+      },
+      {
+        "value": "CUSTOM:BetterZombie2"
+      },
+      {
+        "value": "CUSTOM:BetterZombie3"
+      },
+      {
+        "value": "CUSTOM:BetterZombie4"
+      },
+      {
+        "value": "CUSTOM:BetterZombie5"
+      },
+      {
+        "value": "CUSTOM:BetterZombie6"
+      },
+      {
+        "value": "CUSTOM:BetterZombie7"
+      },
+      {
+        "value": "CUSTOM:BetterZombie8"
+      },
+      {
+        "value": "CUSTOM:BetterZombie9"
+      },
+      {
+        "value": "CUSTOM:BetterZombie11"
+      }
+    ],
+    "name": "zombie_tags",
+    "namespace": "minecraft"
+  }
+}

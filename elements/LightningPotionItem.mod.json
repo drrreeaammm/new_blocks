@@ -1,0 +1,21 @@
+{
+  "_fv": 24,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Potion Of Lightning",
+    "splashName": "Splash Potion Of Lightning",
+    "lingeringName": "Lingering Potion Of Lightning",
+    "arrowName": "Arrow of Potion Of Lightning",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:Lightning"
+        },
+        "duration": 3600,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

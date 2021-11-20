@@ -1,0 +1,24 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:ruby"
+    },
+    "1": {
+      "item": "new_blocks:ruby"
+    },
+    "2": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "new_blocks:ruby_sword",
+    "count": 1
+  }
+}

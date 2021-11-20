@@ -1,0 +1,26 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 "
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:wood_handle"
+    },
+    "1": {
+      "item": "minecraft:oak_planks"
+    },
+    "2": {
+      "item": "minecraft:oak_planks"
+    },
+    "4": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "result": {
+    "item": "new_blocks:oak_mug",
+    "count": 1
+  }
+}

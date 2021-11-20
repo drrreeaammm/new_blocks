@@ -1,0 +1,13 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:glow_log"
+    }
+  ],
+  "result": {
+    "item": "new_blocks:glow_planks",
+    "count": 4
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "new_blocks:sniper",
+    "new_blocks:bomber",
+    "new_blocks:swordsman",
+    "new_blocks:ranged_soldier"
+  ]
+}

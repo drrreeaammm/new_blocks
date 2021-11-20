@@ -1,0 +1,101 @@
+{
+  "_fv": 24,
+  "_type": "plant",
+  "definition": {
+    "renderType": 12,
+    "texture": "sculk_shroom_top",
+    "textureBottom": "sculk_shroom_bottom",
+    "customModelName": "Cross model",
+    "itemTexture": "",
+    "particleTexture": "",
+    "tintType": "No tint",
+    "isItemTinted": false,
+    "plantType": "double",
+    "staticPlantGenerationType": "Flower",
+    "suspiciousStewEffect": "SPEED",
+    "suspiciousStewDuration": 5,
+    "growapableSpawnType": "Plains",
+    "growapableMaxHeight": 3,
+    "doublePlantGenerationType": "Flower",
+    "customBoundingBox": true,
+    "disableOffset": false,
+    "boundingBoxes": [
+      {
+        "mx": 1.0,
+        "my": 0.0,
+        "mz": 1.0,
+        "Mx": 10.0,
+        "My": 14.0,
+        "Mz": 10.0,
+        "subtract": false
+      }
+    ],
+    "name": "Sculk Shroom",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:DeepDarkTab"
+    },
+    "hardness": 0.0,
+    "resistance": 0.0,
+    "luminance": 7,
+    "unbreakable": false,
+    "isCustomSoundType": false,
+    "soundOnStep": {
+      "value": "PLANT"
+    },
+    "breakSound": {
+      "value": ""
+    },
+    "stepSound": {
+      "value": ""
+    },
+    "placeSound": {
+      "value": ""
+    },
+    "hitSound": {
+      "value": ""
+    },
+    "fallSound": {
+      "value": ""
+    },
+    "useLootTableForDrops": false,
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 1,
+    "forceTicking": false,
+    "emissiveRendering": true,
+    "hasTileEntity": false,
+    "isReplaceable": false,
+    "colorOnMap": "DEFAULT",
+    "creativePickItem": {
+      "value": ""
+    },
+    "offsetType": "XZ",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 30,
+    "fireSpreadSpeed": 22,
+    "jumpFactor": 1.0,
+    "speedFactor": 1.0,
+    "canBePlacedOn": [
+      {
+        "value": "CUSTOM:SkulkBlock"
+      },
+      {
+        "value": "CUSTOM:SculkStone"
+      },
+      {
+        "value": "CUSTOM:SculkChute"
+      },
+      {
+        "value": "CUSTOM:Grimstone"
+      }
+    ],
+    "frequencyOnChunks": 18,
+    "spawnWorldTypes": [
+      "CUSTOM:DeepDark"
+    ],
+    "restrictionBiomes": [],
+    "patchSize": 8
+  }
+}

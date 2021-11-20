@@ -1,0 +1,13 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:fir_log"
+    }
+  ],
+  "result": {
+    "item": "new_blocks:fir_planks",
+    "count": 4
+  }
+}

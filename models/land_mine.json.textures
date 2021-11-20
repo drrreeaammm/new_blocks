@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "land_mine_redstone",
+        "1": "land_mine_iron"
+      },
+      "name": "default"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:dynamite_stick"
+    },
+    "1": {
+      "item": "new_blocks:dynamite_stick"
+    },
+    "2": {
+      "item": "new_blocks:dynamite_stick"
+    },
+    "3": {
+      "item": "new_blocks:dynamite_stick"
+    },
+    "4": {
+      "item": "new_blocks:dynamite_stick"
+    },
+    "5": {
+      "item": "new_blocks:dynamite_stick"
+    },
+    "6": {
+      "item": "new_blocks:dynamite_stick"
+    },
+    "7": {
+      "item": "new_blocks:dynamite_stick"
+    },
+    "8": {
+      "item": "new_blocks:dynamite_stick"
+    }
+  },
+  "result": {
+    "item": "minecraft:tnt",
+    "count": 1
+  }
+}

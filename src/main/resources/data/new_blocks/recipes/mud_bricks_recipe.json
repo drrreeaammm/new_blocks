@@ -1,0 +1,26 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "new_blocks:mud"
+    },
+    "1": {
+      "item": "new_blocks:mud"
+    },
+    "2": {
+      "item": "new_blocks:mud"
+    },
+    "3": {
+      "item": "new_blocks:mud"
+    }
+  },
+  "result": {
+    "item": "new_blocks:mud_bricks",
+    "count": 4
+  }
+}

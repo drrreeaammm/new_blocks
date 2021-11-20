@@ -1,0 +1,35 @@
+{
+  "_fv": 24,
+  "_type": "enchantment",
+  "definition": {
+    "name": "Slash",
+    "type": "WEAPON",
+    "rarity": "UNCOMMON",
+    "minLevel": 1,
+    "maxLevel": 3,
+    "damageModifier": 0,
+    "compatibleEnchantments": [
+      {
+        "value": "SMITE"
+      },
+      {
+        "value": "BANE_OF_ARTHROPODS"
+      },
+      {
+        "value": "KNOCKBACK"
+      },
+      {
+        "value": "KNOCKBACK"
+      },
+      {
+        "value": "FIRE_ASPECT"
+      }
+    ],
+    "compatibleItems": [],
+    "isTreasureEnchantment": false,
+    "isCurse": false,
+    "isAllowedOnBooks": true,
+    "canGenerateInLootTables": true,
+    "canVillagerTrade": true
+  }
+}

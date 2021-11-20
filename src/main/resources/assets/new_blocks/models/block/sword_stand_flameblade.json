@@ -1,0 +1,10 @@
+{
+  "parent": "new_blocks:custom/sword_in_the_stone_flame",
+  "textures": {
+    "all": "new_blocks:blocks/sword_in_the_stone_cobble",
+    "particle": "new_blocks:blocks/sword_in_the_stone_cobble",
+    "3": "new_blocks:blocks/sword_in_the_stone_flameblade",
+    "4": "new_blocks:blocks/sword_in_the_stone_cobble",
+    "5": "new_blocks:blocks/sword_in_the_stone_air"
+  }
+}

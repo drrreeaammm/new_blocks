@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "2": "flowering_azalea_side",
+        "3": "flowering_azalea_plant",
+        "4": "flowering_azalea_top"
+      },
+      "name": "default"
+    }
+  }
+}

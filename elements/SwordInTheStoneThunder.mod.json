@@ -1,0 +1,41 @@
+{
+  "_fv": 24,
+  "_type": "structure",
+  "definition": {
+    "structure": "sword_in_the_stone_thunder",
+    "randomlyRotateStructure": true,
+    "surfaceDetectionType": "First motion blocking block",
+    "spawnProbability": 23000,
+    "minCountPerChunk": 1,
+    "maxCountPerChunk": 1,
+    "spawnLocation": "Ground",
+    "spawnHeightOffset": 0,
+    "spawnXOffset": 0,
+    "spawnZOffset": 0,
+    "spawnWorldTypes": [
+      "Surface"
+    ],
+    "restrictionBlocks": [],
+    "restrictionBiomes": [
+      {
+        "value": "mutated_extreme_hills_with_trees"
+      },
+      {
+        "value": "extreme_hills_with_trees"
+      },
+      {
+        "value": "snowy_mountains"
+      },
+      {
+        "value": "mountains"
+      },
+      {
+        "value": "mutated_extreme_hills_with_trees"
+      }
+    ],
+    "ignoreBlocks": "STRUCTURE_BLOCK",
+    "generateCondition": {
+      "name": "SwordInTheStoneThunderAdditionalGenerationCondition"
+    }
+  }
+}

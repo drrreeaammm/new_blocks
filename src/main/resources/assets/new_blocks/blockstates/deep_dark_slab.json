@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "new_blocks:block/deep_dark_slab"
+    },
+    "type=top": {
+      "model": "new_blocks:block/deep_dark_slab_top"
+    },
+    "type=double": {
+      "model": "new_blocks:block/deep_dark_slab_full"
+    }
+  }
+}

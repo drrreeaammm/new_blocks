@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/plutoniumore",
+    "up": "new_blocks:blocks/plutoniumore",
+    "north": "new_blocks:blocks/plutoniumore",
+    "east": "new_blocks:blocks/plutoniumore",
+    "south": "new_blocks:blocks/plutoniumore",
+    "west": "new_blocks:blocks/plutoniumore",
+    "particle": "new_blocks:blocks/plutoniumore"
+  }
+}

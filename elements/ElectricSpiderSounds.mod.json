@@ -1,0 +1,19 @@
+{
+  "_fv": 24,
+  "_type": "musicdisc",
+  "definition": {
+    "texture": "electricspiderdisc",
+    "name": "Music Disc",
+    "description": "Electric Spider - Electric Spider Scientist",
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "music": {
+      "value": "CUSTOM:electric_spider_disc"
+    },
+    "specialInfo": [
+      "Sounds of the Electric Spider."
+    ],
+    "hasGlow": false
+  }
+}

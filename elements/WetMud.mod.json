@@ -1,0 +1,62 @@
+{
+  "_fv": 24,
+  "_type": "fluid",
+  "definition": {
+    "name": "Wet Mud",
+    "bucketName": "Wet Mud Bucket",
+    "textureStill": "wet_mud",
+    "textureFlowing": "wet_mud",
+    "tintType": "No tint",
+    "canMultiply": false,
+    "flowRate": 11,
+    "levelDecrease": 1,
+    "slopeFindDistance": 5,
+    "spawnParticles": false,
+    "dripParticle": {
+      "value": "CUSTOM:Sculk"
+    },
+    "flowStrength": 0.4,
+    "luminosity": 0,
+    "density": 1000,
+    "viscosity": 1000,
+    "isGas": false,
+    "temperature": 120,
+    "type": "WATER",
+    "generateBucket": true,
+    "textureBucket": "",
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "emptySound": {
+      "value": ""
+    },
+    "rarity": "COMMON",
+    "specialInfo": [],
+    "resistance": 100.0,
+    "luminance": 0,
+    "lightOpacity": 0,
+    "emissiveRendering": false,
+    "tickRate": 30,
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "colorOnMap": "DEFAULT",
+    "frequencyOnChunks": 2,
+    "spawnWorldTypes": [
+      "Surface"
+    ],
+    "restrictionBiomes": [
+      {
+        "value": "swamp"
+      },
+      {
+        "value": "mutated_swampland"
+      }
+    ],
+    "onTickUpdate": {
+      "name": "WetMudUpdateTick"
+    },
+    "onEntityCollides": {
+      "name": "WetMudMobplayerCollidesBlock"
+    }
+  }
+}

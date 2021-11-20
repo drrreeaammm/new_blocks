@@ -1,0 +1,42 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:brick_stairs"
+    },
+    "1": {
+      "item": "new_blocks:compacted_brick_piece"
+    },
+    "2": {
+      "item": "minecraft:brick_stairs"
+    },
+    "3": {
+      "item": "new_blocks:compacted_brick_piece"
+    },
+    "4": {
+      "item": "minecraft:campfire"
+    },
+    "5": {
+      "item": "new_blocks:compacted_brick_piece"
+    },
+    "6": {
+      "item": "new_blocks:brick_house_piece"
+    },
+    "7": {
+      "item": "new_blocks:brick_house_piece"
+    },
+    "8": {
+      "item": "new_blocks:brick_house_piece"
+    }
+  },
+  "result": {
+    "item": "new_blocks:brick_house_item",
+    "count": 1
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "new_blocks:custom/land_mine",
+  "textures": {
+    "all": "new_blocks:blocks/land_mine_iron",
+    "particle": "new_blocks:blocks/land_mine_iron",
+    "0": "new_blocks:blocks/land_mine_redstone",
+    "1": "new_blocks:blocks/land_mine_iron"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "sculk_growth",
+        "missing": "sculk_growth"
+      },
+      "name": "default"
+    }
+  }
+}

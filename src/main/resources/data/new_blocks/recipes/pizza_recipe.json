@@ -1,0 +1,36 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    " 7 "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:sugar"
+    },
+    "1": {
+      "item": "minecraft:blaze_powder"
+    },
+    "2": {
+      "item": "minecraft:sugar"
+    },
+    "3": {
+      "item": "new_blocks:cheese"
+    },
+    "4": {
+      "item": "minecraft:cooked_porkchop"
+    },
+    "5": {
+      "item": "new_blocks:cheese"
+    },
+    "7": {
+      "item": "new_blocks:cheese"
+    }
+  },
+  "result": {
+    "item": "new_blocks:pizza",
+    "count": 1
+  }
+}

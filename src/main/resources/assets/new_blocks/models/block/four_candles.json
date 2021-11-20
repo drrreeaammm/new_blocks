@@ -1,0 +1,8 @@
+{
+  "parent": "new_blocks:custom/four_candles",
+  "textures": {
+    "all": "new_blocks:blocks/candle",
+    "particle": "new_blocks:blocks/candle",
+    "0": "new_blocks:blocks/candle"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "tanzanite_axe",
+    "customModelName": "Normal",
+    "name": "Tanzanite Axe",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Axe",
+    "harvestLevel": 3,
+    "efficiency": 8.5,
+    "attackSpeed": 0.9,
+    "enchantability": 12,
+    "damageVsEntity": 9.1,
+    "usageCount": 1761,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "CUSTOM:Tanzanite"
+      }
+    ],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}

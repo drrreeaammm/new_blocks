@@ -1,0 +1,10 @@
+{
+  "parent": "new_blocks:custom/flowering_azalea",
+  "textures": {
+    "all": "new_blocks:blocks/flowering_azalea_plant",
+    "particle": "new_blocks:blocks/flowering_azalea_plant",
+    "2": "new_blocks:blocks/flowering_azalea_side",
+    "3": "new_blocks:blocks/flowering_azalea_plant",
+    "4": "new_blocks:blocks/flowering_azalea_top"
+  }
+}

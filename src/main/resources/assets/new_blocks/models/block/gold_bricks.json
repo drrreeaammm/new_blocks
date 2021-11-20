@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/stone_bricks",
+    "up": "new_blocks:blocks/stone_bricks",
+    "north": "new_blocks:blocks/stone_bricks",
+    "east": "new_blocks:blocks/stone_bricks",
+    "south": "new_blocks:blocks/stone_bricks",
+    "west": "new_blocks:blocks/stone_bricks",
+    "particle": "new_blocks:blocks/stone_bricks"
+  }
+}

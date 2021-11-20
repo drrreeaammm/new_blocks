@@ -1,0 +1,128 @@
+{
+  "_fv": 24,
+  "_type": "biome",
+  "definition": {
+    "name": "Deep Dark Forest",
+    "groundBlock": {
+      "value": "CUSTOM:DeepDarkGrass"
+    },
+    "undergroundBlock": {
+      "value": "CUSTOM:DeepDarkDirt"
+    },
+    "airColor": {
+      "value": -13092512,
+      "falpha": 0.0
+    },
+    "grassColor": {
+      "value": -16777163,
+      "falpha": 0.0
+    },
+    "foliageColor": {
+      "value": -16777163,
+      "falpha": 0.0
+    },
+    "waterColor": {
+      "value": -14803407,
+      "falpha": 0.0
+    },
+    "waterFogColor": {
+      "value": -16711422,
+      "falpha": 0.0
+    },
+    "ambientSound": {
+      "value": ""
+    },
+    "additionsSound": {
+      "value": ""
+    },
+    "music": {
+      "value": ""
+    },
+    "moodSound": {
+      "value": "ambient.cave"
+    },
+    "moodSoundDelay": 6000,
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "CRIMSON_SPORE"
+    },
+    "particlesProbability": 0.5,
+    "biomeCategory": "NONE",
+    "parent": {
+      "value": "No parent"
+    },
+    "rainingPossibility": 0.5,
+    "temperature": 1.8,
+    "baseHeight": 0.1,
+    "heightVariation": 0.30000000000000004,
+    "biomeType": "DESERT",
+    "spawnBiome": true,
+    "biomeWeight": 6,
+    "biomeDictionaryTypes": [
+      "MAGICAL",
+      "FOREST"
+    ],
+    "grassPerChunk": 4,
+    "seagrassPerChunk": 0,
+    "flowersPerChunk": 4,
+    "mushroomsPerChunk": 0,
+    "bigMushroomsChunk": 0,
+    "sandPatchesPerChunk": 0,
+    "gravelPatchesPerChunk": 0,
+    "reedsPerChunk": 0,
+    "cactiPerChunk": 0,
+    "treesPerChunk": 5,
+    "vanillaTreeType": "Default",
+    "treeType": 1,
+    "minHeight": 7,
+    "maxWaterDepth": 0,
+    "treeStem": {
+      "value": "CUSTOM:DeepDarkLog"
+    },
+    "treeBranch": {
+      "value": "CUSTOM:DeepDarkLeaves"
+    },
+    "treeVines": {
+      "value": ""
+    },
+    "treeFruits": {
+      "value": ""
+    },
+    "spawnStronghold": false,
+    "spawnMineshaft": false,
+    "spawnPillagerOutpost": false,
+    "villageType": "none",
+    "spawnWoodlandMansion": false,
+    "spawnJungleTemple": false,
+    "spawnDesertPyramid": false,
+    "spawnIgloo": false,
+    "spawnOceanMonument": false,
+    "spawnShipwreck": false,
+    "oceanRuinType": "NONE",
+    "defaultFeatures": [
+      "Caves",
+      "Ores",
+      "FrozenTopLayer"
+    ],
+    "spawnEntries": [
+      {
+        "entity": {
+          "value": "CUSTOM:GlowChicken"
+        },
+        "minGroup": 1,
+        "maxGroup": 2,
+        "weight": 4,
+        "spawnType": "monster"
+      },
+      {
+        "entity": {
+          "value": "EntityEndermite"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 3,
+        "spawnType": "monster"
+      }
+    ]
+  }
+}

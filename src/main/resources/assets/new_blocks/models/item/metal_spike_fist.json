@@ -1,0 +1,7 @@
+{
+  "parent": "new_blocks:custom/metal_spike_fist",
+  "textures": {
+    "0": "new_blocks:blocks/metal_spike_fist",
+    "particle": "new_blocks:items/metal_spike_fist"
+  }
+}

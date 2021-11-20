@@ -1,0 +1,13 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "2": "sculk_sensor_bottom",
+        "3": "sculk_sensor_side",
+        "5": "sculk_sensor_anim",
+        "6": "sculk_sensor_top"
+      },
+      "name": "default"
+    }
+  }
+}

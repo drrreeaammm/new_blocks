@@ -1,0 +1,12 @@
+{
+  "_fv": 24,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Logic",
+    "displayName": "Do Cicada Spawning",
+    "description": "True to do Cicada spawning, false to not (you might want to turn this off because they don't really do anything and they're really loud)",
+    "category": "SPAWNING",
+    "defaultValueLogic": true,
+    "defaultValueNumber": 0
+  }
+}

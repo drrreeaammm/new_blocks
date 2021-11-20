@@ -1,0 +1,110 @@
+{
+  "_fv": 24,
+  "_type": "plant",
+  "definition": {
+    "renderType": 2,
+    "texture": "sculk_sensor_side",
+    "textureBottom": "",
+    "customModelName": "sculk_sensor:default",
+    "itemTexture": "",
+    "particleTexture": "",
+    "tintType": "No tint",
+    "isItemTinted": false,
+    "plantType": "normal",
+    "staticPlantGenerationType": "Flower",
+    "suspiciousStewEffect": "UNLUCK",
+    "suspiciousStewDuration": 14,
+    "growapableSpawnType": "Plains",
+    "growapableMaxHeight": 14,
+    "doublePlantGenerationType": "Flower",
+    "customBoundingBox": true,
+    "disableOffset": false,
+    "boundingBoxes": [
+      {
+        "mx": 0.0,
+        "my": 0.0,
+        "mz": 0.0,
+        "Mx": 16.0,
+        "My": 7.0,
+        "Mz": 16.0,
+        "subtract": false
+      }
+    ],
+    "name": "Sculk Vine",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "hardness": 1.2000000000000002,
+    "resistance": 0.0,
+    "luminance": 2,
+    "unbreakable": false,
+    "isCustomSoundType": false,
+    "soundOnStep": {
+      "value": "PLANT"
+    },
+    "breakSound": {
+      "value": ""
+    },
+    "stepSound": {
+      "value": ""
+    },
+    "placeSound": {
+      "value": ""
+    },
+    "hitSound": {
+      "value": ""
+    },
+    "fallSound": {
+      "value": ""
+    },
+    "useLootTableForDrops": false,
+    "customDrop": {
+      "value": "CUSTOM:SculkSensor"
+    },
+    "dropAmount": 1,
+    "forceTicking": true,
+    "emissiveRendering": false,
+    "hasTileEntity": false,
+    "isReplaceable": true,
+    "colorOnMap": "DEFAULT",
+    "creativePickItem": {
+      "value": "CUSTOM:SculkSensor"
+    },
+    "offsetType": "NONE",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 11,
+    "fireSpreadSpeed": 20,
+    "jumpFactor": 1.0,
+    "speedFactor": 1.0,
+    "canBePlacedOn": [
+      {
+        "value": "CUSTOM:SculkChute"
+      },
+      {
+        "value": "CUSTOM:SkulkBlock"
+      },
+      {
+        "value": "CUSTOM:SculkVine"
+      },
+      {
+        "value": "CUSTOM:Grimstone"
+      },
+      {
+        "value": "CUSTOM:SculkStone"
+      },
+      {
+        "value": "CUSTOM:DarkGrimstone"
+      }
+    ],
+    "frequencyOnChunks": 38,
+    "spawnWorldTypes": [
+      "CUSTOM:VeryDeepDark"
+    ],
+    "restrictionBiomes": [],
+    "generateCondition": {
+      "name": "SculkSensorPlantGenAdditionalGenerationCondition"
+    },
+    "patchSize": 11
+  }
+}

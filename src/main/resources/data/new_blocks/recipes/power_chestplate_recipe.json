@@ -1,0 +1,30 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    " 7 "
+  ],
+  "key": {
+    "1": {
+      "item": "new_blocks:tanzanite"
+    },
+    "3": {
+      "item": "new_blocks:tanzanite"
+    },
+    "4": {
+      "item": "minecraft:iron_chestplate"
+    },
+    "5": {
+      "item": "new_blocks:tanzanite"
+    },
+    "7": {
+      "item": "new_blocks:tanzanite"
+    }
+  },
+  "result": {
+    "item": "new_blocks:energy_powered_chestplate",
+    "count": 1
+  }
+}

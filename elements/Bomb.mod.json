@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 1,
+    "texture": "shulkerturretranged",
+    "customModelName": "bomb:default",
+    "name": "Bomb",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "COMBAT"
+    },
+    "stackSize": 16,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": false,
+    "usageCount": 0,
+    "actionSound": {
+      "value": "entity.arrow.shoot"
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "onRangedItemUsed": {
+      "name": "BombRangedItemUsed"
+    },
+    "bulletPower": 0.4,
+    "bulletDamage": 4.800000000000001,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": ""
+    },
+    "bulletModel": "Modelbomb",
+    "customBulletModelTexture": "bomb.png",
+    "onBulletHitsBlock": {
+      "name": "BombBulletHitsLivingEntity"
+    },
+    "onBulletHitsEntity": {
+      "name": "BombBulletHitsLivingEntity"
+    }
+  }
+}

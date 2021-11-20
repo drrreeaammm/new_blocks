@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "new_blocks:block/sword_stand_thunderblade"
+    },
+    "facing=east": {
+      "model": "new_blocks:block/sword_stand_thunderblade",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "new_blocks:block/sword_stand_thunderblade",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "new_blocks:block/sword_stand_thunderblade",
+      "y": 270
+    }
+  }
+}

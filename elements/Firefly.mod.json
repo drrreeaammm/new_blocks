@@ -1,0 +1,21 @@
+{
+  "_fv": 24,
+  "_type": "particle",
+  "definition": {
+    "texture": "firefly_particle.png",
+    "animate": true,
+    "frameDuration": 9,
+    "width": 0.2,
+    "height": 0.2,
+    "scale": 5.0,
+    "speedFactor": 0.8,
+    "gravity": 0.0,
+    "maxAge": 60,
+    "maxAgeDiff": 1,
+    "angularVelocity": 0.0,
+    "angularAcceleration": 0.0,
+    "canCollide": true,
+    "alwaysShow": false,
+    "renderType": "OPAQUE"
+  }
+}

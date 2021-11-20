@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/greengel",
+    "up": "new_blocks:blocks/greengel",
+    "north": "new_blocks:blocks/greengel",
+    "east": "new_blocks:blocks/greengel",
+    "south": "new_blocks:blocks/greengel",
+    "west": "new_blocks:blocks/greengel",
+    "particle": "new_blocks:blocks/greengel"
+  }
+}

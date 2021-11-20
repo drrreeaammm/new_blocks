@@ -1,0 +1,33 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "34 ",
+    "6  "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:sugar"
+    },
+    "1": {
+      "item": "minecraft:sugar"
+    },
+    "2": {
+      "item": "minecraft:sugar"
+    },
+    "3": {
+      "item": "minecraft:potion"
+    },
+    "4": {
+      "item": "minecraft:potion"
+    },
+    "6": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "result": {
+    "item": "new_blocks:coffee",
+    "count": 1
+  }
+}

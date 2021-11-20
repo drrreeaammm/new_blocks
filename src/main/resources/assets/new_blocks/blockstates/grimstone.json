@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "new_blocks:block/grimstone"
+    },
+    "facing=east": {
+      "model": "new_blocks:block/grimstone",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "new_blocks:block/grimstone",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "new_blocks:block/grimstone",
+      "y": 270
+    }
+  }
+}

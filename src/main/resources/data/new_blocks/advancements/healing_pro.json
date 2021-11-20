@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "new_blocks:medkit"
+    },
+    "title": {
+      "translate": "advancements.healing_pro.title"
+    },
+    "description": {
+      "translate": "advancements.healing_pro.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "healing_pro": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 5
+  },
+  "parent": "new_blocks:healing"
+}

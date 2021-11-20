@@ -1,0 +1,7 @@
+{
+  "parent": "block/fence_post",
+  "textures": {
+    "texture": "new_blocks:blocks/glow_planks",
+    "particle": "new_blocks:blocks/glow_planks"
+  }
+}

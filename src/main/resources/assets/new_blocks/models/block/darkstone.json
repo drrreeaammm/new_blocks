@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/darkstone",
+    "up": "new_blocks:blocks/darkstone",
+    "north": "new_blocks:blocks/darkstone",
+    "east": "new_blocks:blocks/darkstone",
+    "south": "new_blocks:blocks/darkstone",
+    "west": "new_blocks:blocks/darkstone",
+    "particle": "new_blocks:blocks/darkstone"
+  }
+}

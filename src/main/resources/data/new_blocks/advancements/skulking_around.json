@@ -1,0 +1,29 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "new_blocks:sculk_chute"
+    },
+    "title": {
+      "translate": "advancements.skulking_around.title"
+    },
+    "description": {
+      "translate": "advancements.skulking_around.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "skulking_around": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "new_blocks:deep_dark"
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10
+  }
+}

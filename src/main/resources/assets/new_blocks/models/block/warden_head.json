@@ -1,0 +1,8 @@
+{
+  "parent": "new_blocks:custom/warden_head",
+  "textures": {
+    "all": "new_blocks:blocks/warden_head",
+    "particle": "new_blocks:blocks/warden_head",
+    "0": "new_blocks:blocks/warden_head"
+  }
+}

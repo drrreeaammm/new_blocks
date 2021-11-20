@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Items.SHULKER_SHELL"
+      },
+      {
+        "value": "Items.SHULKER_SHELL"
+      },
+      {
+        "value": "Items.STRING"
+      },
+      {
+        "value": "Items.SHULKER_SHELL"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "Items.STRING"
+      },
+      {
+        "value": "Items.SHULKER_SHELL"
+      },
+      {
+        "value": "Items.SHULKER_SHELL"
+      },
+      {
+        "value": "Items.STRING"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:ShulkerBow"
+    },
+    "name": "shulker_bow_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "new_blocks:custom/oak_mug",
+  "textures": {
+    "0": "new_blocks:blocks/table",
+    "particle": "new_blocks:items/shulkerturretranged"
+  }
+}

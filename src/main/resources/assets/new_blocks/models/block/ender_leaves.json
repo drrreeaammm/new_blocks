@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/ender_leaves",
+    "up": "new_blocks:blocks/ender_leaves",
+    "north": "new_blocks:blocks/ender_leaves",
+    "east": "new_blocks:blocks/ender_leaves",
+    "south": "new_blocks:blocks/ender_leaves",
+    "west": "new_blocks:blocks/ender_leaves",
+    "particle": "new_blocks:blocks/ender_leaves"
+  }
+}

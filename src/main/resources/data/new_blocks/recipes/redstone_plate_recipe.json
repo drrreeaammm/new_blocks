@@ -1,0 +1,9 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:stonecutting",
+  "count": 3,
+  "ingredient": {
+    "item": "minecraft:redstone_block"
+  },
+  "result": "new_blocks:redstone_plate"
+}

@@ -1,0 +1,30 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "terraria_death_sickle",
+    "customModelName": "Normal",
+    "name": "Death Sickle",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 3,
+    "efficiency": 4.0,
+    "attackSpeed": 2.1999999999999997,
+    "enchantability": 7,
+    "damageVsEntity": 4.800000000000001,
+    "usageCount": 570,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": true,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "DeathSickleLivingEntityIsHitWithTool"
+    }
+  }
+}

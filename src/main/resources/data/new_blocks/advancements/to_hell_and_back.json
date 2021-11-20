@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:netherrack"
+    },
+    "title": {
+      "translate": "advancements.to_hell_and_back.title"
+    },
+    "description": {
+      "translate": "advancements.to_hell_and_back.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "to_hell_and_back": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "from": "minecraft:the_nether"
+      }
+    }
+  },
+  "rewards": {
+    "experience": 6
+  },
+  "parent": "minecraft:nether/root"
+}

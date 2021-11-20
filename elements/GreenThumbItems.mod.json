@@ -1,0 +1,21 @@
+{
+  "_fv": 24,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Potion of Green Thumb",
+    "splashName": "Splash Potion of Green Thumb",
+    "lingeringName": "Lingering Potion of Green Thumb",
+    "arrowName": "Arrow of Green Thumb",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:GreenThumb"
+        },
+        "duration": 3600,
+        "amplifier": 1,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

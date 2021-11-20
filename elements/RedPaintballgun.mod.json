@@ -1,0 +1,43 @@
+{
+  "_fv": 24,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "red_paintball_gun",
+    "customModelName": "Normal",
+    "name": "Red Paintball Gun",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": "Blocks.WOOL#14"
+    },
+    "shootConstantly": false,
+    "usageCount": 155,
+    "actionSound": {
+      "value": "CUSTOM:balloon_pop"
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 0.9,
+    "bulletDamage": 0.1,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "Items.SNOWBALL"
+    },
+    "bulletModel": "Default",
+    "customBulletModelTexture": "",
+    "onBulletHitsBlock": {
+      "name": "RedPaintballgunBulletHitsBlock"
+    },
+    "onBulletHitsEntity": {
+      "name": "RedPaintballgunBulletHitsLivingEntity"
+    }
+  }
+}

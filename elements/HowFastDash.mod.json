@@ -1,0 +1,12 @@
+{
+  "_fv": 24,
+  "_type": "gamerule",
+  "definition": {
+    "type": "Number",
+    "displayName": "How Fast Dash",
+    "description": "How fast you dash and how far, over 3 does nothing, it only works 1-3, Note that it has no effect in creative as you go faster in creative while dashing anyway",
+    "category": "PLAYER",
+    "defaultValueLogic": false,
+    "defaultValueNumber": 1
+  }
+}

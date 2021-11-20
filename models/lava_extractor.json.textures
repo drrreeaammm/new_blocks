@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "furnace_side",
+        "1": "extractor_bottom"
+      },
+      "name": "default"
+    }
+  }
+}

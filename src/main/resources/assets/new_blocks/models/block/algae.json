@@ -1,0 +1,9 @@
+{
+  "parent": "new_blocks:custom/algae",
+  "textures": {
+    "all": "new_blocks:blocks/algae",
+    "particle": "new_blocks:blocks/algae",
+    "0": "new_blocks:blocks/algae",
+    "missing": "new_blocks:blocks/algae"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/mangrove_log",
+    "up": "new_blocks:blocks/mangrove_log",
+    "north": "new_blocks:blocks/mangrove_log",
+    "east": "new_blocks:blocks/mangrove_log",
+    "south": "new_blocks:blocks/mangrove_log",
+    "west": "new_blocks:blocks/mangrove_log",
+    "particle": "new_blocks:blocks/mangrove_log"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "_fv": 24,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "golden_marshmallow",
+    "customModelName": "Normal",
+    "name": "Golden Marshmallow",
+    "rarity": "COMMON",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "stackSize": 64,
+    "nutritionalValue": 7,
+    "saturation": 1.7,
+    "eatingSpeed": 21,
+    "resultItem": {
+      "value": ""
+    },
+    "forDogs": false,
+    "isAlwaysEdible": true,
+    "animation": "eat",
+    "hasGlow": false,
+    "onEaten": {
+      "name": "GoldenMarshmallowFoodEaten"
+    }
+  }
+}

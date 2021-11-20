@@ -1,0 +1,10 @@
+{
+  "parent": "new_blocks:custom/stove",
+  "textures": {
+    "all": "new_blocks:blocks/furnace_front",
+    "particle": "new_blocks:blocks/furnace_front",
+    "0": "new_blocks:blocks/smoker_side",
+    "1": "new_blocks:blocks/furnace_top",
+    "2": "new_blocks:blocks/furnace_front"
+  }
+}

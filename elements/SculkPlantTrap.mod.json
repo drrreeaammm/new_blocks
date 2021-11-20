@@ -1,0 +1,104 @@
+{
+  "_fv": 24,
+  "_type": "plant",
+  "definition": {
+    "renderType": 12,
+    "texture": "sculk_plant_trap_top",
+    "textureBottom": "sculk_plant_trap",
+    "customModelName": "Cross model",
+    "itemTexture": "",
+    "particleTexture": "",
+    "tintType": "No tint",
+    "isItemTinted": false,
+    "plantType": "double",
+    "staticPlantGenerationType": "Flower",
+    "suspiciousStewEffect": "SPEED",
+    "suspiciousStewDuration": 5,
+    "growapableSpawnType": "Plains",
+    "growapableMaxHeight": 3,
+    "doublePlantGenerationType": "Flower",
+    "customBoundingBox": true,
+    "disableOffset": false,
+    "boundingBoxes": [
+      {
+        "mx": 0.0,
+        "my": 0.0,
+        "mz": 0.0,
+        "Mx": 16.0,
+        "My": 18.099999999999998,
+        "Mz": 16.0,
+        "subtract": false
+      }
+    ],
+    "name": "Sculk Plant Trap",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:DeepDarkTab"
+    },
+    "hardness": 0.30000000000000004,
+    "resistance": 0.0,
+    "luminance": 6,
+    "unbreakable": false,
+    "isCustomSoundType": false,
+    "soundOnStep": {
+      "value": "PLANT"
+    },
+    "breakSound": {
+      "value": ""
+    },
+    "stepSound": {
+      "value": ""
+    },
+    "placeSound": {
+      "value": ""
+    },
+    "hitSound": {
+      "value": ""
+    },
+    "fallSound": {
+      "value": ""
+    },
+    "useLootTableForDrops": false,
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 1,
+    "forceTicking": false,
+    "emissiveRendering": true,
+    "hasTileEntity": false,
+    "isReplaceable": false,
+    "colorOnMap": "DEFAULT",
+    "creativePickItem": {
+      "value": ""
+    },
+    "offsetType": "XZ",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 100,
+    "fireSpreadSpeed": 60,
+    "jumpFactor": 1.0,
+    "speedFactor": 1.0,
+    "canBePlacedOn": [
+      {
+        "value": "CUSTOM:SkulkBlock"
+      },
+      {
+        "value": "CUSTOM:SculkStone"
+      },
+      {
+        "value": "CUSTOM:SculkChute"
+      },
+      {
+        "value": "CUSTOM:Grimstone"
+      }
+    ],
+    "frequencyOnChunks": 5,
+    "spawnWorldTypes": [
+      "CUSTOM:DeepDark"
+    ],
+    "restrictionBiomes": [],
+    "patchSize": 3,
+    "onEntityCollides": {
+      "name": "SculkPlantTrapMobplayerCollidesWithPlant"
+    }
+  }
+}
