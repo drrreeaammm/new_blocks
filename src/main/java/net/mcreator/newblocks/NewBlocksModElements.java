@@ -210,6 +210,8 @@ public class NewBlocksModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "drone_hurt")));
 		sounds.put(new ResourceLocation("new_blocks", "drone_death"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "drone_death")));
+		sounds.put(new ResourceLocation("new_blocks", "wrench_turn"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "wrench_turn")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("new_blocks").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

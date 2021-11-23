@@ -13,8 +13,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.enchantment.EnchantmentHelper;
 
 import net.mcreator.newblocks.item.SniperBulletItem;
+import net.mcreator.newblocks.enchantment.ReloadingEnchantment;
 import net.mcreator.newblocks.NewBlocksMod;
 
 import java.util.Map;
@@ -80,8 +82,19 @@ public class SniperRifileRangedItemUsedProcedure {
 				if (((entity instanceof PlayerEntity)
 						? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(SniperBulletItem.block))
 						: false)) {
-					if (entity instanceof PlayerEntity)
-						((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 21);
+					if ((!((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack)) != 0)))) {
+						if (entity instanceof PlayerEntity)
+							((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 21);
+					} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 1)) {
+						if (entity instanceof PlayerEntity)
+							((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 18);
+					} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 2)) {
+						if (entity instanceof PlayerEntity)
+							((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 13);
+					} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 3)) {
+						if (entity instanceof PlayerEntity)
+							((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 10);
+					}
 					if (world instanceof World && !world.isRemote()) {
 						((World) world)
 								.playSound(null, new BlockPos((int) x, (int) y, (int) z),

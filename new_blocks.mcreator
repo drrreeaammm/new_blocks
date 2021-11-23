@@ -1283,162 +1283,6 @@
       "path": "~/Entity"
     },
     {
-      "name": "CharredArmor",
-      "type": "armor",
-      "sortid": 233,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_armor",
-      "metadata": {
-        "eh": true,
-        "el": true,
-        "eb": true,
-        "ec": true
-      },
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredArmorHelmetRecipe",
-      "type": "recipe",
-      "sortid": 331,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_armor_helmet_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredArmorBodyRecipe",
-      "type": "recipe",
-      "sortid": 332,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_armor_body_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredArmorLeggingsRecipe",
-      "type": "recipe",
-      "sortid": 333,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_armor_leggings_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredArmorBootsRecipe",
-      "type": "recipe",
-      "sortid": 334,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_armor_boots_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredPickaxe",
-      "type": "tool",
-      "sortid": 243,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_pickaxe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredAxe",
-      "type": "tool",
-      "sortid": 244,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_axe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredSword",
-      "type": "tool",
-      "sortid": 234,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_sword",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredShovel",
-      "type": "tool",
-      "sortid": 245,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_shovel",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredHoe",
-      "type": "tool",
-      "sortid": 246,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_hoe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredPickaxeRecipe",
-      "type": "recipe",
-      "sortid": 335,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_pickaxe_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredAxeRecipe",
-      "type": "recipe",
-      "sortid": 336,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_axe_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredSwordRecipe",
-      "type": "recipe",
-      "sortid": 337,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_sword_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredShovelRecipe",
-      "type": "recipe",
-      "sortid": 338,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_shovel_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredHoeRecipe",
-      "type": "recipe",
-      "sortid": 339,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_hoe_recipe",
-      "path": "~/Armor"
-    },
-    {
       "name": "CharredSwordLivingEntityIsHitWithTool",
       "type": "procedure",
       "sortid": 340,
@@ -1467,66 +1311,6 @@
         ]
       },
       "path": "~/Procedures"
-    },
-    {
-      "name": "CharredDust",
-      "type": "item",
-      "sortid": 172,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_dust",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredOre",
-      "type": "block",
-      "sortid": 37,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_ore",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredBlock",
-      "type": "block",
-      "sortid": 58,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_block",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredOreBlockRecipe",
-      "type": "recipe",
-      "sortid": 341,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_ore_block_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredBlockOreRecipe",
-      "type": "recipe",
-      "sortid": 342,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_block_ore_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "CharredOreSmelting",
-      "type": "recipe",
-      "sortid": 343,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "charred_ore_smelting",
-      "path": "~/Armor"
     },
     {
       "name": "CharredArmorBodyTickEvent",
@@ -1957,162 +1741,6 @@
         ]
       },
       "path": "~/Procedures"
-    },
-    {
-      "name": "ObsidianPickaxe",
-      "type": "tool",
-      "sortid": 247,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_pickaxe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianAxe",
-      "type": "tool",
-      "sortid": 248,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_axe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianSword",
-      "type": "tool",
-      "sortid": 235,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_sword",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianShovel",
-      "type": "tool",
-      "sortid": 249,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_shovel",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianHoe",
-      "type": "tool",
-      "sortid": 250,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_hoe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianPickaxeRecipe",
-      "type": "recipe",
-      "sortid": 360,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_pickaxe_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianAxeRecipe",
-      "type": "recipe",
-      "sortid": 361,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_axe_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianSwordRecipe",
-      "type": "recipe",
-      "sortid": 362,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_sword_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianShovelRecipe",
-      "type": "recipe",
-      "sortid": 363,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_shovel_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianHoeRecipe",
-      "type": "recipe",
-      "sortid": 364,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_hoe_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianArmor",
-      "type": "armor",
-      "sortid": 236,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_armor",
-      "metadata": {
-        "eh": true,
-        "el": true,
-        "eb": true,
-        "ec": true
-      },
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianArmorHelmetRecipe",
-      "type": "recipe",
-      "sortid": 365,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_armor_helmet_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianArmorBodyRecipe",
-      "type": "recipe",
-      "sortid": 366,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_armor_body_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianArmorLeggingsRecipe",
-      "type": "recipe",
-      "sortid": 367,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_armor_leggings_recipe",
-      "path": "~/Armor"
-    },
-    {
-      "name": "ObsidianArmorBootsRecipe",
-      "type": "recipe",
-      "sortid": 368,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "obsidian_armor_boots_recipe",
-      "path": "~/Armor"
     },
     {
       "name": "ObsidianArmorBodyTickEvent",
@@ -4793,16 +4421,6 @@
       "path": "~/Recipe"
     },
     {
-      "name": "ModifiedPlains",
-      "type": "biome",
-      "sortid": 490,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "modified_plains",
-      "path": "~/biome"
-    },
-    {
       "name": "IllagersBane",
       "type": "enchantment",
       "sortid": 491,
@@ -6020,16 +5638,6 @@
       "ids": {},
       "registry_name": "fir_stick_recipe",
       "path": "~/Wood"
-    },
-    {
-      "name": "FirForest",
-      "type": "biome",
-      "sortid": 551,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "fir_forest",
-      "path": "~/biome"
     },
     {
       "name": "GreenGel",
@@ -9048,7 +8656,7 @@
       "type": "overlay",
       "sortid": 665,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "dash_overlay",
       "path": "~/Overlay"
@@ -17728,6 +17336,367 @@
         ]
       },
       "path": "~/Procedures/Goes in here"
+    },
+    {
+      "name": "Engineer",
+      "type": "livingentity",
+      "sortid": 1180,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "engineer",
+      "path": "~/Entity/Army"
+    },
+    {
+      "name": "ThunderbladeEntitySwingsItem",
+      "type": "procedure",
+      "sortid": 1181,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "thunderblade_entity_swings_item",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RIDCommandExecuted",
+      "type": "procedure",
+      "sortid": 1182,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rid_command_executed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RID",
+      "type": "command",
+      "sortid": 1182,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rid",
+      "path": "~/Command"
+    },
+    {
+      "name": "GID",
+      "type": "command",
+      "sortid": 1183,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "gid",
+      "path": "~/Command"
+    },
+    {
+      "name": "GIDCommandExecuted",
+      "type": "procedure",
+      "sortid": 1184,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "gid_command_executed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ArrowItems",
+      "type": "tag",
+      "sortid": 1185,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "arrow_items"
+    },
+    {
+      "name": "ArrowEntities",
+      "type": "tag",
+      "sortid": 1186,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "arrow_entities"
+    },
+    {
+      "name": "Plane",
+      "type": "livingentity",
+      "sortid": 1187,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "plane",
+      "path": "~/Entity/Army"
+    },
+    {
+      "name": "PlaneMovementControl",
+      "type": "procedure",
+      "sortid": 1188,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "plane_movement_control",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures/Goes in here"
+    },
+    {
+      "name": "Reloading",
+      "type": "enchantment",
+      "sortid": 1189,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "reloading",
+      "path": "~/Enchantment"
+    },
+    {
+      "name": "MinigunRangedItemUsed",
+      "type": "procedure",
+      "sortid": 1190,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "minigun_ranged_item_used",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IronWrenchRightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 1191,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "iron_wrench_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IronWrench",
+      "type": "tool",
+      "sortid": 1191,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "iron_wrench",
+      "path": "~/Item"
+    },
+    {
+      "name": "GoldWrench",
+      "type": "tool",
+      "sortid": 1192,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "gold_wrench",
+      "path": "~/Item"
+    },
+    {
+      "name": "IronWrenchRecipe",
+      "type": "recipe",
+      "sortid": 1193,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "iron_wrench_recipe",
+      "path": "~/Recipe"
+    },
+    {
+      "name": "GoldWrenchRecipe",
+      "type": "recipe",
+      "sortid": 1194,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "gold_wrench_recipe",
+      "path": "~/Recipe"
+    },
+    {
+      "name": "GoldWrenchRightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 1195,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "gold_wrench_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Beneath",
+      "type": "dimension",
+      "sortid": 1197,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beneath",
+      "metadata": {
+        "ep": false
+      },
+      "path": "~/Dimension/beneath"
+    },
+    {
+      "name": "ShadowGrassBlockAdditionalGenerationCondition",
+      "type": "procedure",
+      "sortid": 1198,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "shadow_grass_block_additional_generation_condition",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ShadowGrassBlock",
+      "type": "block",
+      "sortid": 1198,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "shadow_grass_block",
+      "path": "~/Dimension/beneath"
+    },
+    {
+      "name": "ShadowGrass",
+      "type": "plant",
+      "sortid": 1199,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "shadow_grass",
+      "path": "~/Dimension/beneath"
+    },
+    {
+      "name": "Shadow",
+      "type": "biome",
+      "sortid": 1200,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "shadow",
+      "path": "~/biome"
     }
   ],
   "variable_elements": [
@@ -18462,6 +18431,14 @@
       ],
       "category": "master",
       "subtitle": "Drone dies"
+    },
+    {
+      "name": "wrench_turn",
+      "files": [
+        "wrench_turn"
+      ],
+      "category": "player",
+      "subtitle": ""
     }
   ],
   "language_map": {
@@ -18469,7 +18446,6 @@
       "entity.new_blocks.mint_frog": "Frog",
       "entity.new_blocks.fire_fly_entity": "Fire Fly Entity",
       "block.new_blocks.deep_dark_big_cave_gen": "Gen",
-      "item.new_blocks.charred_armor_chestplate": "Charred Chestplate",
       "block.new_blocks.sculk_vine": "Sculk Vine",
       "subtitles.allay_ambient": "Allay chirps",
       "item.new_blocks.coffee": "Coffee",
@@ -18480,20 +18456,19 @@
       "advancements.a_legendary_sword.descr": "One of the best swords ever.",
       "subtitles.allay_death": "Allay dies",
       "fluid.new_blocks.rainbow_water": "Rainbow Water",
-      "item.new_blocks.energy_powered_boots": "Energy Powered Boots",
       "item.new_blocks.sculk_sword": "Sculk Sword",
+      "item.new_blocks.energy_powered_boots": "Energy Powered Boots",
       "block.new_blocks.viridescent_campfire": "Viridescent Campfire",
       "block.new_blocks.rainbow_slab": "Rainbow Slab",
       "effect.cowager_effect": "Cowager",
-      "block.new_blocks.grimstone_brick_slab": "Grimstone Brick Slab",
       "entity.new_blocks.enderspider": "Ender Spider",
+      "block.new_blocks.grimstone_brick_slab": "Grimstone Brick Slab",
       "item.new_blocks.shulker_pickaxe": "Shulker Pickaxe",
       "item.new_blocks.the_moon": "The Moon Portal Igniter",
       "item.new_blocks.better_zombie_9_spawn_egg": "Zombie Spawn Egg",
       "block.new_blocks.platinum_block": "Block of Platinum",
-      "item.new_blocks.invicnix_spawn_egg": "Invicnix Spawn Egg",
       "block.new_blocks.glow_grass": "Glow Grass",
-      "item.new_blocks.charred_armor_leggings": "Charred Leggings",
+      "item.new_blocks.invicnix_spawn_egg": "Invicnix Spawn Egg",
       "subtitles.say1": "Zombie groans",
       "item.new_blocks.end_crawler_spawn_egg": "End Crawler Spawn Egg",
       "block.new_blocks.randomite_ore": "Randomite Ore",
@@ -18524,8 +18499,8 @@
       "advancements.tanzanite_advancement.title": "TANZANITE!",
       "item.new_blocks.will_o_wisp_spawn_egg": "Will O Wisp Spawn Egg",
       "item.new_blocks.creeper_spider_spawn_egg": "Creeper Spider Spawn Egg",
-      "item.minecraft.potion.effect.stopping": "Potion of Stopping",
       "block.new_blocks.grimstone_preassure_p_late": "Grimstone Pressure Plate",
+      "item.minecraft.potion.effect.stopping": "Potion of Stopping",
       "item.new_blocks.grenade_launcher": "Grenade Launcher",
       "subtitles.otherside": "",
       "item.new_blocks.glare_spawn_egg": "Glare Spawn Egg",
@@ -18535,23 +18510,22 @@
       "item.new_blocks.mint_shovel": "Mint Shovel",
       "item.new_blocks.magnet": "Magnet",
       "advancements.a_legendary_sword_2.descr": "One of the best swords ever.",
-      "item.new_blocks.viridescent": "Viridescent Portal Igniter",
       "block.new_blocks.mangrove_fence_gate": "Mangrove Fence Gate",
+      "item.new_blocks.viridescent": "Viridescent Portal Igniter",
       "block.new_blocks.deep_dark_dirt": "Deep Dark Dirt",
       "block.new_blocks.rainbow_planks": "Rainbow Planks",
       "subtitles.zombiehurt": "Zombie hurts",
       "block.new_blocks.sword_stand_thunderblade": "Sword Stand",
-      "item.new_blocks.obsidian_armor_leggings": "Obsidian Leggings",
-      "item.new_blocks.corn": "Corn",
       "entity.new_blocks.hamood": "Hamood",
+      "item.new_blocks.corn": "Corn",
       "item.minecraft.splash_potion.effect.stopping": "Splash Potion of Stopping",
       "block.new_blocks.sculk_fluid": "Sculk Fluid",
       "block.new_blocks.mangrove_planks": "Mangrove Planks",
       "entity.new_blocks.glare": "Glare",
       "item.new_blocks.tiger_frog_spawn_egg": "Frog Spawn Egg",
       "item.new_blocks.chlorine_spawn_egg": "Chlorine Spawn Egg",
-      "advancements.healing_pro.title": "Healing Pro",
       "biome.new_blocks.savanna_mountains": "Savanna Mountains",
+      "advancements.healing_pro.title": "Healing Pro",
       "item.new_blocks.friendly_spider_spawn_egg": "Friendly Spider Spawn Egg",
       "item.new_blocks.tanzanite_armor_boots": "Tanzanite Boots",
       "gamerule.doCicadaSpawning": "Do Cicada Spawning",
@@ -18567,6 +18541,7 @@
       "block.new_blocks.sussy": "Sussy",
       "subtitles.electric_spider_hurt": "Electric Spider hurts",
       "itemGroup.tabnewblocks": "Newblocks",
+      "block.new_blocks.shadow_grass_block": "Shadow Grass Block",
       "item.new_blocks.tanzanite_sword": "Tanzanite Sword",
       "item.new_blocks.emera_id_helmet": "Emerald Helmet",
       "block.new_blocks.corrupted": "Corrupted",
@@ -18582,8 +18557,8 @@
       "item.new_blocks.shulk.desc": "JamiesName - Shulk",
       "item.new_blocks.ruby_sword": "Ruby Sword",
       "entity.new_blocks.tank": "Tank",
-      "block.new_blocks.rainbow_pressure_plate": "Rainbow Pressure Plate",
       "item.new_blocks.lava_monster_spawn_egg": "Lava Monster Spawn Egg",
+      "block.new_blocks.rainbow_pressure_plate": "Rainbow Pressure Plate",
       "item.new_blocks.sculk_fluid_bucket": "Bucket of Sculk",
       "block.new_blocks.glow_planks": "Glow Planks",
       "subtitles.warden_hit": "",
@@ -18617,8 +18592,8 @@
       "block.new_blocks.glass_door": "Glass Door",
       "biome.new_blocks.sculk_vine_caves": "Deep Dark",
       "item.new_blocks.iron_man_bullet": "Iron Man Bullet Shooter",
-      "item.new_blocks.karl_jacobs_spawn_egg": "Karl Jacobs Spawn Egg",
       "item.minecraft.tipped_arrow.effect.darkness_item": "Arrow of Darkness",
+      "item.new_blocks.karl_jacobs_spawn_egg": "Karl Jacobs Spawn Egg",
       "item.new_blocks.enderspider_spawn_egg": "Ender Spider Spawn Egg",
       "block.new_blocks.sculk_sprout": "Sculk Sprout",
       "advancements.so_much_healing.descr": "That\u0027s a lot",
@@ -18634,7 +18609,6 @@
       "item.new_blocks.blue_frog_spawn_egg": "Frog Spawn Egg",
       "subtitles.poison_plant_spit": "Poison Plant Spits",
       "item.new_blocks.emera_id_chestplate": "Emerald Chestplate",
-      "item.new_blocks.obsidian_sword": "Obsidian Sword",
       "item.minecraft.splash_potion.effect.lightning": "Splash Potion Of Lightning",
       "item.new_blocks.mud_bottle": "Mud Bottle",
       "item.new_blocks.purple_quartz": "Purple Quartz",
@@ -18654,8 +18628,8 @@
       "item.new_blocks.brick_house_item": "Brick House",
       "entity.new_blocks.cyclops": "Cyclops",
       "item.new_blocks.darkite_ingot": "Darkite",
+      "item.new_blocks.beneath": "Endd Portal Igniter",
       "entity.new_blocks.creepy_slime": "Creepy Slime",
-      "item.new_blocks.obsidian_shovel": "Obsidian Shovel",
       "item.new_blocks.iron_man_boots": "Iron Man Boots",
       "biome.new_blocks.end_plains": "End Plains",
       "entity.new_blocks.nuke": "Nuke",
@@ -18666,21 +18640,21 @@
       "itemGroup.tabdeep_dark_tab": "Deep Dark",
       "advancements.healing_pro.descr": "Lots of healing!",
       "block.new_blocks.wood_stair": "Oak Stairs",
-      "item.new_blocks.fade_blade": "Fadeblade",
-      "item.new_blocks.vampire_ghost_spawn_egg": "Vampire Ghost Spawn Egg",
       "block.new_blocks.mangrove_fence": "Mangrove Fence",
+      "item.new_blocks.vampire_ghost_spawn_egg": "Vampire Ghost Spawn Egg",
+      "item.new_blocks.fade_blade": "Fadeblade",
       "entity.new_blocks.poison_plant": "Poison Plant",
-      "item.new_blocks.goo_enderman_spawn_egg": "Goo Enderman Spawn Egg",
       "item.minecraft.lingering_potion.effect.lightning": "Lingering Potion Of Lightning",
+      "item.new_blocks.goo_enderman_spawn_egg": "Goo Enderman Spawn Egg",
       "item.new_blocks.the_end": "Music disc",
       "item.new_blocks.rainbow_sword": "Rainbow Sword",
       "subtitles.drone_fly2": "Drone flys",
       "subtitles.drone_fly1": "Drone flys",
-      "item.new_blocks.tool_belt": "Tool Belt",
       "subtitles.drone_fly3": "Drone flys",
+      "item.new_blocks.tool_belt": "Tool Belt",
       "item.new_blocks.grenade": "Grenade",
-      "block.new_blocks.light": "Light",
       "block.new_blocks.dark_log": "Dark Log",
+      "block.new_blocks.light": "Light",
       "entity.new_blocks.herobrine": "Herobrine",
       "item.new_blocks.better_zombie_8_spawn_egg": "Zombie Spawn Egg",
       "item.minecraft.potion.effect.green_thumb_items": "Potion of Green Thumb",
@@ -18707,17 +18681,14 @@
       "item.new_blocks.platinum_pickaxe": "Platinum Pickaxe",
       "block.new_blocks.corn_stage_2": "Corn Stage 2",
       "block.new_blocks.corn_stage_3": "Corn Stage 3",
-      "item.new_blocks.charred_shovel": "Charred Shovel",
       "block.new_blocks.corn_stage_1": "Corn Stage 1",
       "subtitles.cave": "",
       "item.new_blocks.better_zombie_6_spawn_egg": "Zombie Spawn Egg",
-      "item.new_blocks.charred_pickaxe": "Charred Pickaxe",
       "item.minecraft.potion.effect.plutonimized": "Plutonimized",
       "item.new_blocks.marshmallow": "Marshmallow",
       "item.new_blocks.randomite_ingot": "Randomite Ingot",
       "subtitles.squirrel_death": "Squirrel dies",
       "subtitles.ham": "HAMOOD DIE!",
-      "item.new_blocks.obsidian_axe": "Obsidian Axe",
       "block.new_blocks.dark_trapdoor": "Dark Trapdoor",
       "block.new_blocks.four_candles": "White Candle",
       "biome.new_blocks.corrupted_biome": "Corrupted Biome",
@@ -18731,13 +18702,12 @@
       "item.new_blocks.diving_helmet_leggings": "Diving Helmet Leggings",
       "item.new_blocks.energy_checker": "Energy Checker",
       "item.new_blocks.fire_bender_ranged": "entity.firebender.ranged",
-      "entity.new_blocks.warden": "Warden",
       "item.new_blocks.icecube": "Icecube",
+      "entity.new_blocks.warden": "Warden",
       "death.attack.skulk.vine.death": "%1$s was poked by Sculk vines",
       "advancements.lots_of_healing.title": "Maxium health",
       "block.new_blocks.sculk_sensor_active": "Sculk Sensor",
       "block.new_blocks.ender_grass": "Ender Grass",
-      "biome.new_blocks.modified_plains": "Modified Plains",
       "item.new_blocks.fire_tipped_diamond_sword": "Fire Tipped Diamond Sword",
       "block.new_blocks.super_tnt": "Super TNT",
       "item.new_blocks.glow_crab_spawn_egg": "Glow Crab Spawn Egg",
@@ -18752,8 +18722,8 @@
       "item.new_blocks.rat_spawn_egg": "Rat Spawn Egg",
       "enchantment.new_blocks.meteor": "Meteor",
       "item.new_blocks.stone_golem_spawn_egg": "Stone Golem Spawn Egg",
-      "subtitles.sculk_shrieker_shriek": "Sculk Shrieker shrieks",
       "biome.new_blocks.taiga_mountains": "Flat Taiga",
+      "subtitles.sculk_shrieker_shriek": "Sculk Shrieker shrieks",
       "item.new_blocks.crab_spawn_egg": "Crab Spawn Egg",
       "enchantment.new_blocks.life_steal": "Life Steal",
       "item.new_blocks.sculking_armor_leggings": "Sculking Armor Leggings",
@@ -18761,12 +18731,13 @@
       "block.new_blocks.acorn_block": "Acorn Block",
       "entity.new_blocks.player_hitbox": "Player Hitbox",
       "item.new_blocks.ruby_armor_leggings": "Ruby Leggings",
+      "item.new_blocks.iron_wrench": "Iron Wrench",
       "subtitles.hamoodstep": "hamood?",
       "block.new_blocks.black_tulip": "Black Tulip",
       "biome.new_blocks.dead_plains_hills": "Low Plains",
       "item.new_blocks.sculker_spawn_egg": "Sculker Spawn Egg",
-      "entity.new_blocks.ice_pig": "Ice Pig",
       "subtitles.glare_angry": "",
+      "entity.new_blocks.ice_pig": "Ice Pig",
       "block.new_blocks.deep_dark_leaves": "DeepDark Leaves",
       "block.new_blocks.gold_plant_stage_1": "Gold Plant Stage 1",
       "item.new_blocks.shulker_axe": "Shulker Axe",
@@ -18779,15 +18750,14 @@
       "item.new_blocks.mint_armor_boots": "Mint Boots",
       "subtitles.warden_distant": "",
       "item.new_blocks.evil_oinker_spawn_egg": "Evil Oinker Spawn Egg",
-      "block.new_blocks.glow_fence": "Glow Fence",
-      "item.new_blocks.gold_seeds": "Gold Seeds",
       "item.new_blocks.energy_powered_chestplate": "Energy Powered Chestplate",
-      "item.new_blocks.obsidian_armor_helmet": "Obsidian Helmet",
+      "item.new_blocks.gold_seeds": "Gold Seeds",
+      "block.new_blocks.glow_fence": "Glow Fence",
       "subtitles.shark_hurt": "Shark hurts",
       "item.minecraft.tipped_arrow.effect.plutonimized": "Arrow of Plutonimized",
       "item.new_blocks.electric_spider_ranged": "Electric Spider Ranged",
-      "item.new_blocks.stray_boots": "Stray Boots",
       "item.new_blocks.better_zombie_10_spawn_egg": "Zombie Spawn Egg",
+      "item.new_blocks.stray_boots": "Stray Boots",
       "enchantment.new_blocks.knocking": "Knocking",
       "block.new_blocks.glow_stairs": "Glow Stairs",
       "item.new_blocks.piglin_warrior_spawn_egg": "Piglin Warrior Spawn Egg",
@@ -18798,14 +18768,13 @@
       "block.new_blocks.dark_fence": "Dark Fence",
       "item.new_blocks.sniper_bullet": "Sniper Bullet",
       "item.new_blocks.rock": "Rock",
-      "key.new_blocks.dash": "Dash",
       "entity.new_blocks.blobfish": "Blobfish",
+      "key.new_blocks.dash": "Dash",
       "subtitles.deep_dark": "",
       "block.new_blocks.sculk_shroom": "Sculk Shroom",
-      "item.new_blocks.emera_id_boots": "Emerald Boots",
       "entity.new_blocks.wizard": "Wizard",
+      "item.new_blocks.emera_id_boots": "Emerald Boots",
       "subtitles.ice_cube_summon": "Ice Cube summoned",
-      "block.new_blocks.charred_block": "Charred Block",
       "block.new_blocks.wet_mud": "Wet Mud",
       "subtitles.sculk_step_1": "Footsteps",
       "advancements.to_hell_and_back.descr": "Leave this Horrible Dimension!",
@@ -18861,15 +18830,14 @@
       "subtitles.grenade_throw": "Grenade thrown",
       "item.new_blocks.fire_upgrade": "Fire Upgrade",
       "subtitles.sniper_reload": "Sniper reloading",
+      "subtitles.wrench_turn": "",
       "item.minecraft.splash_potion.effect.green_thumb_items": "Splash Potion of Green Thumb",
       "item.new_blocks.ash_sword": "Ash Sword",
       "entity.new_blocks.rooster": "Rooster",
       "biome.new_blocks.flower_plains": "Flower Plains",
-      "item.new_blocks.obsidian_pickaxe": "Obsidian Pickaxe",
       "entity.new_blocks.yellowier_frog": "Frog",
       "item.new_blocks.lime_paintball_gun": "Green Paintball Gun",
       "item.new_blocks.brick_house_piece": "Brick House Piece",
-      "item.new_blocks.obsidian_armor_chestplate": "Obsidian Chestplate",
       "subtitles.cicada_step": "",
       "block.new_blocks.mud_bricks": "Mud Bricks",
       "effect.blood": "Blood",
@@ -18899,6 +18867,7 @@
       "subtitles.sculk_place": "",
       "advancements.to_hell_and_back.title": "To Hell And Back!",
       "entity.new_blocks.brown_frog": "Frog",
+      "item.new_blocks.gold_wrench": "Gold Wrench",
       "subtitles.electric_spider_disc": "",
       "item.new_blocks.diving_helmet_boots": "Diving Flippers",
       "item.new_blocks.laser_gun": "Laser Gun",
@@ -18958,7 +18927,6 @@
       "biome.new_blocks.warmer_ocean": "Warmer Ocean",
       "block.new_blocks.landmine": "Landmine",
       "block.new_blocks.deep_dark_log": "DeepDark Log",
-      "item.new_blocks.charred_dust": "Charred Dust",
       "item.new_blocks.cowager_spawn_egg": "Cowager Spawn Egg",
       "item.new_blocks.electric_spider_sounds.desc": "Electric Spider - Electric Spider Scientist",
       "subtitles.wardenidle2": "Warden idle",
@@ -18973,6 +18941,7 @@
       "item.new_blocks.cascade_sword": "Cascade Sword",
       "item.new_blocks.axolotl_spawn_egg": "Axolotl Spawn Egg",
       "advancements.lots_of_healing.descr": "LOTS OF HEALING!",
+      "item.new_blocks.plane_spawn_egg": "Plane Spawn Egg",
       "entity.new_blocks.imposter": "Imposter",
       "item.new_blocks.iron_man_helmet": "Iron Man Helmet",
       "block.new_blocks.two_candles_lit": "White Candle",
@@ -18985,7 +18954,6 @@
       "item.new_blocks.army_drone_spawn_egg": "Army Drone Spawn Egg",
       "entity.new_blocks.allay": "Allay",
       "item.new_blocks.fire_bender_spawn_egg": "Fire Bender Spawn Egg",
-      "item.new_blocks.charred_axe": "Charred Axe",
       "item.new_blocks.ruby_armor_helmet": "Ruby Helmet",
       "item.new_blocks.the_end.desc": "Naps the Block - Tall",
       "item.new_blocks.fire_fly_entity_spawn_egg": "Fire Fly Entity Spawn Egg",
@@ -19007,13 +18975,11 @@
       "biome.new_blocks.hills": "Hills",
       "item.new_blocks.ruby_armor_boots": "Ruby Boots",
       "subtitles.iceologer_death": "Iceologer dies",
-      "item.new_blocks.charred_armor_boots": "Charred Boots",
       "item.new_blocks.flint_spear": "Flint Spear",
       "item.new_blocks.platinum_axe": "Platinum Axe",
       "biome.new_blocks.burnt_forest": "Burnt Forest",
       "advancements.so_much_healing.title": "So much healing",
       "subtitles.electric_spider_step": "Footsteps",
-      "biome.new_blocks.fir_forest": "Fir Forest",
       "block.new_blocks.plutonium_ore": "Plutonium Ore",
       "key.new_blocks.tank_shoot": "Tank Shoot",
       "entity.new_blocks.sculker": "Sculker",
@@ -19031,12 +18997,12 @@
       "block.new_blocks.rainbow_button": "Rainbow Button",
       "death.attack.sculktrap": "%1$s was bitten by Sculk Plant Trap",
       "block.new_blocks.mangrove_pressure_plate": "Mangrove Pressure Plate",
-      "item.new_blocks.obsidian_hoe": "Obsidian Hoe",
       "item.new_blocks.mint_armor_helmet": "Mint Helmet",
       "block.new_blocks.ruby_block": "Block of Ruby",
       "item.new_blocks.potion_of_levitation": "Potion Of Levitation",
       "item.new_blocks.void_shovel": "Void Shovel",
       "biome.new_blocks.dead_plains": "Low Plains",
+      "biome.new_blocks.shadow": "Shadow",
       "block.new_blocks.green_gel": "Green Gel",
       "subtitles.knifestab": "Knife stabs",
       "entity.new_blocks.better_zombie_9": "Zombie",
@@ -19052,7 +19018,6 @@
       "entity.new_blocks.better_zombie_7": "Zombie",
       "item.new_blocks.rooster_2_spawn_egg": "Rooster Spawn Egg",
       "entity.new_blocks.better_zombie_6": "Zombie",
-      "item.new_blocks.charred_armor_helmet": "Charred Helmet",
       "item.new_blocks.flint_hoe": "Flint Hoe",
       "item.new_blocks.gold_fish_spawn_egg": "Gold Fish Spawn Egg",
       "item.new_blocks.reaper_spawn_egg": "Reaper Spawn Egg",
@@ -19066,6 +19031,7 @@
       "item.new_blocks.blue_paintballgun": "Blue Paintball Gun",
       "enchantment.new_blocks.dodge": "Dodge",
       "item.new_blocks.golden_feather": "Golden Feather",
+      "entity.new_blocks.plane": "Plane",
       "item.new_blocks.shulker_goo": "Shulker Goo",
       "block.new_blocks.rainbow_door": "Rainbow Door",
       "item.new_blocks.tanzanite_axe": "Tanzanite Axe",
@@ -19092,7 +19058,6 @@
       "entity.new_blocks.mental": "Mental",
       "item.new_blocks.lightning_vex_ranged": "Lightning",
       "item.new_blocks.sniper_rifile": "Sniper",
-      "item.new_blocks.obsidian_armor_boots": "Obsidian Boots",
       "item.new_blocks.swordsman_spawn_egg": "Swordsman Spawn Egg",
       "entity.new_blocks.sculk_beetle": "Sculk Beetle",
       "item.new_blocks.popcorn": "Popcorn",
@@ -19114,6 +19079,7 @@
       "entity.new_blocks.better_zombie_10": "Zombie",
       "entity.new_blocks.armored_blaze": "Armored Blaze",
       "enchantment.new_blocks.long_jump": "Long Jump",
+      "item.new_blocks.engineer_spawn_egg": "Engineer Spawn Egg",
       "subtitles.reaper_ambient": "Reaper Ambient",
       "item.new_blocks.otherside_disc.desc": "Lena Raine - otherside",
       "block.new_blocks.grimstone_button": "Grimstone Button",
@@ -19130,7 +19096,6 @@
       "item.new_blocks.frostblade": "Frostblade",
       "item.new_blocks.crimson_vex_spawn_egg": "Crimson Vex Spawn Egg",
       "block.new_blocks.mangrove_roots": "Mangrove Roots",
-      "item.new_blocks.charred_hoe": "Charred Hoe",
       "item.new_blocks.balloon_spawn_egg": "Balloon Spawn Egg",
       "subtitles.poison_plant_hurt": "Poison Plant hurts",
       "item.new_blocks.hammerhead_shark_spawn_egg": "Hammerhead Shark Spawn Egg",
@@ -19148,7 +19113,6 @@
       "entity.new_blocks.axolotl": "Axolotl",
       "biome.new_blocks.end_hills": "End Hills",
       "entity.new_blocks.boss_crab": "Crab",
-      "block.new_blocks.charred_ore": "Charred Ore",
       "block.new_blocks.deep_dark_grass": "Deep Dark Grass",
       "block.new_blocks.candle": "Candle",
       "block.new_blocks.flowering_azalea": "Flowering Azalea",
@@ -19170,6 +19134,7 @@
       "item.new_blocks.blood_sword": "Blood Sword",
       "item.new_blocks.brown_frog_spawn_egg": "Frog Spawn Egg",
       "item.new_blocks.emera_id_leggings": "Emerald Leggings",
+      "entity.new_blocks.engineer": "Engineer",
       "item.new_blocks.hamster_spawn_egg": "Hamster Spawn Egg",
       "entity.new_blocks.glare_fegtyhuji": "Glare",
       "subtitles.music.deep_dark_additions": "",
@@ -19221,6 +19186,7 @@
       "item.new_blocks.glare_fegtyhuji_spawn_egg": "Glare Spawn Egg",
       "block.new_blocks.sculk_sensor_plant_gen": "Sculk Vine",
       "block.new_blocks.deep_dark_fence_gate": "DeepDark Fence Gate",
+      "block.new_blocks.shadow_grass": "Shadow Grass",
       "subtitles.allay_hurt": "Allay hurts",
       "item.minecraft.lingering_potion.effect.plutonimized": "Lingering Plutonimized",
       "item.new_blocks.energy_powered_helmet": "Energy Powered Helmet",
@@ -19267,7 +19233,6 @@
       "block.new_blocks.fir_wood": "Fir Wood",
       "item.new_blocks.shulker_helmet": "Shulker Helmet",
       "entity.new_blocks.iceologer_ranged": "Iceologer",
-      "item.new_blocks.charred_sword": "Charred Sword",
       "entity.new_blocks.chlorine": "Chlorine",
       "subtitles.axolotl_idle_air": "Axolotl squeaks",
       "subtitles.tommyinnithurt": "TommyInnit hurts",
@@ -19276,6 +19241,7 @@
       "item.new_blocks.ant_spawn_egg": "Ant Spawn Egg",
       "biome.new_blocks.cold_desert": "Cold Desert",
       "item.new_blocks.shulker_bow": "Shulker Bow",
+      "enchantment.new_blocks.reloading": "Reloading",
       "enchantment.new_blocks.withering": "Withering",
       "item.new_blocks.tommy_innit_spawn_egg": "TommyInnit Spawn Egg",
       "block.new_blocks.dormant_deep_dark_grass": "Dormant Deep Dark Grass",
@@ -19428,7 +19394,12 @@
       },
       {
         "name": "Dimension",
-        "children": []
+        "children": [
+          {
+            "name": "beneath",
+            "children": []
+          }
+        ]
       },
       {
         "name": "Tag",

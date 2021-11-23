@@ -30,11 +30,14 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 
+import net.mcreator.newblocks.procedures.MinigunRangedItemUsedProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.entity.renderer.MinigunRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
 import java.util.Random;
+import java.util.Map;
+import java.util.HashMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class MinigunItem extends NewBlocksModElements.ModElement {
@@ -112,6 +115,12 @@ public class MinigunItem extends NewBlocksModElements.ModElement {
 								if (stack.isEmpty())
 									entity.inventory.deleteStack(stack);
 							}
+						}
+						{
+							Map<String, Object> $_dependencies = new HashMap<>();
+							$_dependencies.put("entity", entity);
+							$_dependencies.put("itemstack", itemstack);
+							MinigunRangedItemUsedProcedure.executeProcedure($_dependencies);
 						}
 					}
 					entity.stopActiveHand();

@@ -55,7 +55,7 @@ public class DashOverlayOverlay {
 			RenderSystem.disableAlphaTest();
 			if (GetDashValueProcedure.executeProcedure(ImmutableMap.of("entity", entity))) {
 				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("new_blocks:textures/dash_bar_one.png"));
-				Minecraft.getInstance().ingameGUI.blit(event.getMatrixStack(), posX + 70, posY + 56, 0, 0, 16, 16, 16, 16);
+				Minecraft.getInstance().ingameGUI.blit(event.getMatrixStack(), posX + 70, posY + 55, 0, 0, 16, 16, 16, 16);
 				if (GetDashValueTwoProcedure.executeProcedure(ImmutableMap.of("entity", entity))) {
 					Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("new_blocks:textures/dash_bar_two.png"));
 					Minecraft.getInstance().ingameGUI.blit(event.getMatrixStack(), posX + 70, posY + 55, 0, 0, 16, 16, 16, 16);
@@ -65,7 +65,7 @@ public class DashOverlayOverlay {
 					Minecraft.getInstance().ingameGUI.blit(event.getMatrixStack(), posX + 70, posY + 55, 0, 0, 16, 16, 16, 16);
 				}
 				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("new_blocks:textures/dash_bar_zero.png"));
-				Minecraft.getInstance().ingameGUI.blit(event.getMatrixStack(), posX + 70, posY + 56, 0, 0, 16, 16, 16, 16);
+				Minecraft.getInstance().ingameGUI.blit(event.getMatrixStack(), posX + 70, posY + 55, 0, 0, 16, 16, 16, 16);
 			}
 			RenderSystem.depthMask(true);
 			RenderSystem.enableDepthTest();

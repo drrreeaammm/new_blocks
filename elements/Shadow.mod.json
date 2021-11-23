@@ -1,0 +1,118 @@
+{
+  "_fv": 24,
+  "_type": "biome",
+  "definition": {
+    "name": "Shadow",
+    "groundBlock": {
+      "value": "CUSTOM:ShadowGrassBlock"
+    },
+    "undergroundBlock": {
+      "value": "Blocks.END_STONE"
+    },
+    "airColor": {
+      "value": -15265769,
+      "falpha": 0.0
+    },
+    "grassColor": {
+      "value": -14938340,
+      "falpha": 0.0
+    },
+    "foliageColor": {
+      "value": -15595757,
+      "falpha": 0.0
+    },
+    "waterColor": {
+      "value": -15331050,
+      "falpha": 0.0
+    },
+    "waterFogColor": {
+      "value": -14870755,
+      "falpha": 0.0
+    },
+    "ambientSound": {
+      "value": ""
+    },
+    "additionsSound": {
+      "value": ""
+    },
+    "music": {
+      "value": "music.end"
+    },
+    "moodSound": {
+      "value": "CUSTOM:shulk_disc"
+    },
+    "moodSoundDelay": 8000,
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "DRAGON_BREATH"
+    },
+    "particlesProbability": 0.4,
+    "biomeCategory": "NONE",
+    "parent": {
+      "value": "CUSTOM:EndPlains"
+    },
+    "rainingPossibility": 0.5,
+    "temperature": 1.6,
+    "baseHeight": 0.2,
+    "heightVariation": 0.0,
+    "biomeType": "COOL",
+    "spawnBiome": false,
+    "biomeWeight": 3,
+    "biomeDictionaryTypes": [
+      "VOID",
+      "DEAD",
+      "END",
+      "MAGICAL",
+      "RARE"
+    ],
+    "grassPerChunk": 0,
+    "seagrassPerChunk": 0,
+    "flowersPerChunk": 0,
+    "mushroomsPerChunk": 0,
+    "bigMushroomsChunk": 0,
+    "sandPatchesPerChunk": 0,
+    "gravelPatchesPerChunk": 0,
+    "reedsPerChunk": 0,
+    "cactiPerChunk": 0,
+    "treesPerChunk": 0,
+    "vanillaTreeType": "Default",
+    "treeType": 0,
+    "minHeight": 7,
+    "maxWaterDepth": 0,
+    "treeStem": {
+      "value": ""
+    },
+    "treeBranch": {
+      "value": ""
+    },
+    "treeVines": {
+      "value": ""
+    },
+    "treeFruits": {
+      "value": ""
+    },
+    "spawnStronghold": false,
+    "spawnMineshaft": false,
+    "spawnPillagerOutpost": false,
+    "villageType": "none",
+    "spawnWoodlandMansion": false,
+    "spawnJungleTemple": false,
+    "spawnDesertPyramid": false,
+    "spawnIgloo": false,
+    "spawnOceanMonument": false,
+    "spawnShipwreck": false,
+    "oceanRuinType": "NONE",
+    "defaultFeatures": [],
+    "spawnEntries": [
+      {
+        "entity": {
+          "value": "EntityEnderman"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 2,
+        "spawnType": "monster"
+      }
+    ]
+  }
+}

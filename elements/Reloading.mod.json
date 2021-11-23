@@ -1,0 +1,35 @@
+{
+  "_fv": 24,
+  "_type": "enchantment",
+  "definition": {
+    "name": "Reloading",
+    "type": "WEAPON",
+    "rarity": "UNCOMMON",
+    "minLevel": 1,
+    "maxLevel": 3,
+    "damageModifier": 0,
+    "compatibleEnchantments": [],
+    "compatibleItems": [
+      {
+        "value": "CUSTOM:Minigun"
+      },
+      {
+        "value": "CUSTOM:Pistol"
+      },
+      {
+        "value": "CUSTOM:GrenadeLauncher"
+      },
+      {
+        "value": "CUSTOM:SniperRifile"
+      },
+      {
+        "value": "CUSTOM:Rifle"
+      }
+    ],
+    "isTreasureEnchantment": false,
+    "isCurse": false,
+    "isAllowedOnBooks": true,
+    "canGenerateInLootTables": true,
+    "canVillagerTrade": true
+  }
+}

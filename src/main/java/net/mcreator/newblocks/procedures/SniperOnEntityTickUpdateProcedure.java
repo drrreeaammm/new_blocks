@@ -1,8 +1,16 @@
 package net.mcreator.newblocks.procedures;
 
+import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.Vector2f;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.command.ICommandSource;
+import net.minecraft.command.CommandSource;
 
 import net.mcreator.newblocks.entity.TankEntity;
 import net.mcreator.newblocks.NewBlocksMod;
@@ -68,6 +76,48 @@ public class SniperOnEntityTickUpdateProcedure {
 					entityiterator.getPersistentData().putDouble("armyRiding", 1);
 				} else {
 					entityiterator.getPersistentData().putDouble("armyRiding", 0);
+				}
+			}
+		}
+		if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) < 8)) {
+			if ((Math.random() < 0.7)) {
+				if ((Math.random() < 0.7)) {
+					if ((Math.random() < 0.7)) {
+						if ((Math.random() < 0.7)) {
+							if ((Math.random() < 0.7)) {
+								if ((Math.random() < 0.7)) {
+									if ((Math.random() < 0.7)) {
+										if ((Math.random() < 0.7)) {
+											if ((Math.random() < 0.7)) {
+												if ((Math.random() < 0.7)) {
+													if ((Math.random() < 0.7)) {
+														if ((Math.random() < 0.7)) {
+															if ((Math.random() < 0.7)) {
+																if ((Math.random() < 0.7)) {
+																	if ((!((entity.getPersistentData().getDouble("canPotion")) == 1))) {
+																		if (world instanceof ServerWorld) {
+																			((World) world).getServer().getCommandManager()
+																					.handleCommand(new CommandSource(ICommandSource.DUMMY,
+																							new Vector3d(x, y, z), Vector2f.ZERO, (ServerWorld) world,
+																							4, "", new StringTextComponent(
+																									""),
+																							((World) world).getServer(), null).withFeedbackDisabled(),
+																							"summon potion ~ ~3 ~ {Item:{id:\"minecraft:splash_potion\",Count:1b,tag:{Potion:\"minecraft:long_strength\",Enchantments:[{}]}}}");
+																		}
+																		entity.getPersistentData().putDouble("canPotion", 1);
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}

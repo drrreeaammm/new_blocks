@@ -28,6 +28,9 @@
     },
     "onEntityHitWith": {
       "name": "ThunderbladeLivingEntityIsHitWithTool"
+    },
+    "onEntitySwing": {
+      "name": "ThunderbladeEntitySwingsItem"
     }
   }
 }

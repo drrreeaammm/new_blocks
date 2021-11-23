@@ -13,7 +13,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.enchantment.EnchantmentHelper;
 
+import net.mcreator.newblocks.enchantment.ReloadingEnchantment;
 import net.mcreator.newblocks.NewBlocksMod;
 
 import java.util.Map;
@@ -56,39 +58,158 @@ public class PistolRangedItemUsedProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (entity instanceof PlayerEntity)
-			((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 15);
-		new Object() {
-			private int ticks = 0;
-			private float waitTicks;
-			private IWorld world;
-			public void start(IWorld world, int waitTicks) {
-				this.waitTicks = waitTicks;
-				MinecraftForge.EVENT_BUS.register(this);
-				this.world = world;
-			}
-
-			@SubscribeEvent
-			public void tick(TickEvent.ServerTickEvent event) {
-				if (event.phase == TickEvent.Phase.END) {
-					this.ticks += 1;
-					if (this.ticks >= this.waitTicks)
-						run();
+		if ((!((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack)) != 0)))) {
+			if (entity instanceof PlayerEntity)
+				((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 15);
+			new Object() {
+				private int ticks = 0;
+				private float waitTicks;
+				private IWorld world;
+				public void start(IWorld world, int waitTicks) {
+					this.waitTicks = waitTicks;
+					MinecraftForge.EVENT_BUS.register(this);
+					this.world = world;
 				}
-			}
 
-			private void run() {
-				if (world instanceof World && !world.isRemote()) {
-					((World) world).playSound(null, new BlockPos((int) x, (int) y, (int) z),
-							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:sniper_reload")),
-							SoundCategory.NEUTRAL, (float) 1, (float) 1);
-				} else {
-					((World) world).playSound(x, y, z,
-							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:sniper_reload")),
-							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+				@SubscribeEvent
+				public void tick(TickEvent.ServerTickEvent event) {
+					if (event.phase == TickEvent.Phase.END) {
+						this.ticks += 1;
+						if (this.ticks >= this.waitTicks)
+							run();
+					}
 				}
-				MinecraftForge.EVENT_BUS.unregister(this);
-			}
-		}.start(world, (int) 10);
+
+				private void run() {
+					if (world instanceof World && !world.isRemote()) {
+						((World) world)
+								.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+												.getValue(new ResourceLocation("new_blocks:sniper_reload")),
+										SoundCategory.NEUTRAL, (float) 1, (float) 1);
+					} else {
+						((World) world).playSound(x, y, z,
+								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+										.getValue(new ResourceLocation("new_blocks:sniper_reload")),
+								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+					}
+					MinecraftForge.EVENT_BUS.unregister(this);
+				}
+			}.start(world, (int) 10);
+		} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 1)) {
+			if (entity instanceof PlayerEntity)
+				((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 12);
+			new Object() {
+				private int ticks = 0;
+				private float waitTicks;
+				private IWorld world;
+				public void start(IWorld world, int waitTicks) {
+					this.waitTicks = waitTicks;
+					MinecraftForge.EVENT_BUS.register(this);
+					this.world = world;
+				}
+
+				@SubscribeEvent
+				public void tick(TickEvent.ServerTickEvent event) {
+					if (event.phase == TickEvent.Phase.END) {
+						this.ticks += 1;
+						if (this.ticks >= this.waitTicks)
+							run();
+					}
+				}
+
+				private void run() {
+					if (world instanceof World && !world.isRemote()) {
+						((World) world)
+								.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+												.getValue(new ResourceLocation("new_blocks:sniper_reload")),
+										SoundCategory.NEUTRAL, (float) 1, (float) 1);
+					} else {
+						((World) world).playSound(x, y, z,
+								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+										.getValue(new ResourceLocation("new_blocks:sniper_reload")),
+								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+					}
+					MinecraftForge.EVENT_BUS.unregister(this);
+				}
+			}.start(world, (int) 8);
+		} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 2)) {
+			if (entity instanceof PlayerEntity)
+				((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 8);
+			new Object() {
+				private int ticks = 0;
+				private float waitTicks;
+				private IWorld world;
+				public void start(IWorld world, int waitTicks) {
+					this.waitTicks = waitTicks;
+					MinecraftForge.EVENT_BUS.register(this);
+					this.world = world;
+				}
+
+				@SubscribeEvent
+				public void tick(TickEvent.ServerTickEvent event) {
+					if (event.phase == TickEvent.Phase.END) {
+						this.ticks += 1;
+						if (this.ticks >= this.waitTicks)
+							run();
+					}
+				}
+
+				private void run() {
+					if (world instanceof World && !world.isRemote()) {
+						((World) world)
+								.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+												.getValue(new ResourceLocation("new_blocks:sniper_reload")),
+										SoundCategory.NEUTRAL, (float) 1, (float) 1);
+					} else {
+						((World) world).playSound(x, y, z,
+								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+										.getValue(new ResourceLocation("new_blocks:sniper_reload")),
+								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+					}
+					MinecraftForge.EVENT_BUS.unregister(this);
+				}
+			}.start(world, (int) 6);
+		} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 3)) {
+			if (entity instanceof PlayerEntity)
+				((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 4);
+			new Object() {
+				private int ticks = 0;
+				private float waitTicks;
+				private IWorld world;
+				public void start(IWorld world, int waitTicks) {
+					this.waitTicks = waitTicks;
+					MinecraftForge.EVENT_BUS.register(this);
+					this.world = world;
+				}
+
+				@SubscribeEvent
+				public void tick(TickEvent.ServerTickEvent event) {
+					if (event.phase == TickEvent.Phase.END) {
+						this.ticks += 1;
+						if (this.ticks >= this.waitTicks)
+							run();
+					}
+				}
+
+				private void run() {
+					if (world instanceof World && !world.isRemote()) {
+						((World) world)
+								.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+										(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+												.getValue(new ResourceLocation("new_blocks:sniper_reload")),
+										SoundCategory.NEUTRAL, (float) 1, (float) 1);
+					} else {
+						((World) world).playSound(x, y, z,
+								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+										.getValue(new ResourceLocation("new_blocks:sniper_reload")),
+								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+					}
+					MinecraftForge.EVENT_BUS.unregister(this);
+				}
+			}.start(world, (int) 2);
+		}
 	}
 }

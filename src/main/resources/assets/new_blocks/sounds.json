@@ -838,5 +838,14 @@
         "stream": false
       }
     ]
+  },
+  "wrench_turn": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "new_blocks:wrench_turn",
+        "stream": false
+      }
+    ]
   }
 }

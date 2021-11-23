@@ -23,34 +23,22 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.merchant.villager.WanderingTraderEntity;
-import net.minecraft.entity.merchant.villager.VillagerEntity;
-import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
-import net.minecraft.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.CreatureAttribute;
 
 import net.mcreator.newblocks.procedures.TankOnEntityTickUpdateProcedure;
-import net.mcreator.newblocks.procedures.IfItEquelsThenLetRideProcedure;
-import net.mcreator.newblocks.item.GrenadeLauncherItem;
 import net.mcreator.newblocks.entity.renderer.TankRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
 import java.util.Map;
 import java.util.HashMap;
-
-import com.google.common.collect.ImmutableMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class TankEntity extends NewBlocksModElements.ModElement {
@@ -85,7 +73,7 @@ public class TankEntity extends NewBlocksModElements.ModElement {
 		}
 	}
 
-	public static class CustomEntity extends MonsterEntity implements IRangedAttackMob {
+	public static class CustomEntity extends MonsterEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -104,126 +92,6 @@ public class TankEntity extends NewBlocksModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-			this.goalSelector.addGoal(1, new WaterAvoidingRandomWalkingGoal(this, 1) {
-				@Override
-				public boolean shouldExecute() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-
-				@Override
-				public boolean shouldContinueExecuting() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-			});
-			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false) {
-				@Override
-				public boolean shouldExecute() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-
-				@Override
-				public boolean shouldContinueExecuting() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-			});
-			this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, false) {
-				@Override
-				public boolean shouldExecute() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-
-				@Override
-				public boolean shouldContinueExecuting() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-			});
-			this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, VillagerEntity.class, false, false) {
-				@Override
-				public boolean shouldExecute() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-
-				@Override
-				public boolean shouldContinueExecuting() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-			});
-			this.targetSelector.addGoal(5, new NearestAttackableTargetGoal(this, WanderingTraderEntity.class, false, false) {
-				@Override
-				public boolean shouldExecute() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-
-				@Override
-				public boolean shouldContinueExecuting() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-			});
-			this.targetSelector.addGoal(6, new NearestAttackableTargetGoal(this, GolemEntity.class, false, false) {
-				@Override
-				public boolean shouldExecute() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-
-				@Override
-				public boolean shouldContinueExecuting() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && IfItEquelsThenLetRideProcedure.executeProcedure(ImmutableMap.of("entity", entity));
-				}
-			});
-			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 20, 10) {
-				@Override
-				public boolean shouldContinueExecuting() {
-					return this.shouldExecute();
-				}
-			});
 		}
 
 		@Override
@@ -273,10 +141,6 @@ public class TankEntity extends NewBlocksModElements.ModElement {
 				$_dependencies.put("entity", entity);
 				TankOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
 			}
-		}
-
-		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {
-			GrenadeLauncherItem.shoot(this, target);
 		}
 
 		@Override

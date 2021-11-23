@@ -23,6 +23,9 @@
     "animation": "bow",
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
+    "onRangedItemUsed": {
+      "name": "MinigunRangedItemUsed"
+    },
     "bulletPower": 1.5,
     "bulletDamage": 1.7000000000000002,
     "bulletKnockback": 0,

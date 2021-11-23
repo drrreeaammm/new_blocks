@@ -82,6 +82,6 @@ public class ThunderbladeLivingEntityIsHitWithToolProcedure {
 			}
 		}.start(world, (int) 16);
 		if (sourceentity instanceof LivingEntity)
-			((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.RESISTANCE, (int) 36, (int) 7));
+			((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.RESISTANCE, (int) 20, (int) 7));
 	}
 }
