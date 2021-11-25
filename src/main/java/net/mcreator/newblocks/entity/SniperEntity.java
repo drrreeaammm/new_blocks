@@ -21,8 +21,8 @@ import net.minecraft.item.Item;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.passive.GolemEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.merchant.villager.WanderingTraderEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.ReturnToVillageGoal;
@@ -55,7 +55,7 @@ import java.util.HashMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class SniperEntity extends NewBlocksModElements.ModElement {
-	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
+	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.AMBIENT)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.6f, 2f))
 					.build("sniper").setRegistryName("sniper");
 	public SniperEntity(NewBlocksModElements instance) {
@@ -115,10 +115,10 @@ public class SniperEntity extends NewBlocksModElements.ModElement {
 			this.goalSelector.addGoal(5, new OpenDoorGoal(this, true));
 			this.goalSelector.addGoal(6, new OpenDoorGoal(this, false));
 			this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
-			this.targetSelector.addGoal(8, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
+			this.targetSelector.addGoal(8, new NearestAttackableTargetGoal(this, AllayEntity.CustomEntity.class, false, false));
 			this.goalSelector.addGoal(9, new AvoidEntityGoal(this, PlayerEntity.class, (float) 18, 1.1, 1.3));
 			this.targetSelector.addGoal(10, new NearestAttackableTargetGoal(this, VillagerEntity.class, false, false));
-			this.targetSelector.addGoal(11, new NearestAttackableTargetGoal(this, WanderingTraderEntity.class, false, false));
+			this.targetSelector.addGoal(11, new NearestAttackableTargetGoal(this, ZombieEntity.class, false, false));
 			this.targetSelector.addGoal(12, new NearestAttackableTargetGoal(this, GolemEntity.class, false, false));
 			this.goalSelector.addGoal(13, new SwimGoal(this));
 			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 20, 10) {

@@ -40,6 +40,8 @@ public class ShadowBiome extends NewBlocksModElements.ModElement {
 			if (biome == null) {
 				BiomeAmbience effects = new BiomeAmbience.Builder().setFogColor(-15265769).setWaterColor(-15331050).setWaterFogColor(-14870755)
 						.withSkyColor(-15265769).withFoliageColor(-15595757).withGrassColor(-14938340)
+						.setAmbientSound((net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+								.getValue(new ResourceLocation("ambient.warped_forest.loop")))
 						.setMoodSound(new MoodSoundAmbience(
 								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:shulk_disc")),
 								8000, 8, 2))

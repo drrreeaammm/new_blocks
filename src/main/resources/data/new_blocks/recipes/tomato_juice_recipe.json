@@ -1,0 +1,34 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "new_blocks:tomato"
+    },
+    {
+      "item": "new_blocks:tomato"
+    },
+    {
+      "item": "new_blocks:tomato"
+    },
+    {
+      "item": "new_blocks:tomato"
+    },
+    {
+      "item": "new_blocks:tomato"
+    },
+    {
+      "item": "new_blocks:tomato"
+    },
+    {
+      "item": "new_blocks:tomato_seeds"
+    },
+    {
+      "item": "new_blocks:empty_tomato_juice_bottle"
+    }
+  ],
+  "result": {
+    "item": "new_blocks:tomato_juice",
+    "count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "new_blocks:tomato"
+    }
+  ],
+  "result": {
+    "item": "new_blocks:tomato_seeds",
+    "count": 2
+  }
+}

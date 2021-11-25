@@ -1,0 +1,26 @@
+{
+  "_fv": 24,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "tomato_juice",
+    "customModelName": "Normal",
+    "name": "Tomato Juice",
+    "rarity": "COMMON",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "FOOD"
+    },
+    "stackSize": 6,
+    "nutritionalValue": 7,
+    "saturation": 0.9,
+    "eatingSpeed": 30,
+    "resultItem": {
+      "value": "CUSTOM:EmptyTomatoJuiceBottle"
+    },
+    "forDogs": false,
+    "isAlwaysEdible": false,
+    "animation": "drink",
+    "hasGlow": false
+  }
+}

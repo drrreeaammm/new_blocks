@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "new_blocks:blocks/lettuce_crop_stage3",
+    "particle": "new_blocks:blocks/lettuce_crop_stage3"
+  }
+}

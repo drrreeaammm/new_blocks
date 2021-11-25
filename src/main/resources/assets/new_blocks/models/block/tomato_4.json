@@ -1,0 +1,7 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "new_blocks:blocks/tomato_crop_stage4",
+    "particle": "new_blocks:blocks/tomato_crop_stage4"
+  }
+}

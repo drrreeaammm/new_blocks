@@ -1,0 +1,29 @@
+{
+  "_fv": 24,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "54f9583174d71_-_heinz-ketchup-bottle",
+    "customModelName": "Normal",
+    "name": "Ketchup Bottle",
+    "rarity": "COMMON",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "FOOD"
+    },
+    "stackSize": 6,
+    "nutritionalValue": 14,
+    "saturation": 4.0,
+    "eatingSpeed": 65,
+    "resultItem": {
+      "value": ""
+    },
+    "forDogs": true,
+    "isAlwaysEdible": true,
+    "animation": "drink",
+    "hasGlow": false,
+    "onEaten": {
+      "name": "KetchupBottleFoodEaten"
+    }
+  }
+}

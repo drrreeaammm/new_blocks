@@ -1,0 +1,12 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:smelting",
+  "experience": 1,
+  "cookingtime": 140,
+  "ingredient": {
+    "item": "new_blocks:lettuce"
+  },
+  "result": {
+    "item": "new_blocks:cooked_lettuce"
+  }
+}
