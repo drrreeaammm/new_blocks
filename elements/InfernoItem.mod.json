@@ -1,0 +1,21 @@
+{
+  "_fv": 24,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Inferno Potion",
+    "splashName": "Splash Inferno Potion",
+    "lingeringName": "Lingering Inferno Potion",
+    "arrowName": "Arrow of Inferno",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:Inferno"
+        },
+        "duration": 4800,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

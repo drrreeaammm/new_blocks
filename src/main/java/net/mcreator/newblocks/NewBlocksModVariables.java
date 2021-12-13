@@ -73,6 +73,10 @@ public class NewBlocksModVariables {
 		public boolean pushing = false;
 		public double varX = 0;
 		public double varZ = 0;
+		public double ReturnXValue = 0.0;
+		public double ReturnYValue = 0.0;
+		public double ReturnZValue = 0.0;
+		public boolean IsBattleEffectOn = false;
 		public WorldVariables() {
 			super(DATA_NAME);
 		}
@@ -87,6 +91,10 @@ public class NewBlocksModVariables {
 			pushing = nbt.getBoolean("pushing");
 			varX = nbt.getDouble("varX");
 			varZ = nbt.getDouble("varZ");
+			ReturnXValue = nbt.getDouble("ReturnXValue");
+			ReturnYValue = nbt.getDouble("ReturnYValue");
+			ReturnZValue = nbt.getDouble("ReturnZValue");
+			IsBattleEffectOn = nbt.getBoolean("IsBattleEffectOn");
 		}
 
 		@Override
@@ -95,6 +103,10 @@ public class NewBlocksModVariables {
 			nbt.putBoolean("pushing", pushing);
 			nbt.putDouble("varX", varX);
 			nbt.putDouble("varZ", varZ);
+			nbt.putDouble("ReturnXValue", ReturnXValue);
+			nbt.putDouble("ReturnYValue", ReturnYValue);
+			nbt.putDouble("ReturnZValue", ReturnZValue);
+			nbt.putBoolean("IsBattleEffectOn", IsBattleEffectOn);
 			return nbt;
 		}
 
@@ -212,25 +224,25 @@ public class NewBlocksModVariables {
 		@Override
 		public INBT writeNBT(Capability<PlayerVariables> capability, PlayerVariables instance, Direction side) {
 			CompoundNBT nbt = new CompoundNBT();
-			nbt.putDouble("dash", instance.dash);
 			nbt.putDouble("lavawalking", instance.lavawalking);
 			nbt.putBoolean("Detecting", instance.Detecting);
+			nbt.putDouble("mana", instance.mana);
 			return nbt;
 		}
 
 		@Override
 		public void readNBT(Capability<PlayerVariables> capability, PlayerVariables instance, Direction side, INBT inbt) {
 			CompoundNBT nbt = (CompoundNBT) inbt;
-			instance.dash = nbt.getDouble("dash");
 			instance.lavawalking = nbt.getDouble("lavawalking");
 			instance.Detecting = nbt.getBoolean("Detecting");
+			instance.mana = nbt.getDouble("mana");
 		}
 	}
 
 	public static class PlayerVariables {
-		public double dash = 0.0;
 		public double lavawalking = 0;
 		public boolean Detecting = false;
+		public double mana = 0.0;
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				NewBlocksMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
@@ -266,7 +278,7 @@ public class NewBlocksModVariables {
 		clone.lavawalking = original.lavawalking;
 		clone.Detecting = original.Detecting;
 		if (!event.isWasDeath()) {
-			clone.dash = original.dash;
+			clone.mana = original.mana;
 		}
 	}
 	public static class PlayerVariablesSyncMessage {
@@ -290,9 +302,9 @@ public class NewBlocksModVariables {
 				if (!context.getDirection().getReceptionSide().isServer()) {
 					PlayerVariables variables = ((PlayerVariables) Minecraft.getInstance().player.getCapability(PLAYER_VARIABLES_CAPABILITY, null)
 							.orElse(new PlayerVariables()));
-					variables.dash = message.data.dash;
 					variables.lavawalking = message.data.lavawalking;
 					variables.Detecting = message.data.Detecting;
+					variables.mana = message.data.mana;
 				}
 			});
 			context.setPacketHandled(true);

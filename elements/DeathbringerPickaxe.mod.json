@@ -1,0 +1,30 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "deathbringer_pickaxe",
+    "customModelName": "Normal",
+    "name": "Deathbringer Pickaxe",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Pickaxe",
+    "harvestLevel": 4,
+    "efficiency": 14.0,
+    "attackSpeed": 1.1500000000000001,
+    "enchantability": 13,
+    "damageVsEntity": 4.5,
+    "usageCount": 3465,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "BloodButchererLivingEntityIsHitWithTool"
+    }
+  }
+}

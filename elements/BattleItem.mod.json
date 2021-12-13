@@ -1,0 +1,21 @@
+{
+  "_fv": 24,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Battle Potion",
+    "splashName": "Splash Battle Potion",
+    "lingeringName": "Lingering Battle Potion",
+    "arrowName": "Arrow of Battling",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:Battle"
+        },
+        "duration": 9000,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

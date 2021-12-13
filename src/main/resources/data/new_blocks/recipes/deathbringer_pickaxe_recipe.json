@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_pickaxe"
+  },
+  "addition": {
+    "item": "new_blocks:crimson_star"
+  },
+  "result": {
+    "item": "new_blocks:deathbringer_pickaxe"
+  }
+}

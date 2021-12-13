@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/quicksand_bottom_side",
+    "up": "new_blocks:blocks/quicksand_top",
+    "north": "new_blocks:blocks/quicksand_top",
+    "east": "new_blocks:blocks/quicksand_top",
+    "south": "new_blocks:blocks/quicksand_top",
+    "west": "new_blocks:blocks/quicksand_top",
+    "particle": "new_blocks:blocks/quicksand_bottom_side"
+  }
+}

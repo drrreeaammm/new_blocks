@@ -1,0 +1,30 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "flesh_grinder",
+    "customModelName": "Normal",
+    "name": "Flesh Grinder",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Spade",
+    "harvestLevel": 4,
+    "efficiency": 14.0,
+    "attackSpeed": 1.2000000000000002,
+    "enchantability": 13,
+    "damageVsEntity": 4.5,
+    "usageCount": 3465,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "BloodButchererLivingEntityIsHitWithTool"
+    }
+  }
+}

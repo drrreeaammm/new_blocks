@@ -173,6 +173,7 @@ public class ElectricSpiderEntity extends NewBlocksModElements.ModElement {
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
 				ElectricSpiderOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
 			}
 		}

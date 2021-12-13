@@ -1,0 +1,30 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "vilethorn",
+    "customModelName": "Normal",
+    "name": "Vilethorn",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 1,
+    "efficiency": 4.0,
+    "attackSpeed": 1.2000000000000002,
+    "enchantability": 2,
+    "damageVsEntity": 2.0,
+    "usageCount": 1561,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onRightClickedInAir": {
+      "name": "VilethornRightClickedInAir"
+    }
+  }
+}

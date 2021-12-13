@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "addition": {
+    "item": "new_blocks:crimson_star"
+  },
+  "result": {
+    "item": "new_blocks:flesh_grinder"
+  }
+}

@@ -2,13 +2,13 @@
   "_fv": 24,
   "_type": "plant",
   "definition": {
-    "renderType": 12,
+    "renderType": 120,
     "texture": "lettuce_crop_stage1",
     "textureBottom": "",
     "customModelName": "Cross model",
     "itemTexture": "lettuce_seed",
     "particleTexture": "",
-    "tintType": "No tint",
+    "tintType": "Foliage",
     "isItemTinted": false,
     "plantType": "normal",
     "staticPlantGenerationType": "Flower",
@@ -80,12 +80,30 @@
     "canBePlacedOn": [
       {
         "value": "Blocks.FARMLAND"
+      },
+      {
+        "value": "Blocks.GRASS"
       }
     ],
-    "frequencyOnChunks": 5,
-    "spawnWorldTypes": [],
-    "restrictionBiomes": [],
-    "patchSize": 64,
+    "frequencyOnChunks": 4,
+    "spawnWorldTypes": [
+      "Surface"
+    ],
+    "restrictionBiomes": [
+      {
+        "value": "birch_forest"
+      },
+      {
+        "value": "birch_forest_hills"
+      },
+      {
+        "value": "plains"
+      },
+      {
+        "value": "swamp"
+      }
+    ],
+    "patchSize": 17,
     "onTickUpdate": {
       "name": "Lettuce1UpdateTick"
     }

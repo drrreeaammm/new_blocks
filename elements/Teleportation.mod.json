@@ -1,0 +1,20 @@
+{
+  "_fv": 24,
+  "_type": "potioneffect",
+  "definition": {
+    "effectName": "Teleportation",
+    "icon": "allay.png",
+    "color": {
+      "value": -1805825,
+      "falpha": 0.0
+    },
+    "isInstant": true,
+    "isBad": true,
+    "isBenefitical": true,
+    "renderStatusInInventory": false,
+    "renderStatusInHUD": false,
+    "onStarted": {
+      "name": "TeleportationEffectStartedapplied"
+    }
+  }
+}

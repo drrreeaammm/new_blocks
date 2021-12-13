@@ -2,13 +2,13 @@
   "_fv": 24,
   "_type": "plant",
   "definition": {
-    "renderType": 12,
+    "renderType": 120,
     "texture": "lettuce_crop_stage3",
     "textureBottom": "",
     "customModelName": "Cross model",
     "itemTexture": "lettuce_seed",
     "particleTexture": "",
-    "tintType": "No tint",
+    "tintType": "Foliage",
     "isItemTinted": false,
     "plantType": "normal",
     "staticPlantGenerationType": "Flower",
@@ -77,7 +77,14 @@
     "fireSpreadSpeed": 60,
     "jumpFactor": 1.0,
     "speedFactor": 1.0,
-    "canBePlacedOn": [],
+    "canBePlacedOn": [
+      {
+        "value": "Blocks.FARMLAND"
+      },
+      {
+        "value": "Blocks.GRASS"
+      }
+    ],
     "frequencyOnChunks": 5,
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

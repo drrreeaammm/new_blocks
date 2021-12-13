@@ -2,14 +2,19 @@
 package net.mcreator.newblocks.block;
 
 import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.common.PlantType;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.biome.BiomeColors;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.FoliageColors;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -45,6 +50,7 @@ public class Lettuce2Block extends NewBlocksModElements.ModElement {
 	public static final Block block = null;
 	public Lettuce2Block(NewBlocksModElements instance) {
 		super(instance, 1227);
+		FMLJavaModLoadingContext.get().getModEventBus().register(new BlockColorRegisterHandler());
 	}
 
 	@Override
@@ -58,6 +64,16 @@ public class Lettuce2Block extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+	private static class BlockColorRegisterHandler {
+		@OnlyIn(Dist.CLIENT)
+		@SubscribeEvent
+		public void blockColorLoad(ColorHandlerEvent.Block event) {
+			event.getBlockColors().register((bs, world, pos, index) -> {
+				return world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getDefault();
+			}, block);
+		}
+	}
+
 	public static class BlockCustomFlower extends FlowerBlock {
 		public BlockCustomFlower() {
 			super(Effects.SPEED, 5, Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.CROP)
@@ -92,7 +108,7 @@ public class Lettuce2Block extends NewBlocksModElements.ModElement {
 		@Override
 		public boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 			Block ground = state.getBlock();
-			return (ground == Blocks.FARMLAND);
+			return (ground == Blocks.FARMLAND || ground == Blocks.GRASS_BLOCK);
 		}
 
 		@Override

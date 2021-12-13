@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "meowmereprojecticle",
+    "customModelName": "Normal",
+    "name": "Meowmere Ranged",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": false,
+    "usageCount": 100,
+    "actionSound": {
+      "value": "CUSTOM:meowmere_meow"
+    },
+    "hasGlow": false,
+    "animation": "none",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 1.0,
+    "bulletDamage": 3.5,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:Cat"
+    },
+    "bulletModel": "Default",
+    "customBulletModelTexture": "",
+    "onBulletHitsBlock": {
+      "name": "MeowmereRangedBulletHitsBlock"
+    },
+    "onBulletHitsEntity": {
+      "name": "MeowmereRangedBulletHitsLivingEntity"
+    },
+    "onBulletFlyingTick": {
+      "name": "MeowmereRangedWhileBulletFlyingTick"
+    }
+  }
+}

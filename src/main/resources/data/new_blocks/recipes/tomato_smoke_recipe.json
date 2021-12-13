@@ -1,0 +1,12 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:smoking",
+  "experience": 1,
+  "cookingtime": 90,
+  "ingredient": {
+    "item": "new_blocks:tomato"
+  },
+  "result": {
+    "item": "new_blocks:cooked_tomato"
+  }
+}

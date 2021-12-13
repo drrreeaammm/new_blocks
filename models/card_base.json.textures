@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "2": "card_3_diamonds",
+        "3": "card_cover_black"
+      },
+      "name": "default"
+    }
+  }
+}

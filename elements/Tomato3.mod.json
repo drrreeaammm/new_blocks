@@ -89,7 +89,20 @@
     "spawnWorldTypes": [
       "Surface"
     ],
-    "restrictionBiomes": [],
+    "restrictionBiomes": [
+      {
+        "value": "plains"
+      },
+      {
+        "value": "forest"
+      },
+      {
+        "value": "forest_hills"
+      },
+      {
+        "value": "birch_forest"
+      }
+    ],
     "patchSize": 8,
     "onTickUpdate": {
       "name": "Tomato3UpdateTick"

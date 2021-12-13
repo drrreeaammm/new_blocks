@@ -1,0 +1,37 @@
+{
+  "_fv": 24,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 1,
+    "texture": "troll",
+    "customModelName": "card_base:default",
+    "name": "Card",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "COMBAT"
+    },
+    "stackSize": 32,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": false,
+    "usageCount": 0,
+    "actionSound": {
+      "value": ""
+    },
+    "hasGlow": false,
+    "animation": "spear",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 0.88,
+    "bulletDamage": 1.2999999999999998,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": ""
+    },
+    "bulletModel": "Modelcard_base",
+    "customBulletModelTexture": "card_base.png"
+  }
+}

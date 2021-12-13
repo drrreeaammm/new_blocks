@@ -847,5 +847,35 @@
         "stream": false
       }
     ]
+  },
+  "recall_potion_teleport": {
+    "category": "player",
+    "subtitle": "subtitles.recall_potion_teleport",
+    "sounds": [
+      {
+        "name": "new_blocks:recall_potion_teleport",
+        "stream": false
+      }
+    ]
+  },
+  "meowmere_meow": {
+    "category": "player",
+    "subtitle": "subtitles.meowmere_meow",
+    "sounds": [
+      {
+        "name": "new_blocks:cat_meow",
+        "stream": false
+      }
+    ]
+  },
+  "weak_magic_shoot": {
+    "category": "player",
+    "subtitle": "subtitles.weak_magic_shoot",
+    "sounds": [
+      {
+        "name": "new_blocks:weak_magic",
+        "stream": false
+      }
+    ]
   }
 }

@@ -1,0 +1,43 @@
+{
+  "_fv": 24,
+  "_type": "rangeditem",
+  "definition": {
+    "renderType": 0,
+    "texture": "portal_gun",
+    "customModelName": "Normal",
+    "name": "Portal Gun",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "COMBAT"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": false,
+    "usageCount": 32,
+    "actionSound": {
+      "value": "CUSTOM:recall_potion_teleport"
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "onRangedItemUsed": {
+      "name": "PortalGunRangedItemUsed"
+    },
+    "onEntitySwing": {
+      "name": "PortalGunEntitySwingsItem"
+    },
+    "bulletPower": 0.9,
+    "bulletDamage": 0.0,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:Portal"
+    },
+    "bulletModel": "Default",
+    "customBulletModelTexture": ""
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "group": "new_blocks",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1",
+    "2 "
+  ],
+  "key": {
+    "1": {
+      "item": "new_blocks:brittle_wand"
+    },
+    "2": {
+      "item": "new_blocks:basic_wand_handle"
+    }
+  },
+  "result": {
+    "item": "new_blocks:handled_wand",
+    "count": 1
+  }
+}

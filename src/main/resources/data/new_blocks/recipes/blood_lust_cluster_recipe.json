@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_axe"
+  },
+  "addition": {
+    "item": "new_blocks:crimson_star"
+  },
+  "result": {
+    "item": "new_blocks:blood_lust_cluster"
+  }
+}

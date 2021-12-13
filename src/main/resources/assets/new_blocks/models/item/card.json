@@ -1,0 +1,8 @@
+{
+  "parent": "new_blocks:custom/card_base",
+  "textures": {
+    "2": "new_blocks:blocks/card_3_diamonds",
+    "3": "new_blocks:blocks/card_cover_black",
+    "particle": "new_blocks:items/troll"
+  }
+}

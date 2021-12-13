@@ -6,12 +6,15 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
+import net.minecraft.world.IWorldReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Direction;
 import net.minecraft.loot.LootContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
@@ -20,14 +23,18 @@ import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
+import net.mcreator.newblocks.procedures.SporeBlossomBlockValidPlacementConditionProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
 import java.util.List;
 import java.util.Collections;
+
+import com.google.common.collect.ImmutableMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class SporeBlossomBlock extends NewBlocksModElements.ModElement {
@@ -69,6 +76,26 @@ public class SporeBlossomBlock extends NewBlocksModElements.ModElement {
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
 			return VoxelShapes.or(makeCuboidShape(0, 15, 0, 16, 16, 16)).withOffset(offset.x, offset.y, offset.z);
+		}
+
+		@Override
+		public boolean isValidPosition(BlockState blockstate, IWorldReader worldIn, BlockPos pos) {
+			if (worldIn instanceof IWorld) {
+				IWorld world = (IWorld) worldIn;
+				int x = pos.getX();
+				int y = pos.getY();
+				int z = pos.getZ();
+				return SporeBlossomBlockValidPlacementConditionProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+			}
+			return super.isValidPosition(blockstate, worldIn, pos);
+		}
+
+		@Override
+		public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld world, BlockPos currentPos,
+				BlockPos facingPos) {
+			return !state.isValidPosition(world, currentPos)
+					? Blocks.AIR.getDefaultState()
+					: super.updatePostPlacement(state, facing, facingState, world, currentPos, facingPos);
 		}
 
 		@Override

@@ -1,0 +1,41 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "meowmere",
+    "customModelName": "Normal",
+    "name": "Meowmere",
+    "specialInfo": [
+      "Meow."
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:Newblocks"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 1,
+    "efficiency": 4.0,
+    "attackSpeed": 2.8000000000000003,
+    "enchantability": 0,
+    "damageVsEntity": 6.0,
+    "usageCount": 4638,
+    "blocksAffected": [],
+    "hasGlow": true,
+    "glowCondition": {
+      "name": "MeowmereMakeItemGlow"
+    },
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onRightClickedInAir": {
+      "name": "MeowmereRightClickedInAir"
+    },
+    "onEntityHitWith": {
+      "name": "MeowmereLivingEntityIsHitWithTool"
+    },
+    "onEntitySwing": {
+      "name": "MeowmereEntitySwingsItem"
+    }
+  }
+}
