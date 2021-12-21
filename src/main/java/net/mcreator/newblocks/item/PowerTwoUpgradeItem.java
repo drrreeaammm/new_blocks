@@ -17,6 +17,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class PowerTwoUpgradeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:power_two_upgrade")
 	public static final Item block = null;
+
 	public PowerTwoUpgradeItem(NewBlocksModElements instance) {
 		super(instance, 225);
 	}
@@ -25,6 +26,7 @@ public class PowerTwoUpgradeItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));

@@ -15,10 +15,13 @@ import net.minecraft.client.Minecraft;
 
 import net.mcreator.newblocks.procedures.DarknessOverlayDisplayOverlayIngameProcedure;
 
+import java.util.stream.Stream;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
+
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.platform.GlStateManager;
-
-import com.google.common.collect.ImmutableMap;
 
 @Mod.EventBusSubscriber
 public class DarknessOverlayOverlay {
@@ -51,13 +54,16 @@ public class DarknessOverlayOverlay {
 					GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
 			RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 			RenderSystem.disableAlphaTest();
-			if (DarknessOverlayDisplayOverlayIngameProcedure.executeProcedure(ImmutableMap.of("entity", entity))) {
+			if (DarknessOverlayDisplayOverlayIngameProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("new_blocks:textures/darkness_overlay.png"));
 				Minecraft.getInstance().ingameGUI.blit(event.getMatrixStack(), 0, 0, 0, 0, w, h, w, h);
 				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("new_blocks:textures/darkness.png"));
 				Minecraft.getInstance().ingameGUI.blit(event.getMatrixStack(), posX + -207, posY + 23, 0, 0, 90, 90, 90, 90);
+
 				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("new_blocks:textures/darkness.png"));
 				Minecraft.getInstance().ingameGUI.blit(event.getMatrixStack(), posX + 108, posY + -112, 0, 0, 90, 90, 90, 90);
+
 			}
 			RenderSystem.depthMask(true);
 			RenderSystem.enableDepthTest();

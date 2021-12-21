@@ -33,15 +33,18 @@ import net.mcreator.newblocks.procedures.LandmineEntityWalksOnTheBlockProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class LandmineBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:landmine")
 	public static final Block block = null;
+
 	public LandmineBlock(NewBlocksModElements instance) {
 		super(instance, 1155);
 	}
@@ -57,6 +60,7 @@ public class LandmineBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(0.7999999999999999f, 0f).setLightLevel(s -> 0)
@@ -77,7 +81,10 @@ public class LandmineBlock extends NewBlocksModElements.ModElement {
 		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
-			return VoxelShapes.or(makeCuboidShape(2, 0, 2, 14, 1, 14), makeCuboidShape(3, 1, 3, 13, 2, 13), makeCuboidShape(5, 2, 5, 12, 3, 12))
+			return VoxelShapes.or(makeCuboidShape(2, 0, 2, 14, 1, 14), makeCuboidShape(3, 1, 3, 13, 2, 13), makeCuboidShape(5, 2, 5, 12, 3, 12)
+
+			)
+
 					.withOffset(offset.x, offset.y, offset.z);
 		}
 
@@ -111,14 +118,11 @@ public class LandmineBlock extends NewBlocksModElements.ModElement {
 			int y = pos.getY();
 			int z = pos.getZ();
 			if (world.getRedstonePowerFromNeighbors(new BlockPos(x, y, z)) > 0) {
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					LandmineEntityWalksOnTheBlockProcedure.executeProcedure($_dependencies);
-				}
+
+				LandmineEntityWalksOnTheBlockProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			} else {
 			}
 		}
@@ -130,14 +134,11 @@ public class LandmineBlock extends NewBlocksModElements.ModElement {
 			int y = pos.getY();
 			int z = pos.getZ();
 			BlockState blockstate = world.getBlockState(pos);
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				LandmineEntityWalksOnTheBlockProcedure.executeProcedure($_dependencies);
-			}
+
+			LandmineEntityWalksOnTheBlockProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

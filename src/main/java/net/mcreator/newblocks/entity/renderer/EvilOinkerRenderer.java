@@ -21,6 +21,7 @@ public class EvilOinkerRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(EvilOinkerEntity.entity,
 					renderManager -> new MobRenderer(renderManager, new PigModel(), 0.5f) {
+
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
 							return new ResourceLocation("new_blocks:textures/ender-pig-on-planetminecraft-com.png");

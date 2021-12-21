@@ -7,6 +7,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class MeowmereMakeItemGlowProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("itemstack") == null) {
 			if (!dependencies.containsKey("itemstack"))
@@ -14,6 +15,6 @@ public class MeowmereMakeItemGlowProcedure {
 			return false;
 		}
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		return (((itemstack).getOrCreateTag().getDouble("powered")) == 1);
+		return itemstack.getOrCreateTag().getDouble("powered") == 1;
 	}
 }

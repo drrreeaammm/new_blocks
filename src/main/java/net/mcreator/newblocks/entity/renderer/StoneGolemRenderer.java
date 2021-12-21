@@ -34,6 +34,7 @@ public class StoneGolemRenderer {
 					{
 						this.addLayer(new GlowingLayer<>(this));
 					}
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/stone_golem.png");
@@ -66,6 +67,7 @@ public class StoneGolemRenderer {
 		private final ModelRenderer head;
 		private final ModelRenderer right_arm;
 		private final ModelRenderer left_arm;
+
 		public Modelstone_golem() {
 			textureWidth = 256;
 			textureHeight = 256;
@@ -107,10 +109,12 @@ public class StoneGolemRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.left_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 			this.right_arm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
 			this.right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 			this.left_arm.rotateAngleX = MathHelper.cos(f * 0.6662F) * f1;
 		}
 	}
+
 }

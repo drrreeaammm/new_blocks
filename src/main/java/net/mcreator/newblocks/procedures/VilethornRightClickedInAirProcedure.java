@@ -27,15 +27,11 @@ import java.util.List;
 import java.util.Comparator;
 
 public class VilethornRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure VilethornRightClickedInAir!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure VilethornRightClickedInAir!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure VilethornRightClickedInAir!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -53,17 +49,22 @@ public class VilethornRightClickedInAirProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure VilethornRightClickedInAir!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure VilethornRightClickedInAir!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure VilethornRightClickedInAir!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure VilethornRightClickedInAir!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -74,16 +75,16 @@ public class VilethornRightClickedInAirProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if ((!(entityiterator == entity))) {
-					if ((!((entityiterator instanceof TameableEntity && entity instanceof LivingEntity)
+				if (!(entityiterator == entity)) {
+					if (!((entityiterator instanceof TameableEntity && entity instanceof LivingEntity)
 							? ((TameableEntity) entityiterator).isOwner((LivingEntity) entity)
-							: false))) {
+							: false)) {
 						if (entity instanceof PlayerEntity)
-							((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 45);
+							((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 45);
 						world.setBlockState(
 								new BlockPos((int) (entityiterator.getPosX()), (int) (entityiterator.getPosY()), (int) (entityiterator.getPosZ())),
 								ThornsBlock.block.getDefaultState(), 3);
-						world.setBlockState(new BlockPos((int) (entityiterator.getPosX()), (int) ((entityiterator.getPosY()) + 1),
+						world.setBlockState(new BlockPos((int) (entityiterator.getPosX()), (int) (entityiterator.getPosY() + 1),
 								(int) (entityiterator.getPosZ())), ThornsBlock.block.getDefaultState(), 3);
 						if (world instanceof ServerWorld) {
 							Entity entityToSpawn = new EvokerFangsEntity(EntityType.EVOKER_FANGS, (World) world);

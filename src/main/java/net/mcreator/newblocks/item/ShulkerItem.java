@@ -24,8 +24,10 @@ import net.mcreator.newblocks.procedures.ShulkerBodyTickEventProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class ShulkerItem extends NewBlocksModElements.ModElement {
@@ -37,6 +39,7 @@ public class ShulkerItem extends NewBlocksModElements.ModElement {
 	public static final Item legs = null;
 	@ObjectHolder("new_blocks:shulker_boots")
 	public static final Item boots = null;
+
 	public ShulkerItem(NewBlocksModElements instance) {
 		super(instance, 24);
 	}
@@ -97,11 +100,9 @@ public class ShulkerItem extends NewBlocksModElements.ModElement {
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					ShulkerHelmetTickEventProcedure.executeProcedure($_dependencies);
-				}
+
+				ShulkerHelmetTickEventProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("shulker_helmet"));
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.CHEST, new Item.Properties().group(NewblocksItemGroup.tab)) {
@@ -115,11 +116,9 @@ public class ShulkerItem extends NewBlocksModElements.ModElement {
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					ShulkerBodyTickEventProcedure.executeProcedure($_dependencies);
-				}
+
+				ShulkerBodyTickEventProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("shulker_chestplate"));
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.LEGS, new Item.Properties().group(NewblocksItemGroup.tab)) {
@@ -139,12 +138,11 @@ public class ShulkerItem extends NewBlocksModElements.ModElement {
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					ShulkerBootsTickEventProcedure.executeProcedure($_dependencies);
-				}
+
+				ShulkerBootsTickEventProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("shulker_boots"));
 	}
+
 }

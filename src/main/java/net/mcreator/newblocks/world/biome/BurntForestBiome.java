@@ -41,10 +41,12 @@ import net.mcreator.newblocks.NewBlocksModElements;
 @NewBlocksModElements.ModElement.Tag
 public class BurntForestBiome extends NewBlocksModElements.ModElement {
 	public static Biome biome;
+
 	public BurntForestBiome(NewBlocksModElements instance) {
 		super(instance, 1109);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BiomeRegisterHandler());
 	}
+
 	private static class BiomeRegisterHandler {
 		@SubscribeEvent
 		public void registerBiomes(RegistryEvent.Register<Biome> event) {
@@ -61,7 +63,7 @@ public class BurntForestBiome extends NewBlocksModElements.ModElement {
 								.withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()),
 										new SimpleBlockStateProvider(Blocks.OAK_LEAVES.getDefaultState()),
 										new BlobFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 3),
-										new StraightTrunkPlacer(7, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().setMaxWaterDepth(0).build())
+										new StraightTrunkPlacer(7, 2, 0), new TwoLayerFeature(1, 0, 1))).setIgnoreVines().build())
 								.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
 								.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(34, 0.1F, 1))));
 				biomeGenerationSettings.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -91,6 +93,7 @@ public class BurntForestBiome extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 		BiomeManager.addBiome(BiomeManager.BiomeType.WARM,

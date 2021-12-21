@@ -23,7 +23,13 @@ import java.util.Random;
 import java.util.Map;
 
 public class MeowmereEntitySwingsItemProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MeowmereEntitySwingsItem!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure MeowmereEntitySwingsItem!");
@@ -34,29 +40,25 @@ public class MeowmereEntitySwingsItemProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure MeowmereEntitySwingsItem!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MeowmereEntitySwingsItem!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((!(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+		if (!(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 				entity.getEyePosition(1f).add(entity.getLook(1f).x * 0.36, entity.getLook(1f).y * 0.36, entity.getLook(1f).z * 0.36),
-				RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getType() == RayTraceResult.Type.BLOCK))) {
+				RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getType() == RayTraceResult.Type.BLOCK)) {
 			if (entity instanceof LivingEntity) {
 				Entity _ent = entity;
 				if (!_ent.world.isRemote()) {
 					MeowmereRangedItem.shoot(_ent.world, (LivingEntity) entity, new Random(), (float) 1, (float) 3.8, (int) 0.4);
 				}
 			}
-			if ((((itemstack).getOrCreateTag().getDouble("powered")) == 1)) {
-				if ((Math.random() < 0.7)) {
+			if (itemstack.getOrCreateTag().getDouble("powered") == 1) {
+				if (Math.random() < 0.7) {
 					new Object() {
 						private int ticks = 0;
 						private float waitTicks;
 						private IWorld world;
+
 						public void start(IWorld world, int waitTicks) {
 							this.waitTicks = waitTicks;
 							MinecraftForge.EVENT_BUS.register(this);
@@ -84,8 +86,8 @@ public class MeowmereEntitySwingsItemProcedure {
 					}.start(world, (int) 14);
 				}
 			}
-			if ((Math.random() < 0.1)) {
-				(itemstack).getOrCreateTag().putDouble("powered", 1);
+			if (Math.random() < 0.1) {
+				itemstack.getOrCreateTag().putDouble("powered", 1);
 				if (world instanceof World && !world.isRemote()) {
 					((World) world).playSound(null, new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ())),
 							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cat.purr")),
@@ -99,6 +101,7 @@ public class MeowmereEntitySwingsItemProcedure {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -115,7 +118,7 @@ public class MeowmereEntitySwingsItemProcedure {
 					}
 
 					private void run() {
-						(itemstack).getOrCreateTag().putDouble("powered", 0);
+						itemstack.getOrCreateTag().putDouble("powered", 0);
 						if (world instanceof World && !world.isRemote()) {
 							((World) world).playSound(null,
 									new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ())),

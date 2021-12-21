@@ -10,6 +10,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class DivingHelmetBootsTickEventProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -17,7 +18,7 @@ public class DivingHelmetBootsTickEventProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((entity.isInWater())) {
+		if (entity.isInWater()) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.DOLPHINS_GRACE, (int) 100, (int) 0, (false), (false)));
 		}

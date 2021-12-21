@@ -25,6 +25,7 @@ import java.util.Collections;
 public class ChiseledGrimstoneBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:chiseled_grimstone")
 	public static final Block block = null;
+
 	public ChiseledGrimstoneBlock(NewBlocksModElements instance) {
 		super(instance, 805);
 	}
@@ -34,6 +35,7 @@ public class ChiseledGrimstoneBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(3.8000000000000003f, 8.5f).setLightLevel(s -> 0)

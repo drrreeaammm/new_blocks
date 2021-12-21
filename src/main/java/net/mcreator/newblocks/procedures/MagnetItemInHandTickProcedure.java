@@ -21,15 +21,11 @@ import java.util.Comparator;
 import java.util.Collections;
 
 public class MagnetItemInHandTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure MagnetItemInHandTick!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure MagnetItemInHandTick!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MagnetItemInHandTick!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -47,17 +43,22 @@ public class MagnetItemInHandTickProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure MagnetItemInHandTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MagnetItemInHandTick!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure MagnetItemInHandTick!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure MagnetItemInHandTick!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -68,8 +69,8 @@ public class MagnetItemInHandTickProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if ((!(entityiterator == entity))) {
-					if ((entityiterator instanceof ExperienceOrbEntity)) {
+				if (!(entityiterator == entity)) {
+					if (entityiterator instanceof ExperienceOrbEntity) {
 						{
 							Entity _ent = entityiterator;
 							_ent.setPositionAndUpdate((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()));
@@ -78,18 +79,18 @@ public class MagnetItemInHandTickProcedure {
 										_ent.rotationYaw, _ent.rotationPitch, Collections.emptySet());
 							}
 						}
-						if ((!((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstack)) != 0)))) {
-							if ((Math.random() < 0.6)) {
+						if (!(EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstack) != 0)) {
+							if (Math.random() < 0.6) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
-							} else if ((Math.random() < 0.3)) {
+							} else if (Math.random() < 0.3) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 3, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
@@ -97,54 +98,54 @@ public class MagnetItemInHandTickProcedure {
 								}
 							}
 						}
-						if (((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstack))) == 1)) {
-							if ((Math.random() < 0.4)) {
+						if (EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstack) == 1) {
+							if (Math.random() < 0.4) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
-							} else if ((Math.random() < 0.3)) {
+							} else if (Math.random() < 0.3) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 3, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
 							}
-						} else if (((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstack))) == 2)) {
-							if ((Math.random() < 0.3)) {
+						} else if (EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstack) == 2) {
+							if (Math.random() < 0.3) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
-							} else if ((Math.random() < 0.2)) {
+							} else if (Math.random() < 0.2) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 3, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
 							}
-						} else if (((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstack))) == 3)) {
-							if ((Math.random() < 0.2)) {
+						} else if (EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstack) == 3) {
+							if (Math.random() < 0.2) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
-							} else if ((Math.random() < 0.1)) {
+							} else if (Math.random() < 0.1) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 2, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
@@ -152,7 +153,7 @@ public class MagnetItemInHandTickProcedure {
 								}
 							}
 						}
-					} else if ((entityiterator instanceof ItemEntity)) {
+					} else if (entityiterator instanceof ItemEntity) {
 						{
 							Entity _ent = entityiterator;
 							_ent.setPositionAndUpdate((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()));
@@ -161,18 +162,18 @@ public class MagnetItemInHandTickProcedure {
 										_ent.rotationYaw, _ent.rotationPitch, Collections.emptySet());
 							}
 						}
-						if ((!((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstack)) != 0)))) {
-							if ((Math.random() < 0.7)) {
+						if (!(EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstack) != 0)) {
+							if (Math.random() < 0.7) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
-							} else if ((Math.random() < 0.3)) {
+							} else if (Math.random() < 0.3) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 3, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
@@ -180,54 +181,54 @@ public class MagnetItemInHandTickProcedure {
 								}
 							}
 						}
-						if (((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstack))) == 1)) {
-							if ((Math.random() < 0.5)) {
+						if (EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstack) == 1) {
+							if (Math.random() < 0.5) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
-							} else if ((Math.random() < 0.3)) {
+							} else if (Math.random() < 0.3) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 3, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
 							}
-						} else if (((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstack))) == 2)) {
-							if ((Math.random() < 0.3)) {
+						} else if (EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstack) == 2) {
+							if (Math.random() < 0.3) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
-							} else if ((Math.random() < 0.2)) {
+							} else if (Math.random() < 0.2) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 3, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
 							}
-						} else if (((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstack))) == 3)) {
-							if ((Math.random() < 0.2)) {
+						} else if (EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstack) == 3) {
+							if (Math.random() < 0.2) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);
 									}
 								}
-							} else if ((Math.random() < 0.1)) {
+							} else if (Math.random() < 0.1) {
 								{
-									ItemStack _ist = (itemstack);
+									ItemStack _ist = itemstack;
 									if (_ist.attemptDamageItem((int) 2, new Random(), null)) {
 										_ist.shrink(1);
 										_ist.setDamage(0);

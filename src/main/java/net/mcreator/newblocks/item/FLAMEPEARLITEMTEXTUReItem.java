@@ -14,6 +14,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class FLAMEPEARLITEMTEXTUReItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:flamepearlitemtextu_re")
 	public static final Item block = null;
+
 	public FLAMEPEARLITEMTEXTUReItem(NewBlocksModElements instance) {
 		super(instance, 563);
 	}
@@ -22,6 +23,7 @@ public class FLAMEPEARLITEMTEXTUReItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(null).maxStackSize(64).rarity(Rarity.COMMON));

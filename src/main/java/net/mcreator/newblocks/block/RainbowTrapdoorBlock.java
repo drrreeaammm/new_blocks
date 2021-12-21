@@ -31,6 +31,7 @@ import java.util.Collections;
 public class RainbowTrapdoorBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:rainbow_trapdoor")
 	public static final Block block = null;
+
 	public RainbowTrapdoorBlock(NewBlocksModElements instance) {
 		super(instance, 123);
 	}
@@ -46,6 +47,7 @@ public class RainbowTrapdoorBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends TrapDoorBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.7f, 5f).setLightLevel(s -> 0).notSolid()

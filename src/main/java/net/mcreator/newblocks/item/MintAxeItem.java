@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class MintAxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mint_axe")
 	public static final Item block = null;
+
 	public MintAxeItem(NewBlocksModElements instance) {
 		super(instance, 259);
 	}

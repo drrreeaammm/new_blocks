@@ -14,6 +14,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class LavaBottleItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:lava_bottle")
 	public static final Item block = null;
+
 	public LavaBottleItem(NewBlocksModElements instance) {
 		super(instance, 553);
 	}
@@ -22,6 +23,7 @@ public class LavaBottleItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(null).maxStackSize(43).rarity(Rarity.COMMON));

@@ -50,16 +50,19 @@ import net.mcreator.newblocks.procedures.FloweringAzaleaLeavesBlockDestroyedByPl
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class FloweringAzaleaLeavesBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:flowering_azalea_leaves")
 	public static final Block block = null;
+
 	public FloweringAzaleaLeavesBlock(NewBlocksModElements instance) {
 		super(instance, 97);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -78,6 +81,7 @@ public class FloweringAzaleaLeavesBlock extends NewBlocksModElements.ModElement 
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static class BlockColorRegisterHandler {
 		@OnlyIn(Dist.CLIENT)
 		@SubscribeEvent
@@ -119,24 +123,23 @@ public class FloweringAzaleaLeavesBlock extends NewBlocksModElements.ModElement 
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				FloweringAzaleaLeavesBlockDestroyedByPlayerProcedure.executeProcedure($_dependencies);
-			}
+
+			FloweringAzaleaLeavesBlockDestroyedByPlayerProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}
+
 	private static Feature<OreFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
 	private static IRuleTestType<CustomRuleTest> CUSTOM_MATCH = null;
+
 	private static class CustomRuleTest extends RuleTest {
 		static final CustomRuleTest INSTANCE = new CustomRuleTest();
 		static final com.mojang.serialization.Codec<CustomRuleTest> codec = com.mojang.serialization.Codec.unit(() -> INSTANCE);
+
 		public boolean test(BlockState blockAt, Random random) {
 			boolean blockCriteria = false;
 			if (blockAt.getBlock() == Blocks.OAK_LEAVES)
@@ -172,14 +175,13 @@ public class FloweringAzaleaLeavesBlock extends NewBlocksModElements.ModElement 
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:flowering_azalea_leaves"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		boolean biomeCriteria = false;
 		if (new ResourceLocation("new_blocks:low_plains").equals(event.getName()))
 			biomeCriteria = true;
 		if (new ResourceLocation("plains").equals(event.getName()))
-			biomeCriteria = true;
-		if (new ResourceLocation("new_blocks:modified_plains").equals(event.getName()))
 			biomeCriteria = true;
 		if (!biomeCriteria)
 			return;

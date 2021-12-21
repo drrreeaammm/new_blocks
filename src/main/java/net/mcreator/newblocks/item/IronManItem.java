@@ -24,9 +24,11 @@ import net.mcreator.newblocks.procedures.IronManBootsTickEventProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class IronManItem extends NewBlocksModElements.ModElement {
@@ -38,6 +40,7 @@ public class IronManItem extends NewBlocksModElements.ModElement {
 	public static final Item legs = null;
 	@ObjectHolder("new_blocks:iron_man_boots")
 	public static final Item boots = null;
+
 	public IronManItem(NewBlocksModElements instance) {
 		super(instance, 108);
 	}
@@ -130,12 +133,11 @@ public class IronManItem extends NewBlocksModElements.ModElement {
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					IronManBootsTickEventProcedure.executeProcedure($_dependencies);
-				}
+
+				IronManBootsTickEventProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+						(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("iron_man_boots"));
 	}
+
 }

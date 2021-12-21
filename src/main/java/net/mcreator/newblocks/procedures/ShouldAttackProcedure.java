@@ -8,6 +8,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class ShouldAttackProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
@@ -15,6 +16,6 @@ public class ShouldAttackProcedure {
 			return false;
 		}
 		IWorld world = (IWorld) dependencies.get("world");
-		return (NewBlocksModVariables.WorldVariables.get(world).attackAmount == (true));
+		return NewBlocksModVariables.WorldVariables.get(world).attackAmount == true;
 	}
 }

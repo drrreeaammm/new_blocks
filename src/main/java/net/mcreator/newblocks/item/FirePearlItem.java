@@ -40,10 +40,12 @@ import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.entity.renderer.FirePearlRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class FirePearlItem extends NewBlocksModElements.ModElement {
@@ -52,6 +54,7 @@ public class FirePearlItem extends NewBlocksModElements.ModElement {
 	public static final EntityType arrow = (EntityType.Builder.<ArrowCustomEntity>create(ArrowCustomEntity::new, EntityClassification.MISC)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(ArrowCustomEntity::new)
 			.size(0.5f, 0.5f)).build("entitybulletfire_pearl").setRegistryName("entitybulletfire_pearl");
+
 	public FirePearlItem(NewBlocksModElements instance) {
 		super(instance, 117);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new FirePearlRenderer.ModelRegisterHandler());
@@ -62,6 +65,7 @@ public class FirePearlItem extends NewBlocksModElements.ModElement {
 		elements.items.add(() -> new ItemRanged());
 		elements.entities.add(() -> arrow);
 	}
+
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxDamage(1));
@@ -102,12 +106,10 @@ public class FirePearlItem extends NewBlocksModElements.ModElement {
 					ArrowCustomEntity entityarrow = shoot(world, entity, random, 1.4f, 0.6, 0);
 					itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
 					entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
-					{
-						Map<String, Object> $_dependencies = new HashMap<>();
-						$_dependencies.put("entity", entity);
-						$_dependencies.put("itemstack", itemstack);
-						FirePearlRangedItemUsedProcedure.executeProcedure($_dependencies);
-					}
+
+					FirePearlRangedItemUsedProcedure.executeProcedure(
+							Stream.of(new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+									.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 					entity.stopActiveHand();
 				}
 			}
@@ -158,15 +160,11 @@ public class FirePearlItem extends NewBlocksModElements.ModElement {
 			double z = this.getPosZ();
 			World world = this.world;
 			Entity imediatesourceentity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("sourceentity", sourceentity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				FirePearlBulletHitsLivingEntityProcedure.executeProcedure($_dependencies);
-			}
+
+			FirePearlBulletHitsLivingEntityProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+							new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("sourceentity", sourceentity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override
@@ -178,27 +176,22 @@ public class FirePearlItem extends NewBlocksModElements.ModElement {
 			World world = this.world;
 			Entity entity = this.func_234616_v_();
 			Entity imediatesourceentity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				FirePearlWhileBulletFlyingTickProcedure.executeProcedure($_dependencies);
-			}
+
+			FirePearlWhileBulletFlyingTickProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			if (this.inGround) {
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					FirePearlBulletHitsBlockProcedure.executeProcedure($_dependencies);
-				}
+
+				FirePearlBulletHitsBlockProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				this.remove();
 			}
 		}
 	}
+
 	public static ArrowCustomEntity shoot(World world, LivingEntity entity, Random random, float power, double damage, int knockback) {
 		ArrowCustomEntity entityarrow = new ArrowCustomEntity(arrow, entity, world);
 		entityarrow.shoot(entity.getLookVec().x, entity.getLookVec().y, entity.getLookVec().z, power * 2, 0);

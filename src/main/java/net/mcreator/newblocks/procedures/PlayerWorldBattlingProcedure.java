@@ -40,20 +40,21 @@ public class PlayerWorldBattlingProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerWorldBattling!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PlayerWorldBattling!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerWorldBattling!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
-		if ((new Object() {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (new Object() {
 			boolean check(Entity _entity) {
 				if (_entity instanceof LivingEntity) {
 					Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
@@ -64,11 +65,11 @@ public class PlayerWorldBattlingProcedure {
 				}
 				return false;
 			}
-		}.check(entity))) {
-			NewBlocksModVariables.WorldVariables.get(world).IsBattleEffectOn = (boolean) (true);
+		}.check(entity)) {
+			NewBlocksModVariables.WorldVariables.get(world).IsBattleEffectOn = (true);
 			NewBlocksModVariables.WorldVariables.get(world).syncData(world);
 		} else {
-			NewBlocksModVariables.WorldVariables.get(world).IsBattleEffectOn = (boolean) (false);
+			NewBlocksModVariables.WorldVariables.get(world).IsBattleEffectOn = (false);
 			NewBlocksModVariables.WorldVariables.get(world).syncData(world);
 		}
 	}

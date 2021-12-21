@@ -31,6 +31,7 @@ import java.util.Collections;
 public class RainbowFenceGateBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:rainbow_fence_gate")
 	public static final Block block = null;
+
 	public RainbowFenceGateBlock(NewBlocksModElements instance) {
 		super(instance, 125);
 	}
@@ -46,6 +47,7 @@ public class RainbowFenceGateBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends FenceGateBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.85f, 10f).setLightLevel(s -> 0).notSolid()

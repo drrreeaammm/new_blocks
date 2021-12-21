@@ -34,6 +34,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class Strawberry5Block extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:strawberry_5")
 	public static final Block block = null;
+
 	public Strawberry5Block(NewBlocksModElements instance) {
 		super(instance, 1257);
 	}
@@ -49,6 +50,7 @@ public class Strawberry5Block extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class BlockCustomFlower extends FlowerBlock {
 		public BlockCustomFlower() {
 			super(Effects.SPEED, 5, Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.CROP)
@@ -57,9 +59,18 @@ public class Strawberry5Block extends NewBlocksModElements.ModElement {
 		}
 
 		@Override
+		public int getStewEffectDuration() {
+			return 5;
+		}
+
+		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
-			return VoxelShapes.or(makeCuboidShape(0, 0, 0, 16, 8.9, 16)).withOffset(offset.x, offset.y, offset.z);
+			return VoxelShapes.or(makeCuboidShape(0, 0, 0, 16, 8.9, 16)
+
+			)
+
+					.withOffset(offset.x, offset.y, offset.z);
 		}
 
 		@Override
@@ -80,7 +91,11 @@ public class Strawberry5Block extends NewBlocksModElements.ModElement {
 		@Override
 		public boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 			Block ground = state.getBlock();
-			return (ground == Blocks.FARMLAND || ground == Blocks.GRASS_BLOCK);
+			return (ground == Blocks.FARMLAND || ground == Blocks.GRASS_BLOCK
+
+			)
+
+			;
 		}
 
 		@Override

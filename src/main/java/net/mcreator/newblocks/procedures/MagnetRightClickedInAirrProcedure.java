@@ -23,15 +23,11 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.Map;
 
 public class MagnetRightClickedInAirrProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure MagnetRightClickedInAirr!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure MagnetRightClickedInAirr!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MagnetRightClickedInAirr!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -49,32 +45,37 @@ public class MagnetRightClickedInAirrProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure MagnetRightClickedInAirr!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MagnetRightClickedInAirr!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure MagnetRightClickedInAirr!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure MagnetRightClickedInAirr!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		{
 			AtomicReference<IItemHandler> _iitemhandlerref = new AtomicReference<>();
 			entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _iitemhandlerref.set(capability));
 			if (_iitemhandlerref.get() != null) {
 				for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
 					ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
-					if ((Items.ENCHANTED_BOOK == (itemstackiterator).getItem())) {
-						if (((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstackiterator))) == 1)) {
-							if ((!((itemstack).getItem() == (itemstackiterator).getItem()))) {
-								((itemstack)).addEnchantment(Enchantments.UNBREAKING, (int) 1);
+					if (Items.ENCHANTED_BOOK == itemstackiterator.getItem()) {
+						if (EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstackiterator) == 1) {
+							if (!(itemstack.getItem() == itemstackiterator.getItem())) {
+								(itemstack).addEnchantment(Enchantments.UNBREAKING, (int) 1);
 								{
-									Map<Enchantment, Integer> _enchantments = EnchantmentHelper.getEnchantments((itemstackiterator));
+									Map<Enchantment, Integer> _enchantments = EnchantmentHelper.getEnchantments(itemstackiterator);
 									if (_enchantments.containsKey(ElectricityEnchantment.enchantment)) {
 										_enchantments.remove(ElectricityEnchantment.enchantment);
-										EnchantmentHelper.setEnchantments(_enchantments, (itemstackiterator));
+										EnchantmentHelper.setEnchantments(_enchantments, itemstackiterator);
 									}
 								}
 								if (world instanceof World && !world.isRemote()) {
@@ -89,14 +90,14 @@ public class MagnetRightClickedInAirrProcedure {
 											SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 								}
 							}
-						} else if (((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstackiterator))) == 2)) {
-							if ((!((itemstack).getItem() == (itemstackiterator).getItem()))) {
-								((itemstack)).addEnchantment(Enchantments.UNBREAKING, (int) 2);
+						} else if (EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstackiterator) == 2) {
+							if (!(itemstack.getItem() == itemstackiterator.getItem())) {
+								(itemstack).addEnchantment(Enchantments.UNBREAKING, (int) 2);
 								{
-									Map<Enchantment, Integer> _enchantments = EnchantmentHelper.getEnchantments((itemstackiterator));
+									Map<Enchantment, Integer> _enchantments = EnchantmentHelper.getEnchantments(itemstackiterator);
 									if (_enchantments.containsKey(Enchantments.UNBREAKING)) {
 										_enchantments.remove(Enchantments.UNBREAKING);
-										EnchantmentHelper.setEnchantments(_enchantments, (itemstackiterator));
+										EnchantmentHelper.setEnchantments(_enchantments, itemstackiterator);
 									}
 								}
 								if (world instanceof World && !world.isRemote()) {
@@ -111,14 +112,14 @@ public class MagnetRightClickedInAirrProcedure {
 											SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 								}
 							}
-						} else if (((EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, (itemstackiterator))) == 3)) {
-							if ((!((itemstack).getItem() == (itemstackiterator).getItem()))) {
-								((itemstack)).addEnchantment(Enchantments.UNBREAKING, (int) 3);
+						} else if (EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, itemstackiterator) == 3) {
+							if (!(itemstack.getItem() == itemstackiterator.getItem())) {
+								(itemstack).addEnchantment(Enchantments.UNBREAKING, (int) 3);
 								{
-									Map<Enchantment, Integer> _enchantments = EnchantmentHelper.getEnchantments((itemstackiterator));
+									Map<Enchantment, Integer> _enchantments = EnchantmentHelper.getEnchantments(itemstackiterator);
 									if (_enchantments.containsKey(Enchantments.UNBREAKING)) {
 										_enchantments.remove(Enchantments.UNBREAKING);
-										EnchantmentHelper.setEnchantments(_enchantments, (itemstackiterator));
+										EnchantmentHelper.setEnchantments(_enchantments, itemstackiterator);
 									}
 								}
 								if (world instanceof World && !world.isRemote()) {

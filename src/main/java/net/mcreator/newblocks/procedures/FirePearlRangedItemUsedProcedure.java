@@ -9,6 +9,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class FirePearlRangedItemUsedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -23,6 +24,6 @@ public class FirePearlRangedItemUsedProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		if (entity instanceof PlayerEntity)
-			((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 260);
+			((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 260);
 	}
 }

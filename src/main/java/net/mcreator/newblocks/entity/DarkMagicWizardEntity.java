@@ -39,18 +39,20 @@ import net.minecraft.entity.CreatureAttribute;
 
 import net.mcreator.newblocks.procedures.DarkMagicWizardOnEntityTickUpdateProcedure;
 import net.mcreator.newblocks.procedures.DarkMagicWizardEntityIsHurtProcedure;
-import net.mcreator.newblocks.procedures.DarkMagicWizardEntityDiesProcedure;
 import net.mcreator.newblocks.entity.renderer.DarkMagicWizardRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class DarkMagicWizardEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.6f, 2f))
 					.build("dark_magic_wizard").setRegistryName("dark_magic_wizard");
+
 	public DarkMagicWizardEntity(NewBlocksModElements instance) {
 		super(instance, 1264);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new DarkMagicWizardRenderer.ModelRegisterHandler());
@@ -67,16 +69,16 @@ public class DarkMagicWizardEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
 			AttributeModifierMap.MutableAttribute ammma = MobEntity.func_233666_p_();
 			ammma = ammma.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3);
-			ammma = ammma.createMutableAttribute(Attributes.MAX_HEALTH, 55);
+			ammma = ammma.createMutableAttribute(Attributes.MAX_HEALTH, 35);
 			ammma = ammma.createMutableAttribute(Attributes.ARMOR, 4.1000000000000005);
 			ammma = ammma.createMutableAttribute(Attributes.ATTACK_DAMAGE, 4);
 			ammma = ammma.createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0.06);
-			ammma = ammma.createMutableAttribute(Attributes.FOLLOW_RANGE, 38);
 			event.put(entity, ammma.create());
 		}
 	}
@@ -140,37 +142,14 @@ public class DarkMagicWizardEntity extends NewBlocksModElements.ModElement {
 			double z = this.getPosZ();
 			Entity entity = this;
 			Entity sourceentity = source.getTrueSource();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				DarkMagicWizardEntityIsHurtProcedure.executeProcedure($_dependencies);
-			}
+
+			DarkMagicWizardEntityIsHurtProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			if (source.isExplosion())
 				return false;
 			return super.attackEntityFrom(source, amount);
-		}
-
-		@Override
-		public void onDeath(DamageSource source) {
-			super.onDeath(source);
-			double x = this.getPosX();
-			double y = this.getPosY();
-			double z = this.getPosZ();
-			Entity sourceentity = source.getTrueSource();
-			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				DarkMagicWizardEntityDiesProcedure.executeProcedure($_dependencies);
-			}
 		}
 
 		@Override
@@ -180,15 +159,11 @@ public class DarkMagicWizardEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				DarkMagicWizardOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
-			}
+
+			DarkMagicWizardOnEntityTickUpdateProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

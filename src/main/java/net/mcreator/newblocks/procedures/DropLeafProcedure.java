@@ -41,7 +41,13 @@ public class DropLeafProcedure {
 			executeProcedure(dependencies);
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DropLeaf!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency x for procedure DropLeaf!");
@@ -57,18 +63,13 @@ public class DropLeafProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure DropLeaf!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DropLeaf!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((BlockTags.getCollection().getTagByID(new ResourceLocation(("minecraft:leaves").toLowerCase(java.util.Locale.ENGLISH)))
-				.contains((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()))) {
-			if ((Math.random() < 0.1)) {
+		if (BlockTags.getCollection().getTagByID(new ResourceLocation("minecraft:leaves"))
+				.contains((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			if (Math.random() < 0.1) {
 				if (world instanceof World && !world.isRemote()) {
 					ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(LeafItem.block));
 					entityToSpawn.setPickupDelay((int) 10);

@@ -16,6 +16,7 @@ import net.mcreator.newblocks.world.dimension.DeepDarkDimension;
 public class DeepDarkItem extends Item {
 	@ObjectHolder("new_blocks:deep_dark")
 	public static final Item block = null;
+
 	public DeepDarkItem() {
 		super(new Item.Properties().group(null).maxDamage(64));
 	}

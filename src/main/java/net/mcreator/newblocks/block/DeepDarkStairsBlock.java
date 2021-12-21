@@ -26,6 +26,7 @@ import java.util.Collections;
 public class DeepDarkStairsBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:deep_dark_stairs")
 	public static final Block block = null;
+
 	public DeepDarkStairsBlock(NewBlocksModElements instance) {
 		super(instance, 51);
 	}
@@ -35,6 +36,7 @@ public class DeepDarkStairsBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends StairsBlock {
 		public CustomBlock() {
 			super(() -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(3f, 2f).setLightLevel(s -> 0))

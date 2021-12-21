@@ -21,15 +21,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class PistolRangedItemUsedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PistolRangedItemUsed!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure PistolRangedItemUsed!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PistolRangedItemUsed!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -47,24 +43,30 @@ public class PistolRangedItemUsedProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure PistolRangedItemUsed!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PistolRangedItemUsed!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PistolRangedItemUsed!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure PistolRangedItemUsed!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((!((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack)) != 0)))) {
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (!(EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, itemstack) != 0)) {
 			if (entity instanceof PlayerEntity)
-				((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 15);
+				((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 15);
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -96,13 +98,14 @@ public class PistolRangedItemUsedProcedure {
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
 			}.start(world, (int) 10);
-		} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 1)) {
+		} else if (EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, itemstack) == 1) {
 			if (entity instanceof PlayerEntity)
-				((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 12);
+				((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 12);
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -134,13 +137,14 @@ public class PistolRangedItemUsedProcedure {
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
 			}.start(world, (int) 8);
-		} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 2)) {
+		} else if (EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, itemstack) == 2) {
 			if (entity instanceof PlayerEntity)
-				((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 8);
+				((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 8);
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -172,13 +176,14 @@ public class PistolRangedItemUsedProcedure {
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
 			}.start(world, (int) 6);
-		} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 3)) {
+		} else if (EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, itemstack) == 3) {
 			if (entity instanceof PlayerEntity)
-				((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 4);
+				((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 4);
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);

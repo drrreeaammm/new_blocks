@@ -34,6 +34,7 @@ public class GlowSquidRenderer {
 					{
 						this.addLayer(new GlowingLayer<>(this));
 					}
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/glow_squidreal.png");
@@ -74,6 +75,7 @@ public class GlowSquidRenderer {
 		private final ModelRenderer tentacle7_rotation;
 		private final ModelRenderer tentacle8;
 		private final ModelRenderer tentacle8_rotation;
+
 		public Modelglow_squid() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -149,6 +151,7 @@ public class GlowSquidRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.tentacle1.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 			this.tentacle7_rotation.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 			this.tentacle6_rotation.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
@@ -159,4 +162,5 @@ public class GlowSquidRenderer {
 			this.tentacle8_rotation.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

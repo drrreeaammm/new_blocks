@@ -43,10 +43,11 @@ public class MagmaCubeDiesInUnderworldProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure MagmaCubeDiesInUnderworld!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MagmaCubeDiesInUnderworld!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -64,18 +65,18 @@ public class MagmaCubeDiesInUnderworldProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure MagmaCubeDiesInUnderworld!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MagmaCubeDiesInUnderworld!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure MagmaCubeDiesInUnderworld!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if (((entity.world.getDimensionKey()) == (RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation("new_blocks:underworld"))))) {
-			if ((entity instanceof MagmaCubeEntity)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if ((entity.world.getDimensionKey()) == (RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation("new_blocks:underworld")))) {
+			if (entity instanceof MagmaCubeEntity) {
 				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.LAVA.getDefaultState(), 3);
 			}
 		}

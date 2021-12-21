@@ -8,6 +8,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class SquirrelConditionProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -15,6 +16,6 @@ public class SquirrelConditionProcedure {
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		return (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) < 6);
+		return ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) < 6;
 	}
 }

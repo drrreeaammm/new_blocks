@@ -15,10 +15,11 @@ import java.util.Map;
 import java.util.Collections;
 
 public class DarkMagicWizardEntityIsHurtProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DarkMagicWizardEntityIsHurt!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DarkMagicWizardEntityIsHurt!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -36,25 +37,25 @@ public class DarkMagicWizardEntityIsHurtProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure DarkMagicWizardEntityIsHurt!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DarkMagicWizardEntityIsHurt!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DarkMagicWizardEntityIsHurt!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double posx = 0;
 		double posy = 0;
 		double posZ = 0;
-		if ((Math.random() < 0.3)) {
-			posx = (double) ((new Random()).nextInt((int) 8 + 1));
-			posy = (double) ((new Random()).nextInt((int) 2 + 1));
-			posZ = (double) ((new Random()).nextInt((int) 8 + 1));
+		if (Math.random() < 0.3) {
+			posx = ((new Random()).nextInt((int) 8 + 1));
+			posy = ((new Random()).nextInt((int) 2 + 1));
+			posZ = ((new Random()).nextInt((int) 8 + 1));
 			for (int index0 = 0; index0 < (int) (5); index0++) {
-				if ((world.canBlockSeeSky(new BlockPos((int) (x + posx), (int) (y + posy), (int) (z + posZ))))) {
+				if (world.canBlockSeeSky(new BlockPos((int) (x + posx), (int) (y + posy), (int) (z + posZ)))) {
 					{
 						Entity _ent = entity;
 						_ent.setPositionAndUpdate((x + posx), (y + posy), (z + posZ));
@@ -67,9 +68,9 @@ public class DarkMagicWizardEntityIsHurtProcedure {
 						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.INVISIBILITY, (int) 60, (int) 1, (false), (false)));
 					break;
 				} else {
-					posy = (double) ((new Random()).nextInt((int) 2 + 1));
-					posx = (double) ((new Random()).nextInt((int) 8 + 1));
-					posZ = (double) ((new Random()).nextInt((int) 8 + 1));
+					posy = ((new Random()).nextInt((int) 2 + 1));
+					posx = ((new Random()).nextInt((int) 8 + 1));
+					posZ = ((new Random()).nextInt((int) 8 + 1));
 				}
 			}
 		}

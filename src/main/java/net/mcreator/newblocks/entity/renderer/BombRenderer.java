@@ -36,6 +36,7 @@ public class BombRenderer {
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<BombItem.ArrowCustomEntity> {
 		private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/bomb.png");
+
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
 		}
@@ -64,6 +65,7 @@ public class BombRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modelbomb extends EntityModel<Entity> {
 		private final ModelRenderer bone;
+
 		public Modelbomb() {
 			textureWidth = 16;
 			textureHeight = 16;
@@ -88,6 +90,8 @@ public class BombRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

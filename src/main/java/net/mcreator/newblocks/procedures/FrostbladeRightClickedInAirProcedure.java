@@ -21,15 +21,11 @@ import java.util.Random;
 import java.util.Map;
 
 public class FrostbladeRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FrostbladeRightClickedInAir!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure FrostbladeRightClickedInAir!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FrostbladeRightClickedInAir!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -47,24 +43,30 @@ public class FrostbladeRightClickedInAirProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure FrostbladeRightClickedInAir!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FrostbladeRightClickedInAir!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FrostbladeRightClickedInAir!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure FrostbladeRightClickedInAir!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		if (entity instanceof PlayerEntity)
-			((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 125);
+			((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 125);
 		for (int index0 = 0; index0 < (int) (40); index0++) {
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -92,6 +94,7 @@ public class FrostbladeRightClickedInAirProcedure {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -115,7 +118,7 @@ public class FrostbladeRightClickedInAirProcedure {
 					}
 				}
 				{
-					ItemStack _ist = (itemstack);
+					ItemStack _ist = itemstack;
 					if (_ist.attemptDamageItem((int) 15, new Random(), null)) {
 						_ist.shrink(1);
 						_ist.setDamage(0);

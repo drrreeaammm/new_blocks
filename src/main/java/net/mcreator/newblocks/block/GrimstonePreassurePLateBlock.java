@@ -29,6 +29,7 @@ import java.util.Collections;
 public class GrimstonePreassurePLateBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:grimstone_preassure_p_late")
 	public static final Block block = null;
+
 	public GrimstonePreassurePLateBlock(NewBlocksModElements instance) {
 		super(instance, 812);
 	}
@@ -44,6 +45,7 @@ public class GrimstonePreassurePLateBlock extends NewBlocksModElements.ModElemen
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends PressurePlateBlock {
 		public CustomBlock() {
 			super(Sensitivity.MOBS,

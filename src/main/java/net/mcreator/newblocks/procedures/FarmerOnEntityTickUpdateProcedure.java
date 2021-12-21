@@ -21,19 +21,20 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class FarmerOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FarmerOnEntityTickUpdate!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FarmerOnEntityTickUpdate!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FarmerOnEntityTickUpdate!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double diamonds = 0;
 		double raytrace_y = 0;
 		double raytrace_x = 0;
@@ -41,11 +42,12 @@ public class FarmerOnEntityTickUpdateProcedure {
 		double enchant_levels = 0;
 		ItemStack emeralds = ItemStack.EMPTY;
 		ItemStack tool = ItemStack.EMPTY;
-		if ((((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity)) {
+		if (((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity) {
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -73,10 +75,10 @@ public class FarmerOnEntityTickUpdateProcedure {
 				}
 			}.start(world, (int) 8);
 		}
-		if (((world.getBlockState(new BlockPos((int) (entity.getPosX()), (int) ((entity.getPosY()) - 1), (int) (entity.getPosZ()))))
-				.getBlock() == Blocks.FARMLAND)) {
-			if (((world.getBlockState(new BlockPos((int) (entity.getPosX()), (int) ((entity.getPosY()) + 1), (int) (entity.getPosZ()))))
-					.getBlock() == Blocks.AIR)) {
+		if ((world.getBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY() - 1), (int) (entity.getPosZ()))))
+				.getBlock() == Blocks.FARMLAND) {
+			if ((world.getBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY() + 1), (int) (entity.getPosZ()))))
+					.getBlock() == Blocks.AIR) {
 				world.setBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ())),
 						TomatoSeedsBlock.block.getDefaultState(), 3);
 				if (entity instanceof LivingEntity) {

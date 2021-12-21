@@ -17,7 +17,7 @@ import net.minecraft.network.IPacket;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
-import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.monster.MonsterEntity;
@@ -40,14 +40,17 @@ import net.mcreator.newblocks.procedures.MentalOnEntityTickUpdateProcedure;
 import net.mcreator.newblocks.entity.renderer.MentalRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class MentalEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.7999999999999999f, 1.7999999999999998f)).build("mental").setRegistryName("mental");
+
 	public MentalEntity(NewBlocksModElements instance) {
 		super(instance, 210);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new MentalRenderer.ModelRegisterHandler());
@@ -64,6 +67,7 @@ public class MentalEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -133,7 +137,7 @@ public class MentalEntity extends NewBlocksModElements.ModElement {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source.getImmediateSource() instanceof ArrowEntity)
+			if (source.getImmediateSource() instanceof AbstractArrowEntity)
 				return false;
 			if (source == DamageSource.FALL)
 				return false;
@@ -157,16 +161,12 @@ public class MentalEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity sourceentity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("sourceentity", sourceentity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				MentalOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
-			}
+
+			MentalOnEntityTickUpdateProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity),
+							new AbstractMap.SimpleEntry<>("sourceentity", sourceentity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

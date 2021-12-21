@@ -22,10 +22,11 @@ import java.util.List;
 import java.util.Comparator;
 
 public class SniperOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SniperOnEntityTickUpdate!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SniperOnEntityTickUpdate!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -43,16 +44,16 @@ public class SniperOnEntityTickUpdateProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure SniperOnEntityTickUpdate!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SniperOnEntityTickUpdate!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SniperOnEntityTickUpdate!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		boolean found = false;
 		double sx = 0;
 		double sy = 0;
@@ -67,34 +68,34 @@ public class SniperOnEntityTickUpdateProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if ((entityiterator instanceof TankEntity.CustomEntity)) {
-					if ((!(entityiterator.isBeingRidden()))) {
+				if (entityiterator instanceof TankEntity.CustomEntity) {
+					if (!entityiterator.isBeingRidden()) {
 						entity.startRiding(entityiterator);
 					}
 				}
-				if (((entity.getRidingEntity()) == entityiterator)) {
+				if ((entity.getRidingEntity()) == entityiterator) {
 					entityiterator.getPersistentData().putDouble("armyRiding", 1);
 				} else {
 					entityiterator.getPersistentData().putDouble("armyRiding", 0);
 				}
 			}
 		}
-		if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) < 8)) {
-			if ((Math.random() < 0.7)) {
-				if ((Math.random() < 0.7)) {
-					if ((Math.random() < 0.7)) {
-						if ((Math.random() < 0.7)) {
-							if ((Math.random() < 0.7)) {
-								if ((Math.random() < 0.7)) {
-									if ((Math.random() < 0.7)) {
-										if ((Math.random() < 0.7)) {
-											if ((Math.random() < 0.7)) {
-												if ((Math.random() < 0.7)) {
-													if ((Math.random() < 0.7)) {
-														if ((Math.random() < 0.7)) {
-															if ((Math.random() < 0.7)) {
-																if ((Math.random() < 0.7)) {
-																	if ((!((entity.getPersistentData().getDouble("canPotion")) == 1))) {
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) < 8) {
+			if (Math.random() < 0.7) {
+				if (Math.random() < 0.7) {
+					if (Math.random() < 0.7) {
+						if (Math.random() < 0.7) {
+							if (Math.random() < 0.7) {
+								if (Math.random() < 0.7) {
+									if (Math.random() < 0.7) {
+										if (Math.random() < 0.7) {
+											if (Math.random() < 0.7) {
+												if (Math.random() < 0.7) {
+													if (Math.random() < 0.7) {
+														if (Math.random() < 0.7) {
+															if (Math.random() < 0.7) {
+																if (Math.random() < 0.7) {
+																	if (!(entity.getPersistentData().getDouble("canPotion") == 1)) {
 																		if (world instanceof ServerWorld) {
 																			((World) world).getServer().getCommandManager()
 																					.handleCommand(new CommandSource(ICommandSource.DUMMY,

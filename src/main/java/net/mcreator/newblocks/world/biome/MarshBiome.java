@@ -46,10 +46,12 @@ import com.google.common.collect.ImmutableList;
 @NewBlocksModElements.ModElement.Tag
 public class MarshBiome extends NewBlocksModElements.ModElement {
 	public static Biome biome;
+
 	public MarshBiome(NewBlocksModElements instance) {
 		super(instance, 993);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BiomeRegisterHandler());
 	}
+
 	private static class BiomeRegisterHandler {
 		@SubscribeEvent
 		public void registerBiomes(RegistryEvent.Register<Biome> event) {
@@ -96,11 +98,13 @@ public class MarshBiome extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 		BiomeManager.addBiome(BiomeManager.BiomeType.WARM,
 				new BiomeManager.BiomeEntry(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(biome)), 1));
 	}
+
 	private static class CustomLeaveVineTreeDecorator extends LeaveVineTreeDecorator {
 		public static final CustomLeaveVineTreeDecorator instance = new CustomLeaveVineTreeDecorator();
 		public static com.mojang.serialization.Codec<LeaveVineTreeDecorator> codec;
@@ -111,6 +115,7 @@ public class MarshBiome extends NewBlocksModElements.ModElement {
 			tdt.setRegistryName("marsh_lvtd");
 			ForgeRegistries.TREE_DECORATOR_TYPES.register(tdt);
 		}
+
 		@Override
 		protected TreeDecoratorType<?> func_230380_a_() {
 			return tdt;
@@ -132,6 +137,7 @@ public class MarshBiome extends NewBlocksModElements.ModElement {
 			tdt.setRegistryName("marsh_tvtd");
 			ForgeRegistries.TREE_DECORATOR_TYPES.register(tdt);
 		}
+
 		@Override
 		protected TreeDecoratorType<?> func_230380_a_() {
 			return tdt;

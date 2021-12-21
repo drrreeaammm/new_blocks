@@ -24,7 +24,7 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.monster.MonsterEntity;
@@ -53,6 +53,7 @@ public class Entity404Entity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
 			.size(1.4f, 0.9f)).build("enderspider").setRegistryName("enderspider");
+
 	public Entity404Entity(NewBlocksModElements instance) {
 		super(instance, 3);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new Entity404Renderer.ModelRegisterHandler());
@@ -92,6 +93,7 @@ public class Entity404Entity extends NewBlocksModElements.ModElement {
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -165,7 +167,7 @@ public class Entity404Entity extends NewBlocksModElements.ModElement {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source.getImmediateSource() instanceof ArrowEntity)
+			if (source.getImmediateSource() instanceof AbstractArrowEntity)
 				return false;
 			if (source.getDamageType().equals("trident"))
 				return false;

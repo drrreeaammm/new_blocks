@@ -46,14 +46,17 @@ import net.mcreator.newblocks.item.ElectricSpiderRangedItem;
 import net.mcreator.newblocks.entity.renderer.ElectricSpiderRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class ElectricSpiderEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(1.4f, 0.9f)).build("electric_spider").setRegistryName("electric_spider");
+
 	public ElectricSpiderEntity(NewBlocksModElements instance) {
 		super(instance, 99);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new ElectricSpiderRenderer.ModelRegisterHandler());
@@ -83,6 +86,7 @@ public class ElectricSpiderEntity extends NewBlocksModElements.ModElement {
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -170,12 +174,10 @@ public class ElectricSpiderEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("world", world);
-				ElectricSpiderOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
-			}
+
+			ElectricSpiderOnEntityTickUpdateProcedure
+					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {

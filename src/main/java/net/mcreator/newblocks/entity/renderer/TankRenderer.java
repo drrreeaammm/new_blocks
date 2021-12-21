@@ -25,6 +25,7 @@ public class TankRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(TankEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modeltank(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/tank.png");
@@ -55,6 +56,7 @@ public class TankRenderer {
 		private final ModelRenderer leg4_sub_0;
 		private final ModelRenderer leg4_sub_1;
 		private final ModelRenderer head;
+
 		public Modeltank() {
 			textureWidth = 256;
 			textureHeight = 256;
@@ -164,8 +166,10 @@ public class TankRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 		}
 	}
+
 }

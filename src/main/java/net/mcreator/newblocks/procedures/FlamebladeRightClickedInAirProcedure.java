@@ -20,15 +20,11 @@ import java.util.List;
 import java.util.Comparator;
 
 public class FlamebladeRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FlamebladeRightClickedInAir!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure FlamebladeRightClickedInAir!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FlamebladeRightClickedInAir!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -46,19 +42,24 @@ public class FlamebladeRightClickedInAirProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure FlamebladeRightClickedInAir!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FlamebladeRightClickedInAir!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FlamebladeRightClickedInAir!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure FlamebladeRightClickedInAir!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		if (entity instanceof PlayerEntity)
-			((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 525);
+			((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 525);
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -69,13 +70,13 @@ public class FlamebladeRightClickedInAirProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if ((!(entityiterator == entity))) {
-					if ((!((entityiterator instanceof TameableEntity && entity instanceof LivingEntity)
+				if (!(entityiterator == entity)) {
+					if (!((entityiterator instanceof TameableEntity && entity instanceof LivingEntity)
 							? ((TameableEntity) entityiterator).isOwner((LivingEntity) entity)
-							: false))) {
-						if ((!(entityiterator.isImmuneToFire()))) {
+							: false)) {
+						if (!entityiterator.isImmuneToFire()) {
 							{
-								ItemStack _ist = (itemstack);
+								ItemStack _ist = itemstack;
 								if (_ist.attemptDamageItem((int) 10, new Random(), null)) {
 									_ist.shrink(1);
 									_ist.setDamage(0);

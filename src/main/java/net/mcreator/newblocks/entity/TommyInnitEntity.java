@@ -42,6 +42,7 @@ public class TommyInnitEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 1.8f)).build("tommy_innit").setRegistryName("tommy_innit");
+
 	public TommyInnitEntity(NewBlocksModElements instance) {
 		super(instance, 10);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new TommyInnitRenderer.ModelRegisterHandler());
@@ -58,6 +59,7 @@ public class TommyInnitEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

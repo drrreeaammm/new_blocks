@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class PlatinumHoeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:platinum_hoe")
 	public static final Item block = null;
+
 	public PlatinumHoeItem(NewBlocksModElements instance) {
 		super(instance, 1047);
 	}

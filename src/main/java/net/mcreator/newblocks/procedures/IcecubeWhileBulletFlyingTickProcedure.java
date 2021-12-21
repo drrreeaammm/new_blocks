@@ -15,15 +15,11 @@ import java.util.List;
 import java.util.Comparator;
 
 public class IcecubeWhileBulletFlyingTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure IcecubeWhileBulletFlyingTick!");
-			return;
-		}
-		if (dependencies.get("sourceentity") == null) {
-			if (!dependencies.containsKey("sourceentity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure IcecubeWhileBulletFlyingTick!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure IcecubeWhileBulletFlyingTick!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -41,17 +37,22 @@ public class IcecubeWhileBulletFlyingTickProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure IcecubeWhileBulletFlyingTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure IcecubeWhileBulletFlyingTick!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure IcecubeWhileBulletFlyingTick!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		Entity sourceentity = (Entity) dependencies.get("sourceentity");
+		if (dependencies.get("sourceentity") == null) {
+			if (!dependencies.containsKey("sourceentity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure IcecubeWhileBulletFlyingTick!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		Entity sourceentity = (Entity) dependencies.get("sourceentity");
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -62,14 +63,14 @@ public class IcecubeWhileBulletFlyingTickProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if ((!(entityiterator instanceof IceologerEntity.CustomEntity))) {
+				if (!(entityiterator instanceof IceologerEntity.CustomEntity)) {
 					entityiterator.attackEntityFrom(DamageSource.GENERIC, (float) 6);
 					if (!sourceentity.world.isRemote())
 						sourceentity.remove();
 				}
 			}
 		}
-		if ((entity.isOnGround())) {
+		if (entity.isOnGround()) {
 			if (!sourceentity.world.isRemote())
 				sourceentity.remove();
 		}

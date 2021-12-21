@@ -877,5 +877,24 @@
         "stream": false
       }
     ]
+  },
+  "aaaa": {
+    "category": "hostile",
+    "subtitle": "subtitles.aaaa",
+    "sounds": [
+      {
+        "name": "new_blocks:alexjonesscream",
+        "stream": false
+      }
+    ]
+  },
+  "breakingtheconditoning": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "new_blocks:breakingtheconditioning",
+        "stream": false
+      }
+    ]
   }
 }

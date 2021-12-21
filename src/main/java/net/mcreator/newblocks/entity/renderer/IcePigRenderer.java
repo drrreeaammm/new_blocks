@@ -21,6 +21,7 @@ public class IcePigRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(IcePigEntity.entity,
 					renderManager -> new MobRenderer(renderManager, new PigModel(), 0.5f) {
+
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
 							return new ResourceLocation("new_blocks:textures/ice_pig.png");

@@ -18,23 +18,25 @@ import java.util.Random;
 import java.util.Map;
 
 public class IronManSuitShootOnKeyPressedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure IronManSuitShootOnKeyPressed!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure IronManSuitShootOnKeyPressed!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure IronManSuitShootOnKeyPressed!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		new Object() {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -52,10 +54,8 @@ public class IronManSuitShootOnKeyPressedProcedure {
 
 			private void run() {
 				for (int index0 = 0; index0 < (int) (1); index0++) {
-					if ((((entity instanceof LivingEntity)
-							? ((LivingEntity) entity)
-									.getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-							: ItemStack.EMPTY).getItem() == IronManItem.body)) {
+					if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY)
+							.getItem() == IronManItem.body) {
 						if (entity instanceof LivingEntity) {
 							Entity _ent = entity;
 							if (!_ent.world.isRemote()) {

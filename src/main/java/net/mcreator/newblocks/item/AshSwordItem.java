@@ -23,13 +23,16 @@ import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.block.AshBlock;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class AshSwordItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ash_sword")
 	public static final Item block = null;
+
 	public AshSwordItem(NewBlocksModElements instance) {
 		super(instance, 77);
 	}
@@ -73,15 +76,12 @@ public class AshSwordItem extends NewBlocksModElements.ModElement {
 				int y = pos.getY();
 				int z = pos.getZ();
 				ItemStack itemstack = context.getItem();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("itemstack", itemstack);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					AshSwordRightClickedOnBlockProcedure.executeProcedure($_dependencies);
-				}
+
+				AshSwordRightClickedOnBlockProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 
@@ -92,11 +92,9 @@ public class AshSwordItem extends NewBlocksModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				World world = entity.world;
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					AshSwordLivingEntityIsHitWithToolProcedure.executeProcedure($_dependencies);
-				}
+
+				AshSwordLivingEntityIsHitWithToolProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("ash_sword"));

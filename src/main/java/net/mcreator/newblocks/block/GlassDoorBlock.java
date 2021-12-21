@@ -30,6 +30,7 @@ import java.util.Collections;
 public class GlassDoorBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:glass_door")
 	public static final Block block = null;
+
 	public GlassDoorBlock(NewBlocksModElements instance) {
 		super(instance, 1015);
 	}
@@ -45,6 +46,7 @@ public class GlassDoorBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends DoorBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.GLASS).sound(SoundType.GLASS).hardnessAndResistance(0.3f, 0.3f).setLightLevel(s -> 0).notSolid()

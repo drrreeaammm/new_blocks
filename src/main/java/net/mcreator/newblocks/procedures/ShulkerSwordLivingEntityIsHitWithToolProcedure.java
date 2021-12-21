@@ -10,6 +10,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class ShulkerSwordLivingEntityIsHitWithToolProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -17,7 +18,7 @@ public class ShulkerSwordLivingEntityIsHitWithToolProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((Math.random() < 0.2)) {
+		if (Math.random() < 0.2) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.LEVITATION, (int) 70, (int) 3, (false), (false)));
 		}

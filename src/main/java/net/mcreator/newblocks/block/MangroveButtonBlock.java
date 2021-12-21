@@ -26,6 +26,7 @@ import java.util.Collections;
 public class MangroveButtonBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mangrove_button")
 	public static final Block block = null;
+
 	public MangroveButtonBlock(NewBlocksModElements instance) {
 		super(instance, 1056);
 	}
@@ -35,6 +36,7 @@ public class MangroveButtonBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends WoodButtonBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(0.5f, 0.5f).setLightLevel(s -> 0));

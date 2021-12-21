@@ -18,14 +18,17 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.mcreator.newblocks.procedures.NamelessBladeLivingEntityIsHitWithToolProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class NamelessBladeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:nameless_blade")
 	public static final Item block = null;
+
 	public NamelessBladeItem(NewBlocksModElements instance) {
 		super(instance, 253);
 	}
@@ -70,12 +73,10 @@ public class NamelessBladeItem extends NewBlocksModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				World world = entity.world;
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("itemstack", itemstack);
-					NamelessBladeLivingEntityIsHitWithToolProcedure.executeProcedure($_dependencies);
-				}
+
+				NamelessBladeLivingEntityIsHitWithToolProcedure.executeProcedure(
+						Stream.of(new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("nameless_blade"));

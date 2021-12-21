@@ -21,8 +21,10 @@ import net.mcreator.newblocks.procedures.EnergyPoweredBodyTickEventProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class EnergyPoweredItem extends NewBlocksModElements.ModElement {
@@ -34,6 +36,7 @@ public class EnergyPoweredItem extends NewBlocksModElements.ModElement {
 	public static final Item legs = null;
 	@ObjectHolder("new_blocks:energy_powered_boots")
 	public static final Item boots = null;
+
 	public EnergyPoweredItem(NewBlocksModElements instance) {
 		super(instance, 140);
 	}
@@ -93,13 +96,12 @@ public class EnergyPoweredItem extends NewBlocksModElements.ModElement {
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("itemstack", itemstack);
-					EnergyPoweredBodyTickEventProcedure.executeProcedure($_dependencies);
-				}
+
+				EnergyPoweredBodyTickEventProcedure.executeProcedure(
+						Stream.of(new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("energy_powered_chestplate"));
 	}
+
 }

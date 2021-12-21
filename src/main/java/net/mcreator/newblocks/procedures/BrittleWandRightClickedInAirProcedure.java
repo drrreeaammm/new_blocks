@@ -13,6 +13,7 @@ import java.util.Random;
 import java.util.Map;
 
 public class BrittleWandRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -33,9 +34,9 @@ public class BrittleWandRightClickedInAirProcedure {
 			}
 		}
 		if (entity instanceof PlayerEntity)
-			((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 14);
+			((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 14);
 		{
-			ItemStack _ist = (itemstack);
+			ItemStack _ist = itemstack;
 			if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 				_ist.shrink(1);
 				_ist.setDamage(0);

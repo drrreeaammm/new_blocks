@@ -14,6 +14,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class SpeedBootsBootsTickEventProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -23,30 +24,27 @@ public class SpeedBootsBootsTickEventProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 25, (int) 0, (false), (false)));
-		if ((entity.isSprinting())) {
-			if (((EnchantmentHelper.getEnchantmentLevel(SprintingEnchantment.enchantment,
+		if (entity.isSprinting()) {
+			if (EnchantmentHelper.getEnchantmentLevel(SprintingEnchantment.enchantment,
 					((entity instanceof LivingEntity)
-							? ((LivingEntity) entity)
-									.getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 0))
-							: ItemStack.EMPTY))) == 1)) {
+							? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.FEET)
+							: ItemStack.EMPTY)) == 1) {
 				if (entity instanceof LivingEntity)
 					((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 25, (int) 1, (false), (false)));
 			}
-		} else if ((entity.isSprinting())) {
-			if (((EnchantmentHelper.getEnchantmentLevel(SprintingEnchantment.enchantment,
+		} else if (entity.isSprinting()) {
+			if (EnchantmentHelper.getEnchantmentLevel(SprintingEnchantment.enchantment,
 					((entity instanceof LivingEntity)
-							? ((LivingEntity) entity)
-									.getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 0))
-							: ItemStack.EMPTY))) == 2)) {
+							? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.FEET)
+							: ItemStack.EMPTY)) == 2) {
 				if (entity instanceof LivingEntity)
 					((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 25, (int) 2, (false), (false)));
 			}
-		} else if ((entity.isSprinting())) {
-			if (((EnchantmentHelper.getEnchantmentLevel(SprintingEnchantment.enchantment,
+		} else if (entity.isSprinting()) {
+			if (EnchantmentHelper.getEnchantmentLevel(SprintingEnchantment.enchantment,
 					((entity instanceof LivingEntity)
-							? ((LivingEntity) entity)
-									.getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 0))
-							: ItemStack.EMPTY))) == 3)) {
+							? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.FEET)
+							: ItemStack.EMPTY)) == 3) {
 				if (entity instanceof LivingEntity)
 					((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 25, (int) 3, (false), (false)));
 			}

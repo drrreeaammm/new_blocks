@@ -22,6 +22,7 @@ import java.util.List;
 public class DiamondSwordItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:diamond_sword")
 	public static final Item block = null;
+
 	public DiamondSwordItem(NewBlocksModElements instance) {
 		super(instance, 254);
 	}

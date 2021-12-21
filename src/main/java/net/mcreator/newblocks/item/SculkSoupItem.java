@@ -17,13 +17,16 @@ import net.mcreator.newblocks.procedures.SculkSoupFoodEatenProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class SculkSoupItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:sculk_soup")
 	public static final Item block = null;
+
 	public SculkSoupItem(NewBlocksModElements instance) {
 		super(instance, 155);
 	}
@@ -32,10 +35,13 @@ public class SculkSoupItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxStackSize(1).rarity(Rarity.COMMON)
-					.food((new Food.Builder()).hunger(7).saturation(0.5f).build()));
+					.food((new Food.Builder()).hunger(7).saturation(0.5f)
+
+							.build()));
 			setRegistryName("sculk_soup");
 		}
 
@@ -51,11 +57,9 @@ public class SculkSoupItem extends NewBlocksModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				SculkSoupFoodEatenProcedure.executeProcedure($_dependencies);
-			}
+
+			SculkSoupFoodEatenProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			if (itemstack.isEmpty()) {
 				return retval;
 			} else {

@@ -10,6 +10,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class IronManBootsTickEventProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -17,7 +18,7 @@ public class IronManBootsTickEventProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((entity.isSneaking())) {
+		if (entity.isSneaking()) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.LEVITATION, (int) 60, (int) 1, (false), (false)));
 			if (entity instanceof LivingEntity)

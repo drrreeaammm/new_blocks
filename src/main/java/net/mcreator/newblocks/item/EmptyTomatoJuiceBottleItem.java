@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class EmptyTomatoJuiceBottleItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:empty_tomato_juice_bottle")
 	public static final Item block = null;
+
 	public EmptyTomatoJuiceBottleItem(NewBlocksModElements instance) {
 		super(instance, 1221);
 	}
@@ -23,6 +24,7 @@ public class EmptyTomatoJuiceBottleItem extends NewBlocksModElements.ModElement 
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(16).rarity(Rarity.COMMON));

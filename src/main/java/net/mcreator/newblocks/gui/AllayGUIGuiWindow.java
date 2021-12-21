@@ -23,6 +23,7 @@ public class AllayGUIGuiWindow extends ContainerScreen<AllayGUIGui.GuiContainerM
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = AllayGUIGui.guistate;
+
 	public AllayGUIGuiWindow(AllayGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -33,7 +34,9 @@ public class AllayGUIGuiWindow extends ContainerScreen<AllayGUIGui.GuiContainerM
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/allay_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

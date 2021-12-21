@@ -17,6 +17,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class ShulkerPickaxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:shulker_pickaxe")
 	public static final Item block = null;
+
 	public ShulkerPickaxeItem(NewBlocksModElements instance) {
 		super(instance, 26);
 	}

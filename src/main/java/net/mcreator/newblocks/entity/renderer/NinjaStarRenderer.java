@@ -36,6 +36,7 @@ public class NinjaStarRenderer {
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<NinjaStarItem.ArrowCustomEntity> {
 		private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/ninjastar.png");
+
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
 		}
@@ -64,6 +65,7 @@ public class NinjaStarRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modelninjastar extends EntityModel<Entity> {
 		private final ModelRenderer bb_main;
+
 		public Modelninjastar() {
 			textureWidth = 22;
 			textureHeight = 22;
@@ -98,6 +100,8 @@ public class NinjaStarRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

@@ -26,6 +26,7 @@ public class MentalRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(MentalEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelmental_du_unstable_en_condition_le_frick(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/mental_du_unstable_en_condition_le_frick.png");
@@ -54,6 +55,7 @@ public class MentalRenderer {
 		private final ModelRenderer right_leg;
 		private final ModelRenderer right_pants;
 		private final ModelRenderer bb_main;
+
 		public Modelmental_du_unstable_en_condition_le_frick() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -130,6 +132,7 @@ public class MentalRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.right_arm.rotateAngleX = MathHelper.cos(f * 0.6662F) * f1;
 			this.left_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 			this.right_ear.rotateAngleX = f2 / 20.f;
@@ -145,4 +148,5 @@ public class MentalRenderer {
 			this.left_pants.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

@@ -25,6 +25,7 @@ public class PlaneRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(PlaneEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelplane(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/plane.png");
@@ -57,6 +58,7 @@ public class PlaneRenderer {
 		private final ModelRenderer upright;
 		private final ModelRenderer window6;
 		private final ModelRenderer upright2;
+
 		public Modelplane() {
 			textureWidth = 1024;
 			textureHeight = 1024;
@@ -284,6 +286,8 @@ public class PlaneRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

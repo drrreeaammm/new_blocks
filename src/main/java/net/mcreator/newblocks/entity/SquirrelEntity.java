@@ -44,13 +44,17 @@ import net.mcreator.newblocks.entity.renderer.SquirrelRenderer;
 import net.mcreator.newblocks.block.AcornBlockBlock;
 import net.mcreator.newblocks.NewBlocksModElements;
 
-import com.google.common.collect.ImmutableMap;
+import java.util.stream.Stream;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class SquirrelEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.AMBIENT)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 0.6f)).build("squirrel").setRegistryName("squirrel");
+
 	public SquirrelEntity(NewBlocksModElements instance) {
 		super(instance, 206);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new SquirrelRenderer.ModelRegisterHandler());
@@ -82,9 +86,13 @@ public class SquirrelEntity extends NewBlocksModElements.ModElement {
 					int x = pos.getX();
 					int y = pos.getY();
 					int z = pos.getZ();
-					return SquirrelNaturalEntitySpawningConditionProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+					return SquirrelNaturalEntitySpawningConditionProcedure.executeProcedure(Stream
+							.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+									new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				});
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

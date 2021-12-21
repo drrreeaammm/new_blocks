@@ -42,7 +42,13 @@ public class RandomlyPlaySoundIfForestedProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure RandomlyPlaySoundIfForested!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency x for procedure RandomlyPlaySoundIfForested!");
@@ -58,31 +64,26 @@ public class RandomlyPlaySoundIfForestedProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure RandomlyPlaySoundIfForested!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure RandomlyPlaySoundIfForested!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((world.func_241828_r().getRegistry(Registry.BIOME_KEY).getKey(world.getBiome(new BlockPos((int) x, (int) y, (int) z))) != null
+		if (world.func_241828_r().getRegistry(Registry.BIOME_KEY).getKey(world.getBiome(new BlockPos((int) x, (int) y, (int) z))) != null
 				&& BiomeDictionary
 						.hasType(
 								RegistryKey
 										.getOrCreateKey(Registry.BIOME_KEY,
 												world.func_241828_r().getRegistry(Registry.BIOME_KEY)
 														.getKey(world.getBiome(new BlockPos((int) x, (int) y, (int) z)))),
-								BiomeDictionary.Type.FOREST))) {
-			if ((Math.random() < 0.2)) {
-				if ((Math.random() < 0.2)) {
-					if ((Math.random() < 0.2)) {
-						if ((Math.random() < 0.2)) {
-							if ((Math.random() < 0.2)) {
-								if ((Math.random() < 0.2)) {
-									if ((Math.random() < 0.2)) {
-										if ((Math.random() < 0.2)) {
+								BiomeDictionary.Type.FOREST)) {
+			if (Math.random() < 0.2) {
+				if (Math.random() < 0.2) {
+					if (Math.random() < 0.2) {
+						if (Math.random() < 0.2) {
+							if (Math.random() < 0.2) {
+								if (Math.random() < 0.2) {
+									if (Math.random() < 0.2) {
+										if (Math.random() < 0.2) {
 											if (world instanceof World && !world.isRemote()) {
 												((World) world).playSound(null, new BlockPos((int) x, (int) y, (int) z),
 														(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS

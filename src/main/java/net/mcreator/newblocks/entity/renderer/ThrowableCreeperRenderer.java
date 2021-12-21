@@ -36,6 +36,7 @@ public class ThrowableCreeperRenderer {
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<ThrowableCreeperItem.ArrowCustomEntity> {
 		private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/throwable_creeper.png");
+
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
 		}
@@ -69,6 +70,7 @@ public class ThrowableCreeperRenderer {
 		private final ModelRenderer leg2;
 		private final ModelRenderer leg3;
 		private final ModelRenderer leg4;
+
 		public Modelthrowable_creeper() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -110,6 +112,8 @@ public class ThrowableCreeperRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

@@ -44,6 +44,7 @@ public class AdvancementWardenProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -57,8 +58,8 @@ public class AdvancementWardenProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		if ((entity instanceof WardenEntity.CustomEntity)) {
-			if ((sourceentity instanceof PlayerEntity)) {
+		if (entity instanceof WardenEntity.CustomEntity) {
+			if (sourceentity instanceof PlayerEntity) {
 				if (sourceentity instanceof ServerPlayerEntity) {
 					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) sourceentity).server).getAdvancementManager()
 							.getAdvancement(new ResourceLocation("new_blocks:i_killed_the_warden_and_all_i_got_was_this_stupid_t_shirt"));

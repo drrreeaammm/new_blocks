@@ -11,6 +11,7 @@ import java.util.Random;
 import java.util.Map;
 
 public class TestZombieOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -18,12 +19,12 @@ public class TestZombieOnEntityTickUpdateProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == GrenadeItem.block)) {
-			if ((Math.random() < 0.7)) {
-				if ((Math.random() < 0.7)) {
-					if ((Math.random() < 0.7)) {
-						if ((Math.random() < 0.7)) {
-							if ((Math.random() < 0.7)) {
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == GrenadeItem.block) {
+			if (Math.random() < 0.7) {
+				if (Math.random() < 0.7) {
+					if (Math.random() < 0.7) {
+						if (Math.random() < 0.7) {
+							if (Math.random() < 0.7) {
 								if (entity instanceof LivingEntity) {
 									Entity _ent = entity;
 									if (!_ent.world.isRemote()) {

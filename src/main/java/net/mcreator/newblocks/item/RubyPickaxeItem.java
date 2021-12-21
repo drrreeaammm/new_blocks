@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class RubyPickaxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ruby_pickaxe")
 	public static final Item block = null;
+
 	public RubyPickaxeItem(NewBlocksModElements instance) {
 		super(instance, 20);
 	}

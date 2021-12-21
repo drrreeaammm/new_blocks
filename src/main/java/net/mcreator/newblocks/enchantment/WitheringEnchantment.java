@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class WitheringEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:withering")
 	public static final Enchantment enchantment = null;
+
 	public WitheringEnchantment(NewBlocksModElements instance) {
 		super(instance, 401);
 	}
@@ -23,6 +24,7 @@ public class WitheringEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("withering"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.RARE, EnchantmentType.WEAPON, slots);

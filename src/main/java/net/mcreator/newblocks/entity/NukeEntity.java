@@ -18,7 +18,7 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.projectile.PotionEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -33,15 +33,18 @@ import net.mcreator.newblocks.procedures.NukeOnEntityTickUpdateProcedure;
 import net.mcreator.newblocks.entity.renderer.NukeRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class NukeEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
 			.size(0.6f, 3.1f)).build("nuke").setRegistryName("nuke");
+
 	public NukeEntity(NewBlocksModElements instance) {
 		super(instance, 1169);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new NukeRenderer.ModelRegisterHandler());
@@ -57,6 +60,7 @@ public class NukeEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -88,6 +92,7 @@ public class NukeEntity extends NewBlocksModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
+
 		}
 
 		@Override
@@ -107,7 +112,7 @@ public class NukeEntity extends NewBlocksModElements.ModElement {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source.getImmediateSource() instanceof ArrowEntity)
+			if (source.getImmediateSource() instanceof AbstractArrowEntity)
 				return false;
 			if (source.getImmediateSource() instanceof PlayerEntity)
 				return false;
@@ -143,15 +148,11 @@ public class NukeEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				NukeOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
-			}
+
+			NukeOnEntityTickUpdateProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		public void livingTick() {

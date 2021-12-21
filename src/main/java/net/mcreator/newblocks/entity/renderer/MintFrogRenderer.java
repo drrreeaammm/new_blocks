@@ -26,6 +26,7 @@ public class MintFrogRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(MintFrogEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelfrog(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/mint_frog.png");
@@ -49,6 +50,7 @@ public class MintFrogRenderer {
 		private final ModelRenderer back_left_leg;
 		private final ModelRenderer back_right_leg;
 		private final ModelRenderer back_right_leg_sub_0;
+
 		public Modelfrog() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -112,6 +114,7 @@ public class MintFrogRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.front_right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 			this.back_right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 			this.front_right_leg_sub_0.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
@@ -120,4 +123,5 @@ public class MintFrogRenderer {
 			this.front_left_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 		}
 	}
+
 }

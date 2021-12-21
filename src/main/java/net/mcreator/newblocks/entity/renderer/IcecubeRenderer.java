@@ -36,6 +36,7 @@ public class IcecubeRenderer {
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<IcecubeItem.ArrowCustomEntity> {
 		private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/icecube.png");
+
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
 		}
@@ -84,6 +85,7 @@ public class IcecubeRenderer {
 		private final ModelRenderer right_leg;
 		private final ModelRenderer left_wing;
 		private final ModelRenderer right_wing;
+
 		public Modelicecube() {
 			textureWidth = 128;
 			textureHeight = 128;
@@ -175,4 +177,5 @@ public class IcecubeRenderer {
 			modelRenderer.rotateAngleZ = z;
 		}
 	}
+
 }

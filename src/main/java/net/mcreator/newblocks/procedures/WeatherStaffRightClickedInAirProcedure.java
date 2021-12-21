@@ -12,7 +12,13 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class WeatherStaffRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure WeatherStaffRightClickedInAir!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure WeatherStaffRightClickedInAir!");
@@ -23,15 +29,10 @@ public class WeatherStaffRightClickedInAirProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure WeatherStaffRightClickedInAir!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure WeatherStaffRightClickedInAir!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		IWorld world = (IWorld) dependencies.get("world");
-		if (((!world.getWorldInfo().isRaining()) && (!world.getWorldInfo().isThundering()))) {
+		if (!world.getWorldInfo().isRaining() && !world.getWorldInfo().isThundering()) {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
@@ -42,9 +43,9 @@ public class WeatherStaffRightClickedInAirProcedure {
 							"weather rain");
 				}
 			}
-			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
+			if (!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false)) {
 				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 300);
+					((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 300);
 			}
 		} else if (world.getWorldInfo().isRaining()) {
 			if (entity instanceof LivingEntity) {
@@ -57,9 +58,9 @@ public class WeatherStaffRightClickedInAirProcedure {
 							"weather thunder");
 				}
 			}
-			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
+			if (!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false)) {
 				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 600);
+					((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 600);
 			}
 		} else if (world.getWorldInfo().isThundering()) {
 			if (entity instanceof LivingEntity) {
@@ -72,9 +73,9 @@ public class WeatherStaffRightClickedInAirProcedure {
 							"weather clear");
 				}
 			}
-			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
+			if (!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false)) {
 				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 450);
+					((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 450);
 			}
 		}
 	}

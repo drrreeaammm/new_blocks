@@ -43,6 +43,7 @@ public class EntityAttackedProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("sourceentity") == null) {
 			if (!dependencies.containsKey("sourceentity"))
@@ -50,7 +51,7 @@ public class EntityAttackedProcedure {
 			return;
 		}
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		if ((sourceentity instanceof StoneGolemEntity.CustomEntity)) {
+		if (sourceentity instanceof StoneGolemEntity.CustomEntity) {
 			if (sourceentity instanceof LivingEntity) {
 				((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
 			}

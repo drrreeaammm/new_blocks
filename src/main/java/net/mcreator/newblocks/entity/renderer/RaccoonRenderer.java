@@ -26,6 +26,7 @@ public class RaccoonRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(RaccoonEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelraccoon(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/raccoon.png");
@@ -48,6 +49,7 @@ public class RaccoonRenderer {
 		private final ModelRenderer leg4;
 		private final ModelRenderer tail;
 		private final ModelRenderer tail_rotation;
+
 		public Modelraccoon() {
 			textureWidth = 48;
 			textureHeight = 32;
@@ -104,6 +106,7 @@ public class RaccoonRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.leg1.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
@@ -112,4 +115,5 @@ public class RaccoonRenderer {
 			this.leg3.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

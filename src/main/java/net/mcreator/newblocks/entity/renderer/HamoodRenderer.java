@@ -26,6 +26,7 @@ public class HamoodRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(HamoodEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelhamood(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/hamood.png");
@@ -45,6 +46,7 @@ public class HamoodRenderer {
 		private final ModelRenderer right_arm;
 		private final ModelRenderer left_leg;
 		private final ModelRenderer right_leg;
+
 		public Modelhamood() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -92,6 +94,7 @@ public class HamoodRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.right_arm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
@@ -100,4 +103,5 @@ public class HamoodRenderer {
 			this.right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

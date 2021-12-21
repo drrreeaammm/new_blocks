@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class OrangePeelItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:orange_peel")
 	public static final Item block = null;
+
 	public OrangePeelItem(NewBlocksModElements instance) {
 		super(instance, 266);
 	}
@@ -24,10 +25,13 @@ public class OrangePeelItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(ItemGroup.FOOD).maxStackSize(64).rarity(Rarity.COMMON)
-					.food((new Food.Builder()).hunger(2).saturation(0.2f).build()));
+					.food((new Food.Builder()).hunger(2).saturation(0.2f)
+
+							.build()));
 			setRegistryName("orange_peel");
 		}
 

@@ -30,14 +30,17 @@ import net.minecraft.util.Mirror;
 
 import net.mcreator.newblocks.procedures.SwordInTheStoneThunderAdditionalGenerationConditionProcedure;
 
+import java.util.stream.Stream;
 import java.util.Random;
-
-import com.google.common.collect.ImmutableMap;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
 
 @Mod.EventBusSubscriber
 public class SwordInTheStoneFrostStructure {
 	private static Feature<NoFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
@@ -66,7 +69,9 @@ public class SwordInTheStoneFrostStructure {
 							int x = spawnTo.getX();
 							int y = spawnTo.getY();
 							int z = spawnTo.getZ();
-							if (!SwordInTheStoneThunderAdditionalGenerationConditionProcedure.executeProcedure(ImmutableMap.of("y", y)))
+							if (!SwordInTheStoneThunderAdditionalGenerationConditionProcedure
+									.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("y", y)).collect(HashMap::new,
+											(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 								continue;
 							Template template = world.getWorld().getStructureTemplateManager()
 									.getTemplateDefaulted(new ResourceLocation("new_blocks", "sword_in_the_stone_frost"));
@@ -87,6 +92,7 @@ public class SwordInTheStoneFrostStructure {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:sword_in_the_stone_frost"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public static void addFeatureToBiomes(BiomeLoadingEvent event) {
 		boolean biomeCriteria = false;

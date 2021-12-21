@@ -15,13 +15,16 @@ import net.mcreator.newblocks.procedures.DeathSickleLivingEntityIsHitWithToolPro
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class DeathSickleItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:death_sickle")
 	public static final Item block = null;
+
 	public DeathSickleItem(NewBlocksModElements instance) {
 		super(instance, 87);
 	}
@@ -60,15 +63,12 @@ public class DeathSickleItem extends NewBlocksModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				World world = entity.world;
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					DeathSickleLivingEntityIsHitWithToolProcedure.executeProcedure($_dependencies);
-				}
+
+				DeathSickleLivingEntityIsHitWithToolProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("death_sickle"));

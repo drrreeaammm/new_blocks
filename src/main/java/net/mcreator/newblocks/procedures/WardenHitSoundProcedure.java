@@ -47,10 +47,11 @@ public class WardenHitSoundProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("sourceentity") == null) {
-			if (!dependencies.containsKey("sourceentity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure WardenHitSound!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure WardenHitSound!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -68,17 +69,17 @@ public class WardenHitSoundProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure WardenHitSound!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure WardenHitSound!");
+		if (dependencies.get("sourceentity") == null) {
+			if (!dependencies.containsKey("sourceentity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure WardenHitSound!");
 			return;
 		}
-		Entity sourceentity = (Entity) dependencies.get("sourceentity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((sourceentity instanceof WardenEntity.CustomEntity)) {
+		Entity sourceentity = (Entity) dependencies.get("sourceentity");
+		if (sourceentity instanceof WardenEntity.CustomEntity) {
 			if (world instanceof World && !world.isRemote()) {
 				((World) world).playSound(null, new BlockPos((int) x, (int) y, (int) z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:warden_hit")),
@@ -88,7 +89,7 @@ public class WardenHitSoundProcedure {
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:warden_hit")),
 						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
-		} else if ((sourceentity instanceof VeryAngryWardenEntity.CustomEntity)) {
+		} else if (sourceentity instanceof VeryAngryWardenEntity.CustomEntity) {
 			if (world instanceof World && !world.isRemote()) {
 				((World) world).playSound(null, new BlockPos((int) x, (int) y, (int) z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:warden_hit")),

@@ -28,6 +28,7 @@ import java.util.Collections;
 public class RainbowButtonBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:rainbow_button")
 	public static final Block block = null;
+
 	public RainbowButtonBlock(NewBlocksModElements instance) {
 		super(instance, 124);
 	}
@@ -43,6 +44,7 @@ public class RainbowButtonBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends WoodButtonBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.45f, 1.5f).setLightLevel(s -> 0).notSolid()

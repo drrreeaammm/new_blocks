@@ -21,7 +21,7 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.projectile.PotionEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
@@ -40,13 +40,17 @@ import net.mcreator.newblocks.procedures.WardenNaturalEntitySpawningConditionPro
 import net.mcreator.newblocks.entity.renderer.GrimstoneSpiderRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
-import com.google.common.collect.ImmutableMap;
+import java.util.stream.Stream;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class GrimstoneSpiderEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
 			.size(1.4f, 0.9f)).build("grimstone_spider").setRegistryName("grimstone_spider");
+
 	public GrimstoneSpiderEntity(NewBlocksModElements instance) {
 		super(instance, 760);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new GrimstoneSpiderRenderer.ModelRegisterHandler());
@@ -84,9 +88,13 @@ public class GrimstoneSpiderEntity extends NewBlocksModElements.ModElement {
 					int x = pos.getX();
 					int y = pos.getY();
 					int z = pos.getZ();
-					return WardenNaturalEntitySpawningConditionProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+					return WardenNaturalEntitySpawningConditionProcedure.executeProcedure(Stream
+							.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+									new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				});
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -142,7 +150,7 @@ public class GrimstoneSpiderEntity extends NewBlocksModElements.ModElement {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source.getImmediateSource() instanceof ArrowEntity)
+			if (source.getImmediateSource() instanceof AbstractArrowEntity)
 				return false;
 			if (source.getImmediateSource() instanceof PotionEntity)
 				return false;

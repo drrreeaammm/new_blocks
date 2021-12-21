@@ -15,13 +15,16 @@ import net.mcreator.newblocks.procedures.CascadeSwordLivingEntityIsHitWithToolPr
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class CascadeSwordItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:cascade_sword")
 	public static final Item block = null;
+
 	public CascadeSwordItem(NewBlocksModElements instance) {
 		super(instance, 90);
 	}
@@ -60,11 +63,9 @@ public class CascadeSwordItem extends NewBlocksModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				World world = entity.world;
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					CascadeSwordLivingEntityIsHitWithToolProcedure.executeProcedure($_dependencies);
-				}
+
+				CascadeSwordLivingEntityIsHitWithToolProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("cascade_sword"));

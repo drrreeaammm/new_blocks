@@ -14,6 +14,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class WetMudMobplayerCollidesBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -21,13 +22,13 @@ public class WetMudMobplayerCollidesBlockProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((entity.areEyesInFluid(FluidTags.WATER))) {
-			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-					.getItem() == Items.GLASS_BOTTLE)) {
-				if ((Math.random() < 0.7)) {
-					if ((Math.random() < 0.7)) {
-						if ((Math.random() < 0.7)) {
-							if ((Math.random() < 0.7)) {
+		if (entity.areEyesInFluid(FluidTags.WATER)) {
+			if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+					.getItem() == Items.GLASS_BOTTLE) {
+				if (Math.random() < 0.7) {
+					if (Math.random() < 0.7) {
+						if (Math.random() < 0.7) {
+							if (Math.random() < 0.7) {
 								if (entity instanceof LivingEntity) {
 									ItemStack _setstack = new ItemStack(MudBottleItem.block);
 									_setstack.setCount((int) 1);

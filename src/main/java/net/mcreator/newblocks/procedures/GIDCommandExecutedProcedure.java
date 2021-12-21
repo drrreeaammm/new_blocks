@@ -14,23 +14,25 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class GIDCommandExecutedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure GIDCommandExecuted!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure GIDCommandExecuted!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure GIDCommandExecuted!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		new Object() {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -48,10 +50,13 @@ public class GIDCommandExecutedProcedure {
 
 			private void run() {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Your ID is") + ""
-							+ ((entity.getPersistentData().getDouble("ID1"))) + "" + ((entity.getPersistentData().getDouble("ID2"))) + ""
-							+ ((entity.getPersistentData().getDouble("ID3"))) + "" + ((entity.getPersistentData().getDouble("ID4"))) + ""
-							+ ((entity.getPersistentData().getDouble("ID5"))) + "" + ((entity.getPersistentData().getDouble("ID6"))))), (false));
+					((PlayerEntity) entity)
+							.sendStatusMessage(
+									new StringTextComponent(
+											("Your ID is" + entity.getPersistentData().getDouble("ID1") + entity.getPersistentData().getDouble("ID2")
+													+ entity.getPersistentData().getDouble("ID3") + entity.getPersistentData().getDouble("ID4")
+													+ entity.getPersistentData().getDouble("ID5") + entity.getPersistentData().getDouble("ID6"))),
+									(false));
 				}
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}

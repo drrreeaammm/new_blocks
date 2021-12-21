@@ -23,15 +23,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class KnifeLivingEntityIsHitWithToolProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure KnifeLivingEntityIsHitWithTool!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure KnifeLivingEntityIsHitWithTool!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure KnifeLivingEntityIsHitWithTool!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -49,17 +45,22 @@ public class KnifeLivingEntityIsHitWithToolProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure KnifeLivingEntityIsHitWithTool!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure KnifeLivingEntityIsHitWithTool!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure KnifeLivingEntityIsHitWithTool!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure KnifeLivingEntityIsHitWithTool!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos((int) x, (int) y, (int) z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:knifestab")),
@@ -69,11 +70,12 @@ public class KnifeLivingEntityIsHitWithToolProcedure {
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:knifestab")),
 					SoundCategory.NEUTRAL, (float) 3, (float) 1, false);
 		}
-		if (((EnchantmentHelper.getEnchantmentLevel(SlashEnchantment.enchantment, (itemstack))) == 1)) {
+		if (EnchantmentHelper.getEnchantmentLevel(SlashEnchantment.enchantment, itemstack) == 1) {
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -96,6 +98,7 @@ public class KnifeLivingEntityIsHitWithToolProcedure {
 						private int ticks = 0;
 						private float waitTicks;
 						private IWorld world;
+
 						public void start(IWorld world, int waitTicks) {
 							this.waitTicks = waitTicks;
 							MinecraftForge.EVENT_BUS.register(this);
@@ -120,11 +123,12 @@ public class KnifeLivingEntityIsHitWithToolProcedure {
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
 			}.start(world, (int) 70);
-		} else if (((EnchantmentHelper.getEnchantmentLevel(SlashEnchantment.enchantment, (itemstack))) == 2)) {
+		} else if (EnchantmentHelper.getEnchantmentLevel(SlashEnchantment.enchantment, itemstack) == 2) {
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -148,11 +152,12 @@ public class KnifeLivingEntityIsHitWithToolProcedure {
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}
 			}.start(world, (int) 95);
-		} else if (((EnchantmentHelper.getEnchantmentLevel(SlashEnchantment.enchantment, (itemstack))) == 3)) {
+		} else if (EnchantmentHelper.getEnchantmentLevel(SlashEnchantment.enchantment, itemstack) == 3) {
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);

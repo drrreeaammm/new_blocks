@@ -18,10 +18,11 @@ import java.util.Comparator;
 import java.util.Collection;
 
 public class InfernoEffectStartedappliedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure InfernoEffectStartedapplied!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure InfernoEffectStartedapplied!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -39,16 +40,16 @@ public class InfernoEffectStartedappliedProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure InfernoEffectStartedapplied!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure InfernoEffectStartedapplied!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure InfernoEffectStartedapplied!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -59,11 +60,11 @@ public class InfernoEffectStartedappliedProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if ((!((entityiterator instanceof TameableEntity && entity instanceof LivingEntity)
+				if (!((entityiterator instanceof TameableEntity && entity instanceof LivingEntity)
 						? ((TameableEntity) entityiterator).isOwner((LivingEntity) entity)
-						: false))) {
-					if ((!(entityiterator == entity))) {
-						entityiterator.setFire((int) (5 + (new Object() {
+						: false)) {
+					if (!(entityiterator == entity)) {
+						entityiterator.setFire((int) (5 + new Object() {
 							int check(Entity _entity) {
 								if (_entity instanceof LivingEntity) {
 									Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
@@ -74,7 +75,7 @@ public class InfernoEffectStartedappliedProcedure {
 								}
 								return 0;
 							}
-						}.check(entity))));
+						}.check(entity)));
 					}
 				}
 			}

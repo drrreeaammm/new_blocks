@@ -21,6 +21,7 @@ public class FriendlySpiderRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(FriendlySpiderEntity.entity,
 					renderManager -> new MobRenderer(renderManager, new SpiderModel(), 0.5f) {
+
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
 							return new ResourceLocation("new_blocks:textures/friendlyspider.png");

@@ -20,7 +20,13 @@ import java.util.Map;
 import java.util.Collections;
 
 public class EnderwandRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure EnderwandRightClickedInAir!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure EnderwandRightClickedInAir!");
@@ -31,17 +37,12 @@ public class EnderwandRightClickedInAirProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure EnderwandRightClickedInAir!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure EnderwandRightClickedInAir!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+		if (entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 				entity.getEyePosition(1f).add(entity.getLook(1f).x * 32, entity.getLook(1f).y * 32, entity.getLook(1f).z * 32),
-				RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getType() == RayTraceResult.Type.BLOCK)) {
+				RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getType() == RayTraceResult.Type.BLOCK) {
 			if (world instanceof World && !world.isRemote()) {
 				((World) world).playSound(null,
 						new BlockPos(
@@ -118,7 +119,7 @@ public class EnderwandRightClickedInAirProcedure {
 				}
 			}
 			{
-				ItemStack _ist = (itemstack);
+				ItemStack _ist = itemstack;
 				if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 					_ist.shrink(1);
 					_ist.setDamage(0);

@@ -25,6 +25,7 @@ public class BlueSurfboardRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(BlueSurfboardEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelsurfboard(), 0.6f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/blue_surfboard.png");
@@ -39,6 +40,7 @@ public class BlueSurfboardRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modelsurfboard extends EntityModel<Entity> {
 		private final ModelRenderer bb_main;
+
 		public Modelsurfboard() {
 			textureWidth = 55;
 			textureHeight = 55;
@@ -63,6 +65,8 @@ public class BlueSurfboardRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

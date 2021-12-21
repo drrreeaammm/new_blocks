@@ -27,6 +27,7 @@ public class ArmorPowererGUIGuiWindow extends ContainerScreen<ArmorPowererGUIGui
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = ArmorPowererGUIGui.guistate;
+
 	public ArmorPowererGUIGuiWindow(ArmorPowererGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -37,7 +38,9 @@ public class ArmorPowererGUIGuiWindow extends ContainerScreen<ArmorPowererGUIGui
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/armor_powerer_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

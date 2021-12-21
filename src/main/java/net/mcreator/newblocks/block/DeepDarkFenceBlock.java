@@ -27,6 +27,7 @@ import java.util.Collections;
 public class DeepDarkFenceBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:deep_dark_fence")
 	public static final Block block = null;
+
 	public DeepDarkFenceBlock(NewBlocksModElements instance) {
 		super(instance, 53);
 	}
@@ -36,6 +37,7 @@ public class DeepDarkFenceBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends FenceBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2f, 3f).setLightLevel(s -> 0));

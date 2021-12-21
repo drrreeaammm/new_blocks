@@ -43,71 +43,72 @@ public class RandomQuoteProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure RandomQuote!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure RandomQuote!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure RandomQuote!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
-		if ((entity instanceof PlayerEntity)) {
-			if ((Math.random() < 0.1)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (entity instanceof PlayerEntity) {
+			if (Math.random() < 0.1) {
 				if (!world.isRemote()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
 						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("My my, that wasn't supposed to happen, was it?"),
 								ChatType.SYSTEM, Util.DUMMY_UUID);
 				}
-			} else if ((Math.random() < 0.1)) {
+			} else if (Math.random() < 0.1) {
 				if (!world.isRemote()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
 						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("Oh dear..."), ChatType.SYSTEM, Util.DUMMY_UUID);
 				}
-			} else if ((Math.random() < 0.1)) {
+			} else if (Math.random() < 0.1) {
 				if (!world.isRemote()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
 						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("Oh..."), ChatType.SYSTEM, Util.DUMMY_UUID);
 				}
-			} else if ((Math.random() < 0.1)) {
+			} else if (Math.random() < 0.1) {
 				if (!world.isRemote()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
 						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("How do you count over 100000?"), ChatType.SYSTEM,
 								Util.DUMMY_UUID);
 				}
-			} else if ((Math.random() < 0.1)) {
+			} else if (Math.random() < 0.1) {
 				if (!world.isRemote()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
 						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("Ha ha.."), ChatType.SYSTEM, Util.DUMMY_UUID);
 				}
-			} else if ((Math.random() < 0.1)) {
+			} else if (Math.random() < 0.1) {
 				if (!world.isRemote()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
 						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("I blame Dinnerbone..."), ChatType.SYSTEM, Util.DUMMY_UUID);
 				}
-			} else if ((Math.random() < 0.1)) {
+			} else if (Math.random() < 0.1) {
 				if (!world.isRemote()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
 						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("Uh... Did I do that?"), ChatType.SYSTEM, Util.DUMMY_UUID);
 				}
-			} else if ((Math.random() < 0.1)) {
+			} else if (Math.random() < 0.1) {
 				if (!world.isRemote()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)
 						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("Why did you do that?"), ChatType.SYSTEM, Util.DUMMY_UUID);
 				}
-			} else if ((Math.random() < 0.1)) {
+			} else if (Math.random() < 0.1) {
 				if (!world.isRemote()) {
 					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
 					if (mcserv != null)

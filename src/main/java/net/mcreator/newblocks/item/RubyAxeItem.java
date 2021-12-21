@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class RubyAxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ruby_axe")
 	public static final Item block = null;
+
 	public RubyAxeItem(NewBlocksModElements instance) {
 		super(instance, 21);
 	}

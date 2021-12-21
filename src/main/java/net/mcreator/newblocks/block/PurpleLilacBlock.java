@@ -55,6 +55,7 @@ import java.util.Collections;
 public class PurpleLilacBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:purple_lilac")
 	public static final Block block = null;
+
 	public PurpleLilacBlock(NewBlocksModElements instance) {
 		super(instance, 945);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -73,8 +74,10 @@ public class PurpleLilacBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static Feature<BlockClusterFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
 		public void registerFeature(RegistryEvent.Register<Feature<?>> event) {
@@ -98,6 +101,7 @@ public class PurpleLilacBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:purple_lilac"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		boolean biomeCriteria = false;
@@ -121,6 +125,7 @@ public class PurpleLilacBlock extends NewBlocksModElements.ModElement {
 			return;
 		event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> configuredFeature);
 	}
+
 	public static class BlockCustomFlower extends DoublePlantBlock {
 		public BlockCustomFlower() {
 			super(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().sound(SoundType.PLANT).hardnessAndResistance(0f, 0f)

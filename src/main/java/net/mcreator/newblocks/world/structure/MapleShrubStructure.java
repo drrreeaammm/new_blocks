@@ -32,14 +32,17 @@ import net.minecraft.block.BlockState;
 
 import net.mcreator.newblocks.procedures.MapleTree1AdditionalGenerationConditionProcedure;
 
+import java.util.stream.Stream;
 import java.util.Random;
-
-import com.google.common.collect.ImmutableMap;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.AbstractMap;
 
 @Mod.EventBusSubscriber
 public class MapleShrubStructure {
 	private static Feature<NoFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
@@ -74,8 +77,10 @@ public class MapleShrubStructure {
 							int x = spawnTo.getX();
 							int y = spawnTo.getY();
 							int z = spawnTo.getZ();
-							if (!MapleTree1AdditionalGenerationConditionProcedure
-									.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+							if (!MapleTree1AdditionalGenerationConditionProcedure.executeProcedure(Stream
+									.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+											new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+									.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 								continue;
 							Template template = world.getWorld().getStructureTemplateManager()
 									.getTemplateDefaulted(new ResourceLocation("new_blocks", "maple_shrub1"));
@@ -96,6 +101,7 @@ public class MapleShrubStructure {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:maple_shrub"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public static void addFeatureToBiomes(BiomeLoadingEvent event) {
 		boolean biomeCriteria = false;

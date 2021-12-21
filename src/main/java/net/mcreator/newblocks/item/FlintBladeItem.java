@@ -17,6 +17,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class FlintBladeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:flint_blade")
 	public static final Item block = null;
+
 	public FlintBladeItem(NewBlocksModElements instance) {
 		super(instance, 830);
 	}

@@ -48,10 +48,11 @@ public class PlayerEnemySpawnsProcedure {
 			executeProcedure(dependencies);
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerEnemySpawns!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PlayerEnemySpawns!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -69,19 +70,19 @@ public class PlayerEnemySpawnsProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure PlayerEnemySpawns!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PlayerEnemySpawns!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerEnemySpawns!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((NewBlocksModVariables.WorldVariables.get(world).IsBattleEffectOn == (true))) {
-			if ((((entity.getDisplayName().getString())).equals("Zombie"))) {
-				if ((Math.random() < 0.2)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (NewBlocksModVariables.WorldVariables.get(world).IsBattleEffectOn == true) {
+			if ((entity.getDisplayName().getString()).equals("Zombie")) {
+				if (Math.random() < 0.2) {
 					if (world instanceof ServerWorld) {
 						Entity entityToSpawn = new ZombieEntity(EntityType.ZOMBIE, (World) world);
 						entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -92,8 +93,8 @@ public class PlayerEnemySpawnsProcedure {
 						world.addEntity(entityToSpawn);
 					}
 				}
-			} else if ((((entity.getDisplayName().getString())).equals("Skeleton"))) {
-				if ((Math.random() < 0.2)) {
+			} else if ((entity.getDisplayName().getString()).equals("Skeleton")) {
+				if (Math.random() < 0.2) {
 					if (world instanceof ServerWorld) {
 						Entity entityToSpawn = new SkeletonEntity(EntityType.SKELETON, (World) world);
 						entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -104,8 +105,8 @@ public class PlayerEnemySpawnsProcedure {
 						world.addEntity(entityToSpawn);
 					}
 				}
-			} else if ((((entity.getDisplayName().getString())).equals("Spider"))) {
-				if ((Math.random() < 0.2)) {
+			} else if ((entity.getDisplayName().getString()).equals("Spider")) {
+				if (Math.random() < 0.2) {
 					if (world instanceof ServerWorld) {
 						Entity entityToSpawn = new SpiderEntity(EntityType.SPIDER, (World) world);
 						entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -116,8 +117,8 @@ public class PlayerEnemySpawnsProcedure {
 						world.addEntity(entityToSpawn);
 					}
 				}
-			} else if ((((entity.getDisplayName().getString())).equals("Stray"))) {
-				if ((Math.random() < 0.2)) {
+			} else if ((entity.getDisplayName().getString()).equals("Stray")) {
+				if (Math.random() < 0.2) {
 					if (world instanceof ServerWorld) {
 						Entity entityToSpawn = new StrayEntity(EntityType.STRAY, (World) world);
 						entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -128,8 +129,8 @@ public class PlayerEnemySpawnsProcedure {
 						world.addEntity(entityToSpawn);
 					}
 				}
-			} else if ((((entity.getDisplayName().getString())).equals("Vindicator"))) {
-				if ((Math.random() < 0.2)) {
+			} else if ((entity.getDisplayName().getString()).equals("Vindicator")) {
+				if (Math.random() < 0.2) {
 					if (world instanceof ServerWorld) {
 						Entity entityToSpawn = new VindicatorEntity(EntityType.VINDICATOR, (World) world);
 						entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -140,8 +141,8 @@ public class PlayerEnemySpawnsProcedure {
 						world.addEntity(entityToSpawn);
 					}
 				}
-			} else if ((((entity.getDisplayName().getString())).equals("Witch"))) {
-				if ((Math.random() < 0.2)) {
+			} else if ((entity.getDisplayName().getString()).equals("Witch")) {
+				if (Math.random() < 0.2) {
 					if (world instanceof ServerWorld) {
 						Entity entityToSpawn = new WitchEntity(EntityType.WITCH, (World) world);
 						entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -152,8 +153,8 @@ public class PlayerEnemySpawnsProcedure {
 						world.addEntity(entityToSpawn);
 					}
 				}
-			} else if ((((entity.getDisplayName().getString())).equals("Wither Skeleton"))) {
-				if ((Math.random() < 0.2)) {
+			} else if ((entity.getDisplayName().getString()).equals("Wither Skeleton")) {
+				if (Math.random() < 0.2) {
 					if (world instanceof ServerWorld) {
 						Entity entityToSpawn = new WitherSkeletonEntity(EntityType.WITHER_SKELETON, (World) world);
 						entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -164,8 +165,8 @@ public class PlayerEnemySpawnsProcedure {
 						world.addEntity(entityToSpawn);
 					}
 				}
-			} else if ((((entity.getDisplayName().getString())).equals("Zombie Villager"))) {
-				if ((Math.random() < 0.2)) {
+			} else if ((entity.getDisplayName().getString()).equals("Zombie Villager")) {
+				if (Math.random() < 0.2) {
 					if (world instanceof ServerWorld) {
 						Entity entityToSpawn = new ZombieVillagerEntity(EntityType.ZOMBIE_VILLAGER, (World) world);
 						entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);

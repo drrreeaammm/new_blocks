@@ -67,6 +67,7 @@ public class WizardEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
 			.size(0.6f, 1.8f)).build("wizard").setRegistryName("wizard");
+
 	public WizardEntity(NewBlocksModElements instance) {
 		super(instance, 216);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new WizardRenderer.ModelRegisterHandler());
@@ -83,6 +84,7 @@ public class WizardEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -153,6 +155,7 @@ public class WizardEntity extends NewBlocksModElements.ModElement {
 				return false;
 			return super.attackEntityFrom(source, amount);
 		}
+
 		private final ItemStackHandler inventory = new ItemStackHandler(2) {
 			@Override
 			public int getSlotLimit(int slot) {
@@ -161,6 +164,7 @@ public class WizardEntity extends NewBlocksModElements.ModElement {
 		};
 		private final CombinedInvWrapper combined = new CombinedInvWrapper(inventory, new EntityHandsInvWrapper(this),
 				new EntityArmorInvWrapper(this));
+
 		@Override
 		public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction side) {
 			if (this.isAlive() && capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY && side == null)

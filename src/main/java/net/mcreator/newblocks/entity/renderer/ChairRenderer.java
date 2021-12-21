@@ -25,6 +25,7 @@ public class ChairRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(ChairEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelchair(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/chair.png");
@@ -40,6 +41,7 @@ public class ChairRenderer {
 	public static class Modelchair extends EntityModel<Entity> {
 		private final ModelRenderer body;
 		private final ModelRenderer bb_main;
+
 		public Modelchair() {
 			textureWidth = 40;
 			textureHeight = 40;
@@ -69,6 +71,8 @@ public class ChairRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

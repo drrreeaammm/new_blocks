@@ -20,20 +20,21 @@ import java.util.function.Supplier;
 import java.util.Map;
 
 public class CookStoveProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure CookStove!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure CookStove!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure CookStove!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
-		if ((((new Object() {
+		Entity entity = (Entity) dependencies.get("entity");
+		if ((new Object() {
 			public ItemStack getItemStack(int sltid) {
 				Entity _ent = entity;
 				if (_ent instanceof ServerPlayerEntity) {
@@ -47,7 +48,7 @@ public class CookStoveProcedure {
 				}
 				return ItemStack.EMPTY;
 			}
-		}.getItemStack((int) (0))).getItem() == Items.PORKCHOP) && (((new Object() {
+		}.getItemStack((int) (0))).getItem() == Items.PORKCHOP && (new Object() {
 			public ItemStack getItemStack(int sltid) {
 				Entity _ent = entity;
 				if (_ent instanceof ServerPlayerEntity) {
@@ -61,7 +62,7 @@ public class CookStoveProcedure {
 				}
 				return ItemStack.EMPTY;
 			}
-		}.getItemStack((int) (1))).getItem() == Blocks.AIR.asItem()) && (((new Object() {
+		}.getItemStack((int) (1))).getItem() == Blocks.AIR.asItem() && ((new Object() {
 			public ItemStack getItemStack(int sltid) {
 				Entity _ent = entity;
 				if (_ent instanceof ServerPlayerEntity) {
@@ -75,7 +76,7 @@ public class CookStoveProcedure {
 				}
 				return ItemStack.EMPTY;
 			}
-		}.getItemStack((int) (2))).getItem() == Items.COAL) || ((new Object() {
+		}.getItemStack((int) (2))).getItem() == Items.COAL || (new Object() {
 			public ItemStack getItemStack(int sltid) {
 				Entity _ent = entity;
 				if (_ent instanceof ServerPlayerEntity) {
@@ -89,7 +90,7 @@ public class CookStoveProcedure {
 				}
 				return ItemStack.EMPTY;
 			}
-		}.getItemStack((int) (2))).getItem() == Items.CHARCOAL))))) {
+		}.getItemStack((int) (2))).getItem() == Items.CHARCOAL)) {
 			{
 				Entity _ent = entity;
 				if (_ent instanceof ServerPlayerEntity) {
@@ -120,6 +121,7 @@ public class CookStoveProcedure {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);

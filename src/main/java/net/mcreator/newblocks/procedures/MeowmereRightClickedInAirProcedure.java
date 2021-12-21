@@ -1,7 +1,5 @@
 package net.mcreator.newblocks.procedures;
 
-import org.apache.logging.log4j.Level;
-
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.server.ServerWorld;
@@ -24,15 +22,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class MeowmereRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure MeowmereRightClickedInAir!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure MeowmereRightClickedInAir!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MeowmereRightClickedInAir!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -50,48 +44,53 @@ public class MeowmereRightClickedInAirProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure MeowmereRightClickedInAir!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MeowmereRightClickedInAir!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure MeowmereRightClickedInAir!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure MeowmereRightClickedInAir!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		boolean LaunchStatus = false;
 		double RandomZ = 0;
 		double RandomX = 0;
 		double Y = 0;
 		double Level = 0;
-		LaunchStatus = (boolean) (false);
-		while ((LaunchStatus == (false))) {
-			if ((Math.random() < 0.01)) {
-				if ((Math.random() < 0.01)) {
-					LaunchStatus = (boolean) (true);
+		LaunchStatus = (false);
+		while (LaunchStatus == false) {
+			if (Math.random() < 0.01) {
+				if (Math.random() < 0.01) {
+					LaunchStatus = (true);
 				}
 			}
 		}
-		if ((LaunchStatus == (true))) {
-			if ((Math.random() < 0.5)) {
-				Level = (double) 2;
+		if (LaunchStatus == true) {
+			if (Math.random() < 0.5) {
+				Level = 2;
 			} else {
-				Level = (double) 1;
+				Level = 1;
 			}
-			for (int index1 = 0; index1 < (int) ((10 * Level)); index1++) {
-				if ((Math.random() < 0.5)) {
-					RandomX = (double) (x + (Math.random() * 60));
+			for (int index1 = 0; index1 < (int) (10 * Level); index1++) {
+				if (Math.random() < 0.5) {
+					RandomX = (x + Math.random() * 60);
 				} else {
-					RandomX = (double) (x - (Math.random() * 60));
+					RandomX = (x - Math.random() * 60);
 				}
-				if ((Math.random() < 0.5)) {
-					RandomZ = (double) (z + (Math.random() * 60));
+				if (Math.random() < 0.5) {
+					RandomZ = (z + Math.random() * 60);
 				} else {
-					RandomZ = (double) (z - (Math.random() * 60));
+					RandomZ = (z - Math.random() * 60);
 				}
-				Y = (double) (y + 40);
+				Y = (y + 40);
 				if (world instanceof ServerWorld) {
 					((World) world).getServer().getCommandManager().handleCommand(
 							new CommandSource(ICommandSource.DUMMY, new Vector3d(RandomX, Y, RandomZ), Vector2f.ZERO, (ServerWorld) world, 4, "",
@@ -99,18 +98,18 @@ public class MeowmereRightClickedInAirProcedure {
 							"summon new_blocks:entitybulletmeowmere_ranged");
 				}
 			}
-			for (int index2 = 0; index2 < (int) ((7 * Level)); index2++) {
-				if ((Math.random() < 0.5)) {
-					RandomX = (double) (x + (Math.random() * 40));
+			for (int index2 = 0; index2 < (int) (7 * Level); index2++) {
+				if (Math.random() < 0.5) {
+					RandomX = (x + Math.random() * 40);
 				} else {
-					RandomX = (double) (x - (Math.random() * 40));
+					RandomX = (x - Math.random() * 40);
 				}
-				if ((Math.random() < 0.5)) {
-					RandomZ = (double) (z + (Math.random() * 40));
+				if (Math.random() < 0.5) {
+					RandomZ = (z + Math.random() * 40);
 				} else {
-					RandomZ = (double) (z - (Math.random() * 40));
+					RandomZ = (z - Math.random() * 40);
 				}
-				Y = (double) (y + 70);
+				Y = (y + 70);
 				if (world instanceof ServerWorld) {
 					((World) world).getServer().getCommandManager().handleCommand(
 							new CommandSource(ICommandSource.DUMMY, new Vector3d(RandomX, Y, RandomZ), Vector2f.ZERO, (ServerWorld) world, 4, "",
@@ -118,18 +117,18 @@ public class MeowmereRightClickedInAirProcedure {
 							"summon new_blocks:entitybulletmeowmere_ranged");
 				}
 			}
-			for (int index3 = 0; index3 < (int) ((4 * Level)); index3++) {
-				if ((Math.random() < 0.5)) {
-					RandomX = (double) (x + (Math.random() * 40));
+			for (int index3 = 0; index3 < (int) (4 * Level); index3++) {
+				if (Math.random() < 0.5) {
+					RandomX = (x + Math.random() * 40);
 				} else {
-					RandomX = (double) (x - (Math.random() * 40));
+					RandomX = (x - Math.random() * 40);
 				}
-				if ((Math.random() < 0.5)) {
-					RandomZ = (double) (z + (Math.random() * 40));
+				if (Math.random() < 0.5) {
+					RandomZ = (z + Math.random() * 40);
 				} else {
-					RandomZ = (double) (z - (Math.random() * 40));
+					RandomZ = (z - Math.random() * 40);
 				}
-				Y = (double) (y + 100);
+				Y = (y + 100);
 				if (world instanceof ServerWorld) {
 					((World) world).getServer().getCommandManager().handleCommand(
 							new CommandSource(ICommandSource.DUMMY, new Vector3d(RandomX, Y, RandomZ), Vector2f.ZERO, (ServerWorld) world, 4, "",
@@ -147,9 +146,9 @@ public class MeowmereRightClickedInAirProcedure {
 						SoundCategory.NEUTRAL, (float) 50, (float) 1, false);
 			}
 		}
-		if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
+		if (!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false)) {
 			if (entity instanceof PlayerEntity)
-				((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 400);
+				((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 400);
 		}
 	}
 }

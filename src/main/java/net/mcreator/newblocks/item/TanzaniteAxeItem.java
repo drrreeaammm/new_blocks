@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class TanzaniteAxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:tanzanite_axe")
 	public static final Item block = null;
+
 	public TanzaniteAxeItem(NewBlocksModElements instance) {
 		super(instance, 31);
 	}

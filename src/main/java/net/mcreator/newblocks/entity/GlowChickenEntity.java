@@ -41,6 +41,7 @@ public class GlowChickenEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.AMBIENT)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.4f, 0.7f)).build("glow_chicken").setRegistryName("glow_chicken");
+
 	public GlowChickenEntity(NewBlocksModElements instance) {
 		super(instance, 170);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new GlowChickenRenderer.ModelRegisterHandler());
@@ -57,6 +58,7 @@ public class GlowChickenEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

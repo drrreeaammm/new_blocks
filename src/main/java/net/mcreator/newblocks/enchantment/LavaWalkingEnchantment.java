@@ -13,6 +13,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class LavaWalkingEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:lava_walking")
 	public static final Enchantment enchantment = null;
+
 	public LavaWalkingEnchantment(NewBlocksModElements instance) {
 		super(instance, 701);
 	}
@@ -21,6 +22,7 @@ public class LavaWalkingEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("lava_walking"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.RARE, EnchantmentType.ARMOR_FEET, slots);

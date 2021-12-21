@@ -25,6 +25,7 @@ import java.util.Collections;
 public class TanzaniteBlockBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:tanzanite_block")
 	public static final Block block = null;
+
 	public TanzaniteBlockBlock(NewBlocksModElements instance) {
 		super(instance, 105);
 	}
@@ -34,6 +35,7 @@ public class TanzaniteBlockBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(5.25f, 13f).setLightLevel(s -> 0)

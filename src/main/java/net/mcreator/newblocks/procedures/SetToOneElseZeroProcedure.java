@@ -43,10 +43,11 @@ public class SetToOneElseZeroProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SetToOneElseZero!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SetToOneElseZero!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -64,26 +65,25 @@ public class SetToOneElseZeroProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure SetToOneElseZero!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SetToOneElseZero!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SetToOneElseZero!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if (((EnchantmentHelper.getEnchantmentLevel(LavaWalkingEnchantment.enchantment,
-				((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 0))
-						: ItemStack.EMPTY))) == 1)) {
-			if (((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (EnchantmentHelper.getEnchantmentLevel(LavaWalkingEnchantment.enchantment,
+				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.FEET) : ItemStack.EMPTY)) == 1) {
+			if ((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA) {
 				world.setBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) z), Blocks.BASALT.getDefaultState(), 3);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -105,12 +105,13 @@ public class SetToOneElseZeroProcedure {
 					}
 				}.start(world, (int) 60);
 			}
-			if (((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA)) {
+			if ((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) z))).getBlock() == Blocks.LAVA) {
 				world.setBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) z), Blocks.BASALT.getDefaultState(), 3);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -132,12 +133,13 @@ public class SetToOneElseZeroProcedure {
 					}
 				}.start(world, (int) 60);
 			}
-			if (((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA)) {
+			if ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA) {
 				world.setBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z + 1)), Blocks.BASALT.getDefaultState(), 3);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -159,12 +161,13 @@ public class SetToOneElseZeroProcedure {
 					}
 				}.start(world, (int) 60);
 			}
-			if (((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA)) {
+			if ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA) {
 				world.setBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z - 1)), Blocks.BASALT.getDefaultState(), 3);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -186,12 +189,13 @@ public class SetToOneElseZeroProcedure {
 					}
 				}.start(world, (int) 60);
 			}
-			if (((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA)) {
+			if ((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA) {
 				world.setBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z - 1)), Blocks.BASALT.getDefaultState(), 3);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -213,12 +217,13 @@ public class SetToOneElseZeroProcedure {
 					}
 				}.start(world, (int) 60);
 			}
-			if (((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA)) {
+			if ((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA) {
 				world.setBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z + 1)), Blocks.BASALT.getDefaultState(), 3);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -240,12 +245,13 @@ public class SetToOneElseZeroProcedure {
 					}
 				}.start(world, (int) 60);
 			}
-			if (((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA)) {
+			if ((world.getBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z - 1)))).getBlock() == Blocks.LAVA) {
 				world.setBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) (z - 1)), Blocks.BASALT.getDefaultState(), 3);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -267,12 +273,13 @@ public class SetToOneElseZeroProcedure {
 					}
 				}.start(world, (int) 60);
 			}
-			if (((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA)) {
+			if ((world.getBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z + 1)))).getBlock() == Blocks.LAVA) {
 				world.setBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) (z + 1)), Blocks.BASALT.getDefaultState(), 3);
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);

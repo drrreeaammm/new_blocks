@@ -50,6 +50,7 @@ public class ShadowEntityEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 0.8f)).build("shadow_entity").setRegistryName("shadow_entity");
+
 	public ShadowEntityEntity(NewBlocksModElements instance) {
 		super(instance, 1278);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new ShadowEntityRenderer.ModelRegisterHandler());
@@ -66,6 +67,7 @@ public class ShadowEntityEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -104,6 +106,7 @@ public class ShadowEntityEntity extends NewBlocksModElements.ModElement {
 				{
 					this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
 				}
+
 				public boolean shouldExecute() {
 					if (CustomEntity.this.getAttackTarget() != null && !CustomEntity.this.getMoveHelper().isUpdating()) {
 						return true;

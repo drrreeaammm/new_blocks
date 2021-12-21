@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class BuryEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:bury")
 	public static final Enchantment enchantment = null;
+
 	public BuryEnchantment(NewBlocksModElements instance) {
 		super(instance, 438);
 	}
@@ -23,6 +24,7 @@ public class BuryEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("bury"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.UNCOMMON, EnchantmentType.WEAPON, slots);

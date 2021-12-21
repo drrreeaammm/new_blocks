@@ -25,6 +25,7 @@ import java.util.Collections;
 public class GrimstoneBrickSlabBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:grimstone_brick_slab")
 	public static final Block block = null;
+
 	public GrimstoneBrickSlabBlock(NewBlocksModElements instance) {
 		super(instance, 809);
 	}
@@ -34,6 +35,7 @@ public class GrimstoneBrickSlabBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends SlabBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(3.65f, 11.5f).setLightLevel(s -> 0)

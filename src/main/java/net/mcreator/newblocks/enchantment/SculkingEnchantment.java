@@ -13,6 +13,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class SculkingEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:sculking")
 	public static final Enchantment enchantment = null;
+
 	public SculkingEnchantment(NewBlocksModElements instance) {
 		super(instance, 757);
 	}
@@ -21,6 +22,7 @@ public class SculkingEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("sculking"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.COMMON, EnchantmentType.ARMOR_HEAD, slots);

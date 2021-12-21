@@ -48,6 +48,7 @@ public class DtgfhjProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -61,12 +62,10 @@ public class DtgfhjProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity imediatesourceentity = (Entity) dependencies.get("imediatesourceentity");
-		if (((EnchantmentHelper.getEnchantmentLevel(DodgeEnchantment.enchantment,
-				((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 0))
-						: ItemStack.EMPTY))) == 1)) {
-			if ((imediatesourceentity instanceof ArrowEntity)) {
-				if ((((new Random()).nextInt((int) 1 + 1)) == 0)) {
+		if (EnchantmentHelper.getEnchantmentLevel(DodgeEnchantment.enchantment,
+				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.FEET) : ItemStack.EMPTY)) == 1) {
+			if (imediatesourceentity instanceof ArrowEntity) {
+				if ((new Random()).nextInt((int) 1 + 1) == 0) {
 					entity.setMotion(1, 0, 0);
 					entity.setMotion(1, 0, 1);
 					if (dependencies.get("event") != null) {

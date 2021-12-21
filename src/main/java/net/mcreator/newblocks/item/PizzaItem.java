@@ -15,13 +15,16 @@ import net.minecraft.entity.LivingEntity;
 import net.mcreator.newblocks.procedures.PizzaFoodEatenProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class PizzaItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:pizza")
 	public static final Item block = null;
+
 	public PizzaItem(NewBlocksModElements instance) {
 		super(instance, 265);
 	}
@@ -30,10 +33,13 @@ public class PizzaItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(ItemGroup.FOOD).maxStackSize(64).rarity(Rarity.COMMON)
-					.food((new Food.Builder()).hunger(3).saturation(0.9f).build()));
+					.food((new Food.Builder()).hunger(3).saturation(0.9f)
+
+							.build()));
 			setRegistryName("pizza");
 		}
 
@@ -53,12 +59,10 @@ public class PizzaItem extends NewBlocksModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("world", world);
-				PizzaFoodEatenProcedure.executeProcedure($_dependencies);
-			}
+
+			PizzaFoodEatenProcedure
+					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}

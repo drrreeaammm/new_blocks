@@ -28,6 +28,7 @@ public class PlayerHitboxRenderer {
 					}
 				};
 				customRender.addLayer(new BipedArmorLayer(customRender, new BipedModel(0.5f), new BipedModel(1)));
+
 				return customRender;
 			});
 		}

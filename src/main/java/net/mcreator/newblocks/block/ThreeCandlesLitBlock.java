@@ -34,6 +34,7 @@ import java.util.Collections;
 public class ThreeCandlesLitBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:three_candles_lit")
 	public static final Block block = null;
+
 	public ThreeCandlesLitBlock(NewBlocksModElements instance) {
 		super(instance, 747);
 	}
@@ -49,6 +50,7 @@ public class ThreeCandlesLitBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.CLOTH).hardnessAndResistance(0.6499999999999999f, 0.5f)
@@ -69,7 +71,11 @@ public class ThreeCandlesLitBlock extends NewBlocksModElements.ModElement {
 		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
-			return VoxelShapes.or(makeCuboidShape(4.5, 0, 4.5, 8.5, 4.3, 8.5)).withOffset(offset.x, offset.y, offset.z);
+			return VoxelShapes.or(makeCuboidShape(4.5, 0, 4.5, 8.5, 4.3, 8.5)
+
+			)
+
+					.withOffset(offset.x, offset.y, offset.z);
 		}
 
 		@Override

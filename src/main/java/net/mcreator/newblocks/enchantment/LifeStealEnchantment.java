@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class LifeStealEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:life_steal")
 	public static final Enchantment enchantment = null;
+
 	public LifeStealEnchantment(NewBlocksModElements instance) {
 		super(instance, 347);
 	}
@@ -23,6 +24,7 @@ public class LifeStealEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("life_steal"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.VERY_RARE, EnchantmentType.WEAPON, slots);

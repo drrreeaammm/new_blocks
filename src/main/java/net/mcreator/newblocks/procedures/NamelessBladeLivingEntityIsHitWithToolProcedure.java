@@ -13,6 +13,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class NamelessBladeLivingEntityIsHitWithToolProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -26,7 +27,7 @@ public class NamelessBladeLivingEntityIsHitWithToolProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		if (((EnchantmentHelper.getEnchantmentLevel(WitheringEnchantment.enchantment, (itemstack))) == 1)) {
+		if (EnchantmentHelper.getEnchantmentLevel(WitheringEnchantment.enchantment, itemstack) == 1) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.WITHER, (int) 150, (int) 0, (false), (false)));
 		}

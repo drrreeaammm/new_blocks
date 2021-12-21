@@ -20,7 +20,7 @@ import net.minecraft.network.IPacket;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Item;
 import net.minecraft.entity.projectile.PotionEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.EndermanEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -45,6 +45,7 @@ public class EndersculkEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 2.8000000000000003f)).build("endersculk").setRegistryName("endersculk");
+
 	public EndersculkEntity(NewBlocksModElements instance) {
 		super(instance, 916);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new EndersculkRenderer.ModelRegisterHandler());
@@ -82,6 +83,7 @@ public class EndersculkEntity extends NewBlocksModElements.ModElement {
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -143,7 +145,7 @@ public class EndersculkEntity extends NewBlocksModElements.ModElement {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source.getImmediateSource() instanceof ArrowEntity)
+			if (source.getImmediateSource() instanceof AbstractArrowEntity)
 				return false;
 			if (source.getImmediateSource() instanceof PotionEntity)
 				return false;

@@ -41,6 +41,7 @@ public class GrantRecipesProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -48,11 +49,11 @@ public class GrantRecipesProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(SculkVineBlock.block)) : false)
+		if (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(SculkVineBlock.block)) : false)
 				|| ((entity instanceof PlayerEntity)
 						? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(SkulkBlockBlock.block))
-						: false))) {
-			if ((!(new Object() {
+						: false)) {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -60,7 +61,7 @@ public class GrantRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:sculk_sensor_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:sculk_sensor_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity).unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:sculk_sensor_recipe")});
 				}

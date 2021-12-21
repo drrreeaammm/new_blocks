@@ -11,6 +11,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class CascadeSwordLivingEntityIsHitWithToolProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -21,8 +22,7 @@ public class CascadeSwordLivingEntityIsHitWithToolProcedure {
 		double enchant_levels = 0;
 		ItemStack emeralds = ItemStack.EMPTY;
 		ItemStack tool = ItemStack.EMPTY;
-		if ((EntityTypeTags.getCollection().getTagByID(new ResourceLocation(("new_blocks:fire_entities").toLowerCase(java.util.Locale.ENGLISH)))
-				.contains(entity.getType()))) {
+		if (EntityTypeTags.getCollection().getTagByID(new ResourceLocation("new_blocks:fire_entities")).contains(entity.getType())) {
 			entity.attackEntityFrom(DamageSource.MAGIC, (float) 5);
 		}
 	}

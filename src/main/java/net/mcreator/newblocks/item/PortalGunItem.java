@@ -35,9 +35,11 @@ import net.mcreator.newblocks.procedures.PortalGunEntitySwingsItemProcedure;
 import net.mcreator.newblocks.entity.renderer.PortalGunRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class PortalGunItem extends NewBlocksModElements.ModElement {
@@ -46,6 +48,7 @@ public class PortalGunItem extends NewBlocksModElements.ModElement {
 	public static final EntityType arrow = (EntityType.Builder.<ArrowCustomEntity>create(ArrowCustomEntity::new, EntityClassification.MISC)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(ArrowCustomEntity::new)
 			.size(0.5f, 0.5f)).build("entitybulletportal_gun").setRegistryName("entitybulletportal_gun");
+
 	public PortalGunItem(NewBlocksModElements instance) {
 		super(instance, 1302);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new PortalGunRenderer.ModelRegisterHandler());
@@ -56,6 +59,7 @@ public class PortalGunItem extends NewBlocksModElements.ModElement {
 		elements.items.add(() -> new ItemRanged());
 		elements.entities.add(() -> arrow);
 	}
+
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
 			super(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(32));
@@ -75,15 +79,11 @@ public class PortalGunItem extends NewBlocksModElements.ModElement {
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
 			World world = entity.world;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("itemstack", itemstack);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				PortalGunEntitySwingsItemProcedure.executeProcedure($_dependencies);
-			}
+
+			PortalGunEntitySwingsItemProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 
@@ -108,12 +108,10 @@ public class PortalGunItem extends NewBlocksModElements.ModElement {
 					ArrowCustomEntity entityarrow = shoot(world, entity, random, 0.9f, 0, 0);
 					itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
 					entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
-					{
-						Map<String, Object> $_dependencies = new HashMap<>();
-						$_dependencies.put("entity", entity);
-						$_dependencies.put("itemstack", itemstack);
-						PortalGunRangedItemUsedProcedure.executeProcedure($_dependencies);
-					}
+
+					PortalGunRangedItemUsedProcedure.executeProcedure(
+							Stream.of(new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+									.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			}
 		}
@@ -173,6 +171,7 @@ public class PortalGunItem extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	public static ArrowCustomEntity shoot(World world, LivingEntity entity, Random random, float power, double damage, int knockback) {
 		ArrowCustomEntity entityarrow = new ArrowCustomEntity(arrow, entity, world);
 		entityarrow.shoot(entity.getLookVec().x, entity.getLookVec().y, entity.getLookVec().z, power * 2, 0);

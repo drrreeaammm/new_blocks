@@ -45,16 +45,19 @@ import net.mcreator.newblocks.item.CharredBoneItem;
 import net.mcreator.newblocks.entity.renderer.ReaperRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.EnumSet;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class ReaperEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
 			.size(0.6f, 1.8f)).build("reaper").setRegistryName("reaper");
+
 	public ReaperEntity(NewBlocksModElements instance) {
 		super(instance, 11);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new ReaperRenderer.ModelRegisterHandler());
@@ -71,6 +74,7 @@ public class ReaperEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -111,6 +115,7 @@ public class ReaperEntity extends NewBlocksModElements.ModElement {
 				{
 					this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
 				}
+
 				public boolean shouldExecute() {
 					if (CustomEntity.this.getAttackTarget() != null && !CustomEntity.this.getMoveHelper().isUpdating()) {
 						return true;
@@ -190,14 +195,11 @@ public class ReaperEntity extends NewBlocksModElements.ModElement {
 			double z = this.getPosZ();
 			Entity entity = this;
 			Entity sourceentity = source.getTrueSource();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				ReaperEntityIsHurtProcedure.executeProcedure($_dependencies);
-			}
+
+			ReaperEntityIsHurtProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+							new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			if (source == DamageSource.FALL)
 				return false;
 			if (source == DamageSource.LIGHTNING_BOLT)
@@ -214,11 +216,9 @@ public class ReaperEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity sourceentity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("sourceentity", sourceentity);
-				ReaperThisEntityKillsAnotherOneProcedure.executeProcedure($_dependencies);
-			}
+
+			ReaperThisEntityKillsAnotherOneProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("sourceentity", sourceentity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override

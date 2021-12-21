@@ -23,6 +23,7 @@ import java.util.Collections;
 public class WoodStairBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:wood_stair")
 	public static final Block block = null;
+
 	public WoodStairBlock(NewBlocksModElements instance) {
 		super(instance, 1029);
 	}
@@ -32,6 +33,7 @@ public class WoodStairBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends StairsBlock {
 		public CustomBlock() {
 			super(() -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.2f, 3f).setLightLevel(s -> 0))

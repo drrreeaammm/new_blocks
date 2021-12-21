@@ -16,13 +16,16 @@ import net.mcreator.newblocks.procedures.ShulkerSwordLivingEntityIsHitWithToolPr
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class ShulkerSwordItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:shulker_sword")
 	public static final Item block = null;
+
 	public ShulkerSwordItem(NewBlocksModElements instance) {
 		super(instance, 25);
 	}
@@ -61,11 +64,9 @@ public class ShulkerSwordItem extends NewBlocksModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				World world = entity.world;
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					ShulkerSwordLivingEntityIsHitWithToolProcedure.executeProcedure($_dependencies);
-				}
+
+				ShulkerSwordLivingEntityIsHitWithToolProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("shulker_sword"));

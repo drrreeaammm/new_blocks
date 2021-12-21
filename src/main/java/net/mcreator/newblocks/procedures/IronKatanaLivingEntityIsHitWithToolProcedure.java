@@ -13,6 +13,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class IronKatanaLivingEntityIsHitWithToolProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("sourceentity") == null) {
 			if (!dependencies.containsKey("sourceentity"))
@@ -26,19 +27,19 @@ public class IronKatanaLivingEntityIsHitWithToolProcedure {
 		}
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		if (((EnchantmentHelper.getEnchantmentLevel(FeastEnchantment.enchantment, (itemstack))) == 1)) {
+		if (EnchantmentHelper.getEnchantmentLevel(FeastEnchantment.enchantment, itemstack) == 1) {
 			if (sourceentity instanceof LivingEntity)
 				((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.WEAKNESS, (int) 160, (int) 1, (false), (false)));
 			if (sourceentity instanceof LivingEntity)
 				((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.SATURATION, (int) 30, (int) 1, (false), (false)));
-		} else if (((EnchantmentHelper.getEnchantmentLevel(FeastEnchantment.enchantment, (itemstack))) == 2)) {
+		} else if (EnchantmentHelper.getEnchantmentLevel(FeastEnchantment.enchantment, itemstack) == 2) {
 			if (sourceentity instanceof LivingEntity)
 				((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.WEAKNESS, (int) 50, (int) 1, (false), (false)));
 			if (sourceentity instanceof LivingEntity)
 				((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.SATURATION, (int) 60, (int) 2, (false), (false)));
 			if (sourceentity instanceof LivingEntity)
 				((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 40, (int) 2, (false), (false)));
-		} else if (((EnchantmentHelper.getEnchantmentLevel(FeastEnchantment.enchantment, (itemstack))) == 3)) {
+		} else if (EnchantmentHelper.getEnchantmentLevel(FeastEnchantment.enchantment, itemstack) == 3) {
 			if (sourceentity instanceof LivingEntity)
 				((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.SATURATION, (int) 90, (int) 3, (false), (false)));
 			if (sourceentity instanceof LivingEntity)

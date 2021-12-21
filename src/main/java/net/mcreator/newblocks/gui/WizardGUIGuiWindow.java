@@ -27,6 +27,7 @@ public class WizardGUIGuiWindow extends ContainerScreen<WizardGUIGui.GuiContaine
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = WizardGUIGui.guistate;
+
 	public WizardGUIGuiWindow(WizardGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -37,7 +38,9 @@ public class WizardGUIGuiWindow extends ContainerScreen<WizardGUIGui.GuiContaine
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/wizard_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
@@ -54,10 +57,13 @@ public class WizardGUIGuiWindow extends ContainerScreen<WizardGUIGui.GuiContaine
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("new_blocks:textures/gold_ingot_je4_be2.png"));
 		this.blit(ms, this.guiLeft + 55, this.guiTop + 1, 0, 0, 16, 16, 16, 16);
+
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("new_blocks:textures/emerald_je3_be3.png"));
 		this.blit(ms, this.guiLeft + 101, this.guiTop + 1, 0, 0, 16, 16, 16, 16);
+
 		RenderSystem.disableBlend();
 	}
 

@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class TanzaniteShovelItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:tanzanite_shovel")
 	public static final Item block = null;
+
 	public TanzaniteShovelItem(NewBlocksModElements instance) {
 		super(instance, 32);
 	}

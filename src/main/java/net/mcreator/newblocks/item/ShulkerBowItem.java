@@ -34,9 +34,11 @@ import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.entity.renderer.ShulkerBowRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class ShulkerBowItem extends NewBlocksModElements.ModElement {
@@ -45,6 +47,7 @@ public class ShulkerBowItem extends NewBlocksModElements.ModElement {
 	public static final EntityType arrow = (EntityType.Builder.<ArrowCustomEntity>create(ArrowCustomEntity::new, EntityClassification.MISC)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(ArrowCustomEntity::new)
 			.size(0.5f, 0.5f)).build("entitybulletshulker_bow").setRegistryName("entitybulletshulker_bow");
+
 	public ShulkerBowItem(NewBlocksModElements instance) {
 		super(instance, 27);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new ShulkerBowRenderer.ModelRegisterHandler());
@@ -55,6 +58,7 @@ public class ShulkerBowItem extends NewBlocksModElements.ModElement {
 		elements.items.add(() -> new ItemRanged());
 		elements.entities.add(() -> arrow);
 	}
+
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxDamage(327));
@@ -137,11 +141,9 @@ public class ShulkerBowItem extends NewBlocksModElements.ModElement {
 			double z = this.getPosZ();
 			World world = this.world;
 			Entity imediatesourceentity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				ShulkerBowBulletHitsLivingEntityProcedure.executeProcedure($_dependencies);
-			}
+
+			ShulkerBowBulletHitsLivingEntityProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override
@@ -158,6 +160,7 @@ public class ShulkerBowItem extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	public static ArrowCustomEntity shoot(World world, LivingEntity entity, Random random, float power, double damage, int knockback) {
 		ArrowCustomEntity entityarrow = new ArrowCustomEntity(arrow, entity, world);
 		entityarrow.shoot(entity.getLookVec().x, entity.getLookVec().y, entity.getLookVec().z, power * 2, 0);

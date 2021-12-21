@@ -27,15 +27,11 @@ import java.util.List;
 import java.util.Comparator;
 
 public class SculkingArmorHelmetTickEventProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SculkingArmorHelmetTickEvent!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure SculkingArmorHelmetTickEvent!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SculkingArmorHelmetTickEvent!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -53,17 +49,22 @@ public class SculkingArmorHelmetTickEventProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure SculkingArmorHelmetTickEvent!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SculkingArmorHelmetTickEvent!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SculkingArmorHelmetTickEvent!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure SculkingArmorHelmetTickEvent!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -74,7 +75,7 @@ public class SculkingArmorHelmetTickEventProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if (((entityiterator instanceof WardenEntity.CustomEntity) || (entityiterator instanceof SculkerEntity.CustomEntity))) {
+				if (entityiterator instanceof WardenEntity.CustomEntity || entityiterator instanceof SculkerEntity.CustomEntity) {
 					if (entityiterator instanceof LivingEntity)
 						((LivingEntity) entityiterator).addPotionEffect(new EffectInstance(Effects.GLOWING, (int) 60, (int) 1, (false), (false)));
 				}
@@ -82,30 +83,30 @@ public class SculkingArmorHelmetTickEventProcedure {
 		}
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.BLINDNESS, (int) 20, (int) 0, (false), (false)));
-		if (((EnchantmentHelper.getEnchantmentLevel(SculkingEnchantment.enchantment, (itemstack))) == 1)) {
-			if (((((Entity) world
+		if (EnchantmentHelper.getEnchantmentLevel(SculkingEnchantment.enchantment, itemstack) == 1) {
+			if (((Entity) world
 					.getEntitiesWithinAABB(WardenEntity.CustomEntity.class,
 							new AxisAlignedBB(x - (12 / 2d), y - (12 / 2d), z - (12 / 2d), x + (12 / 2d), y + (12 / 2d), z + (12 / 2d)), null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null) || (((Entity) world
+					}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null || ((Entity) world
 							.getEntitiesWithinAABB(SculkerEntity.CustomEntity.class,
 									new AxisAlignedBB(x - (12 / 2d), y - (12 / 2d), z - (12 / 2d), x + (12 / 2d), y + (12 / 2d), z + (12 / 2d)), null)
 							.stream().sorted(new Object() {
 								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
-							}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null))) {
-				if ((Math.random() < 0.4)) {
-					if ((Math.random() < 0.5)) {
-						if ((Math.random() < 0.3)) {
-							if ((Math.random() < 0.5)) {
-								if ((Math.random() < 0.4)) {
-									if ((Math.random() < 0.4)) {
-										if ((Math.random() < 0.5)) {
-											if ((Math.random() < 0.3)) {
+							}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null) {
+				if (Math.random() < 0.4) {
+					if (Math.random() < 0.5) {
+						if (Math.random() < 0.3) {
+							if (Math.random() < 0.5) {
+								if (Math.random() < 0.4) {
+									if (Math.random() < 0.4) {
+										if (Math.random() < 0.5) {
+											if (Math.random() < 0.3) {
 												if (world instanceof World && !world.isRemote()) {
 													((World) world).playSound(null,
 															new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()),
@@ -128,30 +129,30 @@ public class SculkingArmorHelmetTickEventProcedure {
 					}
 				}
 			}
-		} else if (((EnchantmentHelper.getEnchantmentLevel(SculkingEnchantment.enchantment, (itemstack))) == 2)) {
-			if (((((Entity) world
+		} else if (EnchantmentHelper.getEnchantmentLevel(SculkingEnchantment.enchantment, itemstack) == 2) {
+			if (((Entity) world
 					.getEntitiesWithinAABB(WardenEntity.CustomEntity.class,
 							new AxisAlignedBB(x - (24 / 2d), y - (24 / 2d), z - (24 / 2d), x + (24 / 2d), y + (24 / 2d), z + (24 / 2d)), null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null) || (((Entity) world
+					}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null || ((Entity) world
 							.getEntitiesWithinAABB(SculkerEntity.CustomEntity.class,
 									new AxisAlignedBB(x - (24 / 2d), y - (24 / 2d), z - (24 / 2d), x + (24 / 2d), y + (24 / 2d), z + (24 / 2d)), null)
 							.stream().sorted(new Object() {
 								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
-							}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null))) {
-				if ((Math.random() < 0.6)) {
-					if ((Math.random() < 0.5)) {
-						if ((Math.random() < 0.6)) {
-							if ((Math.random() < 0.5)) {
-								if ((Math.random() < 0.6)) {
-									if ((Math.random() < 0.5)) {
-										if ((Math.random() < 0.6)) {
-											if ((Math.random() < 0.5)) {
+							}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null) {
+				if (Math.random() < 0.6) {
+					if (Math.random() < 0.5) {
+						if (Math.random() < 0.6) {
+							if (Math.random() < 0.5) {
+								if (Math.random() < 0.6) {
+									if (Math.random() < 0.5) {
+										if (Math.random() < 0.6) {
+											if (Math.random() < 0.5) {
 												if (world instanceof World && !world.isRemote()) {
 													((World) world).playSound(null,
 															new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()),
@@ -174,30 +175,30 @@ public class SculkingArmorHelmetTickEventProcedure {
 					}
 				}
 			}
-		} else if (((EnchantmentHelper.getEnchantmentLevel(SculkingEnchantment.enchantment, (itemstack))) == 3)) {
-			if (((((Entity) world
+		} else if (EnchantmentHelper.getEnchantmentLevel(SculkingEnchantment.enchantment, itemstack) == 3) {
+			if (((Entity) world
 					.getEntitiesWithinAABB(WardenEntity.CustomEntity.class,
 							new AxisAlignedBB(x - (37 / 2d), y - (37 / 2d), z - (37 / 2d), x + (37 / 2d), y + (37 / 2d), z + (37 / 2d)), null)
 					.stream().sorted(new Object() {
 						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 						}
-					}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null) || (((Entity) world
+					}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null || ((Entity) world
 							.getEntitiesWithinAABB(SculkerEntity.CustomEntity.class,
 									new AxisAlignedBB(x - (37 / 2d), y - (37 / 2d), z - (37 / 2d), x + (37 / 2d), y + (37 / 2d), z + (37 / 2d)), null)
 							.stream().sorted(new Object() {
 								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 								}
-							}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null))) {
-				if ((Math.random() < 0.7)) {
-					if ((Math.random() < 0.7)) {
-						if ((Math.random() < 0.2)) {
-							if ((Math.random() < 0.5)) {
-								if ((Math.random() < 0.4)) {
-									if ((Math.random() < 0.6)) {
-										if ((Math.random() < 0.6)) {
-											if ((Math.random() < 0.4)) {
+							}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null) {
+				if (Math.random() < 0.7) {
+					if (Math.random() < 0.7) {
+						if (Math.random() < 0.2) {
+							if (Math.random() < 0.5) {
+								if (Math.random() < 0.4) {
+									if (Math.random() < 0.6) {
+										if (Math.random() < 0.6) {
+											if (Math.random() < 0.4) {
 												if (world instanceof World && !world.isRemote()) {
 													((World) world).playSound(null,
 															new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()),

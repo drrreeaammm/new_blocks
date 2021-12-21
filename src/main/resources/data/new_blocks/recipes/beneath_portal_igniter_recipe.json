@@ -1,5 +1,4 @@
 {
-  "group": "new_blocks",
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "012",
@@ -36,7 +35,7 @@
     }
   },
   "result": {
-    "item": "new_blocks:deleted_mod_element",
+    "item": "new_blocks:beneath",
     "count": 1
   }
 }

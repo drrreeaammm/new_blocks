@@ -33,6 +33,7 @@ public class BalloonRenderer {
 					{
 						this.addLayer(new GlowingLayer<>(this));
 					}
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/balloon.png");
@@ -60,6 +61,7 @@ public class BalloonRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modelballoon extends EntityModel<Entity> {
 		private final ModelRenderer bb_main;
+
 		public Modelballoon() {
 			textureWidth = 22;
 			textureHeight = 16;
@@ -90,6 +92,8 @@ public class BalloonRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

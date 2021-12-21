@@ -24,35 +24,37 @@ import java.util.Map;
 import java.util.Collections;
 
 public class TeleportationEffectStartedappliedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure TeleportationEffectStartedapplied!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure TeleportationEffectStartedapplied!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure TeleportationEffectStartedapplied!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double teleportxpos = 0;
 		double teleportypos = 0;
 		double teleportzpos = 0;
-		NewBlocksModVariables.WorldVariables
-				.get(world).ReturnXValue = (double) ((new Random()).nextInt((int) (10000 - ((new Random()).nextInt((int) 8000 + 1))) + 1));
+		NewBlocksModVariables.WorldVariables.get(world).ReturnXValue = ((new Random())
+				.nextInt((int) (10000 - (new Random()).nextInt((int) 8000 + 1)) + 1));
 		NewBlocksModVariables.WorldVariables.get(world).syncData(world);
-		NewBlocksModVariables.WorldVariables
-				.get(world).ReturnZValue = (double) ((new Random()).nextInt((int) (10000 - ((new Random()).nextInt((int) 8000 + 1))) + 1));
+		NewBlocksModVariables.WorldVariables.get(world).ReturnZValue = ((new Random())
+				.nextInt((int) (10000 - (new Random()).nextInt((int) 8000 + 1)) + 1));
 		NewBlocksModVariables.WorldVariables.get(world).syncData(world);
-		NewBlocksModVariables.WorldVariables.get(world).ReturnYValue = (double) ((new Random()).nextInt((int) 55 + 1));
+		NewBlocksModVariables.WorldVariables.get(world).ReturnYValue = ((new Random()).nextInt((int) 55 + 1));
 		NewBlocksModVariables.WorldVariables.get(world).syncData(world);
-		if ((entity instanceof PlayerEntity)) {
+		if (entity instanceof PlayerEntity) {
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -69,9 +71,9 @@ public class TeleportationEffectStartedappliedProcedure {
 				}
 
 				private void run() {
-					if (((world.getBlockState(new BlockPos((int) NewBlocksModVariables.WorldVariables.get(world).ReturnXValue,
+					if ((world.getBlockState(new BlockPos((int) NewBlocksModVariables.WorldVariables.get(world).ReturnXValue,
 							(int) (NewBlocksModVariables.WorldVariables.get(world).ReturnYValue + 1),
-							(int) NewBlocksModVariables.WorldVariables.get(world).ReturnZValue))).getBlock() == Blocks.CAVE_AIR)) {
+							(int) NewBlocksModVariables.WorldVariables.get(world).ReturnZValue))).getBlock() == Blocks.CAVE_AIR) {
 						{
 							Entity _ent = entity;
 							_ent.setPositionAndUpdate(NewBlocksModVariables.WorldVariables.get(world).ReturnXValue,
@@ -102,16 +104,16 @@ public class TeleportationEffectStartedappliedProcedure {
 					} else {
 						{
 							Entity _ent = entity;
-							_ent.setPositionAndUpdate(((new Random()).nextInt((int) (10000 - ((new Random()).nextInt((int) 8000 + 1))) + 1)),
-									((world.getHeight(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (int) (entity.getPosX()), (int) (entity.getPosZ())))
+							_ent.setPositionAndUpdate(((new Random()).nextInt((int) (10000 - (new Random()).nextInt((int) 8000 + 1)) + 1)),
+									(world.getHeight(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (int) (entity.getPosX()), (int) (entity.getPosZ()))
 											+ 8.5),
-									((new Random()).nextInt((int) (10000 - ((new Random()).nextInt((int) 8000 + 1))) + 1)));
+									((new Random()).nextInt((int) (10000 - (new Random()).nextInt((int) 8000 + 1)) + 1)));
 							if (_ent instanceof ServerPlayerEntity) {
 								((ServerPlayerEntity) _ent).connection.setPlayerLocation(
-										((new Random()).nextInt((int) (10000 - ((new Random()).nextInt((int) 8000 + 1))) + 1)),
-										((world.getHeight(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (int) (entity.getPosX()),
-												(int) (entity.getPosZ()))) + 8.5),
-										((new Random()).nextInt((int) (10000 - ((new Random()).nextInt((int) 8000 + 1))) + 1)), _ent.rotationYaw,
+										((new Random()).nextInt((int) (10000 - (new Random()).nextInt((int) 8000 + 1)) + 1)),
+										(world.getHeight(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (int) (entity.getPosX()), (int) (entity.getPosZ()))
+												+ 8.5),
+										((new Random()).nextInt((int) (10000 - (new Random()).nextInt((int) 8000 + 1)) + 1)), _ent.rotationYaw,
 										_ent.rotationPitch, Collections.emptySet());
 							}
 						}

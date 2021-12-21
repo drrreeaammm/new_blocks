@@ -17,6 +17,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class FlintPickaxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:flint_pickaxe")
 	public static final Item block = null;
+
 	public FlintPickaxeItem(NewBlocksModElements instance) {
 		super(instance, 831);
 	}

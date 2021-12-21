@@ -40,6 +40,7 @@ public class PoisonPlantEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 1.9f)).build("poison_plant").setRegistryName("poison_plant");
+
 	public PoisonPlantEntity(NewBlocksModElements instance) {
 		super(instance, 190);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new PoisonPlantRenderer.ModelRegisterHandler());
@@ -56,6 +57,7 @@ public class PoisonPlantEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

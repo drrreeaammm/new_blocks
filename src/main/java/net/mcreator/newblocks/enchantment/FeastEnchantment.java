@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class FeastEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:feast")
 	public static final Enchantment enchantment = null;
+
 	public FeastEnchantment(NewBlocksModElements instance) {
 		super(instance, 356);
 	}
@@ -24,6 +25,7 @@ public class FeastEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("feast"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.RARE, EnchantmentType.WEAPON, slots);

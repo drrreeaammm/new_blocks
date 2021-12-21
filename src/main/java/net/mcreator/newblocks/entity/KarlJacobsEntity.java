@@ -38,6 +38,7 @@ public class KarlJacobsEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 1.8f)).build("karl_jacobs").setRegistryName("karl_jacobs");
+
 	public KarlJacobsEntity(NewBlocksModElements instance) {
 		super(instance, 185);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new KarlJacobsRenderer.ModelRegisterHandler());
@@ -54,6 +55,7 @@ public class KarlJacobsEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

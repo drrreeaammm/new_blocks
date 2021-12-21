@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class MintShovelItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mint_shovel")
 	public static final Item block = null;
+
 	public MintShovelItem(NewBlocksModElements instance) {
 		super(instance, 260);
 	}

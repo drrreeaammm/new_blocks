@@ -10,6 +10,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class YEsProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -17,10 +18,10 @@ public class YEsProcedure {
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		return (!((entity instanceof TameableEntity
+		return !((entity instanceof TameableEntity
 				&& ((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity)
 						? ((TameableEntity) entity)
 								.isOwner((LivingEntity) ((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null))
-						: false));
+						: false);
 	}
 }

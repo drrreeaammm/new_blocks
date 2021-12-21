@@ -25,6 +25,7 @@ public class GlareFEGTYHUJIRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(GlareFEGTYHUJIEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelglaretrgnejfmk(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/glare_.png");
@@ -43,6 +44,7 @@ public class GlareFEGTYHUJIRenderer {
 		private final ModelRenderer inner_body;
 		private final ModelRenderer head;
 		private final ModelRenderer face;
+
 		public Modelglaretrgnejfmk() {
 			textureWidth = 128;
 			textureHeight = 128;
@@ -79,6 +81,8 @@ public class GlareFEGTYHUJIRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

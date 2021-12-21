@@ -20,10 +20,12 @@ import net.mcreator.newblocks.NewBlocksModElements;
 @NewBlocksModElements.ModElement.Tag
 public class UnderworldHillsBiome extends NewBlocksModElements.ModElement {
 	public static Biome biome;
+
 	public UnderworldHillsBiome(NewBlocksModElements instance) {
 		super(instance, 1349);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BiomeRegisterHandler());
 	}
+
 	private static class BiomeRegisterHandler {
 		@SubscribeEvent
 		public void registerBiomes(RegistryEvent.Register<Biome> event) {
@@ -42,6 +44,7 @@ public class UnderworldHillsBiome extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}

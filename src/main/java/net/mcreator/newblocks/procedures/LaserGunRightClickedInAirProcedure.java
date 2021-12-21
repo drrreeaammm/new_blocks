@@ -23,10 +23,11 @@ import java.util.List;
 import java.util.Comparator;
 
 public class LaserGunRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure LaserGunRightClickedInAir!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure LaserGunRightClickedInAir!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -44,20 +45,20 @@ public class LaserGunRightClickedInAirProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure LaserGunRightClickedInAir!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure LaserGunRightClickedInAir!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure LaserGunRightClickedInAir!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double raytrace_distance = 0;
-		raytrace_distance = (double) 1;
+		raytrace_distance = 1;
 		for (int index0 = 0; index0 < (int) (14); index0++) {
-			if (((!(world.getBlockState(new BlockPos(
+			if (!world.getBlockState(new BlockPos(
 					(int) (entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 							entity.getEyePosition(1f).add(entity.getLook(1f).x * raytrace_distance, entity.getLook(1f).y * raytrace_distance,
 									entity.getLook(1f).z * raytrace_distance),
@@ -70,12 +71,11 @@ public class LaserGunRightClickedInAirProcedure {
 							entity.getEyePosition(1f).add(entity.getLook(1f).x * raytrace_distance, entity.getLook(1f).y * raytrace_distance,
 									entity.getLook(1f).z * raytrace_distance),
 							RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())))
-					.isSolid())) || (raytrace_distance < 14))) {
-				raytrace_distance = (double) (raytrace_distance + 1);
-				world.addParticle(ParticleTypes.FLAME, x, (y + 1), z,
-						((Math.sin(Math.toRadians(((entity.rotationYaw) + 180))) * raytrace_distance) / 2),
-						((Math.sin(Math.toRadians((0 - (entity.rotationPitch)))) * raytrace_distance) / 2),
-						((Math.cos(Math.toRadians((entity.rotationYaw))) * raytrace_distance) / 2));
+					.isSolid() || raytrace_distance < 14) {
+				raytrace_distance = (raytrace_distance + 1);
+				world.addParticle(ParticleTypes.FLAME, x, (y + 1), z, ((Math.sin(Math.toRadians(entity.rotationYaw + 180)) * raytrace_distance) / 2),
+						((Math.sin(Math.toRadians(0 - entity.rotationPitch)) * raytrace_distance) / 2),
+						((Math.cos(Math.toRadians(entity.rotationYaw)) * raytrace_distance) / 2));
 				if (world instanceof World && !world.isRemote()) {
 					((World) world).playSound(null,
 							new BlockPos(
@@ -157,8 +157,8 @@ public class LaserGunRightClickedInAirProcedure {
 											RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity)).getPos().getZ())))
 							.collect(Collectors.toList());
 					for (Entity entityiterator : _entfound) {
-						if ((((!(entityiterator == entity)) && (entityiterator instanceof LivingEntity))
-								&& ((!((entity.getRidingEntity()) == entityiterator)) && (!((entityiterator.getRidingEntity()) == entity))))) {
+						if (!(entityiterator == entity) && entityiterator instanceof LivingEntity && !((entity.getRidingEntity()) == entityiterator)
+								&& !((entityiterator.getRidingEntity()) == entity)) {
 							entityiterator.attackEntityFrom(DamageSource.MAGIC, (float) 5);
 						}
 					}

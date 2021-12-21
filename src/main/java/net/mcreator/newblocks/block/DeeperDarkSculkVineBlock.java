@@ -50,18 +50,19 @@ import net.mcreator.newblocks.procedures.DeeperDarkSculkVineAdditionalGeneration
 import net.mcreator.newblocks.itemgroup.DeepDarkTabItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
-
-import com.google.common.collect.ImmutableMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class DeeperDarkSculkVineBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:deeper_dark_sculk_vine")
 	public static final Block block = null;
+
 	public DeeperDarkSculkVineBlock(NewBlocksModElements instance) {
 		super(instance, 1007);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -80,8 +81,10 @@ public class DeeperDarkSculkVineBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static Feature<BlockClusterFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
 		public void registerFeature(RegistryEvent.Register<Feature<?>> event) {
@@ -97,7 +100,8 @@ public class DeeperDarkSculkVineBlock extends NewBlocksModElements.ModElement {
 					int x = pos.getX();
 					int y = pos.getY();
 					int z = pos.getZ();
-					if (!DeeperDarkSculkVineAdditionalGenerationConditionProcedure.executeProcedure(ImmutableMap.of("y", y)))
+					if (!DeeperDarkSculkVineAdditionalGenerationConditionProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("y", y))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 						return false;
 					int generated = 0;
 					for (int j = 0; j < 33; ++j) {
@@ -125,10 +129,12 @@ public class DeeperDarkSculkVineBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:deeper_dark_sculk_vine"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> configuredFeature);
 	}
+
 	public static class BlockCustomFlower extends SugarCaneBlock {
 		public BlockCustomFlower() {
 			super(Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.PLANT)
@@ -165,7 +171,11 @@ public class DeeperDarkSculkVineBlock extends NewBlocksModElements.ModElement {
 			BlockState groundState = worldIn.getBlockState(blockpos);
 			Block ground = groundState.getBlock();
 			return ground == this || (ground == SculkChuteBlock.block || ground == SkulkBlockBlock.block || ground == SculkVineBlock.block
-					|| ground == GrimstoneBlock.block || ground == SculkStoneBlock.block || ground == DarkGrimstoneBlock.block);
+					|| ground == GrimstoneBlock.block || ground == SculkStoneBlock.block || ground == DarkGrimstoneBlock.block
+
+			)
+
+			;
 		}
 
 		@Override
@@ -198,11 +208,9 @@ public class DeeperDarkSculkVineBlock extends NewBlocksModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				SculkVineMobplayerCollidesWithPlantProcedure.executeProcedure($_dependencies);
-			}
+
+			SculkVineMobplayerCollidesWithPlantProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

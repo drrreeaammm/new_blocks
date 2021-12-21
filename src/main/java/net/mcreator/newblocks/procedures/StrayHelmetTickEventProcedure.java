@@ -18,10 +18,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class StrayHelmetTickEventProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure StrayHelmetTickEvent!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure StrayHelmetTickEvent!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -39,16 +40,16 @@ public class StrayHelmetTickEventProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure StrayHelmetTickEvent!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure StrayHelmetTickEvent!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure StrayHelmetTickEvent!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		if (entity instanceof LivingEntity) {
 			((LivingEntity) entity).removePotionEffect(Effects.SLOWNESS);
 		}
@@ -56,6 +57,7 @@ public class StrayHelmetTickEventProcedure {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -72,7 +74,7 @@ public class StrayHelmetTickEventProcedure {
 			}
 
 			private void run() {
-				if ((Math.random() < 0.5)) {
+				if (Math.random() < 0.5) {
 					if (world instanceof World && !world.isRemote()) {
 						ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.ARROW));
 						entityToSpawn.setPickupDelay((int) 10);

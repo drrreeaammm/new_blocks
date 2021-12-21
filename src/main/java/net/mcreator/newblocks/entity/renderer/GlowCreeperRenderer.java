@@ -33,6 +33,7 @@ public class GlowCreeperRenderer {
 						{
 							this.addLayer(new GlowingLayer<>(this));
 						}
+
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
 							return new ResourceLocation("new_blocks:textures/glow-creeper-on-planetminecraft-com.png");

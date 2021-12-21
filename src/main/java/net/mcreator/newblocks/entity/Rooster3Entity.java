@@ -46,6 +46,7 @@ public class Rooster3Entity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.AMBIENT)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.42f, 0.71f)).build("rooster_3").setRegistryName("rooster_3");
+
 	public Rooster3Entity(NewBlocksModElements instance) {
 		super(instance, 1089);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new Rooster3Renderer.ModelRegisterHandler());
@@ -61,6 +62,7 @@ public class Rooster3Entity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

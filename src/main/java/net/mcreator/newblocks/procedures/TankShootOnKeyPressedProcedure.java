@@ -16,27 +16,29 @@ import java.util.Random;
 import java.util.Map;
 
 public class TankShootOnKeyPressedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure TankShootOnKeyPressed!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure TankShootOnKeyPressed!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure TankShootOnKeyPressed!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((entity.getRidingEntity()) instanceof LivingEntity)) {
-			if (((entity.getRidingEntity()) instanceof TankEntity.CustomEntity)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if ((entity.getRidingEntity()) instanceof LivingEntity) {
+			if ((entity.getRidingEntity()) instanceof TankEntity.CustomEntity) {
 				(entity.getRidingEntity()).getPersistentData().putDouble("timeCount",
-						(((entity.getRidingEntity()).getPersistentData().getDouble("timeCount")) - 1));
+						((entity.getRidingEntity()).getPersistentData().getDouble("timeCount") - 1));
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -53,7 +55,7 @@ public class TankShootOnKeyPressedProcedure {
 					}
 
 					private void run() {
-						if ((((entity.getRidingEntity()).getPersistentData().getDouble("timeCount")) < 0)) {
+						if ((entity.getRidingEntity()).getPersistentData().getDouble("timeCount") < 0) {
 							if ((entity.getRidingEntity()) instanceof LivingEntity) {
 								Entity _ent = (entity.getRidingEntity());
 								if (!_ent.world.isRemote()) {

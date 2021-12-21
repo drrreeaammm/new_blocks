@@ -21,6 +21,7 @@ public class CreeperSpiderRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(CreeperSpiderEntity.entity,
 					renderManager -> new MobRenderer(renderManager, new SpiderModel(), 0.5f) {
+
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
 							return new ResourceLocation("new_blocks:textures/crawly-creeper-on-planetminecraft-com.png");

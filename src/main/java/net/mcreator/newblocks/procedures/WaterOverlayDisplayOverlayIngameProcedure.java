@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Collection;
 
 public class WaterOverlayDisplayOverlayIngameProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -19,7 +20,7 @@ public class WaterOverlayDisplayOverlayIngameProcedure {
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		return ((entity.areEyesInFluid(FluidTags.WATER)) && (!(new Object() {
+		return entity.areEyesInFluid(FluidTags.WATER) && !(new Object() {
 			boolean check(Entity _entity) {
 				if (_entity instanceof LivingEntity) {
 					Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
@@ -30,6 +31,6 @@ public class WaterOverlayDisplayOverlayIngameProcedure {
 				}
 				return false;
 			}
-		}.check(entity))));
+		}.check(entity));
 	}
 }

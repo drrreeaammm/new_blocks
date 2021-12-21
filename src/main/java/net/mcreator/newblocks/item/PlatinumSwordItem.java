@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class PlatinumSwordItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:platinum_sword")
 	public static final Item block = null;
+
 	public PlatinumSwordItem(NewBlocksModElements instance) {
 		super(instance, 1043);
 	}

@@ -20,15 +20,18 @@ import net.mcreator.newblocks.procedures.DormantDeepDarkGrassEntityWalksOnTheBlo
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class DormantDeepDarkGrassBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:dormant_deep_dark_grass")
 	public static final Block block = null;
+
 	public DormantDeepDarkGrassBlock(NewBlocksModElements instance) {
 		super(instance, 57);
 	}
@@ -38,6 +41,7 @@ public class DormantDeepDarkGrassBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ORGANIC).sound(SoundType.GROUND).hardnessAndResistance(0.6000000000000001f, 10f)
@@ -65,11 +69,9 @@ public class DormantDeepDarkGrassBlock extends NewBlocksModElements.ModElement {
 			int y = pos.getY();
 			int z = pos.getZ();
 			BlockState blockstate = world.getBlockState(pos);
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				DormantDeepDarkGrassEntityWalksOnTheBlockProcedure.executeProcedure($_dependencies);
-			}
+
+			DormantDeepDarkGrassEntityWalksOnTheBlockProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

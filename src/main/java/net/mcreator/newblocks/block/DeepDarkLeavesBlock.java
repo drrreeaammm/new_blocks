@@ -26,6 +26,7 @@ import java.util.Collections;
 public class DeepDarkLeavesBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:deep_dark_leaves")
 	public static final Block block = null;
+
 	public DeepDarkLeavesBlock(NewBlocksModElements instance) {
 		super(instance, 39);
 	}
@@ -35,6 +36,7 @@ public class DeepDarkLeavesBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends LeavesBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2f, 0.2f).setLightLevel(s -> 0).notSolid());

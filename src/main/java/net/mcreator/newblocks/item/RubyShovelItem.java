@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class RubyShovelItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ruby_shovel")
 	public static final Item block = null;
+
 	public RubyShovelItem(NewBlocksModElements instance) {
 		super(instance, 22);
 	}

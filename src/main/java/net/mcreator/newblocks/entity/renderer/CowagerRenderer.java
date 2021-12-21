@@ -21,6 +21,7 @@ public class CowagerRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(CowagerEntity.entity,
 					renderManager -> new MobRenderer(renderManager, new CowModel(), 0.5f) {
+
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
 							return new ResourceLocation("new_blocks:textures/the-baby-ravager-on-planetminecraft-com.png");

@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
 public class DoCicadaSpawningGameRule extends NewBlocksModElements.ModElement {
 	public static final GameRules.RuleKey<GameRules.BooleanValue> gamerule = GameRules.register("doCicadaSpawning", GameRules.Category.SPAWNING,
 			create(true));
+
 	public DoCicadaSpawningGameRule(NewBlocksModElements instance) {
 		super(instance, 600);
 	}

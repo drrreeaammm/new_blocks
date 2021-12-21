@@ -36,6 +36,7 @@ public class ShulkerBowRenderer {
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<ShulkerBowItem.ArrowCustomEntity> {
 		private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/shulker_bullet_item.png");
+
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
 		}
@@ -64,6 +65,7 @@ public class ShulkerBowRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modelshulker_bullet_item extends EntityModel<Entity> {
 		private final ModelRenderer bullet;
+
 		public Modelshulker_bullet_item() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -87,6 +89,8 @@ public class ShulkerBowRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

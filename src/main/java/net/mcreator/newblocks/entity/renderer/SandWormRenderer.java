@@ -25,6 +25,7 @@ public class SandWormRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(SandWormEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelsand_worm(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/sand_worm.png");
@@ -41,6 +42,7 @@ public class SandWormRenderer {
 		private final ModelRenderer body;
 		private final ModelRenderer body_r1;
 		private final ModelRenderer head;
+
 		public Modelsand_worm() {
 			textureWidth = 128;
 			textureHeight = 168;
@@ -75,8 +77,10 @@ public class SandWormRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 		}
 	}
+
 }

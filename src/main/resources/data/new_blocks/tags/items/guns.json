@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
+    "new_blocks:bullet",
     "new_blocks:rifle",
-    "new_blocks:minigun",
+    "new_blocks:pistol",
     "new_blocks:sniper_rifile",
     "new_blocks:sniper_bullet",
-    "new_blocks:pistol",
-    "new_blocks:bullet"
+    "new_blocks:minigun"
   ]
 }

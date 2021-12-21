@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class RockItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:rock")
 	public static final Item block = null;
+
 	public RockItem(NewBlocksModElements instance) {
 		super(instance, 182);
 	}
@@ -23,6 +24,7 @@ public class RockItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));

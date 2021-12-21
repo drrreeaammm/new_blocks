@@ -8,6 +8,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class FireFlyEntityParticleSpawningConditionProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
@@ -15,6 +16,6 @@ public class FireFlyEntityParticleSpawningConditionProcedure {
 			return false;
 		}
 		IWorld world = (IWorld) dependencies.get("world");
-		return (!((world instanceof World) ? ((World) world).isDaytime() : false));
+		return !((world instanceof World) ? ((World) world).isDaytime() : false);
 	}
 }

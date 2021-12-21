@@ -54,6 +54,7 @@ import java.util.Collections;
 public class BlackTulipBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:black_tulip")
 	public static final Block block = null;
+
 	public BlackTulipBlock(NewBlocksModElements instance) {
 		super(instance, 947);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -71,8 +72,10 @@ public class BlackTulipBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static Feature<BlockClusterFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
 		public void registerFeature(RegistryEvent.Register<Feature<?>> event) {
@@ -102,6 +105,7 @@ public class BlackTulipBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:black_tulip"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		boolean biomeCriteria = false;
@@ -113,11 +117,17 @@ public class BlackTulipBlock extends NewBlocksModElements.ModElement {
 			return;
 		event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> configuredFeature);
 	}
+
 	public static class BlockCustomFlower extends FlowerBlock {
 		public BlockCustomFlower() {
 			super(Effects.NAUSEA, 7, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().sound(SoundType.PLANT)
 					.hardnessAndResistance(0f, 0f).setLightLevel(s -> 0));
 			setRegistryName("black_tulip");
+		}
+
+		@Override
+		public int getStewEffectDuration() {
+			return 7;
 		}
 
 		@Override

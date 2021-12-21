@@ -28,6 +28,7 @@ public class MintArmorItem extends NewBlocksModElements.ModElement {
 	public static final Item legs = null;
 	@ObjectHolder("new_blocks:mint_armor_boots")
 	public static final Item boots = null;
+
 	public MintArmorItem(NewBlocksModElements instance) {
 		super(instance, 17);
 	}
@@ -101,4 +102,5 @@ public class MintArmorItem extends NewBlocksModElements.ModElement {
 			}
 		}.setRegistryName("mint_armor_boots"));
 	}
+
 }

@@ -12,19 +12,20 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class DarkMagicWizardCloneOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DarkMagicWizardCloneOnEntityTickUpdate!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DarkMagicWizardCloneOnEntityTickUpdate!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DarkMagicWizardCloneOnEntityTickUpdate!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double posZ = 0;
 		double posx = 0;
 		double posy = 0;
@@ -32,6 +33,7 @@ public class DarkMagicWizardCloneOnEntityTickUpdateProcedure {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -48,7 +50,7 @@ public class DarkMagicWizardCloneOnEntityTickUpdateProcedure {
 			}
 
 			private void run() {
-				if ((entity.isAlive())) {
+				if (entity.isAlive()) {
 					if (!entity.world.isRemote())
 						entity.remove();
 				}

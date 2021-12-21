@@ -13,6 +13,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class BloodSwordLivingEntityIsHitWithToolProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -32,10 +33,10 @@ public class BloodSwordLivingEntityIsHitWithToolProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		if (((EnchantmentHelper.getEnchantmentLevel(LifeStealEnchantment.enchantment, (itemstack))) == 1)) {
+		if (EnchantmentHelper.getEnchantmentLevel(LifeStealEnchantment.enchantment, itemstack) == 1) {
 			if (sourceentity instanceof LivingEntity)
 				((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 40, (int) 1, (false), (false)));
-		} else if (((EnchantmentHelper.getEnchantmentLevel(LifeStealEnchantment.enchantment, (itemstack))) == 2)) {
+		} else if (EnchantmentHelper.getEnchantmentLevel(LifeStealEnchantment.enchantment, itemstack) == 2) {
 			if (sourceentity instanceof LivingEntity)
 				((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 18, (int) 2, (false), (false)));
 			if (entity instanceof LivingEntity)

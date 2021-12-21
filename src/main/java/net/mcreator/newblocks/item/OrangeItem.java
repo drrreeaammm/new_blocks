@@ -16,13 +16,16 @@ import net.minecraft.entity.LivingEntity;
 import net.mcreator.newblocks.procedures.OrangeFoodEatenProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class OrangeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:orange")
 	public static final Item block = null;
+
 	public OrangeItem(NewBlocksModElements instance) {
 		super(instance, 267);
 	}
@@ -31,10 +34,13 @@ public class OrangeItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(ItemGroup.FOOD).maxStackSize(64).rarity(Rarity.COMMON)
-					.food((new Food.Builder()).hunger(7).saturation(0.7999999999999999f).build()));
+					.food((new Food.Builder()).hunger(7).saturation(0.7999999999999999f)
+
+							.build()));
 			setRegistryName("orange");
 		}
 
@@ -55,11 +61,9 @@ public class OrangeItem extends NewBlocksModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				OrangeFoodEatenProcedure.executeProcedure($_dependencies);
-			}
+
+			OrangeFoodEatenProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			if (itemstack.isEmpty()) {
 				return retval;
 			} else {

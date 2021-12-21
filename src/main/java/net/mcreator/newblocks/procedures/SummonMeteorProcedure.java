@@ -54,15 +54,11 @@ public class SummonMeteorProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("imediatesourceentity") == null) {
-			if (!dependencies.containsKey("imediatesourceentity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency imediatesourceentity for procedure SummonMeteor!");
-			return;
-		}
-		if (dependencies.get("sourceentity") == null) {
-			if (!dependencies.containsKey("sourceentity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure SummonMeteor!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SummonMeteor!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -80,23 +76,28 @@ public class SummonMeteorProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure SummonMeteor!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SummonMeteor!");
+		if (dependencies.get("imediatesourceentity") == null) {
+			if (!dependencies.containsKey("imediatesourceentity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency imediatesourceentity for procedure SummonMeteor!");
 			return;
 		}
-		Entity imediatesourceentity = (Entity) dependencies.get("imediatesourceentity");
-		Entity sourceentity = (Entity) dependencies.get("sourceentity");
+		if (dependencies.get("sourceentity") == null) {
+			if (!dependencies.containsKey("sourceentity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure SummonMeteor!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((world.canBlockSeeSky(new BlockPos((int) x, (int) (y + 5), (int) z)))) {
-			if (((EnchantmentHelper.getEnchantmentLevel(MeteorEnchantment.enchantment,
-					((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY))) == 1)) {
-				if ((imediatesourceentity instanceof ArrowEntity)) {
-					if ((((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
-							.getItem() == Items.CROSSBOW)) {
+		Entity imediatesourceentity = (Entity) dependencies.get("imediatesourceentity");
+		Entity sourceentity = (Entity) dependencies.get("sourceentity");
+		if (world.canBlockSeeSky(new BlockPos((int) x, (int) (y + 5), (int) z))) {
+			if (EnchantmentHelper.getEnchantmentLevel(MeteorEnchantment.enchantment,
+					((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)) == 1) {
+				if (imediatesourceentity instanceof ArrowEntity) {
+					if (((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
+							.getItem() == Items.CROSSBOW) {
 						if (world instanceof ServerWorld) {
 							Entity entityToSpawn = new MeteorEntityEntity.CustomEntity(MeteorEntityEntity.entity, (World) world);
 							entityToSpawn.setLocationAndAngles(x, (y + 35), z, world.getRandom().nextFloat() * 360F, 0);

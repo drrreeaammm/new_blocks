@@ -31,10 +31,12 @@ import net.mcreator.newblocks.NewBlocksModElements;
 @NewBlocksModElements.ModElement.Tag
 public class ModifiedDeepDarkBiome extends NewBlocksModElements.ModElement {
 	public static Biome biome;
+
 	public ModifiedDeepDarkBiome(NewBlocksModElements instance) {
 		super(instance, 718);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BiomeRegisterHandler());
 	}
+
 	private static class BiomeRegisterHandler {
 		@SubscribeEvent
 		public void registerBiomes(RegistryEvent.Register<Biome> event) {
@@ -64,6 +66,7 @@ public class ModifiedDeepDarkBiome extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 		BiomeDictionary.addTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, WorldGenRegistries.BIOME.getKey(biome)), BiomeDictionary.Type.COLD,

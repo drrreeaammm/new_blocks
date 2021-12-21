@@ -25,15 +25,18 @@ import net.mcreator.newblocks.procedures.ThornsEntityCollidesInTheBlockProcedure
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class ThornsBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:thorns")
 	public static final Block block = null;
+
 	public ThornsBlock(NewBlocksModElements instance) {
 		super(instance, 1333);
 	}
@@ -49,6 +52,7 @@ public class ThornsBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.LEAVES).sound(SoundType.SWEET_BERRY_BUSH).hardnessAndResistance(2.1999999999999997f, 10f)
@@ -80,11 +84,9 @@ public class ThornsBlock extends NewBlocksModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				ThornsEntityCollidesInTheBlockProcedure.executeProcedure($_dependencies);
-			}
+
+			ThornsEntityCollidesInTheBlockProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

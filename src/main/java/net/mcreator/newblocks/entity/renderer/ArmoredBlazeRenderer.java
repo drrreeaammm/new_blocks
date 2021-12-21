@@ -25,6 +25,7 @@ public class ArmoredBlazeRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(ArmoredBlazeEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelarmoredblaze(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/terminator-blaze-on-planetminecraft-com.png");
@@ -51,6 +52,7 @@ public class ArmoredBlazeRenderer {
 		private final ModelRenderer stick10;
 		private final ModelRenderer stick11;
 		private final ModelRenderer stick12;
+
 		public Modelarmoredblaze() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -120,8 +122,10 @@ public class ArmoredBlazeRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 		}
 	}
+
 }

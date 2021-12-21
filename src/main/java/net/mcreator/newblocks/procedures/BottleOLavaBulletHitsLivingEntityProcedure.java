@@ -10,10 +10,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class BottleOLavaBulletHitsLivingEntityProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure BottleOLavaBulletHitsLivingEntity!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure BottleOLavaBulletHitsLivingEntity!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -31,18 +32,18 @@ public class BottleOLavaBulletHitsLivingEntityProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure BottleOLavaBulletHitsLivingEntity!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure BottleOLavaBulletHitsLivingEntity!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure BottleOLavaBulletHitsLivingEntity!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.LAVA.getDefaultState(), 3);
-		if ((!(entity.isImmuneToFire()))) {
+		if (!entity.isImmuneToFire()) {
 			entity.setFire((int) 5);
 		}
 	}

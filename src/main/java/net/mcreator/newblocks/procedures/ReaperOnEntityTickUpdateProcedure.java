@@ -11,10 +11,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class ReaperOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("sourceentity") == null) {
-			if (!dependencies.containsKey("sourceentity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure ReaperOnEntityTickUpdate!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure ReaperOnEntityTickUpdate!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -32,22 +33,22 @@ public class ReaperOnEntityTickUpdateProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure ReaperOnEntityTickUpdate!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure ReaperOnEntityTickUpdate!");
+		if (dependencies.get("sourceentity") == null) {
+			if (!dependencies.containsKey("sourceentity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure ReaperOnEntityTickUpdate!");
 			return;
 		}
-		Entity sourceentity = (Entity) dependencies.get("sourceentity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity sourceentity = (Entity) dependencies.get("sourceentity");
 		ItemStack pickaxe = ItemStack.EMPTY;
 		double EnchtSize = 0;
 		double i = 0;
 		double j = 0;
 		double k = 0;
-		if (((world.getLight(new BlockPos((int) x, (int) (y + 1), (int) z))) > 13)) {
+		if (world.getLight(new BlockPos((int) x, (int) (y + 1), (int) z)) > 13) {
 			sourceentity.attackEntityFrom(DamageSource.GENERIC, (float) 999);
 		}
 	}

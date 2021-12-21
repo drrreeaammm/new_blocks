@@ -16,7 +16,13 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class MeowmereRangedBulletHitsBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MeowmereRangedBulletHitsBlock!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency x for procedure MeowmereRangedBulletHitsBlock!");
@@ -32,15 +38,10 @@ public class MeowmereRangedBulletHitsBlockProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure MeowmereRangedBulletHitsBlock!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MeowmereRangedBulletHitsBlock!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
 		if (world instanceof ServerWorld) {
 			((ServerWorld) world).spawnParticle(ParticleTypes.FIREWORK, x, y, z, (int) 80, 1, 1, 1, 0.16);
 		}

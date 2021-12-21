@@ -49,10 +49,12 @@ import com.google.common.collect.ImmutableList;
 @NewBlocksModElements.ModElement.Tag
 public class ScaryBiome extends NewBlocksModElements.ModElement {
 	public static Biome biome;
+
 	public ScaryBiome(NewBlocksModElements instance) {
 		super(instance, 845);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BiomeRegisterHandler());
 	}
+
 	private static class BiomeRegisterHandler {
 		@SubscribeEvent
 		public void registerBiomes(RegistryEvent.Register<Biome> event) {
@@ -71,7 +73,7 @@ public class ScaryBiome extends NewBlocksModElements.ModElement {
 								new JungleFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(0), 2),
 								new MegaJungleTrunkPlacer(44, 2, 19), new TwoLayerFeature(1, 1, 2)))
 										.setDecorators(ImmutableList.of(CustomLeaveVineTreeDecorator.instance, CustomTrunkVineTreeDecorator.instance))
-										.setMaxWaterDepth(0).build())
+										.build())
 						.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT)
 						.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(4, 0.1F, 1))));
 				biomeGenerationSettings.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -115,9 +117,11 @@ public class ScaryBiome extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class CustomLeaveVineTreeDecorator extends LeaveVineTreeDecorator {
 		public static final CustomLeaveVineTreeDecorator instance = new CustomLeaveVineTreeDecorator();
 		public static com.mojang.serialization.Codec<LeaveVineTreeDecorator> codec;
@@ -128,6 +132,7 @@ public class ScaryBiome extends NewBlocksModElements.ModElement {
 			tdt.setRegistryName("scary_lvtd");
 			ForgeRegistries.TREE_DECORATOR_TYPES.register(tdt);
 		}
+
 		@Override
 		protected TreeDecoratorType<?> func_230380_a_() {
 			return tdt;
@@ -149,6 +154,7 @@ public class ScaryBiome extends NewBlocksModElements.ModElement {
 			tdt.setRegistryName("scary_tvtd");
 			ForgeRegistries.TREE_DECORATOR_TYPES.register(tdt);
 		}
+
 		@Override
 		protected TreeDecoratorType<?> func_230380_a_() {
 			return tdt;

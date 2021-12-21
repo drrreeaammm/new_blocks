@@ -9,12 +9,8 @@ import java.util.Map;
 import java.util.Collections;
 
 public class FrogOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FrogOnEntityTickUpdate!");
-			return;
-		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency x for procedure FrogOnEntityTickUpdate!");
@@ -30,14 +26,19 @@ public class FrogOnEntityTickUpdateProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure FrogOnEntityTickUpdate!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FrogOnEntityTickUpdate!");
+			return;
+		}
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		if ((Math.random() < 0.4)) {
-			if ((Math.random() < 0.4)) {
-				if ((Math.random() < 0.3)) {
-					if ((Math.random() < 0.4)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (Math.random() < 0.4) {
+			if (Math.random() < 0.4) {
+				if (Math.random() < 0.3) {
+					if (Math.random() < 0.4) {
 						{
 							Entity _ent = entity;
 							_ent.setPositionAndUpdate(x, (y + 0.7), z);
@@ -46,7 +47,7 @@ public class FrogOnEntityTickUpdateProcedure {
 										Collections.emptySet());
 							}
 						}
-					} else if ((Math.random() < 0.2)) {
+					} else if (Math.random() < 0.2) {
 						{
 							Entity _ent = entity;
 							_ent.setPositionAndUpdate(x, (y + 1), z);
@@ -55,12 +56,10 @@ public class FrogOnEntityTickUpdateProcedure {
 										Collections.emptySet());
 							}
 						}
-					} else if ((Math.random() < 0.2)) {
-						entity.setMotion((0 - Math.sin(((entity.rotationYaw) * (Math.PI / 180)))), 0.4,
-								Math.cos(((entity.rotationYaw) * (Math.PI / 180))));
-					} else if ((Math.random() < 0.2)) {
-						entity.setMotion((0 - Math.sin(((entity.rotationYaw) * (Math.PI / 180)))), 0.3,
-								Math.cos(((entity.rotationYaw) * (Math.PI / 180))));
+					} else if (Math.random() < 0.2) {
+						entity.setMotion((0 - Math.sin(entity.rotationYaw * Math.PI / 180)), 0.4, Math.cos(entity.rotationYaw * Math.PI / 180));
+					} else if (Math.random() < 0.2) {
+						entity.setMotion((0 - Math.sin(entity.rotationYaw * Math.PI / 180)), 0.3, Math.cos(entity.rotationYaw * Math.PI / 180));
 					}
 				}
 			}

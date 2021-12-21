@@ -36,23 +36,24 @@ public class ReplaceItemProcedure {
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure ReplaceItem!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure ReplaceItem!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure ReplaceItem!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((entity instanceof SkeletonEntity) && (((entity.getDisplayName().getString())).equals("Boss")))) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (entity instanceof SkeletonEntity && (entity.getDisplayName().getString()).equals("Boss")) {
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -69,7 +70,7 @@ public class ReplaceItemProcedure {
 				}
 
 				private void run() {
-					if ((Math.random() < 0.5)) {
+					if (Math.random() < 0.5) {
 						{
 							Entity _ent = entity;
 							if (!_ent.world.isRemote && _ent.world.getServer() != null) {
@@ -78,7 +79,7 @@ public class ReplaceItemProcedure {
 										"replaceitem @e[type=skeleton, name=Boss] weapon.mainhand bow{Enchantments:[{id:\"minecraft:power\",lvl:5s}]}");
 							}
 						}
-					} else if ((Math.random() < 0.5)) {
+					} else if (Math.random() < 0.5) {
 						{
 							Entity _ent = entity;
 							if (!_ent.world.isRemote && _ent.world.getServer() != null) {

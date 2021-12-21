@@ -12,6 +12,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class ShardTimeRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
@@ -25,6 +26,7 @@ public class ShardTimeRightClickedInAirProcedure {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -42,7 +44,7 @@ public class ShardTimeRightClickedInAirProcedure {
 
 					private void run() {
 						if (world instanceof ServerWorld)
-							((ServerWorld) world).setDayTime((int) ((world.getWorldInfo().getDayTime()) + 20));
+							((ServerWorld) world).setDayTime((int) (world.getWorldInfo().getDayTime() + 20));
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 5);

@@ -55,15 +55,18 @@ import net.mcreator.newblocks.item.FireBenderRangedItem;
 import net.mcreator.newblocks.entity.renderer.FireBenderRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class FireBenderEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(70).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
 			.size(0.6f, 1.9f)).build("fire_bender").setRegistryName("fire_bender");
+
 	public FireBenderEntity(NewBlocksModElements instance) {
 		super(instance, 15);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new FireBenderRenderer.ModelRegisterHandler());
@@ -93,6 +96,7 @@ public class FireBenderEntity extends NewBlocksModElements.ModElement {
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -168,11 +172,9 @@ public class FireBenderEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				FireBenderEntityFallsProcedure.executeProcedure($_dependencies);
-			}
+
+			FireBenderEntityFallsProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return super.onLivingFall(l, d);
 		}
 
@@ -183,14 +185,11 @@ public class FireBenderEntity extends NewBlocksModElements.ModElement {
 			double z = this.getPosZ();
 			Entity entity = this;
 			Entity sourceentity = source.getTrueSource();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				FireBenderEntityIsHurtProcedure.executeProcedure($_dependencies);
-			}
+
+			FireBenderEntityIsHurtProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+							new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return super.attackEntityFrom(source, amount);
 		}
 
@@ -202,14 +201,11 @@ public class FireBenderEntity extends NewBlocksModElements.ModElement {
 			double z = this.getPosZ();
 			Entity sourceentity = source.getTrueSource();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				FireBenderEntityDiesProcedure.executeProcedure($_dependencies);
-			}
+
+			FireBenderEntityDiesProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override
@@ -219,11 +215,9 @@ public class FireBenderEntity extends NewBlocksModElements.ModElement {
 			double x = this.getPosX();
 			double y = this.getPosY();
 			double z = this.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				FireBenderPlayerCollidesWithThisEntityProcedure.executeProcedure($_dependencies);
-			}
+
+			FireBenderPlayerCollidesWithThisEntityProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {
@@ -234,7 +228,9 @@ public class FireBenderEntity extends NewBlocksModElements.ModElement {
 		public boolean isNonBoss() {
 			return false;
 		}
+
 		private final ServerBossInfo bossInfo = new ServerBossInfo(this.getDisplayName(), BossInfo.Color.RED, BossInfo.Overlay.PROGRESS);
+
 		@Override
 		public void addTrackingPlayer(ServerPlayerEntity player) {
 			super.addTrackingPlayer(player);

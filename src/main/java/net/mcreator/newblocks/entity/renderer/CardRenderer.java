@@ -36,6 +36,7 @@ public class CardRenderer {
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<CardItem.ArrowCustomEntity> {
 		private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/card_base.png");
+
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
 		}
@@ -64,6 +65,7 @@ public class CardRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modelcard_base extends EntityModel<Entity> {
 		private final ModelRenderer bone;
+
 		public Modelcard_base() {
 			textureWidth = 16;
 			textureHeight = 16;
@@ -85,6 +87,8 @@ public class CardRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

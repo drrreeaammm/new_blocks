@@ -39,10 +39,11 @@ public class SpawnDetectingProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SpawnDetecting!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SpawnDetecting!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -60,26 +61,26 @@ public class SpawnDetectingProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure SpawnDetecting!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SpawnDetecting!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SpawnDetecting!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((!(entity.isSneaking()))) {
-			if ((entity.isSprinting())) {
-				if ((((Entity) world
+		Entity entity = (Entity) dependencies.get("entity");
+		if (!entity.isSneaking()) {
+			if (entity.isSprinting()) {
+				if (((Entity) world
 						.getEntitiesWithinAABB(WardenEntity.CustomEntity.class,
 								new AxisAlignedBB(x - (18 / 2d), y - (18 / 2d), z - (18 / 2d), x + (18 / 2d), y + (18 / 2d), z + (18 / 2d)), null)
 						.stream().sorted(new Object() {
 							Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
 								return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
 							}
-						}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null)) {
+						}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null) {
 					entity.getPersistentData().putBoolean("isBeingDetected", (true));
 				} else {
 					entity.getPersistentData().putBoolean("isBeingDetected", (false));

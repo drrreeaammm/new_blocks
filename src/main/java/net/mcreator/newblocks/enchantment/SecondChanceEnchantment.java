@@ -13,6 +13,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class SecondChanceEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:second_chance")
 	public static final Enchantment enchantment = null;
+
 	public SecondChanceEnchantment(NewBlocksModElements instance) {
 		super(instance, 1110);
 	}
@@ -21,6 +22,7 @@ public class SecondChanceEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("second_chance"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.VERY_RARE, EnchantmentType.ARMOR_CHEST, slots);

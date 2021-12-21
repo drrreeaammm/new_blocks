@@ -20,10 +20,12 @@ import net.mcreator.newblocks.NewBlocksModElements;
 @NewBlocksModElements.ModElement.Tag
 public class TheMoonBiomeBiome extends NewBlocksModElements.ModElement {
 	public static Biome biome;
+
 	public TheMoonBiomeBiome(NewBlocksModElements instance) {
 		super(instance, 801);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BiomeRegisterHandler());
 	}
+
 	private static class BiomeRegisterHandler {
 		@SubscribeEvent
 		public void registerBiomes(RegistryEvent.Register<Biome> event) {
@@ -42,6 +44,7 @@ public class TheMoonBiomeBiome extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}

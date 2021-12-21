@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class TanzaniteSwordItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:tanzanite_sword")
 	public static final Item block = null;
+
 	public TanzaniteSwordItem(NewBlocksModElements instance) {
 		super(instance, 29);
 	}

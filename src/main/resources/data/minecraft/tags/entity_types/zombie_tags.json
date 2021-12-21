@@ -1,17 +1,17 @@
 {
   "replace": false,
   "values": [
-    "new_blocks:better_zombie",
-    "new_blocks:better_zombie_1",
-    "new_blocks:better_zombie_10",
-    "new_blocks:better_zombie_2",
-    "new_blocks:better_zombie_3",
-    "new_blocks:better_zombie_4",
     "new_blocks:better_zombie_5",
-    "new_blocks:better_zombie_6",
+    "new_blocks:better_zombie_9",
+    "new_blocks:better_zombie_10",
+    "new_blocks:better_zombie_11",
+    "new_blocks:better_zombie_2",
+    "new_blocks:better_zombie",
     "new_blocks:better_zombie_7",
     "new_blocks:better_zombie_8",
-    "new_blocks:better_zombie_9",
-    "new_blocks:better_zombie_11"
+    "new_blocks:better_zombie_6",
+    "new_blocks:better_zombie_1",
+    "new_blocks:better_zombie_4",
+    "new_blocks:better_zombie_3"
   ]
 }

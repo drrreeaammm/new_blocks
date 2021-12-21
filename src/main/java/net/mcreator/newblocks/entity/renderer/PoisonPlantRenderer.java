@@ -25,6 +25,7 @@ public class PoisonPlantRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(PoisonPlantEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelpoison_plant(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/poison_plant.png");
@@ -39,6 +40,7 @@ public class PoisonPlantRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modelpoison_plant extends EntityModel<Entity> {
 		private final ModelRenderer body;
+
 		public Modelpoison_plant() {
 			textureWidth = 128;
 			textureHeight = 128;
@@ -66,4 +68,5 @@ public class PoisonPlantRenderer {
 			modelRenderer.rotateAngleZ = z;
 		}
 	}
+
 }

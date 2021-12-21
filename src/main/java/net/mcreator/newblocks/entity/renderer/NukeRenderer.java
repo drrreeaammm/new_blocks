@@ -25,6 +25,7 @@ public class NukeRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(NukeEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelnuke(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/nuke.png");
@@ -40,6 +41,7 @@ public class NukeRenderer {
 	public static class Modelnuke extends EntityModel<Entity> {
 		private final ModelRenderer nuke;
 		private final ModelRenderer nuke_r1;
+
 		public Modelnuke() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -78,6 +80,8 @@ public class NukeRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

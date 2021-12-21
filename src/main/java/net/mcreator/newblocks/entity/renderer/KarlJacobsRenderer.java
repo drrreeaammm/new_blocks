@@ -26,6 +26,7 @@ public class KarlJacobsRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(KarlJacobsEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelkarl_jacobs(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/karl-jacobs-on-planetminecraft-com.png");
@@ -51,6 +52,7 @@ public class KarlJacobsRenderer {
 		private final ModelRenderer left_pants;
 		private final ModelRenderer right_leg;
 		private final ModelRenderer right_pants;
+
 		public Modelkarl_jacobs() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -116,6 +118,7 @@ public class KarlJacobsRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.headwear.rotateAngleY = f3 / (180F / (float) Math.PI);
@@ -130,4 +133,5 @@ public class KarlJacobsRenderer {
 			this.left_pants.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 		}
 	}
+
 }

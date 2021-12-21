@@ -17,7 +17,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.network.IPacket;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.passive.GolemEntity;
@@ -46,14 +45,17 @@ import net.mcreator.newblocks.NewBlocksModElements;
 
 import javax.annotation.Nullable;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class DarkMagicWizardCloneEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.6f, 2f))
 					.build("dark_magic_wizard_clone").setRegistryName("dark_magic_wizard_clone");
+
 	public DarkMagicWizardCloneEntity(NewBlocksModElements instance) {
 		super(instance, 1266);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new DarkMagicWizardCloneRenderer.ModelRegisterHandler());
@@ -63,13 +65,14 @@ public class DarkMagicWizardCloneEntity extends NewBlocksModElements.ModElement 
 	@Override
 	public void initElements() {
 		elements.entities.add(() -> entity);
-		elements.items.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(ItemGroup.MISC))
-				.setRegistryName("dark_magic_wizard_clone_spawn_egg"));
+		elements.items
+				.add(() -> new SpawnEggItem(entity, -1, -1, new Item.Properties().group(null)).setRegistryName("dark_magic_wizard_clone_spawn_egg"));
 	}
 
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -139,11 +142,9 @@ public class DarkMagicWizardCloneEntity extends NewBlocksModElements.ModElement 
 			double z = this.getPosZ();
 			Entity entity = this;
 			Entity sourceentity = source.getTrueSource();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				DarkMagicWizardCloneEntityIsHurtProcedure.executeProcedure($_dependencies);
-			}
+
+			DarkMagicWizardCloneEntityIsHurtProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return super.attackEntityFrom(source, amount);
 		}
 
@@ -155,12 +156,10 @@ public class DarkMagicWizardCloneEntity extends NewBlocksModElements.ModElement 
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("world", world);
-				DarkMagicWizardCloneOnInitialEntitySpawnProcedure.executeProcedure($_dependencies);
-			}
+
+			DarkMagicWizardCloneOnInitialEntitySpawnProcedure
+					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}

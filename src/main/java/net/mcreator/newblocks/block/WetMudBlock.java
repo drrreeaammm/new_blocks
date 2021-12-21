@@ -53,9 +53,11 @@ import net.mcreator.newblocks.procedures.WetMudMobplayerCollidesBlockProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class WetMudBlock extends NewBlocksModElements.ModElement {
@@ -66,12 +68,14 @@ public class WetMudBlock extends NewBlocksModElements.ModElement {
 	public static FlowingFluid flowing = null;
 	public static FlowingFluid still = null;
 	private ForgeFlowingFluid.Properties fluidproperties = null;
+
 	public WetMudBlock(NewBlocksModElements instance) {
 		super(instance, 881);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new FluidRegisterHandler());
 		MinecraftForge.EVENT_BUS.register(this);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new FeatureRegisterHandler());
 	}
+
 	private static class FluidRegisterHandler {
 		@SubscribeEvent
 		public void registerFluids(RegistryEvent.Register<Fluid> event) {
@@ -79,6 +83,7 @@ public class WetMudBlock extends NewBlocksModElements.ModElement {
 			event.getRegistry().register(flowing);
 		}
 	}
+
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void clientLoad(FMLClientSetupEvent event) {
@@ -90,8 +95,11 @@ public class WetMudBlock extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		fluidproperties = new ForgeFlowingFluid.Properties(() -> still, () -> flowing,
 				FluidAttributes.builder(new ResourceLocation("new_blocks:blocks/wet_mud"), new ResourceLocation("new_blocks:blocks/wet_mud"))
-						.luminosity(0).density(1000).viscosity(1000).temperature(120).rarity(Rarity.COMMON)).explosionResistance(100f).tickRate(11)
-								.levelDecreasePerBlock(1).slopeFindDistance(5).bucket(() -> bucket).block(() -> block);
+						.luminosity(0).density(1000).viscosity(1000).temperature(120)
+
+						.rarity(Rarity.COMMON)).explosionResistance(100f)
+
+								.tickRate(11).levelDecreasePerBlock(1).slopeFindDistance(5).bucket(() -> bucket).block(() -> block);
 		still = (FlowingFluid) new CustomFlowingFluid.Source(fluidproperties).setRegistryName("wet_mud");
 		flowing = (FlowingFluid) new CustomFlowingFluid.Flowing(fluidproperties).setRegistryName("wet_mud_flowing");
 		elements.blocks
@@ -107,7 +115,7 @@ public class WetMudBlock extends NewBlocksModElements.ModElement {
 						int x = pos.getX();
 						int y = pos.getY();
 						int z = pos.getZ();
-						world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 30);
+						world.getPendingBlockTicks().scheduleTick(pos, this, 30);
 					}
 
 					@Override
@@ -116,15 +124,12 @@ public class WetMudBlock extends NewBlocksModElements.ModElement {
 						int x = pos.getX();
 						int y = pos.getY();
 						int z = pos.getZ();
-						{
-							Map<String, Object> $_dependencies = new HashMap<>();
-							$_dependencies.put("x", x);
-							$_dependencies.put("y", y);
-							$_dependencies.put("z", z);
-							$_dependencies.put("world", world);
-							WetMudUpdateTickProcedure.executeProcedure($_dependencies);
-						}
-						world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 30);
+
+						WetMudUpdateTickProcedure.executeProcedure(Stream
+								.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+										new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+						world.getPendingBlockTicks().scheduleTick(pos, this, 30);
 					}
 
 					@Override
@@ -133,17 +138,16 @@ public class WetMudBlock extends NewBlocksModElements.ModElement {
 						int x = pos.getX();
 						int y = pos.getY();
 						int z = pos.getZ();
-						{
-							Map<String, Object> $_dependencies = new HashMap<>();
-							$_dependencies.put("entity", entity);
-							WetMudMobplayerCollidesBlockProcedure.executeProcedure($_dependencies);
-						}
+
+						WetMudMobplayerCollidesBlockProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 					}
 				}.setRegistryName("wet_mud"));
 		elements.items.add(() -> new BucketItem(still,
 				new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(NewblocksItemGroup.tab).rarity(Rarity.COMMON))
 						.setRegistryName("wet_mud_bucket"));
 	}
+
 	public static abstract class CustomFlowingFluid extends ForgeFlowingFluid {
 		public CustomFlowingFluid(Properties properties) {
 			super(properties);
@@ -153,6 +157,7 @@ public class WetMudBlock extends NewBlocksModElements.ModElement {
 		public Vector3d getFlow(IBlockReader world, BlockPos pos, FluidState fluidstate) {
 			return super.getFlow(world, pos, fluidstate).scale(0.4);
 		}
+
 		public static class Source extends CustomFlowingFluid {
 			public Source(Properties properties) {
 				super(properties);
@@ -186,8 +191,10 @@ public class WetMudBlock extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	private static Feature<BlockStateFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
 		public void registerFeature(RegistryEvent.Register<Feature<?>> event) {
@@ -209,6 +216,7 @@ public class WetMudBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:wet_mud_lakes"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		boolean biomeCriteria = false;

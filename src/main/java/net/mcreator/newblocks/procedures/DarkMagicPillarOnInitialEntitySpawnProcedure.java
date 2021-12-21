@@ -14,23 +14,25 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class DarkMagicPillarOnInitialEntitySpawnProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DarkMagicPillarOnInitialEntitySpawn!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DarkMagicPillarOnInitialEntitySpawn!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DarkMagicPillarOnInitialEntitySpawn!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		new Object() {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -47,7 +49,7 @@ public class DarkMagicPillarOnInitialEntitySpawnProcedure {
 			}
 
 			private void run() {
-				if ((entity.isAlive())) {
+				if (entity.isAlive()) {
 					if (!entity.world.isRemote())
 						entity.remove();
 					if (world instanceof World && !((World) world).isRemote) {

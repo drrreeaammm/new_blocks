@@ -28,6 +28,7 @@ import java.util.Collections;
 public class RainbowPressurePlateBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:rainbow_pressure_plate")
 	public static final Block block = null;
+
 	public RainbowPressurePlateBlock(NewBlocksModElements instance) {
 		super(instance, 127);
 	}
@@ -43,6 +44,7 @@ public class RainbowPressurePlateBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends PressurePlateBlock {
 		public CustomBlock() {
 			super(Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.25f, 2.5f)

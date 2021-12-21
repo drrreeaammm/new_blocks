@@ -9,7 +9,13 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class Lettuce2UpdateTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure Lettuce2UpdateTick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency x for procedure Lettuce2UpdateTick!");
@@ -25,16 +31,11 @@ public class Lettuce2UpdateTickProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure Lettuce2UpdateTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure Lettuce2UpdateTick!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((Math.random() < 0.3)) {
+		if (Math.random() < 0.3) {
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Lettuce3Block.block.getDefaultState(), 3);
 		}
 	}

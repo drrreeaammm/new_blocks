@@ -52,6 +52,7 @@ public class PiglinWarriorEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 1.9000000000000001f)).build("piglin_warrior").setRegistryName("piglin_warrior");
+
 	public PiglinWarriorEntity(NewBlocksModElements instance) {
 		super(instance, 13);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new PiglinWarriorRenderer.ModelRegisterHandler());
@@ -81,6 +82,7 @@ public class PiglinWarriorEntity extends NewBlocksModElements.ModElement {
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

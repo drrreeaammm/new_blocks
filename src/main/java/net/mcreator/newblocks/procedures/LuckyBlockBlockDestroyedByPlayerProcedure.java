@@ -25,7 +25,13 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class LuckyBlockBlockDestroyedByPlayerProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure LuckyBlockBlockDestroyedByPlayer!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency x for procedure LuckyBlockBlockDestroyedByPlayer!");
@@ -41,16 +47,11 @@ public class LuckyBlockBlockDestroyedByPlayerProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure LuckyBlockBlockDestroyedByPlayer!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure LuckyBlockBlockDestroyedByPlayer!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((Math.random() < 0.1)) {
+		if (Math.random() < 0.1) {
 			if (world instanceof World && !world.isRemote()) {
 				ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.DIAMOND));
 				entityToSpawn.setPickupDelay((int) 10);
@@ -72,7 +73,7 @@ public class LuckyBlockBlockDestroyedByPlayerProcedure {
 								new StringTextComponent(""), ((World) world).getServer(), null).withFeedbackDisabled(),
 						"summon firework_rocket ~ ~ ~ {LifeTime:40,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Colors:[I;1048559,589757,1562879],FadeColors:[I;65501,65399]}]}}}}");
 			}
-		} else if ((Math.random() < 0.09)) {
+		} else if (Math.random() < 0.09) {
 			if (world instanceof World && !world.isRemote()) {
 				ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.GOLD_INGOT));
 				entityToSpawn.setPickupDelay((int) 10);
@@ -109,7 +110,7 @@ public class LuckyBlockBlockDestroyedByPlayerProcedure {
 								new StringTextComponent(""), ((World) world).getServer(), null).withFeedbackDisabled(),
 						"summon firework_rocket ~ ~ ~ {LifeTime:40,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Colors:[I;1048559,589757,1562879],FadeColors:[I;65501,65399]}]}}}}");
 			}
-		} else if ((Math.random() < 0.4)) {
+		} else if (Math.random() < 0.4) {
 			if (world instanceof ServerWorld) {
 				Entity entityToSpawn = new GhastEntity(EntityType.GHAST, (World) world);
 				entityToSpawn.setLocationAndAngles(x, y, z, (float) 0, (float) 0);

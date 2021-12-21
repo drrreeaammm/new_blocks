@@ -25,6 +25,7 @@ import java.util.Collections;
 public class FirPlanksBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:fir_planks")
 	public static final Block block = null;
+
 	public FirPlanksBlock(NewBlocksModElements instance) {
 		super(instance, 112);
 	}
@@ -34,6 +35,7 @@ public class FirPlanksBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2f, 3f).setLightLevel(s -> 0));

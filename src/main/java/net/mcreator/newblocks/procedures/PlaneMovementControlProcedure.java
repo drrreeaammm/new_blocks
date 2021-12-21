@@ -36,6 +36,7 @@ public class PlaneMovementControlProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -43,10 +44,10 @@ public class PlaneMovementControlProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if (((entity.getRidingEntity()) instanceof LivingEntity)) {
-			if (((entity.getRidingEntity()) instanceof PlaneEntity.CustomEntity)) {
-				System.out.println((entity.rotationPitch));
-				(entity.getRidingEntity()).setMotion(((entity.getRidingEntity()).getMotion().getX()), ((entity.rotationPitch) * (-0.01)),
+		if ((entity.getRidingEntity()) instanceof LivingEntity) {
+			if ((entity.getRidingEntity()) instanceof PlaneEntity.CustomEntity) {
+				System.out.println(entity.rotationPitch);
+				(entity.getRidingEntity()).setMotion(((entity.getRidingEntity()).getMotion().getX()), (entity.rotationPitch * (-0.01)),
 						((entity.getRidingEntity()).getMotion().getZ()));
 			}
 		}

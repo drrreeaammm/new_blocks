@@ -1,6 +1,7 @@
 package net.mcreator.newblocks.procedures;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Hand;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
@@ -19,6 +20,7 @@ import java.util.Map;
 import java.util.Iterator;
 
 public class MmmProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -32,19 +34,19 @@ public class MmmProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
+		if (!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false)) {
 			if (entity instanceof PlayerEntity)
-				((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 175);
+				((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 155);
 		}
 		if (entity instanceof LivingEntity)
-			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 140, (int) 2, (false), (false)));
-		entity.getPersistentData().putDouble("BandageUsed", ((entity.getPersistentData().getDouble("BandageUsed")) + 1));
+			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 135, (int) 0, (false), (true)));
+		entity.getPersistentData().putDouble("BandageUsed", (entity.getPersistentData().getDouble("BandageUsed") + 1));
 		if (entity instanceof PlayerEntity) {
 			ItemStack _stktoremove = new ItemStack(MedkitItem.block);
 			((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
 					((PlayerEntity) entity).container.func_234641_j_());
 		}
-		if (((entity.getPersistentData().getDouble("BandageUsed")) == 1)) {
+		if (entity.getPersistentData().getDouble("BandageUsed") == 1) {
 			if (entity instanceof ServerPlayerEntity) {
 				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
 						.getAdvancement(new ResourceLocation("new_blocks:healing"));
@@ -58,7 +60,7 @@ public class MmmProcedure {
 				}
 			}
 		}
-		if (((entity.getPersistentData().getDouble("BandageUsed")) == 25)) {
+		if (entity.getPersistentData().getDouble("BandageUsed") == 25) {
 			if (entity instanceof ServerPlayerEntity) {
 				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
 						.getAdvancement(new ResourceLocation("new_blocks:healing_pro"));
@@ -72,7 +74,7 @@ public class MmmProcedure {
 				}
 			}
 		}
-		if (((entity.getPersistentData().getDouble("BandageUsed")) == 50)) {
+		if (entity.getPersistentData().getDouble("BandageUsed") == 50) {
 			if (entity instanceof ServerPlayerEntity) {
 				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
 						.getAdvancement(new ResourceLocation("new_blocks:lots_of_healing"));
@@ -86,7 +88,7 @@ public class MmmProcedure {
 				}
 			}
 		}
-		if (((entity.getPersistentData().getDouble("BandageUsed")) == 75)) {
+		if (entity.getPersistentData().getDouble("BandageUsed") == 75) {
 			if (entity instanceof ServerPlayerEntity) {
 				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
 						.getAdvancement(new ResourceLocation("new_blocks:so_much_healing"));
@@ -99,6 +101,9 @@ public class MmmProcedure {
 					}
 				}
 			}
+		}
+		if (entity instanceof LivingEntity) {
+			((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 		}
 	}
 }

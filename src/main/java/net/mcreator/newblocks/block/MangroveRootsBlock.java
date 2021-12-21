@@ -38,6 +38,7 @@ import java.util.Collections;
 public class MangroveRootsBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mangrove_roots")
 	public static final Block block = null;
+
 	public MangroveRootsBlock(NewBlocksModElements instance) {
 		super(instance, 1049);
 	}
@@ -53,8 +54,10 @@ public class MangroveRootsBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block implements IWaterLoggable {
 		public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+
 		public CustomBlock() {
 			super(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2f, 0.2f).setLightLevel(s -> 0).notSolid()
 					.setOpaque((bs, br, bp) -> false));

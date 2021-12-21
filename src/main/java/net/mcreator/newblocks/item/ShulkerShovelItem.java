@@ -17,6 +17,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class ShulkerShovelItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:shulker_shovel")
 	public static final Item block = null;
+
 	public ShulkerShovelItem(NewBlocksModElements instance) {
 		super(instance, 256);
 	}

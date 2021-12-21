@@ -25,6 +25,7 @@ import java.util.Collections;
 public class CobbledGrimstoneBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:cobbled_grimstone")
 	public static final Block block = null;
+
 	public CobbledGrimstoneBlock(NewBlocksModElements instance) {
 		super(instance, 159);
 	}
@@ -35,6 +36,7 @@ public class CobbledGrimstoneBlock extends NewBlocksModElements.ModElement {
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(DeepDarkTabItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.7f, 5.5f).setLightLevel(s -> 0)

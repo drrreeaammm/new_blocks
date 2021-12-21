@@ -17,6 +17,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class FlintHoeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:flint_hoe")
 	public static final Item block = null;
+
 	public FlintHoeItem(NewBlocksModElements instance) {
 		super(instance, 833);
 	}

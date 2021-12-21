@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class CookedLettuceItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:cooked_lettuce")
 	public static final Item block = null;
+
 	public CookedLettuceItem(NewBlocksModElements instance) {
 		super(instance, 1235);
 	}
@@ -24,10 +25,13 @@ public class CookedLettuceItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(ItemGroup.FOOD).maxStackSize(64).rarity(Rarity.COMMON)
-					.food((new Food.Builder()).hunger(4).saturation(0.6f).build()));
+					.food((new Food.Builder()).hunger(4).saturation(0.6f)
+
+							.build()));
 			setRegistryName("cooked_lettuce");
 		}
 

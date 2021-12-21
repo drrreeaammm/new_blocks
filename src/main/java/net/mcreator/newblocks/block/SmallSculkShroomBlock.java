@@ -59,6 +59,7 @@ import java.util.Collections;
 public class SmallSculkShroomBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:small_sculk_shroom")
 	public static final Block block = null;
+
 	public SmallSculkShroomBlock(NewBlocksModElements instance) {
 		super(instance, 731);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -77,8 +78,10 @@ public class SmallSculkShroomBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static Feature<BlockClusterFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
 		public void registerFeature(RegistryEvent.Register<Feature<?>> event) {
@@ -108,10 +111,12 @@ public class SmallSculkShroomBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:small_sculk_shroom"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> configuredFeature);
 	}
+
 	public static class BlockCustomFlower extends FlowerBlock {
 		public BlockCustomFlower() {
 			super(Effects.POISON, 14,
@@ -121,9 +126,18 @@ public class SmallSculkShroomBlock extends NewBlocksModElements.ModElement {
 		}
 
 		@Override
+		public int getStewEffectDuration() {
+			return 14;
+		}
+
+		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
-			return VoxelShapes.or(makeCuboidShape(1, 0, 1, 10, 6, 10)).withOffset(offset.x, offset.y, offset.z);
+			return VoxelShapes.or(makeCuboidShape(1, 0, 1, 10, 6, 10)
+
+			)
+
+					.withOffset(offset.x, offset.y, offset.z);
 		}
 
 		@Override
@@ -148,7 +162,11 @@ public class SmallSculkShroomBlock extends NewBlocksModElements.ModElement {
 		public boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 			Block ground = state.getBlock();
 			return (ground == SkulkBlockBlock.block || ground == SculkStoneBlock.block || ground == SculkChuteBlock.block
-					|| ground == GrimstoneBlock.block);
+					|| ground == GrimstoneBlock.block
+
+			)
+
+			;
 		}
 
 		@Override

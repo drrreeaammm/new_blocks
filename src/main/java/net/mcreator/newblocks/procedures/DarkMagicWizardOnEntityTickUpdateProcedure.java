@@ -35,10 +35,11 @@ import java.util.List;
 import java.util.Comparator;
 
 public class DarkMagicWizardOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DarkMagicWizardOnEntityTickUpdate!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DarkMagicWizardOnEntityTickUpdate!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -56,39 +57,40 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure DarkMagicWizardOnEntityTickUpdate!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DarkMagicWizardOnEntityTickUpdate!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DarkMagicWizardOnEntityTickUpdate!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity)) {
-			if ((Math.random() < 0.7)) {
-				if ((Math.random() < 0.7)) {
-					if ((Math.random() < 0.7)) {
-						if ((Math.random() < 0.7)) {
-							if ((Math.random() < 0.7)) {
-								if ((Math.random() < 0.7)) {
-									if ((((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity)) {
-										if ((Math.random() < 0.7)) {
-											if ((Math.random() < 0.7)) {
-												if ((Math.random() < 0.7)) {
-													if ((Math.random() < 0.7)) {
-														if ((Math.random() < 0.7)) {
-															if ((((entity instanceof MobEntity)
+		Entity entity = (Entity) dependencies.get("entity");
+		if (((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity) {
+			if (Math.random() < 0.7) {
+				if (Math.random() < 0.7) {
+					if (Math.random() < 0.7) {
+						if (Math.random() < 0.7) {
+							if (Math.random() < 0.7) {
+								if (Math.random() < 0.7) {
+									if (((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity) {
+										if (Math.random() < 0.7) {
+											if (Math.random() < 0.7) {
+												if (Math.random() < 0.7) {
+													if (Math.random() < 0.7) {
+														if (Math.random() < 0.7) {
+															if (((entity instanceof MobEntity)
 																	? ((MobEntity) entity).getAttackTarget()
-																	: null) instanceof LivingEntity)) {
-																if ((((entity instanceof LivingEntity)
+																	: null) instanceof LivingEntity) {
+																if (((entity instanceof LivingEntity)
 																		? ((LivingEntity) entity).getMaxHealth()
-																		: -1) > 35)) {
+																		: -1) > 35) {
 																	new Object() {
 																		private int ticks = 0;
 																		private float waitTicks;
 																		private IWorld world;
+
 																		public void start(IWorld world, int waitTicks) {
 																			this.waitTicks = waitTicks;
 																			MinecraftForge.EVENT_BUS.register(this);
@@ -105,9 +107,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																		}
 
 																		private void run() {
-																			if ((((entity instanceof MobEntity)
+																			if (((entity instanceof MobEntity)
 																					? ((MobEntity) entity).getAttackTarget()
-																					: null) instanceof LivingEntity)) {
+																					: null) instanceof LivingEntity) {
 																				if (entity instanceof LivingEntity)
 																					((LivingEntity) entity).addPotionEffect(new EffectInstance(
 																							Effects.SLOWNESS, (int) 27, (int) 2, (false), (false)));
@@ -146,9 +148,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																					Entity entityToSpawn = new EvokerFangsEntity(
 																							EntityType.EVOKER_FANGS, (World) world);
 																					entityToSpawn.setLocationAndAngles(
-																							((((entity instanceof MobEntity)
+																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
-																									: null).getPosX()) + 1),
+																									: null).getPosX() + 1),
 																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
 																									: null).getPosY()),
@@ -169,9 +171,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																					Entity entityToSpawn = new EvokerFangsEntity(
 																							EntityType.EVOKER_FANGS, (World) world);
 																					entityToSpawn.setLocationAndAngles(
-																							((((entity instanceof MobEntity)
+																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
-																									: null).getPosX()) - 1),
+																									: null).getPosX() - 1),
 																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
 																									: null).getPosY()),
@@ -198,9 +200,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
 																									: null).getPosY()),
-																							((((entity instanceof MobEntity)
+																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
-																									: null).getPosZ()) + 1),
+																									: null).getPosZ() + 1),
 																							world.getRandom().nextFloat() * 360F, 0);
 																					if (entityToSpawn instanceof MobEntity)
 																						((MobEntity) entityToSpawn).onInitialSpawn(
@@ -221,9 +223,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
 																									: null).getPosY()),
-																							((((entity instanceof MobEntity)
+																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
-																									: null).getPosZ()) - 1),
+																									: null).getPosZ() - 1),
 																							world.getRandom().nextFloat() * 360F, 0);
 																					if (entityToSpawn instanceof MobEntity)
 																						((MobEntity) entityToSpawn).onInitialSpawn(
@@ -254,6 +256,7 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																		private int ticks = 0;
 																		private float waitTicks;
 																		private IWorld world;
+
 																		public void start(IWorld world, int waitTicks) {
 																			this.waitTicks = waitTicks;
 																			MinecraftForge.EVENT_BUS.register(this);
@@ -270,9 +273,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																		}
 
 																		private void run() {
-																			if ((((entity instanceof MobEntity)
+																			if (((entity instanceof MobEntity)
 																					? ((MobEntity) entity).getAttackTarget()
-																					: null) instanceof LivingEntity)) {
+																					: null) instanceof LivingEntity) {
 																				if (entity instanceof LivingEntity)
 																					((LivingEntity) entity).addPotionEffect(new EffectInstance(
 																							Effects.SLOWNESS, (int) 27, (int) 2, (false), (false)));
@@ -311,9 +314,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																					Entity entityToSpawn = new EvokerFangsEntity(
 																							EntityType.EVOKER_FANGS, (World) world);
 																					entityToSpawn.setLocationAndAngles(
-																							((((entity instanceof MobEntity)
+																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
-																									: null).getPosX()) + 1),
+																									: null).getPosX() + 1),
 																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
 																									: null).getPosY()),
@@ -334,9 +337,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																					Entity entityToSpawn = new EvokerFangsEntity(
 																							EntityType.EVOKER_FANGS, (World) world);
 																					entityToSpawn.setLocationAndAngles(
-																							((((entity instanceof MobEntity)
+																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
-																									: null).getPosX()) - 1),
+																									: null).getPosX() - 1),
 																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
 																									: null).getPosY()),
@@ -363,9 +366,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
 																									: null).getPosY()),
-																							((((entity instanceof MobEntity)
+																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
-																									: null).getPosZ()) + 1),
+																									: null).getPosZ() + 1),
 																							world.getRandom().nextFloat() * 360F, 0);
 																					if (entityToSpawn instanceof MobEntity)
 																						((MobEntity) entityToSpawn).onInitialSpawn(
@@ -386,9 +389,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
 																									: null).getPosY()),
-																							((((entity instanceof MobEntity)
+																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
-																									: null).getPosZ()) - 1),
+																									: null).getPosZ() - 1),
 																							world.getRandom().nextFloat() * 360F, 0);
 																					if (entityToSpawn instanceof MobEntity)
 																						((MobEntity) entityToSpawn).onInitialSpawn(
@@ -417,6 +420,7 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																					private int ticks = 0;
 																					private float waitTicks;
 																					private IWorld world;
+
 																					public void start(IWorld world, int waitTicks) {
 																						this.waitTicks = waitTicks;
 																						MinecraftForge.EVENT_BUS.register(this);
@@ -465,10 +469,10 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																									EntityType.EVOKER_FANGS, (World) world);
 																							entityToSpawn
 																									.setLocationAndAngles(
-																											((((entity instanceof MobEntity)
+																											(((entity instanceof MobEntity)
 																													? ((MobEntity) entity)
 																															.getAttackTarget()
-																													: null).getPosX()) + 1),
+																													: null).getPosX() + 1),
 																											(((entity instanceof MobEntity)
 																													? ((MobEntity) entity)
 																															.getAttackTarget()
@@ -492,10 +496,10 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																									EntityType.EVOKER_FANGS, (World) world);
 																							entityToSpawn
 																									.setLocationAndAngles(
-																											((((entity instanceof MobEntity)
+																											(((entity instanceof MobEntity)
 																													? ((MobEntity) entity)
 																															.getAttackTarget()
-																													: null).getPosX()) - 1),
+																													: null).getPosX() - 1),
 																											(((entity instanceof MobEntity)
 																													? ((MobEntity) entity)
 																															.getAttackTarget()
@@ -524,9 +528,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																									(((entity instanceof MobEntity)
 																											? ((MobEntity) entity).getAttackTarget()
 																											: null).getPosY()),
-																									((((entity instanceof MobEntity)
+																									(((entity instanceof MobEntity)
 																											? ((MobEntity) entity).getAttackTarget()
-																											: null).getPosZ()) + 1),
+																											: null).getPosZ() + 1),
 																									world.getRandom().nextFloat() * 360F, 0);
 																							if (entityToSpawn instanceof MobEntity)
 																								((MobEntity) entityToSpawn).onInitialSpawn(
@@ -547,9 +551,9 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																									(((entity instanceof MobEntity)
 																											? ((MobEntity) entity).getAttackTarget()
 																											: null).getPosY()),
-																									((((entity instanceof MobEntity)
+																									(((entity instanceof MobEntity)
 																											? ((MobEntity) entity).getAttackTarget()
-																											: null).getPosZ()) - 1),
+																											: null).getPosZ() - 1),
 																									world.getRandom().nextFloat() * 360F, 0);
 																							if (entityToSpawn instanceof MobEntity)
 																								((MobEntity) entityToSpawn).onInitialSpawn(
@@ -607,8 +611,8 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if ((entityiterator instanceof PlayerEntity)) {
-					if ((!((entityiterator instanceof PlayerEntity) ? ((PlayerEntity) entityiterator).abilities.isCreativeMode : false))) {
+				if (entityiterator instanceof PlayerEntity) {
+					if (!((entityiterator instanceof PlayerEntity) ? ((PlayerEntity) entityiterator).abilities.isCreativeMode : false)) {
 						if (entityiterator instanceof LivingEntity)
 							((LivingEntity) entityiterator)
 									.addPotionEffect(new EffectInstance(Effects.SLOWNESS, (int) 30, (int) 1, (false), (false)));
@@ -616,30 +620,31 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 				}
 			}
 		}
-		if ((Math.random() < 0.7)) {
-			if ((Math.random() < 0.7)) {
-				if ((Math.random() < 0.7)) {
-					if ((Math.random() < 0.7)) {
-						if ((Math.random() < 0.7)) {
-							if ((Math.random() < 0.7)) {
-								if ((Math.random() < 0.7)) {
-									if ((Math.random() < 0.7)) {
-										if ((Math.random() < 0.7)) {
-											if ((Math.random() < 0.7)) {
-												if ((Math.random() < 0.7)) {
-													if ((Math.random() < 0.7)) {
-														if ((Math.random() < 0.7)) {
-															if ((Math.random() < 0.7)) {
-																if ((Math.random() < 0.7)) {
-																	if ((Math.random() < 0.7)) {
-																		if ((Math.random() < 0.7)) {
-																			if ((((entity instanceof MobEntity)
+		if (Math.random() < 0.7) {
+			if (Math.random() < 0.7) {
+				if (Math.random() < 0.7) {
+					if (Math.random() < 0.7) {
+						if (Math.random() < 0.7) {
+							if (Math.random() < 0.7) {
+								if (Math.random() < 0.7) {
+									if (Math.random() < 0.7) {
+										if (Math.random() < 0.7) {
+											if (Math.random() < 0.7) {
+												if (Math.random() < 0.7) {
+													if (Math.random() < 0.7) {
+														if (Math.random() < 0.7) {
+															if (Math.random() < 0.7) {
+																if (Math.random() < 0.7) {
+																	if (Math.random() < 0.7) {
+																		if (Math.random() < 0.7) {
+																			if (((entity instanceof MobEntity)
 																					? ((MobEntity) entity).getAttackTarget()
-																					: null) instanceof LivingEntity)) {
+																					: null) instanceof LivingEntity) {
 																				new Object() {
 																					private int ticks = 0;
 																					private float waitTicks;
 																					private IWorld world;
+
 																					public void start(IWorld world, int waitTicks) {
 																						this.waitTicks = waitTicks;
 																						MinecraftForge.EVENT_BUS.register(this);
@@ -656,7 +661,7 @@ public class DarkMagicWizardOnEntityTickUpdateProcedure {
 																					}
 
 																					private void run() {
-																						if ((entity.isAlive())) {
+																						if (entity.isAlive()) {
 																							if (world instanceof ServerWorld) {
 																								Entity entityToSpawn = new DarkMagicWizardCloneEntity.CustomEntity(
 																										DarkMagicWizardCloneEntity.entity,

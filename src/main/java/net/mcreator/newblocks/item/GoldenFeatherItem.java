@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class GoldenFeatherItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:golden_feather")
 	public static final Item block = null;
+
 	public GoldenFeatherItem(NewBlocksModElements instance) {
 		super(instance, 826);
 	}
@@ -23,6 +24,7 @@ public class GoldenFeatherItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));

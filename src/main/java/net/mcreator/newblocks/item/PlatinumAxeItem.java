@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class PlatinumAxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:platinum_axe")
 	public static final Item block = null;
+
 	public PlatinumAxeItem(NewBlocksModElements instance) {
 		super(instance, 1046);
 	}

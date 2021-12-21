@@ -26,6 +26,7 @@ public class AllayRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(AllayEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelallay(), 0.3f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/allay.png");
@@ -45,6 +46,7 @@ public class AllayRenderer {
 		private final ModelRenderer right_arm;
 		private final ModelRenderer left_wing;
 		private final ModelRenderer right_wing;
+
 		public Modelallay() {
 			textureWidth = 32;
 			textureHeight = 32;
@@ -88,10 +90,12 @@ public class AllayRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.right_wing.rotateAngleZ = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
 			this.left_wing.rotateAngleZ = MathHelper.cos(f * 0.6662F) * f1;
 		}
 	}
+
 }

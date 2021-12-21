@@ -25,6 +25,7 @@ public class DarkMagicPillarRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(DarkMagicPillarEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modeldark_magic_exploding_pillar(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/dark_magic_exploding_pillar.png");
@@ -39,6 +40,7 @@ public class DarkMagicPillarRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modeldark_magic_exploding_pillar extends EntityModel<Entity> {
 		private final ModelRenderer base;
+
 		public Modeldark_magic_exploding_pillar() {
 			textureWidth = 64;
 			textureHeight = 128;
@@ -61,6 +63,8 @@ public class DarkMagicPillarRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

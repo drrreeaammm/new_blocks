@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class PlatinumIngotItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:platinum_ingot")
 	public static final Item block = null;
+
 	public PlatinumIngotItem(NewBlocksModElements instance) {
 		super(instance, 1037);
 	}
@@ -23,6 +24,7 @@ public class PlatinumIngotItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));

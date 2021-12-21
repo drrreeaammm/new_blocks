@@ -13,15 +13,11 @@ import java.util.List;
 import java.util.Comparator;
 
 public class FlamebladeLivingEntityIsHitWithToolProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FlamebladeLivingEntityIsHitWithTool!");
-			return;
-		}
-		if (dependencies.get("sourceentity") == null) {
-			if (!dependencies.containsKey("sourceentity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure FlamebladeLivingEntityIsHitWithTool!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FlamebladeLivingEntityIsHitWithTool!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -39,17 +35,22 @@ public class FlamebladeLivingEntityIsHitWithToolProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure FlamebladeLivingEntityIsHitWithTool!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FlamebladeLivingEntityIsHitWithTool!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FlamebladeLivingEntityIsHitWithTool!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		Entity sourceentity = (Entity) dependencies.get("sourceentity");
+		if (dependencies.get("sourceentity") == null) {
+			if (!dependencies.containsKey("sourceentity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure FlamebladeLivingEntityIsHitWithTool!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		Entity sourceentity = (Entity) dependencies.get("sourceentity");
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -60,8 +61,8 @@ public class FlamebladeLivingEntityIsHitWithToolProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if ((!(entityiterator.isImmuneToFire()))) {
-					if ((!(entityiterator == sourceentity))) {
+				if (!entityiterator.isImmuneToFire()) {
+					if (!(entityiterator == sourceentity)) {
 						entity.setFire((int) 5);
 					}
 				}

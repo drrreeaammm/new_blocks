@@ -26,6 +26,7 @@ public class WizardRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(WizardEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelwizard(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/wizard.png");
@@ -45,6 +46,7 @@ public class WizardRenderer {
 		private final ModelRenderer right_arm;
 		private final ModelRenderer left_leg;
 		private final ModelRenderer right_leg;
+
 		public Modelwizard() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -91,6 +93,7 @@ public class WizardRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.right_arm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
@@ -99,4 +102,5 @@ public class WizardRenderer {
 			this.right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

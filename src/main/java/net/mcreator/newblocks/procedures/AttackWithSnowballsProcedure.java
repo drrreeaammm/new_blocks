@@ -42,6 +42,7 @@ public class AttackWithSnowballsProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -55,7 +56,7 @@ public class AttackWithSnowballsProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity imediatesourceentity = (Entity) dependencies.get("imediatesourceentity");
-		if ((imediatesourceentity instanceof SnowballEntity)) {
+		if (imediatesourceentity instanceof SnowballEntity) {
 			entity.attackEntityFrom(DamageSource.GENERIC, (float) 4);
 		}
 	}

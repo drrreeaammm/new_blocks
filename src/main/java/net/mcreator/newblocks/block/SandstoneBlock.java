@@ -46,6 +46,7 @@ import java.util.Collections;
 public class SandstoneBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:sandstone")
 	public static final Block block = null;
+
 	public SandstoneBlock(NewBlocksModElements instance) {
 		super(instance, 820);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -57,6 +58,7 @@ public class SandstoneBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.9000000000000001f, 5.5f).setLightLevel(s -> 0)
@@ -77,12 +79,15 @@ public class SandstoneBlock extends NewBlocksModElements.ModElement {
 			return Collections.singletonList(new ItemStack(this, 1));
 		}
 	}
+
 	private static Feature<OreFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
 	private static IRuleTestType<CustomRuleTest> CUSTOM_MATCH = null;
+
 	private static class CustomRuleTest extends RuleTest {
 		static final CustomRuleTest INSTANCE = new CustomRuleTest();
 		static final com.mojang.serialization.Codec<CustomRuleTest> codec = com.mojang.serialization.Codec.unit(() -> INSTANCE);
+
 		public boolean test(BlockState blockAt, Random random) {
 			boolean blockCriteria = false;
 			if (blockAt.getBlock() == GrimstoneBlock.block)
@@ -131,6 +136,7 @@ public class SandstoneBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:sandstone"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		boolean biomeCriteria = false;

@@ -23,6 +23,7 @@ public class ToolBeltGUIGuiWindow extends ContainerScreen<ToolBeltGUIGui.GuiCont
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = ToolBeltGUIGui.guistate;
+
 	public ToolBeltGUIGuiWindow(ToolBeltGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -33,7 +34,9 @@ public class ToolBeltGUIGuiWindow extends ContainerScreen<ToolBeltGUIGui.GuiCont
 		this.xSize = 178;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/tool_belt_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

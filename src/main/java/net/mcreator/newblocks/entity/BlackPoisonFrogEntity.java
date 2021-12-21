@@ -38,14 +38,17 @@ import net.mcreator.newblocks.procedures.FrogOnEntityTickUpdateProcedure;
 import net.mcreator.newblocks.entity.renderer.BlackPoisonFrogRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class BlackPoisonFrogEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 0.6f)).build("black_poison_frog").setRegistryName("black_poison_frog");
+
 	public BlackPoisonFrogEntity(NewBlocksModElements instance) {
 		super(instance, 925);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BlackPoisonFrogRenderer.ModelRegisterHandler());
@@ -62,6 +65,7 @@ public class BlackPoisonFrogEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -132,14 +136,11 @@ public class BlackPoisonFrogEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				FrogOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
-			}
+
+			FrogOnEntityTickUpdateProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+							new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

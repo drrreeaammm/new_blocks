@@ -14,7 +14,13 @@ import java.util.Random;
 import java.util.Map;
 
 public class MarshWaterGenBlockAddedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MarshWaterGenBlockAdded!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency x for procedure MarshWaterGenBlockAdded!");
@@ -30,19 +36,15 @@ public class MarshWaterGenBlockAddedProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure MarshWaterGenBlockAdded!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure MarshWaterGenBlockAdded!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
 		new Object() {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -60,10 +62,10 @@ public class MarshWaterGenBlockAddedProcedure {
 
 			private void run() {
 				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
-				if ((((new Random()).nextInt((int) 1 + 1)) == 0)) {
+				if ((new Random()).nextInt((int) 1 + 1) == 0) {
 					world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.GRASS_BLOCK.getDefaultState(), 3);
 				} else {
-					if ((Math.random() < 0.9)) {
+					if (Math.random() < 0.9) {
 						world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.WATER.getDefaultState(), 3);
 					}
 				}

@@ -22,15 +22,11 @@ import java.util.Random;
 import java.util.Map;
 
 public class GoldWrenchRightClickedOnBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure GoldWrenchRightClickedOnBlock!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure GoldWrenchRightClickedOnBlock!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure GoldWrenchRightClickedOnBlock!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -48,27 +44,32 @@ public class GoldWrenchRightClickedOnBlockProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure GoldWrenchRightClickedOnBlock!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure GoldWrenchRightClickedOnBlock!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure GoldWrenchRightClickedOnBlock!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure GoldWrenchRightClickedOnBlock!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		System.out.println((Direction.getRandomDirection(new Random())));
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		System.out.println(Direction.getRandomDirection(new Random()));
 		try {
 			BlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
 			DirectionProperty _property = (DirectionProperty) _bs.getBlock().getStateContainer().getProperty("facing");
 			if (_property != null) {
-				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), _bs.with(_property, (Direction.getRandomDirection(new Random()))), 3);
+				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), _bs.with(_property, Direction.getRandomDirection(new Random())), 3);
 			} else {
 				world.setBlockState(new BlockPos((int) x, (int) y, (int) z),
 						_bs.with((EnumProperty<Direction.Axis>) _bs.getBlock().getStateContainer().getProperty("axis"),
-								(Direction.getRandomDirection(new Random())).getAxis()),
+								Direction.getRandomDirection(new Random()).getAxis()),
 						3);
 			}
 		} catch (Exception e) {
@@ -82,9 +83,9 @@ public class GoldWrenchRightClickedOnBlockProcedure {
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:wrench_turn")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 		}
-		if ((Math.random() < 0.6)) {
+		if (Math.random() < 0.6) {
 			{
-				ItemStack _ist = (itemstack);
+				ItemStack _ist = itemstack;
 				if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 					_ist.shrink(1);
 					_ist.setDamage(0);
@@ -92,7 +93,7 @@ public class GoldWrenchRightClickedOnBlockProcedure {
 			}
 		}
 		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Changed direction of block to ") + "" + ((new Object() {
+			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("Changed direction of block to " + (new Object() {
 				public Direction getDirection(BlockPos pos) {
 					try {
 						BlockState _bs = world.getBlockState(pos);
@@ -106,7 +107,7 @@ public class GoldWrenchRightClickedOnBlockProcedure {
 						return Direction.NORTH;
 					}
 				}
-			}.getDirection(new BlockPos((int) x, (int) y, (int) z)))))), (true));
+			}.getDirection(new BlockPos((int) x, (int) y, (int) z))))), (true));
 		}
 	}
 }

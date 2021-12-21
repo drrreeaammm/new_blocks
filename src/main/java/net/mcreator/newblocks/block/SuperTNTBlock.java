@@ -24,15 +24,18 @@ import net.mcreator.newblocks.procedures.SuperTNTOnBlockRightClickedProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class SuperTNTBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:super_tnt")
 	public static final Block block = null;
+
 	public SuperTNTBlock(NewBlocksModElements instance) {
 		super(instance, 35);
 	}
@@ -42,6 +45,7 @@ public class SuperTNTBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.TNT).sound(SoundType.SCAFFOLDING).hardnessAndResistance(0f, 0f).setLightLevel(s -> 0));
@@ -72,14 +76,11 @@ public class SuperTNTBlock extends NewBlocksModElements.ModElement {
 			double hitY = hit.getHitVec().y;
 			double hitZ = hit.getHitVec().z;
 			Direction direction = hit.getFace();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				SuperTNTOnBlockRightClickedProcedure.executeProcedure($_dependencies);
-			}
+
+			SuperTNTOnBlockRightClickedProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return ActionResultType.SUCCESS;
 		}
 	}

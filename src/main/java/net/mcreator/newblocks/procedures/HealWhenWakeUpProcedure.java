@@ -30,6 +30,8 @@ public class HealWhenWakeUpProcedure {
 			executeProcedure(dependencies);
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+
 	}
 }

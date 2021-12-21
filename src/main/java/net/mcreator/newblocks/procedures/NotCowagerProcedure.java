@@ -10,6 +10,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class NotCowagerProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -17,7 +18,7 @@ public class NotCowagerProcedure {
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		return ((!(((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof CowagerEntity.CustomEntity))
-				&& (!((entity instanceof TameableEntity) ? ((TameableEntity) entity).isTamed() : false)));
+		return !(((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof CowagerEntity.CustomEntity)
+				&& !((entity instanceof TameableEntity) ? ((TameableEntity) entity).isTamed() : false);
 	}
 }

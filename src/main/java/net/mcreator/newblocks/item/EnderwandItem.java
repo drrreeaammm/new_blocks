@@ -18,13 +18,16 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.mcreator.newblocks.procedures.EnderwandRightClickedInAirProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class EnderwandItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:enderwand")
 	public static final Item block = null;
+
 	public EnderwandItem(NewBlocksModElements instance) {
 		super(instance, 1275);
 	}
@@ -63,13 +66,11 @@ public class EnderwandItem extends NewBlocksModElements.ModElement {
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("itemstack", itemstack);
-					$_dependencies.put("world", world);
-					EnderwandRightClickedInAirProcedure.executeProcedure($_dependencies);
-				}
+
+				EnderwandRightClickedInAirProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity),
+								new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("enderwand"));

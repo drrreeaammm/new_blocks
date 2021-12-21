@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class RevengeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:revenge")
 	public static final Item block = null;
+
 	public RevengeItem(NewBlocksModElements instance) {
 		super(instance, 93);
 	}

@@ -1,6 +1,7 @@
 
 package net.mcreator.newblocks.world.dimension;
 
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
@@ -18,6 +19,7 @@ import net.mcreator.newblocks.block.DeepslateBlock;
 import net.mcreator.newblocks.NewBlocksModElements;
 
 import java.util.Set;
+import java.util.HashSet;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 
@@ -31,14 +33,20 @@ public class TheMoonDimension extends NewBlocksModElements.ModElement {
 
 	@Override
 	public void init(FMLCommonSetupEvent event) {
+		Set<Block> replaceableBlocks = new HashSet<>();
+		replaceableBlocks.add(DeepslateBlock.block);
+		replaceableBlocks.add(ForgeRegistries.BIOMES.getValue(new ResourceLocation("new_blocks:the_moon_biome")).getGenerationSettings()
+				.getSurfaceBuilder().get().getConfig().getTop().getBlock());
+		replaceableBlocks.add(ForgeRegistries.BIOMES.getValue(new ResourceLocation("new_blocks:the_moon_biome")).getGenerationSettings()
+				.getSurfaceBuilder().get().getConfig().getUnder().getBlock());
 		DeferredWorkQueue.runLater(() -> {
 			try {
 				ObfuscationReflectionHelper.setPrivateValue(WorldCarver.class, WorldCarver.CAVE, new ImmutableSet.Builder<Block>()
 						.addAll((Set<Block>) ObfuscationReflectionHelper.getPrivateValue(WorldCarver.class, WorldCarver.CAVE, "field_222718_j"))
-						.add(DeepslateBlock.block).build(), "field_222718_j");
+						.addAll(replaceableBlocks).build(), "field_222718_j");
 				ObfuscationReflectionHelper.setPrivateValue(WorldCarver.class, WorldCarver.CANYON, new ImmutableSet.Builder<Block>()
 						.addAll((Set<Block>) ObfuscationReflectionHelper.getPrivateValue(WorldCarver.class, WorldCarver.CANYON, "field_222718_j"))
-						.add(DeepslateBlock.block).build(), "field_222718_j");
+						.addAll(replaceableBlocks).build(), "field_222718_j");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

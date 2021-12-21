@@ -9,12 +9,8 @@ import java.util.Map;
 import java.util.Collections;
 
 public class ReaperEntityIsHurtProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure ReaperEntityIsHurt!");
-			return;
-		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency x for procedure ReaperEntityIsHurt!");
@@ -30,63 +26,68 @@ public class ReaperEntityIsHurtProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure ReaperEntityIsHurt!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure ReaperEntityIsHurt!");
+			return;
+		}
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		if ((5 >= (Math.random() * 10))) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (5 >= Math.random() * 10) {
 			{
 				Entity _ent = entity;
-				_ent.setPositionAndUpdate((x + (Math.random() * 10)), y, z);
+				_ent.setPositionAndUpdate((x + Math.random() * 10), y, z);
 				if (_ent instanceof ServerPlayerEntity) {
-					((ServerPlayerEntity) _ent).connection.setPlayerLocation((x + (Math.random() * 10)), y, z, _ent.rotationYaw, _ent.rotationPitch,
+					((ServerPlayerEntity) _ent).connection.setPlayerLocation((x + Math.random() * 10), y, z, _ent.rotationYaw, _ent.rotationPitch,
 							Collections.emptySet());
 				}
 			}
-			if ((5 >= (Math.random() * 10))) {
+			if (5 >= Math.random() * 10) {
 				{
 					Entity _ent = entity;
-					_ent.setPositionAndUpdate(x, y, (z + (Math.random() * 10)));
+					_ent.setPositionAndUpdate(x, y, (z + Math.random() * 10));
 					if (_ent instanceof ServerPlayerEntity) {
-						((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, y, (z + (Math.random() * 10)), _ent.rotationYaw,
-								_ent.rotationPitch, Collections.emptySet());
+						((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, y, (z + Math.random() * 10), _ent.rotationYaw, _ent.rotationPitch,
+								Collections.emptySet());
 					}
 				}
 			} else {
 				{
 					Entity _ent = entity;
-					_ent.setPositionAndUpdate(x, y, (z - (Math.random() * 10)));
+					_ent.setPositionAndUpdate(x, y, (z - Math.random() * 10));
 					if (_ent instanceof ServerPlayerEntity) {
-						((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, y, (z - (Math.random() * 10)), _ent.rotationYaw,
-								_ent.rotationPitch, Collections.emptySet());
+						((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, y, (z - Math.random() * 10), _ent.rotationYaw, _ent.rotationPitch,
+								Collections.emptySet());
 					}
 				}
 			}
 		} else {
 			{
 				Entity _ent = entity;
-				_ent.setPositionAndUpdate((x - (Math.random() * 10)), y, z);
+				_ent.setPositionAndUpdate((x - Math.random() * 10), y, z);
 				if (_ent instanceof ServerPlayerEntity) {
-					((ServerPlayerEntity) _ent).connection.setPlayerLocation((x - (Math.random() * 10)), y, z, _ent.rotationYaw, _ent.rotationPitch,
+					((ServerPlayerEntity) _ent).connection.setPlayerLocation((x - Math.random() * 10), y, z, _ent.rotationYaw, _ent.rotationPitch,
 							Collections.emptySet());
 				}
 			}
-			if ((5 >= (Math.random() * 10))) {
+			if (5 >= Math.random() * 10) {
 				{
 					Entity _ent = entity;
-					_ent.setPositionAndUpdate(x, y, (z + (Math.random() * 10)));
+					_ent.setPositionAndUpdate(x, y, (z + Math.random() * 10));
 					if (_ent instanceof ServerPlayerEntity) {
-						((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, y, (z + (Math.random() * 10)), _ent.rotationYaw,
-								_ent.rotationPitch, Collections.emptySet());
+						((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, y, (z + Math.random() * 10), _ent.rotationYaw, _ent.rotationPitch,
+								Collections.emptySet());
 					}
 				}
 			} else {
 				{
 					Entity _ent = entity;
-					_ent.setPositionAndUpdate(x, y, (z - (Math.random() * 10)));
+					_ent.setPositionAndUpdate(x, y, (z - Math.random() * 10));
 					if (_ent instanceof ServerPlayerEntity) {
-						((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, y, (z - (Math.random() * 10)), _ent.rotationYaw,
-								_ent.rotationPitch, Collections.emptySet());
+						((ServerPlayerEntity) _ent).connection.setPlayerLocation(x, y, (z - Math.random() * 10), _ent.rotationYaw, _ent.rotationPitch,
+								Collections.emptySet());
 					}
 				}
 			}

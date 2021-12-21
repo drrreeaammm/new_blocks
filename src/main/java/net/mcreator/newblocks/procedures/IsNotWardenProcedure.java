@@ -10,6 +10,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class IsNotWardenProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -17,7 +18,7 @@ public class IsNotWardenProcedure {
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		return ((!(entity instanceof WardenEntity.CustomEntity))
-				&& ((!(entity instanceof SculkerEntity.CustomEntity)) && (!(entity instanceof GrimstoneSpiderEntity.CustomEntity))));
+		return !(entity instanceof WardenEntity.CustomEntity) && !(entity instanceof SculkerEntity.CustomEntity)
+				&& !(entity instanceof GrimstoneSpiderEntity.CustomEntity);
 	}
 }

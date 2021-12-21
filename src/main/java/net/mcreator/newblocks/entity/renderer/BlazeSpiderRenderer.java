@@ -26,6 +26,7 @@ public class BlazeSpiderRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(BlazeSpiderEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelblaze_spider(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/blaze_spider.png");
@@ -50,6 +51,7 @@ public class BlazeSpiderRenderer {
 		private final ModelRenderer right_arm_two;
 		private final ModelRenderer right_arm3;
 		private final ModelRenderer right_arm;
+
 		public Modelblaze_spider() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -122,10 +124,12 @@ public class BlazeSpiderRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.leg1.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 			this.leg4.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 			this.leg2.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 			this.leg3.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

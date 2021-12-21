@@ -9,6 +9,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class ShulkerLeggingsTickEventProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -22,7 +23,7 @@ public class ShulkerLeggingsTickEventProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		if (((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).isElytraFlying() : false)) {
+		if ((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).isElytraFlying() : false) {
 			if (entity instanceof ClientPlayerEntity) {
 				((ClientPlayerEntity) entity).movementInput.sneaking = (true);
 			}

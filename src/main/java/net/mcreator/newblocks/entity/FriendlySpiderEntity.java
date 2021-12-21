@@ -56,6 +56,7 @@ public class FriendlySpiderEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(1.4f, 0.9f)).build("friendly_spider").setRegistryName("friendly_spider");
+
 	public FriendlySpiderEntity(NewBlocksModElements instance) {
 		super(instance, 193);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new FriendlySpiderRenderer.ModelRegisterHandler());
@@ -72,6 +73,7 @@ public class FriendlySpiderEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

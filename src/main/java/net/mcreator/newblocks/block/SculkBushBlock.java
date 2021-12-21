@@ -53,16 +53,19 @@ import net.mcreator.newblocks.procedures.SculkBushPlantAddedProcedure;
 import net.mcreator.newblocks.itemgroup.DeepDarkTabItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class SculkBushBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:sculk_bush")
 	public static final Block block = null;
+
 	public SculkBushBlock(NewBlocksModElements instance) {
 		super(instance, 162);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -81,8 +84,10 @@ public class SculkBushBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static Feature<BlockClusterFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
 		public void registerFeature(RegistryEvent.Register<Feature<?>> event) {
@@ -112,10 +117,12 @@ public class SculkBushBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:sculk_bush"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> configuredFeature);
 	}
+
 	public static class BlockCustomFlower extends FlowerBlock {
 		public BlockCustomFlower() {
 			super(Effects.SLOWNESS, 8,
@@ -126,9 +133,18 @@ public class SculkBushBlock extends NewBlocksModElements.ModElement {
 		}
 
 		@Override
+		public int getStewEffectDuration() {
+			return 8;
+		}
+
+		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
-			return VoxelShapes.or(makeCuboidShape(3, 0, 3, 10, 7, 10)).withOffset(offset.x, offset.y, offset.z);
+			return VoxelShapes.or(makeCuboidShape(3, 0, 3, 10, 7, 10)
+
+			)
+
+					.withOffset(offset.x, offset.y, offset.z);
 		}
 
 		@Override
@@ -157,7 +173,11 @@ public class SculkBushBlock extends NewBlocksModElements.ModElement {
 		@Override
 		public boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 			Block ground = state.getBlock();
-			return (ground == SculkChuteBlock.block || ground == SkulkBlockBlock.block || ground == GrimstoneBlock.block);
+			return (ground == SculkChuteBlock.block || ground == SkulkBlockBlock.block || ground == GrimstoneBlock.block
+
+			)
+
+			;
 		}
 
 		@Override
@@ -179,14 +199,11 @@ public class SculkBushBlock extends NewBlocksModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				SculkBushPlantAddedProcedure.executeProcedure($_dependencies);
-			}
+
+			SculkBushPlantAddedProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

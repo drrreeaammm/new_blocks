@@ -19,34 +19,33 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class PlayerJumpsEntityLongJumpProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerJumpsEntityLongJump!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PlayerJumpsEntityLongJump!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerJumpsEntityLongJump!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
-		if ((entity.isOnGround())) {
-			if ((((entity instanceof LivingEntity)
-					? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-					: ItemStack.EMPTY).getItem() == Items.ELYTRA)) {
-				if (((EnchantmentHelper.getEnchantmentLevel(LongJumpEnchantment.enchantment,
+		Entity entity = (Entity) dependencies.get("entity");
+		if (entity.isOnGround()) {
+			if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY)
+					.getItem() == Items.ELYTRA) {
+				if ((EnchantmentHelper.getEnchantmentLevel(LongJumpEnchantment.enchantment,
 						((entity instanceof LivingEntity)
-								? ((LivingEntity) entity)
-										.getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-								: ItemStack.EMPTY)) != 0))) {
-					entity.setMotion((0 - Math.sin(((entity.rotationYaw) * (Math.PI / 180)))), 2.4,
-							Math.cos(((entity.rotationYaw) * (Math.PI / 180))));
+								? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST)
+								: ItemStack.EMPTY)) != 0)) {
+					entity.setMotion((0 - Math.sin(entity.rotationYaw * Math.PI / 180)), 2.4, Math.cos(entity.rotationYaw * Math.PI / 180));
 					new Object() {
 						private int ticks = 0;
 						private float waitTicks;
 						private IWorld world;
+
 						public void start(IWorld world, int waitTicks) {
 							this.waitTicks = waitTicks;
 							MinecraftForge.EVENT_BUS.register(this);

@@ -8,6 +8,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class BlazeSpiderOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -15,7 +16,7 @@ public class BlazeSpiderOnEntityTickUpdateProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((entity.isInWater())) {
+		if (entity.isInWater()) {
 			entity.attackEntityFrom(DamageSource.GENERIC, (float) 3);
 		}
 	}

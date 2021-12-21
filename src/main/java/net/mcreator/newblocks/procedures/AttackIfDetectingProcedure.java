@@ -8,6 +8,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class AttackIfDetectingProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -15,7 +16,7 @@ public class AttackIfDetectingProcedure {
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		return (((entity.getCapability(NewBlocksModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new NewBlocksModVariables.PlayerVariables())).Detecting) == (true));
+		return (entity.getCapability(NewBlocksModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new NewBlocksModVariables.PlayerVariables())).Detecting == true;
 	}
 }

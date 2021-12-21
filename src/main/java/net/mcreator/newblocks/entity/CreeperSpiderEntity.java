@@ -44,6 +44,7 @@ public class CreeperSpiderEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(1.4f, 0.9f)).build("creeper_spider").setRegistryName("creeper_spider");
+
 	public CreeperSpiderEntity(NewBlocksModElements instance) {
 		super(instance, 211);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new CreeperSpiderRenderer.ModelRegisterHandler());
@@ -73,6 +74,7 @@ public class CreeperSpiderEntity extends NewBlocksModElements.ModElement {
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

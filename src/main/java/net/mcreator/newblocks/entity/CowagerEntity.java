@@ -74,16 +74,17 @@ import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.entity.renderer.CowagerRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
-
-import com.google.common.collect.ImmutableMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class CowagerEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(83).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.9f, 1.4f)).build("cowager").setRegistryName("cowager");
+
 	public CowagerEntity(NewBlocksModElements instance) {
 		super(instance, 1);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new CowagerRenderer.ModelRegisterHandler());
@@ -117,6 +118,7 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -167,7 +169,8 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && YEsProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldExecute() && YEsProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 
 				@Override
@@ -176,7 +179,8 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && YEsProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldContinueExecuting() && YEsProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 			this.goalSelector.addGoal(14, new LookAtGoal(this, AntEntity.CustomEntity.class, (float) 8));
@@ -187,7 +191,8 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 
 				@Override
@@ -196,7 +201,9 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldContinueExecuting()
+							&& NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+									(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 			this.targetSelector.addGoal(16, new NearestAttackableTargetGoal(this, AmbientEntity.class, false, false) {
@@ -206,7 +213,8 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 
 				@Override
@@ -215,7 +223,9 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldContinueExecuting()
+							&& NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+									(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 			this.targetSelector.addGoal(17, new NearestAttackableTargetGoal(this, AgeableEntity.class, false, false) {
@@ -225,7 +235,8 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 
 				@Override
@@ -234,7 +245,9 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldContinueExecuting()
+							&& NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+									(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 			this.targetSelector.addGoal(18, new NearestAttackableTargetGoal(this, ThrowableEntity.class, false, false) {
@@ -244,7 +257,8 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 
 				@Override
@@ -253,7 +267,9 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldContinueExecuting()
+							&& NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+									(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 			this.targetSelector.addGoal(19, new NearestAttackableTargetGoal(this, WaterMobEntity.class, false, false) {
@@ -263,7 +279,8 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 
 				@Override
@@ -272,7 +289,9 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldContinueExecuting()
+							&& NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+									(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 			this.targetSelector.addGoal(20, new NearestAttackableTargetGoal(this, TameableEntity.class, false, false) {
@@ -282,7 +301,8 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 
 				@Override
@@ -291,7 +311,9 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldContinueExecuting()
+							&& NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+									(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 			this.targetSelector.addGoal(21, new NearestAttackableTargetGoal(this, AntEntity.CustomEntity.class, false, false));
@@ -302,7 +324,8 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 
 				@Override
@@ -311,7 +334,9 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldContinueExecuting()
+							&& NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+									(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 			this.targetSelector.addGoal(23, new NearestAttackableTargetGoal(this, MonsterEntity.class, false, false) {
@@ -321,7 +346,8 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldExecute() && NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 
 				@Override
@@ -330,7 +356,9 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && NotCowagerProcedure.executeProcedure(ImmutableMap.of("entity", entity));
+					return super.shouldContinueExecuting()
+							&& NotCowagerProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+									(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 			this.goalSelector.addGoal(24, new BreakBlockGoal(Blocks.OAK_DOOR, this, 1, (int) 3));
@@ -428,11 +456,9 @@ public class CowagerEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				CowagerOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
-			}
+
+			CowagerOnEntityTickUpdateProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override

@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class MeteorEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:meteor")
 	public static final Enchantment enchantment = null;
+
 	public MeteorEnchantment(NewBlocksModElements instance) {
 		super(instance, 689);
 	}
@@ -24,6 +25,7 @@ public class MeteorEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("meteor"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.VERY_RARE, EnchantmentType.CROSSBOW, slots);

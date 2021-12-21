@@ -23,10 +23,11 @@ import java.util.List;
 import java.util.Comparator;
 
 public class WardenOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure WardenOnEntityTickUpdate!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure WardenOnEntityTickUpdate!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -44,19 +45,19 @@ public class WardenOnEntityTickUpdateProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure WardenOnEntityTickUpdate!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure WardenOnEntityTickUpdate!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure WardenOnEntityTickUpdate!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.BLINDNESS, (int) 60, (int) 1, (false), (false)));
-		if (((entity.getPersistentData().getDouble("wardenAnger")) > 2)) {
+		if (entity.getPersistentData().getDouble("wardenAnger") > 2) {
 			entity.getPersistentData().putDouble("wardenAnger", 0);
 		}
 		{
@@ -69,15 +70,15 @@ public class WardenOnEntityTickUpdateProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if ((entityiterator instanceof PlayerEntity)) {
-					if ((Math.random() < 0.3)) {
-						if ((Math.random() < 0.5)) {
-							if ((Math.random() < 0.3)) {
-								if ((Math.random() < 0.5)) {
-									if ((Math.random() < 0.3)) {
-										if ((Math.random() < 0.3)) {
-											if ((Math.random() < 0.3)) {
-												if ((Math.random() < 0.2)) {
+				if (entityiterator instanceof PlayerEntity) {
+					if (Math.random() < 0.3) {
+						if (Math.random() < 0.5) {
+							if (Math.random() < 0.3) {
+								if (Math.random() < 0.5) {
+									if (Math.random() < 0.3) {
+										if (Math.random() < 0.3) {
+											if (Math.random() < 0.3) {
+												if (Math.random() < 0.2) {
 													if (world instanceof World && !world.isRemote()) {
 														((World) world).playSound(null, new BlockPos((int) x, (int) y, (int) z),
 																(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS

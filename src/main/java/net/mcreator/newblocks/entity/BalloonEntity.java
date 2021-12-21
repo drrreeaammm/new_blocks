@@ -53,6 +53,7 @@ public class BalloonEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.4f, 0.5f)).build("balloon").setRegistryName("balloon");
+
 	public BalloonEntity(NewBlocksModElements instance) {
 		super(instance, 217);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BalloonRenderer.ModelRegisterHandler());
@@ -68,6 +69,7 @@ public class BalloonEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -106,6 +108,7 @@ public class BalloonEntity extends NewBlocksModElements.ModElement {
 				{
 					this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
 				}
+
 				public boolean shouldExecute() {
 					if (CustomEntity.this.getAttackTarget() != null && !CustomEntity.this.getMoveHelper().isUpdating()) {
 						return true;

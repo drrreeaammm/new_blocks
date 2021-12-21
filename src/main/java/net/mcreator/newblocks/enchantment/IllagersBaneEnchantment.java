@@ -13,6 +13,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class IllagersBaneEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:illagers_bane")
 	public static final Enchantment enchantment = null;
+
 	public IllagersBaneEnchantment(NewBlocksModElements instance) {
 		super(instance, 491);
 	}
@@ -21,6 +22,7 @@ public class IllagersBaneEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("illagers_bane"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.UNCOMMON, EnchantmentType.WEAPON, slots);

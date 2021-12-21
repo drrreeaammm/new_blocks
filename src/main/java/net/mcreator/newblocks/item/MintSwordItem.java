@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class MintSwordItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mint_sword")
 	public static final Item block = null;
+
 	public MintSwordItem(NewBlocksModElements instance) {
 		super(instance, 239);
 	}

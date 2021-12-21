@@ -36,6 +36,7 @@ public class IronManBulletRenderer {
 	@OnlyIn(Dist.CLIENT)
 	public static class CustomRender extends EntityRenderer<IronManBulletItem.ArrowCustomEntity> {
 		private static final ResourceLocation texture = new ResourceLocation("new_blocks:textures/iron_man_bullet.png");
+
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
 		}
@@ -64,6 +65,7 @@ public class IronManBulletRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modeliron_man_bullet extends EntityModel<Entity> {
 		private final ModelRenderer bone;
+
 		public Modeliron_man_bullet() {
 			textureWidth = 16;
 			textureHeight = 16;
@@ -91,4 +93,5 @@ public class IronManBulletRenderer {
 			modelRenderer.rotateAngleZ = z;
 		}
 	}
+
 }

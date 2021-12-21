@@ -27,10 +27,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class DarkMagicFangsProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DarkMagicFangs!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DarkMagicFangs!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -48,36 +49,37 @@ public class DarkMagicFangsProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure DarkMagicFangs!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DarkMagicFangs!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DarkMagicFangs!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity)) {
-			if ((Math.random() < 0.7)) {
-				if ((Math.random() < 0.7)) {
-					if ((Math.random() < 0.7)) {
-						if ((Math.random() < 0.7)) {
-							if ((Math.random() < 0.7)) {
-								if ((Math.random() < 0.7)) {
-									if ((((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity)) {
-										if ((Math.random() < 0.7)) {
-											if ((Math.random() < 0.7)) {
-												if ((Math.random() < 0.7)) {
-													if ((Math.random() < 0.7)) {
-														if ((Math.random() < 0.7)) {
-															if ((((entity instanceof MobEntity)
+		Entity entity = (Entity) dependencies.get("entity");
+		if (((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity) {
+			if (Math.random() < 0.7) {
+				if (Math.random() < 0.7) {
+					if (Math.random() < 0.7) {
+						if (Math.random() < 0.7) {
+							if (Math.random() < 0.7) {
+								if (Math.random() < 0.7) {
+									if (((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity) {
+										if (Math.random() < 0.7) {
+											if (Math.random() < 0.7) {
+												if (Math.random() < 0.7) {
+													if (Math.random() < 0.7) {
+														if (Math.random() < 0.7) {
+															if (((entity instanceof MobEntity)
 																	? ((MobEntity) entity).getAttackTarget()
-																	: null) instanceof LivingEntity)) {
+																	: null) instanceof LivingEntity) {
 																new Object() {
 																	private int ticks = 0;
 																	private float waitTicks;
 																	private IWorld world;
+
 																	public void start(IWorld world, int waitTicks) {
 																		this.waitTicks = waitTicks;
 																		MinecraftForge.EVENT_BUS.register(this);
@@ -94,9 +96,9 @@ public class DarkMagicFangsProcedure {
 																	}
 
 																	private void run() {
-																		if ((((entity instanceof MobEntity)
+																		if (((entity instanceof MobEntity)
 																				? ((MobEntity) entity).getAttackTarget()
-																				: null) instanceof LivingEntity)) {
+																				: null) instanceof LivingEntity) {
 																			if (entity instanceof LivingEntity)
 																				((LivingEntity) entity).addPotionEffect(new EffectInstance(
 																						Effects.SLOWNESS, (int) 27, (int) 2, (false), (false)));
@@ -134,9 +136,9 @@ public class DarkMagicFangsProcedure {
 																				Entity entityToSpawn = new EvokerFangsEntity(EntityType.EVOKER_FANGS,
 																						(World) world);
 																				entityToSpawn.setLocationAndAngles(
-																						((((entity instanceof MobEntity)
+																						(((entity instanceof MobEntity)
 																								? ((MobEntity) entity).getAttackTarget()
-																								: null).getPosX()) + 1),
+																								: null).getPosX() + 1),
 																						(((entity instanceof MobEntity)
 																								? ((MobEntity) entity).getAttackTarget()
 																								: null).getPosY()),
@@ -156,9 +158,9 @@ public class DarkMagicFangsProcedure {
 																				Entity entityToSpawn = new EvokerFangsEntity(EntityType.EVOKER_FANGS,
 																						(World) world);
 																				entityToSpawn.setLocationAndAngles(
-																						((((entity instanceof MobEntity)
+																						(((entity instanceof MobEntity)
 																								? ((MobEntity) entity).getAttackTarget()
-																								: null).getPosX()) - 1),
+																								: null).getPosX() - 1),
 																						(((entity instanceof MobEntity)
 																								? ((MobEntity) entity).getAttackTarget()
 																								: null).getPosY()),
@@ -184,9 +186,9 @@ public class DarkMagicFangsProcedure {
 																						(((entity instanceof MobEntity)
 																								? ((MobEntity) entity).getAttackTarget()
 																								: null).getPosY()),
-																						((((entity instanceof MobEntity)
+																						(((entity instanceof MobEntity)
 																								? ((MobEntity) entity).getAttackTarget()
-																								: null).getPosZ()) + 1),
+																								: null).getPosZ() + 1),
 																						world.getRandom().nextFloat() * 360F, 0);
 																				if (entityToSpawn instanceof MobEntity)
 																					((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world,
@@ -206,9 +208,9 @@ public class DarkMagicFangsProcedure {
 																						(((entity instanceof MobEntity)
 																								? ((MobEntity) entity).getAttackTarget()
 																								: null).getPosY()),
-																						((((entity instanceof MobEntity)
+																						(((entity instanceof MobEntity)
 																								? ((MobEntity) entity).getAttackTarget()
-																								: null).getPosZ()) - 1),
+																								: null).getPosZ() - 1),
 																						world.getRandom().nextFloat() * 360F, 0);
 																				if (entityToSpawn instanceof MobEntity)
 																					((MobEntity) entityToSpawn).onInitialSpawn((ServerWorld) world,

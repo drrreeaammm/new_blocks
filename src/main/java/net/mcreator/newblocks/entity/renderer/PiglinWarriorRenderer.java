@@ -26,6 +26,7 @@ public class PiglinWarriorRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(PiglinWarriorEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelpiglinwarrior(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/piglin-warrior-on-planetminecraft-com.png");
@@ -53,6 +54,7 @@ public class PiglinWarriorRenderer {
 		private final ModelRenderer left_pants;
 		private final ModelRenderer right_leg;
 		private final ModelRenderer right_pants;
+
 		public Modelpiglinwarrior() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -128,6 +130,7 @@ public class PiglinWarriorRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.right_arm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
 			this.left_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 			this.jacket.rotateAngleY = f3 / (180F / (float) Math.PI);
@@ -144,4 +147,5 @@ public class PiglinWarriorRenderer {
 			this.left_pants.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 		}
 	}
+
 }

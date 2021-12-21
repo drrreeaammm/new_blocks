@@ -45,6 +45,7 @@ public class NewBlocksModElements {
 	public final List<Supplier<EntityType<?>>> entities = new ArrayList<>();
 	public final List<Supplier<Enchantment>> enchantments = new ArrayList<>();
 	public static Map<ResourceLocation, net.minecraft.util.SoundEvent> sounds = new HashMap<>();
+
 	public NewBlocksModElements() {
 		sounds.put(new ResourceLocation("new_blocks", "herobrinehurt"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "herobrinehurt")));
@@ -218,6 +219,9 @@ public class NewBlocksModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "meowmere_meow")));
 		sounds.put(new ResourceLocation("new_blocks", "weak_magic_shoot"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "weak_magic_shoot")));
+		sounds.put(new ResourceLocation("new_blocks", "aaaa"), new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "aaaa")));
+		sounds.put(new ResourceLocation("new_blocks", "breakingtheconditoning"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "breakingtheconditoning")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("new_blocks").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();
@@ -240,7 +244,9 @@ public class NewBlocksModElements {
 		for (Map.Entry<ResourceLocation, net.minecraft.util.SoundEvent> sound : sounds.entrySet())
 			event.getRegistry().register(sound.getValue().setRegistryName(sound.getKey()));
 	}
+
 	private int messageID = 0;
+
 	public <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, PacketBuffer> encoder, Function<PacketBuffer, T> decoder,
 			BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {
 		NewBlocksMod.PACKET_HANDLER.registerMessage(messageID, messageType, encoder, decoder, messageConsumer);
@@ -266,12 +272,15 @@ public class NewBlocksModElements {
 	public List<Supplier<Enchantment>> getEnchantments() {
 		return enchantments;
 	}
+
 	public static class ModElement implements Comparable<ModElement> {
 		@Retention(RetentionPolicy.RUNTIME)
 		public @interface Tag {
 		}
+
 		protected final NewBlocksModElements elements;
 		protected final int sortid;
+
 		public ModElement(NewBlocksModElements elements, int sortid) {
 			this.elements = elements;
 			this.sortid = sortid;

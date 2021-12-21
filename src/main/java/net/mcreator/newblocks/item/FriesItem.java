@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class FriesItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:fries")
 	public static final Item block = null;
+
 	public FriesItem(NewBlocksModElements instance) {
 		super(instance, 72);
 	}
@@ -24,10 +25,13 @@ public class FriesItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxStackSize(64).rarity(Rarity.RARE)
-					.food((new Food.Builder()).hunger(5).saturation(0.9f).build()));
+					.food((new Food.Builder()).hunger(5).saturation(0.9f)
+
+							.build()));
 			setRegistryName("fries");
 		}
 

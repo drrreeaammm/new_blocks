@@ -21,6 +21,7 @@ public class ElectricSpiderRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(ElectricSpiderEntity.entity,
 					renderManager -> new MobRenderer(renderManager, new SpiderModel(), 0.5f) {
+
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
 							return new ResourceLocation("new_blocks:textures/spider.png");

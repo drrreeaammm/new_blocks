@@ -25,6 +25,7 @@ import java.util.Collections;
 public class DarkiteBlockBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:darkite_block")
 	public static final Block block = null;
+
 	public DarkiteBlockBlock(NewBlocksModElements instance) {
 		super(instance, 853);
 	}
@@ -34,6 +35,7 @@ public class DarkiteBlockBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(5.1499999999999995f, 10f).setLightLevel(s -> 0)

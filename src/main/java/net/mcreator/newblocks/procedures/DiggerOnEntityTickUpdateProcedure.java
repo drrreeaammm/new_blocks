@@ -19,10 +19,11 @@ import java.util.Map;
 import java.util.Collections;
 
 public class DiggerOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DiggerOnEntityTickUpdate!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DiggerOnEntityTickUpdate!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -40,31 +41,31 @@ public class DiggerOnEntityTickUpdateProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure DiggerOnEntityTickUpdate!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DiggerOnEntityTickUpdate!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure DiggerOnEntityTickUpdate!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity)) {
-			if ((!(world.isAirBlock(new BlockPos((int) x, (int) (y - 1), (int) z))))) {
-				if ((Math.random() < 0.7)) {
-					if ((Math.random() < 0.7)) {
-						if ((Math.random() < 0.7)) {
-							if ((Math.random() < 0.7)) {
-								if ((Math.random() < 0.7)) {
-									if ((Math.random() < 0.7)) {
-										if ((Math.random() < 0.7)) {
-											if ((Math.random() < 0.7)) {
-												if ((Math.random() < 0.7)) {
-													if ((Math.random() < 0.7)) {
-														if ((Math.random() < 0.7)) {
-															if ((Math.random() < 0.7)) {
-																if ((Math.random() < 0.7)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity) {
+			if (!world.isAirBlock(new BlockPos((int) x, (int) (y - 1), (int) z))) {
+				if (Math.random() < 0.7) {
+					if (Math.random() < 0.7) {
+						if (Math.random() < 0.7) {
+							if (Math.random() < 0.7) {
+								if (Math.random() < 0.7) {
+									if (Math.random() < 0.7) {
+										if (Math.random() < 0.7) {
+											if (Math.random() < 0.7) {
+												if (Math.random() < 0.7) {
+													if (Math.random() < 0.7) {
+														if (Math.random() < 0.7) {
+															if (Math.random() < 0.7) {
+																if (Math.random() < 0.7) {
 																	if (entity instanceof LivingEntity)
 																		((LivingEntity) entity).addPotionEffect(new EffectInstance(
 																				Effects.REGENERATION, (int) 130, (int) 4, (false), (false)));
@@ -80,6 +81,7 @@ public class DiggerOnEntityTickUpdateProcedure {
 																		private int ticks = 0;
 																		private float waitTicks;
 																		private IWorld world;
+
 																		public void start(IWorld world, int waitTicks) {
 																			this.waitTicks = waitTicks;
 																			MinecraftForge.EVENT_BUS.register(this);
@@ -96,18 +98,18 @@ public class DiggerOnEntityTickUpdateProcedure {
 																		}
 
 																		private void run() {
-																			if ((((entity instanceof MobEntity)
+																			if (((entity instanceof MobEntity)
 																					? ((MobEntity) entity).getAttackTarget()
-																					: null) instanceof LivingEntity)) {
+																					: null) instanceof LivingEntity) {
 																				{
 																					Entity _ent = entity;
 																					_ent.setPositionAndUpdate(
 																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
 																									: null).getPosX()),
-																							((((entity instanceof MobEntity)
+																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
-																									: null).getPosY()) - 5),
+																									: null).getPosY() - 5),
 																							(((entity instanceof MobEntity)
 																									? ((MobEntity) entity).getAttackTarget()
 																									: null).getPosZ()));
@@ -116,9 +118,9 @@ public class DiggerOnEntityTickUpdateProcedure {
 																								(((entity instanceof MobEntity)
 																										? ((MobEntity) entity).getAttackTarget()
 																										: null).getPosX()),
-																								((((entity instanceof MobEntity)
+																								(((entity instanceof MobEntity)
 																										? ((MobEntity) entity).getAttackTarget()
-																										: null).getPosY()) - 5),
+																										: null).getPosY() - 5),
 																								(((entity instanceof MobEntity)
 																										? ((MobEntity) entity).getAttackTarget()
 																										: null).getPosZ()),
@@ -130,6 +132,7 @@ public class DiggerOnEntityTickUpdateProcedure {
 																					private int ticks = 0;
 																					private float waitTicks;
 																					private IWorld world;
+
 																					public void start(IWorld world, int waitTicks) {
 																						this.waitTicks = waitTicks;
 																						MinecraftForge.EVENT_BUS.register(this);
@@ -146,8 +149,8 @@ public class DiggerOnEntityTickUpdateProcedure {
 																					}
 
 																					private void run() {
-																						if ((!(world.isAirBlock(
-																								new BlockPos((int) x, (int) (y + 1), (int) z))))) {
+																						if (!world.isAirBlock(
+																								new BlockPos((int) x, (int) (y + 1), (int) z))) {
 																							{
 																								Entity _ent = entity;
 																								_ent.setPositionAndUpdate(
@@ -181,6 +184,7 @@ public class DiggerOnEntityTickUpdateProcedure {
 																								private int ticks = 0;
 																								private float waitTicks;
 																								private IWorld world;
+
 																								public void start(IWorld world, int waitTicks) {
 																									this.waitTicks = waitTicks;
 																									MinecraftForge.EVENT_BUS.register(this);
@@ -197,8 +201,8 @@ public class DiggerOnEntityTickUpdateProcedure {
 																								}
 
 																								private void run() {
-																									if ((!(world.isAirBlock(new BlockPos((int) x,
-																											(int) (y + 1), (int) z))))) {
+																									if (!world.isAirBlock(new BlockPos((int) x,
+																											(int) (y + 1), (int) z))) {
 																										{
 																											Entity _ent = entity;
 																											_ent.setPositionAndUpdate(
@@ -233,6 +237,7 @@ public class DiggerOnEntityTickUpdateProcedure {
 																											private int ticks = 0;
 																											private float waitTicks;
 																											private IWorld world;
+
 																											public void start(IWorld world,
 																													int waitTicks) {
 																												this.waitTicks = waitTicks;
@@ -252,9 +257,9 @@ public class DiggerOnEntityTickUpdateProcedure {
 																											}
 
 																											private void run() {
-																												if ((!(world.isAirBlock(new BlockPos(
+																												if (!world.isAirBlock(new BlockPos(
 																														(int) x, (int) (y + 1),
-																														(int) z))))) {
+																														(int) z))) {
 																													{
 																														Entity _ent = entity;
 																														_ent.setPositionAndUpdate(
@@ -289,6 +294,7 @@ public class DiggerOnEntityTickUpdateProcedure {
 																														private int ticks = 0;
 																														private float waitTicks;
 																														private IWorld world;
+
 																														public void start(
 																																IWorld world,
 																																int waitTicks) {
@@ -309,11 +315,11 @@ public class DiggerOnEntityTickUpdateProcedure {
 																														}
 
 																														private void run() {
-																															if ((!(world.isAirBlock(
+																															if (!world.isAirBlock(
 																																	new BlockPos(
 																																			(int) x,
 																																			(int) (y + 1),
-																																			(int) z))))) {
+																																			(int) z))) {
 																																{
 																																	Entity _ent = entity;
 																																	_ent.setPositionAndUpdate(
@@ -348,6 +354,7 @@ public class DiggerOnEntityTickUpdateProcedure {
 																																	private int ticks = 0;
 																																	private float waitTicks;
 																																	private IWorld world;
+
 																																	public void start(
 																																			IWorld world,
 																																			int waitTicks) {
@@ -369,12 +376,12 @@ public class DiggerOnEntityTickUpdateProcedure {
 																																	}
 
 																																	private void run() {
-																																		if ((!(world
+																																		if (!world
 																																				.isAirBlock(
 																																						new BlockPos(
 																																								(int) x,
 																																								(int) (y + 1),
-																																								(int) z))))) {
+																																								(int) z))) {
 																																			{
 																																				Entity _ent = entity;
 																																				_ent.setPositionAndUpdate(

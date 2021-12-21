@@ -26,6 +26,7 @@ public class TommyInnitRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(TommyInnitEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modeltommyinnit(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/tommyinnit.png");
@@ -51,6 +52,7 @@ public class TommyInnitRenderer {
 		private final ModelRenderer left_pants;
 		private final ModelRenderer right_leg;
 		private final ModelRenderer right_pants;
+
 		public Modeltommyinnit() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -116,6 +118,7 @@ public class TommyInnitRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.headwear.rotateAngleY = f3 / (180F / (float) Math.PI);
@@ -126,4 +129,5 @@ public class TommyInnitRenderer {
 			this.right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

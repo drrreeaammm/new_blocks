@@ -33,6 +33,7 @@ public class GlowCrabRenderer {
 						{
 							this.addLayer(new GlowingLayer<>(this));
 						}
+
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
 							return new ResourceLocation("new_blocks:textures/glow-crab-in-the-depths-of-the-ocean-on-planetminecraft-com.png");

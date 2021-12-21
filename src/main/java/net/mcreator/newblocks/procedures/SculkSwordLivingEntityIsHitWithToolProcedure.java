@@ -13,10 +13,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class SculkSwordLivingEntityIsHitWithToolProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SculkSwordLivingEntityIsHitWithTool!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SculkSwordLivingEntityIsHitWithTool!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -34,17 +35,17 @@ public class SculkSwordLivingEntityIsHitWithToolProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure SculkSwordLivingEntityIsHitWithTool!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SculkSwordLivingEntityIsHitWithTool!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SculkSwordLivingEntityIsHitWithTool!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((Math.random() < 0.1)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (Math.random() < 0.1) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.WITHER, (int) 90, (int) 1, (false), (false)));
 		}

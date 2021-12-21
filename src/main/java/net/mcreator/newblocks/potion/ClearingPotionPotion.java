@@ -13,10 +13,12 @@ import net.minecraft.potion.EffectInstance;
 public class ClearingPotionPotion {
 	@ObjectHolder("new_blocks:clearing_potion")
 	public static final Potion potionType = null;
+
 	@SubscribeEvent
 	public static void registerPotion(RegistryEvent.Register<Potion> event) {
 		event.getRegistry().register(new PotionCustom());
 	}
+
 	public static class PotionCustom extends Potion {
 		public PotionCustom() {
 			super(new EffectInstance(ClearingPotionEffect.potion, 30, 0, false, true));

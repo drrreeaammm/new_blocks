@@ -26,6 +26,7 @@ import java.util.Collections;
 public class MangrovePressurePlateBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mangrove_pressure_plate")
 	public static final Block block = null;
+
 	public MangrovePressurePlateBlock(NewBlocksModElements instance) {
 		super(instance, 1057);
 	}
@@ -35,6 +36,7 @@ public class MangrovePressurePlateBlock extends NewBlocksModElements.ModElement 
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends PressurePlateBlock {
 		public CustomBlock() {
 			super(Sensitivity.EVERYTHING,

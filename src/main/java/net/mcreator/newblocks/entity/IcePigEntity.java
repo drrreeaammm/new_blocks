@@ -41,6 +41,7 @@ public class IcePigEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.AMBIENT)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.9f, 0.9f)).build("ice_pig").setRegistryName("ice_pig");
+
 	public IcePigEntity(NewBlocksModElements instance) {
 		super(instance, 229);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new IcePigRenderer.ModelRegisterHandler());
@@ -70,6 +71,7 @@ public class IcePigEntity extends NewBlocksModElements.ModElement {
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS,
 				Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::canSpawnOn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

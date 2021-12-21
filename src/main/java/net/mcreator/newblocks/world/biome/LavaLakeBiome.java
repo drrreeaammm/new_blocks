@@ -19,10 +19,12 @@ import net.mcreator.newblocks.NewBlocksModElements;
 @NewBlocksModElements.ModElement.Tag
 public class LavaLakeBiome extends NewBlocksModElements.ModElement {
 	public static Biome biome;
+
 	public LavaLakeBiome(NewBlocksModElements instance) {
 		super(instance, 1348);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BiomeRegisterHandler());
 	}
+
 	private static class BiomeRegisterHandler {
 		@SubscribeEvent
 		public void registerBiomes(RegistryEvent.Register<Biome> event) {
@@ -40,6 +42,7 @@ public class LavaLakeBiome extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}

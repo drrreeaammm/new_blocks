@@ -37,9 +37,11 @@ import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.entity.renderer.YellowPaintballGunRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class YellowPaintballGunItem extends NewBlocksModElements.ModElement {
@@ -48,6 +50,7 @@ public class YellowPaintballGunItem extends NewBlocksModElements.ModElement {
 	public static final EntityType arrow = (EntityType.Builder.<ArrowCustomEntity>create(ArrowCustomEntity::new, EntityClassification.MISC)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(ArrowCustomEntity::new)
 			.size(0.5f, 0.5f)).build("entitybulletyellow_paintball_gun").setRegistryName("entitybulletyellow_paintball_gun");
+
 	public YellowPaintballGunItem(NewBlocksModElements instance) {
 		super(instance, 148);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new YellowPaintballGunRenderer.ModelRegisterHandler());
@@ -58,6 +61,7 @@ public class YellowPaintballGunItem extends NewBlocksModElements.ModElement {
 		elements.items.add(() -> new ItemRanged());
 		elements.entities.add(() -> arrow);
 	}
+
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxDamage(155));
@@ -173,18 +177,16 @@ public class YellowPaintballGunItem extends NewBlocksModElements.ModElement {
 			Entity entity = this.func_234616_v_();
 			Entity imediatesourceentity = this;
 			if (this.inGround) {
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					YellowPaintballGunBulletHitsBlockProcedure.executeProcedure($_dependencies);
-				}
+
+				YellowPaintballGunBulletHitsBlockProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				this.remove();
 			}
 		}
 	}
+
 	public static ArrowCustomEntity shoot(World world, LivingEntity entity, Random random, float power, double damage, int knockback) {
 		ArrowCustomEntity entityarrow = new ArrowCustomEntity(arrow, entity, world);
 		entityarrow.shoot(entity.getLookVec().x, entity.getLookVec().y, entity.getLookVec().z, power * 2, 0);

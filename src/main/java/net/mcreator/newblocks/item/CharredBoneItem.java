@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class CharredBoneItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:charred_bone")
 	public static final Item block = null;
+
 	public CharredBoneItem(NewBlocksModElements instance) {
 		super(instance, 82);
 	}
@@ -23,6 +24,7 @@ public class CharredBoneItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxStackSize(64).rarity(Rarity.UNCOMMON));

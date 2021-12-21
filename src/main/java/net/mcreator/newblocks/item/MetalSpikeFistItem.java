@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class MetalSpikeFistItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:metal_spike_fist")
 	public static final Item block = null;
+
 	public MetalSpikeFistItem(NewBlocksModElements instance) {
 		super(instance, 115);
 	}

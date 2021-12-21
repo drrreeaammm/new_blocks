@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Collections;
 
 public class QuicksandEntityCollidesInTheBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -18,9 +19,9 @@ public class QuicksandEntityCollidesInTheBlockProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		{
 			Entity _ent = entity;
-			_ent.setPositionAndUpdate((entity.getPosX()), ((entity.getPosY()) - 0.000001), (entity.getPosZ()));
+			_ent.setPositionAndUpdate((entity.getPosX()), (entity.getPosY() - 0.000001), (entity.getPosZ()));
 			if (_ent instanceof ServerPlayerEntity) {
-				((ServerPlayerEntity) _ent).connection.setPlayerLocation((entity.getPosX()), ((entity.getPosY()) - 0.000001), (entity.getPosZ()),
+				((ServerPlayerEntity) _ent).connection.setPlayerLocation((entity.getPosX()), (entity.getPosY() - 0.000001), (entity.getPosZ()),
 						_ent.rotationYaw, _ent.rotationPitch, Collections.emptySet());
 			}
 		}

@@ -44,10 +44,12 @@ public class SculkFluidBlock extends NewBlocksModElements.ModElement {
 	public static FlowingFluid flowing = null;
 	public static FlowingFluid still = null;
 	private ForgeFlowingFluid.Properties fluidproperties = null;
+
 	public SculkFluidBlock(NewBlocksModElements instance) {
 		super(instance, 231);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new FluidRegisterHandler());
 	}
+
 	private static class FluidRegisterHandler {
 		@SubscribeEvent
 		public void registerFluids(RegistryEvent.Register<Fluid> event) {
@@ -55,6 +57,7 @@ public class SculkFluidBlock extends NewBlocksModElements.ModElement {
 			event.getRegistry().register(flowing);
 		}
 	}
+
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void clientLoad(FMLClientSetupEvent event) {
@@ -66,8 +69,11 @@ public class SculkFluidBlock extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		fluidproperties = new ForgeFlowingFluid.Properties(() -> still, () -> flowing,
 				FluidAttributes.builder(new ResourceLocation("new_blocks:blocks/skulk"), new ResourceLocation("new_blocks:blocks/skulk"))
-						.luminosity(0).density(1000).viscosity(1000).temperature(300).rarity(Rarity.COMMON)).explosionResistance(100f).tickRate(27)
-								.levelDecreasePerBlock(2).slopeFindDistance(3).bucket(() -> bucket).block(() -> block);
+						.luminosity(0).density(1000).viscosity(1000).temperature(300)
+
+						.rarity(Rarity.COMMON)).explosionResistance(100f)
+
+								.tickRate(27).levelDecreasePerBlock(2).slopeFindDistance(3).bucket(() -> bucket).block(() -> block);
 		still = (FlowingFluid) new CustomFlowingFluid.Source(fluidproperties).setRegistryName("sculk_fluid");
 		flowing = (FlowingFluid) new CustomFlowingFluid.Flowing(fluidproperties).setRegistryName("sculk_fluid_flowing");
 		elements.blocks
@@ -91,6 +97,7 @@ public class SculkFluidBlock extends NewBlocksModElements.ModElement {
 				new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC).rarity(Rarity.COMMON))
 						.setRegistryName("sculk_fluid_bucket"));
 	}
+
 	public static abstract class CustomFlowingFluid extends ForgeFlowingFluid {
 		public CustomFlowingFluid(Properties properties) {
 			super(properties);
@@ -100,6 +107,7 @@ public class SculkFluidBlock extends NewBlocksModElements.ModElement {
 		public Vector3d getFlow(IBlockReader world, BlockPos pos, FluidState fluidstate) {
 			return super.getFlow(world, pos, fluidstate).scale(-2);
 		}
+
 		public static class Source extends CustomFlowingFluid {
 			public Source(Properties properties) {
 				super(properties);

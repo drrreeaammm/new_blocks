@@ -24,6 +24,7 @@ import java.util.Collections;
 public class SussyBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:sussy")
 	public static final Block block = null;
+
 	public SussyBlock(NewBlocksModElements instance) {
 		super(instance, 65);
 	}
@@ -33,6 +34,7 @@ public class SussyBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(0f, 10f).setLightLevel(s -> 15));

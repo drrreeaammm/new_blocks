@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class LightningEnchantmentEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:lightning_enchantment")
 	public static final Enchantment enchantment = null;
+
 	public LightningEnchantmentEnchantment(NewBlocksModElements instance) {
 		super(instance, 693);
 	}
@@ -24,6 +25,7 @@ public class LightningEnchantmentEnchantment extends NewBlocksModElements.ModEle
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("lightning_enchantment"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.VERY_RARE, EnchantmentType.CROSSBOW, slots);

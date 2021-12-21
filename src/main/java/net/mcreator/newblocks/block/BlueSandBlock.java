@@ -25,6 +25,7 @@ import java.util.Collections;
 public class BlueSandBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:blue_sand")
 	public static final Block block = null;
+
 	public BlueSandBlock(NewBlocksModElements instance) {
 		super(instance, 103);
 	}
@@ -34,6 +35,7 @@ public class BlueSandBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends FallingBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.SAND).hardnessAndResistance(0.5f, 2f).setLightLevel(s -> 0));

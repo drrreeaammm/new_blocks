@@ -20,10 +20,11 @@ import java.util.Map;
 import java.util.Collections;
 
 public class JumpAndPlaceABlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure JumpAndPlaceABlock!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure JumpAndPlaceABlock!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -41,39 +42,39 @@ public class JumpAndPlaceABlockProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure JumpAndPlaceABlock!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure JumpAndPlaceABlock!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure JumpAndPlaceABlock!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double varx = 0;
 		double varz = 0;
-		if ((x < 0)) {
-			NewBlocksModVariables.WorldVariables.get(world).varX = (double) (x - 1);
+		if (x < 0) {
+			NewBlocksModVariables.WorldVariables.get(world).varX = (x - 1);
 			NewBlocksModVariables.WorldVariables.get(world).syncData(world);
 		} else {
-			NewBlocksModVariables.WorldVariables.get(world).varX = (double) x;
+			NewBlocksModVariables.WorldVariables.get(world).varX = x;
 			NewBlocksModVariables.WorldVariables.get(world).syncData(world);
 		}
-		if ((z < 0)) {
-			NewBlocksModVariables.WorldVariables.get(world).varZ = (double) (z - 1);
+		if (z < 0) {
+			NewBlocksModVariables.WorldVariables.get(world).varZ = (z - 1);
 			NewBlocksModVariables.WorldVariables.get(world).syncData(world);
 		} else {
-			NewBlocksModVariables.WorldVariables.get(world).varZ = (double) z;
+			NewBlocksModVariables.WorldVariables.get(world).varZ = z;
 			NewBlocksModVariables.WorldVariables.get(world).syncData(world);
 		}
 		if (entity instanceof LivingEntity)
 			((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SLOWNESS, (int) 30, (int) 7, (false), (false)));
-		if ((Math.random() < 0.7)) {
-			if ((Math.random() < 0.7)) {
-				if ((Math.random() < 0.7)) {
-					if ((Math.random() < 0.7)) {
-						if ((Math.random() < 0.7)) {
+		if (Math.random() < 0.7) {
+			if (Math.random() < 0.7) {
+				if (Math.random() < 0.7) {
+					if (Math.random() < 0.7) {
+						if (Math.random() < 0.7) {
 							{
 								Entity _ent = entity;
 								_ent.setPositionAndUpdate(NewBlocksModVariables.WorldVariables.get(world).varX, (y + 1),
@@ -88,6 +89,7 @@ public class JumpAndPlaceABlockProcedure {
 								private int ticks = 0;
 								private float waitTicks;
 								private IWorld world;
+
 								public void start(IWorld world, int waitTicks) {
 									this.waitTicks = waitTicks;
 									MinecraftForge.EVENT_BUS.register(this);

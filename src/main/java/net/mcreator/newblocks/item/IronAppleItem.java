@@ -15,13 +15,16 @@ import net.mcreator.newblocks.procedures.IronAppleFoodEatenProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class IronAppleItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:iron_apple")
 	public static final Item block = null;
+
 	public IronAppleItem(NewBlocksModElements instance) {
 		super(instance, 70);
 	}
@@ -30,10 +33,13 @@ public class IronAppleItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxStackSize(64).rarity(Rarity.RARE)
-					.food((new Food.Builder()).hunger(4).saturation(0.3f).setAlwaysEdible().build()));
+					.food((new Food.Builder()).hunger(4).saturation(0.3f).setAlwaysEdible()
+
+							.build()));
 			setRegistryName("iron_apple");
 		}
 
@@ -48,11 +54,9 @@ public class IronAppleItem extends NewBlocksModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				IronAppleFoodEatenProcedure.executeProcedure($_dependencies);
-			}
+
+			IronAppleFoodEatenProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}

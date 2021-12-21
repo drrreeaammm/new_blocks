@@ -9,6 +9,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class IsNotAArmyProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("sourceentity") == null) {
 			if (!dependencies.containsKey("sourceentity"))
@@ -16,7 +17,6 @@ public class IsNotAArmyProcedure {
 			return false;
 		}
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		return (!(EntityTypeTags.getCollection().getTagByID(new ResourceLocation(("new_blocks:army").toLowerCase(java.util.Locale.ENGLISH)))
-				.contains(sourceentity.getType())));
+		return !EntityTypeTags.getCollection().getTagByID(new ResourceLocation("new_blocks:army")).contains(sourceentity.getType());
 	}
 }

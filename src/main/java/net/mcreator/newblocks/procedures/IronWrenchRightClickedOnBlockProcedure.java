@@ -1,10 +1,14 @@
 package net.mcreator.newblocks.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
@@ -22,15 +26,11 @@ import java.util.Random;
 import java.util.Map;
 
 public class IronWrenchRightClickedOnBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure IronWrenchRightClickedOnBlock!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure IronWrenchRightClickedOnBlock!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure IronWrenchRightClickedOnBlock!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -48,85 +48,89 @@ public class IronWrenchRightClickedOnBlockProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure IronWrenchRightClickedOnBlock!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure IronWrenchRightClickedOnBlock!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure IronWrenchRightClickedOnBlock!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure IronWrenchRightClickedOnBlock!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((Math.random() < 0.9)) {
-			try {
-				BlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
-				DirectionProperty _property = (DirectionProperty) _bs.getBlock().getStateContainer().getProperty("facing");
-				if (_property != null) {
-					world.setBlockState(new BlockPos((int) x, (int) y, (int) z), _bs.with(_property, (Direction.getRandomDirection(new Random()))),
-							3);
-				} else {
-					world.setBlockState(new BlockPos((int) x, (int) y, (int) z),
-							_bs.with((EnumProperty<Direction.Axis>) _bs.getBlock().getStateContainer().getProperty("axis"),
-									(Direction.getRandomDirection(new Random())).getAxis()),
-							3);
-				}
-			} catch (Exception e) {
-			}
-			if (world instanceof World && !world.isRemote()) {
-				((World) world).playSound(null, new BlockPos((int) x, (int) y, (int) z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:wrench_turn")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		try {
+			BlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
+			DirectionProperty _property = (DirectionProperty) _bs.getBlock().getStateContainer().getProperty("facing");
+			if (_property != null) {
+				world.setBlockState(new BlockPos((int) x, (int) y, (int) z),
+						_bs.with(_property,
+								(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+										entity.getEyePosition(1f).add(entity.getLook(1f).x * 5, entity.getLook(1f).y * 5, entity.getLook(1f).z * 5),
+										RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getFace())),
+						3);
 			} else {
-				((World) world).playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:wrench_turn")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+				world.setBlockState(new BlockPos((int) x, (int) y, (int) z),
+						_bs.with((EnumProperty<Direction.Axis>) _bs.getBlock().getStateContainer().getProperty("axis"),
+								(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+										entity.getEyePosition(1f).add(entity.getLook(1f).x * 5, entity.getLook(1f).y * 5, entity.getLook(1f).z * 5),
+										RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getFace()).getAxis()),
+						3);
 			}
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Changed direction of block to ") + "" + ((new Object() {
-					public Direction getDirection(BlockPos pos) {
-						try {
-							BlockState _bs = world.getBlockState(pos);
-							DirectionProperty property = (DirectionProperty) _bs.getBlock().getStateContainer().getProperty("facing");
-							if (property != null)
-								return _bs.get(property);
-							return Direction.getFacingFromAxisDirection(
-									_bs.get((EnumProperty<Direction.Axis>) _bs.getBlock().getStateContainer().getProperty("axis")),
-									Direction.AxisDirection.POSITIVE);
-						} catch (Exception e) {
-							return Direction.NORTH;
-						}
-					}
-				}.getDirection(new BlockPos((int) x, (int) y, (int) z)))))), (true));
-			}
-			if ((Math.random() < 0.6)) {
-				{
-					ItemStack _ist = (itemstack);
-					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
-						_ist.shrink(1);
-						_ist.setDamage(0);
-					}
-				}
-			}
+		} catch (Exception e) {
+		}
+		if (world instanceof World && !world.isRemote()) {
+			((World) world).playSound(null, new BlockPos((int) x, (int) y, (int) z),
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:wrench_turn")),
+					SoundCategory.NEUTRAL, (float) 1, (float) 1);
 		} else {
-			try {
-				BlockState _bs = world.getBlockState(new BlockPos((int) x, (int) y, (int) z));
-				DirectionProperty _property = (DirectionProperty) _bs.getBlock().getStateContainer().getProperty("facing");
-				if (_property != null) {
-					world.setBlockState(new BlockPos((int) x, (int) y, (int) z), _bs.with(_property, (Direction.getRandomDirection(new Random()))),
-							3);
-				} else {
-					world.setBlockState(new BlockPos((int) x, (int) y, (int) z),
-							_bs.with((EnumProperty<Direction.Axis>) _bs.getBlock().getStateContainer().getProperty("axis"),
-									(Direction.getRandomDirection(new Random())).getAxis()),
-							3);
-				}
-			} catch (Exception e) {
+			((World) world).playSound(x, y, z,
+					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:wrench_turn")),
+					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+		}
+		new Object() {
+			private int ticks = 0;
+			private float waitTicks;
+			private IWorld world;
+
+			public void start(IWorld world, int waitTicks) {
+				this.waitTicks = waitTicks;
+				MinecraftForge.EVENT_BUS.register(this);
+				this.world = world;
 			}
+
+			@SubscribeEvent
+			public void tick(TickEvent.ServerTickEvent event) {
+				if (event.phase == TickEvent.Phase.END) {
+					this.ticks += 1;
+					if (this.ticks >= this.waitTicks)
+						run();
+				}
+			}
+
+			private void run() {
+				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
+							("Changed direction of block to " + entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+									entity.getEyePosition(1f).add(entity.getLook(1f).x * 5, entity.getLook(1f).y * 5, entity.getLook(1f).z * 5),
+									RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getFace())),
+							(true));
+				}
+				System.out.println(entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+						entity.getEyePosition(1f).add(entity.getLook(1f).x * 5, entity.getLook(1f).y * 5, entity.getLook(1f).z * 5),
+						RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getFace());
+				MinecraftForge.EVENT_BUS.unregister(this);
+			}
+		}.start(world, (int) 1);
+		if (Math.random() < 0.8) {
 			{
-				ItemStack _ist = (itemstack);
-				if (_ist.attemptDamageItem((int) ((new Random()).nextInt((int) 7 + 1)), new Random(), null)) {
+				ItemStack _ist = itemstack;
+				if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 					_ist.shrink(1);
 					_ist.setDamage(0);
 				}

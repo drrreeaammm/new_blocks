@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "new_blocks:fire_bender",
-    "blaze"
+    "blaze",
+    "new_blocks:fire_bender"
   ]
 }

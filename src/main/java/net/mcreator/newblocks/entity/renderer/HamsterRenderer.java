@@ -25,6 +25,7 @@ public class HamsterRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(HamsterEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelhamster(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/hamster.png");
@@ -44,6 +45,7 @@ public class HamsterRenderer {
 		private final ModelRenderer tail_two;
 		private final ModelRenderer leg;
 		private final ModelRenderer ear;
+
 		public Modelhamster() {
 			textureWidth = 16;
 			textureHeight = 16;
@@ -92,4 +94,5 @@ public class HamsterRenderer {
 			modelRenderer.rotateAngleZ = z;
 		}
 	}
+
 }

@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Collection;
 
 public class MeowmereLivingEntityIsHitWithToolProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("sourceentity") == null) {
 			if (!dependencies.containsKey("sourceentity"))
@@ -18,8 +19,8 @@ public class MeowmereLivingEntityIsHitWithToolProcedure {
 			return;
 		}
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		if ((Math.random() < 0.7)) {
-			if ((new Object() {
+		if (Math.random() < 0.7) {
+			if (new Object() {
 				boolean check(Entity _entity) {
 					if (_entity instanceof LivingEntity) {
 						Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
@@ -30,9 +31,9 @@ public class MeowmereLivingEntityIsHitWithToolProcedure {
 					}
 					return false;
 				}
-			}.check(sourceentity))) {
+			}.check(sourceentity)) {
 				if (sourceentity instanceof LivingEntity)
-					((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 160, (int) ((new Object() {
+					((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 160, (int) (new Object() {
 						int check(Entity _entity) {
 							if (_entity instanceof LivingEntity) {
 								Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
@@ -43,7 +44,7 @@ public class MeowmereLivingEntityIsHitWithToolProcedure {
 							}
 							return 0;
 						}
-					}.check(sourceentity)) + 1), (false), (true)));
+					}.check(sourceentity) + 1), (false), (true)));
 			} else {
 				if (sourceentity instanceof LivingEntity)
 					((LivingEntity) sourceentity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 60, (int) 0, (false), (true)));

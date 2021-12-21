@@ -6,6 +6,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.client.renderer.model.ModelRenderer;
@@ -25,6 +26,7 @@ public class RatRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(RatEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelrat(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/rat.png");
@@ -34,34 +36,73 @@ public class RatRenderer {
 		}
 	}
 
-	// Made with Blockbench 3.9.2
+	// Made with Blockbench 4.0.5
 	// Exported for Minecraft version 1.15 - 1.16 with MCP mappings
 	// Paste this class into your mod and generate all required imports
 	public static class Modelrat extends EntityModel<Entity> {
-		private final ModelRenderer bb_main;
-		public Modelrat() {
-			textureWidth = 16;
-			textureHeight = 16;
-			bb_main = new ModelRenderer(this);
-			bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
-			bb_main.setTextureOffset(0, 4).addBox(-2.0F, -2.0F, -2.6F, 5.0F, 2.0F, 5.0F, 0.0F, false);
-			bb_main.setTextureOffset(0, 14).addBox(-1.0F, -1.0F, 0.0F, 1.0F, 1.0F, 1.0F, 0.0F, false);
-			bb_main.setTextureOffset(0, 0).addBox(-3.0F, -2.0F, 0.35F, 1.0F, 1.0F, 1.0F, 0.0F, false);
-			bb_main.setTextureOffset(0, 0).addBox(-3.0F, -2.0F, -1.55F, 1.0F, 1.0F, 1.0F, 0.0F, false);
-			bb_main.setTextureOffset(0, 14).addBox(-2.0F, -3.0F, -1.6F, 5.0F, 2.0F, 3.0F, 0.0F, false);
-			bb_main.setTextureOffset(0, 12).addBox(4.0F, -1.0F, -0.2F, 3.0F, 1.0F, 0.0F, 0.0F, false);
-			bb_main.setTextureOffset(8, 4).addBox(3.0F, -1.0F, -1.6F, 1.0F, 1.0F, 3.0F, 0.0F, false);
-		}
+		private final ModelRenderer body3;
+		private final ModelRenderer body_s;
+		private final ModelRenderer front_right;
+		private final ModelRenderer back_left;
+		private final ModelRenderer front_left2;
+		private final ModelRenderer br_leg;
+		private final ModelRenderer tail;
+		private final ModelRenderer head;
+		private final ModelRenderer left_ear2_r1;
+		private final ModelRenderer body3_sub_2_r1;
 
-		@Override
-		public void setRotationAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-			// previously the render function, render code was moved to a method below
+		public Modelrat() {
+			textureWidth = 32;
+			textureHeight = 32;
+			body3 = new ModelRenderer(this);
+			body3.setRotationPoint(0.0F, 20.0F, 1.0F);
+			body_s = new ModelRenderer(this);
+			body_s.setRotationPoint(0.0F, 0.0F, 0.0F);
+			body3.addChild(body_s);
+			body_s.setTextureOffset(0, 6).addBox(-2.5F, -2.0F, -5.0F, 5.0F, 5.0F, 8.0F, 0.0F, false);
+			front_right = new ModelRenderer(this);
+			front_right.setRotationPoint(-1.75F, 22.0F, -2.0F);
+			front_right.setTextureOffset(1, 28).addBox(-0.5F, 0.0F, -1.0F, 1.0F, 2.0F, 1.0F, 0.0F, false);
+			back_left = new ModelRenderer(this);
+			back_left.setRotationPoint(1.75F, 22.0F, 2.75F);
+			back_left.setTextureOffset(1, 28).addBox(-0.5F, 0.0F, -1.0F, 1.0F, 2.0F, 1.0F, 0.0F, true);
+			front_left2 = new ModelRenderer(this);
+			front_left2.setRotationPoint(1.75F, 22.0F, -2.0F);
+			front_left2.setTextureOffset(1, 28).addBox(-0.5F, 0.0F, -1.0F, 1.0F, 2.0F, 1.0F, 0.0F, true);
+			br_leg = new ModelRenderer(this);
+			br_leg.setRotationPoint(-1.75F, 22.0F, 2.5F);
+			br_leg.setTextureOffset(1, 28).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 2.0F, 1.0F, 0.0F, false);
+			tail = new ModelRenderer(this);
+			tail.setRotationPoint(0.0F, 21.0F, 3.25F);
+			setRotationAngle(tail, -0.1309F, 0.0F, 0.0F);
+			tail.setTextureOffset(0, 19).addBox(-0.5F, -0.75F, -0.5F, 1.0F, 1.0F, 7.0F, 0.05F, false);
+			head = new ModelRenderer(this);
+			head.setRotationPoint(0.0F, 21.0F, -3.75F);
+			setRotationAngle(head, 0.0873F, 0.0F, 0.0F);
+			head.setTextureOffset(14, 0).addBox(-1.5F, -0.5F, -5.0F, 3.0F, 2.0F, 2.0F, 0.0F, false);
+			head.setTextureOffset(0, 0).addBox(-2.0F, -1.5F, -3.0F, 4.0F, 3.0F, 3.0F, 0.0F, false);
+			left_ear2_r1 = new ModelRenderer(this);
+			left_ear2_r1.setRotationPoint(0.0F, 3.0F, 4.0F);
+			head.addChild(left_ear2_r1);
+			setRotationAngle(left_ear2_r1, 0.0F, 0.0873F, 0.0F);
+			left_ear2_r1.setTextureOffset(24, 0).addBox(-3.25F, -5.75F, -4.75F, 2.0F, 2.0F, 0.0F, 0.0F, false);
+			body3_sub_2_r1 = new ModelRenderer(this);
+			body3_sub_2_r1.setRotationPoint(0.0F, 3.0F, 4.0F);
+			head.addChild(body3_sub_2_r1);
+			setRotationAngle(body3_sub_2_r1, 0.0F, -0.0873F, 0.0F);
+			body3_sub_2_r1.setTextureOffset(24, 0).addBox(1.25F, -5.75F, -4.75F, 2.0F, 2.0F, 0.0F, 0.0F, true);
 		}
 
 		@Override
 		public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue,
 				float alpha) {
-			bb_main.render(matrixStack, buffer, packedLight, packedOverlay);
+			body3.render(matrixStack, buffer, packedLight, packedOverlay);
+			front_right.render(matrixStack, buffer, packedLight, packedOverlay);
+			back_left.render(matrixStack, buffer, packedLight, packedOverlay);
+			front_left2.render(matrixStack, buffer, packedLight, packedOverlay);
+			br_leg.render(matrixStack, buffer, packedLight, packedOverlay);
+			tail.render(matrixStack, buffer, packedLight, packedOverlay);
+			head.render(matrixStack, buffer, packedLight, packedOverlay);
 		}
 
 		public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
@@ -69,5 +110,15 @@ public class RatRenderer {
 			modelRenderer.rotateAngleY = y;
 			modelRenderer.rotateAngleZ = z;
 		}
+
+		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
+			this.br_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
+			this.front_left2.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
+			this.tail.rotateAngleY = MathHelper.cos(f * 1.0F) * 1.0F * f1;
+			this.front_right.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
+			this.back_left.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
+		}
 	}
+
 }

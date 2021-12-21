@@ -53,6 +53,7 @@ import java.util.Collections;
 public class GrimstoneBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:grimstone")
 	public static final Block block = null;
+
 	public GrimstoneBlock(NewBlocksModElements instance) {
 		super(instance, 157);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -65,8 +66,10 @@ public class GrimstoneBlock extends NewBlocksModElements.ModElement {
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(DeepDarkTabItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(3.3f, 6f).setLightLevel(s -> 0).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).setRequiresTool());
@@ -108,12 +111,15 @@ public class GrimstoneBlock extends NewBlocksModElements.ModElement {
 			return Collections.singletonList(new ItemStack(CobbledGrimstoneBlock.block));
 		}
 	}
+
 	private static Feature<OreFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
 	private static IRuleTestType<CustomRuleTest> CUSTOM_MATCH = null;
+
 	private static class CustomRuleTest extends RuleTest {
 		static final CustomRuleTest INSTANCE = new CustomRuleTest();
 		static final com.mojang.serialization.Codec<CustomRuleTest> codec = com.mojang.serialization.Codec.unit(() -> INSTANCE);
+
 		public boolean test(BlockState blockAt, Random random) {
 			boolean blockCriteria = false;
 			if (blockAt.getBlock() == Blocks.STONE)
@@ -150,6 +156,7 @@ public class GrimstoneBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:grimstone"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_ORES).add(() -> configuredFeature);

@@ -21,7 +21,13 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class ThunderbladeEntitySwingsItemProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure ThunderbladeEntitySwingsItem!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure ThunderbladeEntitySwingsItem!");
@@ -32,21 +38,17 @@ public class ThunderbladeEntitySwingsItemProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure ThunderbladeEntitySwingsItem!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure ThunderbladeEntitySwingsItem!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+		if (entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 				entity.getEyePosition(1f).add(entity.getLook(1f).x * 64, entity.getLook(1f).y * 64, entity.getLook(1f).z * 64),
-				RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getType() == RayTraceResult.Type.BLOCK)) {
+				RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getType() == RayTraceResult.Type.BLOCK) {
 			new Object() {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -67,6 +69,7 @@ public class ThunderbladeEntitySwingsItemProcedure {
 						private int ticks = 0;
 						private float waitTicks;
 						private IWorld world;
+
 						public void start(IWorld world, int waitTicks) {
 							this.waitTicks = waitTicks;
 							MinecraftForge.EVENT_BUS.register(this);
@@ -83,11 +86,11 @@ public class ThunderbladeEntitySwingsItemProcedure {
 						}
 
 						private void run() {
-							(itemstack).getOrCreateTag().putDouble("canUseThunder", 1);
+							itemstack.getOrCreateTag().putDouble("canUseThunder", 1);
 							MinecraftForge.EVENT_BUS.unregister(this);
 						}
 					}.start(world, (int) 50);
-					if ((((itemstack).getOrCreateTag().getDouble("canUseThunder")) == 1)) {
+					if (itemstack.getOrCreateTag().getDouble("canUseThunder") == 1) {
 						if (world instanceof ServerWorld) {
 							LightningBoltEntity _ent = EntityType.LIGHTNING_BOLT.create((World) world);
 							_ent.moveForced(
@@ -116,7 +119,7 @@ public class ThunderbladeEntitySwingsItemProcedure {
 							_ent.setEffectOnly(false);
 							((World) world).addEntity(_ent);
 						}
-						(itemstack).getOrCreateTag().putDouble("canUseThunder", 0);
+						itemstack.getOrCreateTag().putDouble("canUseThunder", 0);
 					}
 					MinecraftForge.EVENT_BUS.unregister(this);
 				}

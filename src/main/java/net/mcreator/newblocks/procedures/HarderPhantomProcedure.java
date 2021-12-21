@@ -43,7 +43,13 @@ public class HarderPhantomProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure HarderPhantom!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure HarderPhantom!");
@@ -54,29 +60,24 @@ public class HarderPhantomProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure HarderPhantom!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure HarderPhantom!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((sourceentity instanceof PhantomEntity)) {
-			if ((Math.random() < 0.2)) {
+		if (sourceentity instanceof PhantomEntity) {
+			if (Math.random() < 0.2) {
 				entity.startRiding(sourceentity);
 				sourceentity.getPersistentData().putBoolean("isBeingRidden", (true));
 				for (int index0 = 0; index0 < (int) (12); index0++) {
-					if ((world.canBlockSeeSky(
-							new BlockPos((int) (sourceentity.getPosX()), (int) ((sourceentity.getPosY()) + 1), (int) (sourceentity.getPosZ()))))) {
-						if ((Math.random() < 0.5)) {
-							sourceentity.setMotion((sourceentity.getMotion().getX()), ((entity.getMotion().getY()) + 0.1),
+					if (world.canBlockSeeSky(
+							new BlockPos((int) (sourceentity.getPosX()), (int) (sourceentity.getPosY() + 1), (int) (sourceentity.getPosZ())))) {
+						if (Math.random() < 0.5) {
+							sourceentity.setMotion((sourceentity.getMotion().getX()), (entity.getMotion().getY() + 0.1),
 									(sourceentity.getMotion().getZ()));
 						}
 					}
 				}
 			} else {
-				if ((Math.random() < 0.2)) {
+				if (Math.random() < 0.2) {
 					sourceentity.getPersistentData().putBoolean("isBeingRidden", (false));
 				}
 			}

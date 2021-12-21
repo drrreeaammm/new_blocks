@@ -22,6 +22,7 @@ import java.util.List;
 public class ElectricSpiderSoundsItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:electric_spider_sounds")
 	public static final Item block = null;
+
 	public ElectricSpiderSoundsItem(NewBlocksModElements instance) {
 		super(instance, 100);
 	}
@@ -30,6 +31,7 @@ public class ElectricSpiderSoundsItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new MusicDiscItemCustom());
 	}
+
 	public static class MusicDiscItemCustom extends MusicDiscItem {
 		public MusicDiscItemCustom() {
 			super(0, NewBlocksModElements.sounds.get(new ResourceLocation("new_blocks:electric_spider_disc")),

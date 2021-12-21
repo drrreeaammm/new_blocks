@@ -21,6 +21,7 @@ public class WandererRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(WandererEntity.entity,
 					renderManager -> new MobRenderer(renderManager, new CowModel(), 0.5f) {
+
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
 							return new ResourceLocation("new_blocks:textures/creeper-cow-on-planetminecraft-com.png");

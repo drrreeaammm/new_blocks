@@ -33,6 +33,7 @@ import java.util.Collections;
 public class RainbowDoorBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:rainbow_door")
 	public static final Block block = null;
+
 	public RainbowDoorBlock(NewBlocksModElements instance) {
 		super(instance, 126);
 	}
@@ -48,6 +49,7 @@ public class RainbowDoorBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends DoorBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.1999999999999997f, 10f).setLightLevel(s -> 0)

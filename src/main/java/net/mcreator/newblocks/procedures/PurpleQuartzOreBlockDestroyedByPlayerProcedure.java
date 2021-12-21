@@ -9,7 +9,13 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class PurpleQuartzOreBlockDestroyedByPlayerProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PurpleQuartzOreBlockDestroyedByPlayer!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency x for procedure PurpleQuartzOreBlockDestroyedByPlayer!");
@@ -25,23 +31,18 @@ public class PurpleQuartzOreBlockDestroyedByPlayerProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure PurpleQuartzOreBlockDestroyedByPlayer!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PurpleQuartzOreBlockDestroyedByPlayer!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((Math.random() < 5)) {
+		if (Math.random() < 5) {
 			if (world instanceof World && !world.isRemote()) {
 				((World) world).addEntity(new ExperienceOrbEntity(((World) world), x, y, z, (int) 3));
 			}
 			if (world instanceof World && !world.isRemote()) {
 				((World) world).addEntity(new ExperienceOrbEntity(((World) world), x, y, z, (int) 2));
 			}
-		} else if ((Math.random() < 5)) {
+		} else if (Math.random() < 5) {
 			if (world instanceof World && !world.isRemote()) {
 				((World) world).addEntity(new ExperienceOrbEntity(((World) world), x, y, z, (int) 2));
 			}

@@ -33,6 +33,7 @@ import java.util.Collections;
 public class WardenHeadBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:warden_head")
 	public static final Block block = null;
+
 	public WardenHeadBlock(NewBlocksModElements instance) {
 		super(instance, 781);
 	}
@@ -48,6 +49,7 @@ public class WardenHeadBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1f, 3f).setLightLevel(s -> 0).notSolid()
@@ -68,7 +70,11 @@ public class WardenHeadBlock extends NewBlocksModElements.ModElement {
 		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
-			return VoxelShapes.or(makeCuboidShape(2, 0, 2, 16, 16, 16)).withOffset(offset.x, offset.y, offset.z);
+			return VoxelShapes.or(makeCuboidShape(2, 0, 2, 16, 16, 16)
+
+			)
+
+					.withOffset(offset.x, offset.y, offset.z);
 		}
 
 		@Override

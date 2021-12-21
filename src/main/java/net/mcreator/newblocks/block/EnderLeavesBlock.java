@@ -30,6 +30,7 @@ import java.util.Collections;
 public class EnderLeavesBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ender_leaves")
 	public static final Block block = null;
+
 	public EnderLeavesBlock(NewBlocksModElements instance) {
 		super(instance, 48);
 	}
@@ -45,6 +46,7 @@ public class EnderLeavesBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.LEAVES).sound(SoundType.SLIME).hardnessAndResistance(0.2f, 10f).setLightLevel(s -> 0).notSolid()

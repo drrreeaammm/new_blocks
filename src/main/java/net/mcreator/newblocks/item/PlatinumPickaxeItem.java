@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class PlatinumPickaxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:platinum_pickaxe")
 	public static final Item block = null;
+
 	public PlatinumPickaxeItem(NewBlocksModElements instance) {
 		super(instance, 1044);
 	}

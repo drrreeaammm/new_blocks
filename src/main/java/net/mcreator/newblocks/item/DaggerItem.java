@@ -16,13 +16,16 @@ import net.minecraft.entity.LivingEntity;
 import net.mcreator.newblocks.procedures.DaggerLivingEntityIsHitWithToolProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class DaggerItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:dagger")
 	public static final Item block = null;
+
 	public DaggerItem(NewBlocksModElements instance) {
 		super(instance, 252);
 	}
@@ -61,11 +64,9 @@ public class DaggerItem extends NewBlocksModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				World world = entity.world;
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					DaggerLivingEntityIsHitWithToolProcedure.executeProcedure($_dependencies);
-				}
+
+				DaggerLivingEntityIsHitWithToolProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("dagger"));

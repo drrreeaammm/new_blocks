@@ -24,7 +24,8 @@ public class AntRenderer {
 		@OnlyIn(Dist.CLIENT)
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(AntEntity.entity, renderManager -> {
-				return new MobRenderer(renderManager, new Modelant(), 0.5f) {
+				return new MobRenderer(renderManager, new Modelant(), 0.05f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/ant.png");
@@ -41,6 +42,7 @@ public class AntRenderer {
 		private final ModelRenderer body;
 		private final ModelRenderer leg;
 		private final ModelRenderer head;
+
 		public Modelant() {
 			textureWidth = 16;
 			textureHeight = 16;
@@ -73,6 +75,8 @@ public class AntRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

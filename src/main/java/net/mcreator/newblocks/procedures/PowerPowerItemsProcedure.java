@@ -27,10 +27,11 @@ import java.util.function.Supplier;
 import java.util.Map;
 
 public class PowerPowerItemsProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PowerPowerItems!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PowerPowerItems!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -48,17 +49,17 @@ public class PowerPowerItemsProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure PowerPowerItems!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PowerPowerItems!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PowerPowerItems!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if (((new Object() {
+		Entity entity = (Entity) dependencies.get("entity");
+		if ((new Object() {
 			public ItemStack getItemStack(int sltid) {
 				Entity _ent = entity;
 				if (_ent instanceof ServerPlayerEntity) {
@@ -72,8 +73,8 @@ public class PowerPowerItemsProcedure {
 				}
 				return ItemStack.EMPTY;
 			}
-		}.getItemStack((int) (0))).getItem() == EnergyPoweredItem.body)) {
-			if (((new Object() {
+		}.getItemStack((int) (0))).getItem() == EnergyPoweredItem.body) {
+			if ((new Object() {
 				public ItemStack getItemStack(int sltid) {
 					Entity _ent = entity;
 					if (_ent instanceof ServerPlayerEntity) {
@@ -87,8 +88,8 @@ public class PowerPowerItemsProcedure {
 					}
 					return ItemStack.EMPTY;
 				}
-			}.getItemStack((int) (1))).getItem() == PowerOneUpgradeItem.block)) {
-				if (((new Object() {
+			}.getItemStack((int) (1))).getItem() == PowerOneUpgradeItem.block) {
+				if ((new Object() {
 					public ItemStack getItemStack(int sltid) {
 						Entity _ent = entity;
 						if (_ent instanceof ServerPlayerEntity) {
@@ -102,7 +103,7 @@ public class PowerPowerItemsProcedure {
 						}
 						return ItemStack.EMPTY;
 					}
-				}.getItemStack((int) (2))).getItem() == Blocks.AIR.asItem())) {
+				}.getItemStack((int) (2))).getItem() == Blocks.AIR.asItem()) {
 					{
 						Entity _ent = entity;
 						if (_ent instanceof ServerPlayerEntity) {
@@ -129,6 +130,7 @@ public class PowerPowerItemsProcedure {
 						private int ticks = 0;
 						private float waitTicks;
 						private IWorld world;
+
 						public void start(IWorld world, int waitTicks) {
 							this.waitTicks = waitTicks;
 							MinecraftForge.EVENT_BUS.register(this);
@@ -190,6 +192,7 @@ public class PowerPowerItemsProcedure {
 								private int ticks = 0;
 								private float waitTicks;
 								private IWorld world;
+
 								public void start(IWorld world, int waitTicks) {
 									this.waitTicks = waitTicks;
 									MinecraftForge.EVENT_BUS.register(this);
@@ -223,7 +226,7 @@ public class PowerPowerItemsProcedure {
 						}
 					}.start(world, (int) 5);
 				}
-			} else if (((new Object() {
+			} else if ((new Object() {
 				public ItemStack getItemStack(int sltid) {
 					Entity _ent = entity;
 					if (_ent instanceof ServerPlayerEntity) {
@@ -237,8 +240,8 @@ public class PowerPowerItemsProcedure {
 					}
 					return ItemStack.EMPTY;
 				}
-			}.getItemStack((int) (1))).getItem() == PowerTwoUpgradeItem.block)) {
-				if (((new Object() {
+			}.getItemStack((int) (1))).getItem() == PowerTwoUpgradeItem.block) {
+				if ((new Object() {
 					public ItemStack getItemStack(int sltid) {
 						Entity _ent = entity;
 						if (_ent instanceof ServerPlayerEntity) {
@@ -252,7 +255,7 @@ public class PowerPowerItemsProcedure {
 						}
 						return ItemStack.EMPTY;
 					}
-				}.getItemStack((int) (2))).getItem() == Blocks.AIR.asItem())) {
+				}.getItemStack((int) (2))).getItem() == Blocks.AIR.asItem()) {
 					{
 						Entity _ent = entity;
 						if (_ent instanceof ServerPlayerEntity) {
@@ -279,6 +282,7 @@ public class PowerPowerItemsProcedure {
 						private int ticks = 0;
 						private float waitTicks;
 						private IWorld world;
+
 						public void start(IWorld world, int waitTicks) {
 							this.waitTicks = waitTicks;
 							MinecraftForge.EVENT_BUS.register(this);
@@ -340,6 +344,7 @@ public class PowerPowerItemsProcedure {
 								private int ticks = 0;
 								private float waitTicks;
 								private IWorld world;
+
 								public void start(IWorld world, int waitTicks) {
 									this.waitTicks = waitTicks;
 									MinecraftForge.EVENT_BUS.register(this);

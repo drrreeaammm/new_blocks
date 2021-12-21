@@ -16,13 +16,16 @@ import net.mcreator.newblocks.procedures.HeartRightClickedInAirProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class HeartItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:heart")
 	public static final Item block = null;
+
 	public HeartItem(NewBlocksModElements instance) {
 		super(instance, 91);
 	}
@@ -31,6 +34,7 @@ public class HeartItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxDamage(16).isImmuneToFire().rarity(Rarity.RARE));
@@ -59,13 +63,11 @@ public class HeartItem extends NewBlocksModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("itemstack", itemstack);
-				$_dependencies.put("world", world);
-				HeartRightClickedInAirProcedure.executeProcedure($_dependencies);
-			}
+
+			HeartRightClickedInAirProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity),
+							new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return ar;
 		}
 	}

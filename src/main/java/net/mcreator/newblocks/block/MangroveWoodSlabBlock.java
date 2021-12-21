@@ -25,6 +25,7 @@ import java.util.Collections;
 public class MangroveWoodSlabBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mangrove_wood_slab")
 	public static final Block block = null;
+
 	public MangroveWoodSlabBlock(NewBlocksModElements instance) {
 		super(instance, 1051);
 	}
@@ -34,6 +35,7 @@ public class MangroveWoodSlabBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends SlabBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2f, 4f).setLightLevel(s -> 0));

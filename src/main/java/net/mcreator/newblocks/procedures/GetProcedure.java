@@ -7,6 +7,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class GetProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
@@ -14,6 +15,6 @@ public class GetProcedure {
 			return false;
 		}
 		IWorld world = (IWorld) dependencies.get("world");
-		return (world.getWorldInfo().isRaining() && (Math.random() < 0.5));
+		return world.getWorldInfo().isRaining() && Math.random() < 0.5;
 	}
 }

@@ -25,6 +25,7 @@ public class ArmyDroneRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(ArmyDroneEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modeldrone(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/drone.png");
@@ -54,6 +55,7 @@ public class ArmyDroneRenderer {
 		private final ModelRenderer legs;
 		private final ModelRenderer leg1;
 		private final ModelRenderer leg2;
+
 		public Modeldrone() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -160,6 +162,8 @@ public class ArmyDroneRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

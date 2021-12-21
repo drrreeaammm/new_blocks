@@ -25,8 +25,10 @@ import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.mcreator.newblocks.procedures.SculkingArmorHelmetTickEventProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -41,6 +43,7 @@ public class SculkingArmorItem extends NewBlocksModElements.ModElement {
 	public static final Item legs = null;
 	@ObjectHolder("new_blocks:sculking_armor_boots")
 	public static final Item boots = null;
+
 	public SculkingArmorItem(NewBlocksModElements instance) {
 		super(instance, 758);
 	}
@@ -112,19 +115,16 @@ public class SculkingArmorItem extends NewBlocksModElements.ModElement {
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("itemstack", itemstack);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					SculkingArmorHelmetTickEventProcedure.executeProcedure($_dependencies);
-				}
+
+				SculkingArmorHelmetTickEventProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("sculking_armor_helmet"));
 	}
+
 	// Made with Blockbench 3.9.3
 	// Exported for Minecraft version 1.15 - 1.16 with MCP mappings
 	// Paste this class into your mod and generate all required imports
@@ -133,6 +133,7 @@ public class SculkingArmorItem extends NewBlocksModElements.ModElement {
 		private final ModelRenderer body;
 		private final ModelRenderer left_shoe;
 		private final ModelRenderer left_arm;
+
 		public Modelsculking_layer_1() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -164,8 +165,10 @@ public class SculkingArmorItem extends NewBlocksModElements.ModElement {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 		}
 	}
+
 }

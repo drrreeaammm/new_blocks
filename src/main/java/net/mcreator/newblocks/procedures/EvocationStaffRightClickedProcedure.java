@@ -18,22 +18,23 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class EvocationStaffRightClickedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure EvocationStaffRightClicked!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure EvocationStaffRightClicked!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure EvocationStaffRightClicked!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
-		if ((entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
+		Entity entity = (Entity) dependencies.get("entity");
+		if (entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 				entity.getEyePosition(1f).add(entity.getLook(1f).x * 12, entity.getLook(1f).y * 12, entity.getLook(1f).z * 12),
-				RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getType() == RayTraceResult.Type.BLOCK)) {
+				RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, entity)).getType() == RayTraceResult.Type.BLOCK) {
 			if (world instanceof ServerWorld) {
 				Entity entityToSpawn = new EvokerFangsEntity(EntityType.EVOKER_FANGS, (World) world);
 				entityToSpawn

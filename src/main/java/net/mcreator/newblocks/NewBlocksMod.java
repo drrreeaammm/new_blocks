@@ -46,6 +46,7 @@ public class NewBlocksMod {
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation("new_blocks", "new_blocks"),
 			() -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 	public NewBlocksModElements elements;
+
 	public NewBlocksMod() {
 		elements = new NewBlocksModElements();
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
@@ -86,8 +87,10 @@ public class NewBlocksMod {
 	public void registerSounds(RegistryEvent.Register<net.minecraft.util.SoundEvent> event) {
 		elements.registerSounds(event);
 	}
+
 	private static class NewBlocksModFMLBusEvents {
 		private final NewBlocksMod parent;
+
 		NewBlocksModFMLBusEvents(NewBlocksMod parent) {
 			this.parent = parent;
 		}

@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class MintHoeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mint_hoe")
 	public static final Item block = null;
+
 	public MintHoeItem(NewBlocksModElements instance) {
 		super(instance, 261);
 	}

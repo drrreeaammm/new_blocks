@@ -26,6 +26,7 @@ public class FireBenderRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(FireBenderEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelfirebender(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/firebender.png");
@@ -50,6 +51,7 @@ public class FireBenderRenderer {
 		private final ModelRenderer right_arm;
 		private final ModelRenderer left_leg;
 		private final ModelRenderer right_leg;
+
 		public Modelfirebender() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -111,6 +113,7 @@ public class FireBenderRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.nose.rotateAngleY = f3 / (180F / (float) Math.PI);
@@ -121,4 +124,5 @@ public class FireBenderRenderer {
 			this.hat.rotateAngleX = f4 / (180F / (float) Math.PI);
 		}
 	}
+
 }

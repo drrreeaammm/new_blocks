@@ -11,6 +11,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class EnergyPoweredBodyTickEventProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -24,10 +25,10 @@ public class EnergyPoweredBodyTickEventProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		if ((((itemstack).getOrCreateTag().getDouble("power")) == 1)) {
+		if (itemstack.getOrCreateTag().getDouble("power") == 1) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 20, (int) 0, (false), (false)));
-		} else if ((((itemstack).getOrCreateTag().getDouble("power")) == 2)) {
+		} else if (itemstack.getOrCreateTag().getDouble("power") == 2) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 20, (int) 0, (false), (false)));
 			if (entity instanceof LivingEntity)

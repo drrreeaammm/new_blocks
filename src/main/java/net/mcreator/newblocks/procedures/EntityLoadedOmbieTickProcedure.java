@@ -39,6 +39,7 @@ public class EntityLoadedOmbieTickProcedure {
 			executeProcedure(dependencies);
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -46,9 +47,8 @@ public class EntityLoadedOmbieTickProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((EntityTypeTags.getCollection().getTagByID(new ResourceLocation(("new_blocks:zombie_tags").toLowerCase(java.util.Locale.ENGLISH)))
-				.contains(entity.getType()))) {
-			if ((Math.random() < 0.2)) {
+		if (EntityTypeTags.getCollection().getTagByID(new ResourceLocation("new_blocks:zombie_tags")).contains(entity.getType())) {
+			if (Math.random() < 0.2) {
 				if (entity instanceof LivingEntity) {
 					ItemStack _setstack = new ItemStack(GrenadeItem.block);
 					_setstack.setCount((int) 1);

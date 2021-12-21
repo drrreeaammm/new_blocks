@@ -46,6 +46,7 @@ public class ArmoredSkeletonEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 1.99f)).build("armored_skeleton").setRegistryName("armored_skeleton");
+
 	public ArmoredSkeletonEntity(NewBlocksModElements instance) {
 		super(instance, 177);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new ArmoredSkeletonRenderer.ModelRegisterHandler());
@@ -75,6 +76,7 @@ public class ArmoredSkeletonEntity extends NewBlocksModElements.ModElement {
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

@@ -15,13 +15,16 @@ import net.minecraft.entity.LivingEntity;
 import net.mcreator.newblocks.procedures.GooSandwichFoodEatenProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class GooSandwichItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:goo_sandwich")
 	public static final Item block = null;
+
 	public GooSandwichItem(NewBlocksModElements instance) {
 		super(instance, 268);
 	}
@@ -30,10 +33,13 @@ public class GooSandwichItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(ItemGroup.FOOD).maxStackSize(64).rarity(Rarity.COMMON)
-					.food((new Food.Builder()).hunger(9).saturation(1.2000000000000002f).build()));
+					.food((new Food.Builder()).hunger(9).saturation(1.2000000000000002f)
+
+							.build()));
 			setRegistryName("goo_sandwich");
 		}
 
@@ -53,11 +59,9 @@ public class GooSandwichItem extends NewBlocksModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				GooSandwichFoodEatenProcedure.executeProcedure($_dependencies);
-			}
+
+			GooSandwichFoodEatenProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}

@@ -15,13 +15,16 @@ import net.minecraft.entity.LivingEntity;
 import net.mcreator.newblocks.procedures.KetchupBottleFoodEatenProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class KetchupBottleItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ketchup_bottle")
 	public static final Item block = null;
+
 	public KetchupBottleItem(NewBlocksModElements instance) {
 		super(instance, 1238);
 	}
@@ -30,6 +33,7 @@ public class KetchupBottleItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(ItemGroup.FOOD).maxStackSize(6).rarity(Rarity.COMMON)
@@ -58,14 +62,11 @@ public class KetchupBottleItem extends NewBlocksModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				KetchupBottleFoodEatenProcedure.executeProcedure($_dependencies);
-			}
+
+			KetchupBottleFoodEatenProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}

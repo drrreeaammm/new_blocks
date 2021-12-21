@@ -57,6 +57,7 @@ import java.util.Collections;
 public class ShadowGrassBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:shadow_grass")
 	public static final Block block = null;
+
 	public ShadowGrassBlock(NewBlocksModElements instance) {
 		super(instance, 1199);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -74,8 +75,10 @@ public class ShadowGrassBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static Feature<BlockClusterFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
 		public void registerFeature(RegistryEvent.Register<Feature<?>> event) {
@@ -99,6 +102,7 @@ public class ShadowGrassBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:shadow_grass"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		boolean biomeCriteria = false;
@@ -108,11 +112,17 @@ public class ShadowGrassBlock extends NewBlocksModElements.ModElement {
 			return;
 		event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> configuredFeature);
 	}
+
 	public static class BlockCustomFlower extends FlowerBlock {
 		public BlockCustomFlower() {
 			super(Effects.SPEED, 5, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().sound(SoundType.PLANT)
 					.hardnessAndResistance(0f, 0f).setLightLevel(s -> 0));
 			setRegistryName("shadow_grass");
+		}
+
+		@Override
+		public int getStewEffectDuration() {
+			return 5;
 		}
 
 		@Override
@@ -136,7 +146,11 @@ public class ShadowGrassBlock extends NewBlocksModElements.ModElement {
 		@Override
 		public boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 			Block ground = state.getBlock();
-			return (ground == ShadowGrassBlockBlock.block || ground == Blocks.END_STONE);
+			return (ground == ShadowGrassBlockBlock.block || ground == Blocks.END_STONE
+
+			)
+
+			;
 		}
 
 		@Override

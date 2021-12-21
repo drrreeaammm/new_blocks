@@ -13,6 +13,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class ElectricityEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:electricity")
 	public static final Enchantment enchantment = null;
+
 	public ElectricityEnchantment(NewBlocksModElements instance) {
 		super(instance, 290);
 	}
@@ -21,6 +22,7 @@ public class ElectricityEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("electricity"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.VERY_RARE, EnchantmentType.WEAPON, slots);

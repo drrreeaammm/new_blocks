@@ -36,6 +36,7 @@ import java.util.Collections;
 public class DarkLogBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:dark_log")
 	public static final Block block = null;
+
 	public DarkLogBlock(NewBlocksModElements instance) {
 		super(instance, 920);
 	}
@@ -51,8 +52,10 @@ public class DarkLogBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
+
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.9999999999999998f, 3f).setLightLevel(s -> 0)
 					.harvestLevel(0).harvestTool(ToolType.AXE).setRequiresTool().notSolid().setNeedsPostProcessing((bs, br, bp) -> true)

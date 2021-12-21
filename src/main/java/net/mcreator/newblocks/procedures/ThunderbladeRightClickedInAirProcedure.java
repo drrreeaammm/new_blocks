@@ -28,15 +28,11 @@ import java.util.List;
 import java.util.Comparator;
 
 public class ThunderbladeRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure ThunderbladeRightClickedInAir!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure ThunderbladeRightClickedInAir!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure ThunderbladeRightClickedInAir!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -54,19 +50,24 @@ public class ThunderbladeRightClickedInAirProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure ThunderbladeRightClickedInAir!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure ThunderbladeRightClickedInAir!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure ThunderbladeRightClickedInAir!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure ThunderbladeRightClickedInAir!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		if (entity instanceof PlayerEntity)
-			((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 800);
+			((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 800);
 		{
 			List<Entity> _entfound = world
 					.getEntitiesWithinAABB(Entity.class,
@@ -77,12 +78,12 @@ public class ThunderbladeRightClickedInAirProcedure {
 						}
 					}.compareDistOf(x, y, z)).collect(Collectors.toList());
 			for (Entity entityiterator : _entfound) {
-				if ((!(entityiterator == entity))) {
-					if ((!((entityiterator instanceof TameableEntity && entity instanceof LivingEntity)
+				if (!(entityiterator == entity)) {
+					if (!((entityiterator instanceof TameableEntity && entity instanceof LivingEntity)
 							? ((TameableEntity) entityiterator).isOwner((LivingEntity) entity)
-							: false))) {
+							: false)) {
 						{
-							ItemStack _ist = (itemstack);
+							ItemStack _ist = itemstack;
 							if (_ist.attemptDamageItem((int) 35, new Random(), null)) {
 								_ist.shrink(1);
 								_ist.setDamage(0);
@@ -99,6 +100,7 @@ public class ThunderbladeRightClickedInAirProcedure {
 							private int ticks = 0;
 							private float waitTicks;
 							private IWorld world;
+
 							public void start(IWorld world, int waitTicks) {
 								this.waitTicks = waitTicks;
 								MinecraftForge.EVENT_BUS.register(this);
@@ -126,6 +128,7 @@ public class ThunderbladeRightClickedInAirProcedure {
 									private int ticks = 0;
 									private float waitTicks;
 									private IWorld world;
+
 									public void start(IWorld world, int waitTicks) {
 										this.waitTicks = waitTicks;
 										MinecraftForge.EVENT_BUS.register(this);

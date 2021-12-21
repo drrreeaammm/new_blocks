@@ -26,6 +26,7 @@ public class GooEndermanRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(GooEndermanEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelgoo_enderman(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/goo_enderman.png");
@@ -46,6 +47,7 @@ public class GooEndermanRenderer {
 		private final ModelRenderer left_arm;
 		private final ModelRenderer right_leg;
 		private final ModelRenderer left_leg;
+
 		public Modelgoo_enderman() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -91,6 +93,7 @@ public class GooEndermanRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.headwear.rotateAngleY = f3 / (180F / (float) Math.PI);
@@ -101,4 +104,5 @@ public class GooEndermanRenderer {
 			this.right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

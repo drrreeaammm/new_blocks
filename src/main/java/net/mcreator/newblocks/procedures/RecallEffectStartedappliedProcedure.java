@@ -20,19 +20,20 @@ import java.util.Map;
 import java.util.Collections;
 
 public class RecallEffectStartedappliedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure RecallEffectStartedapplied!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure RecallEffectStartedapplied!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure RecallEffectStartedapplied!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		{
 			Entity _ent = entity;
 			if (!_ent.world.isRemote && _ent.world.getServer() != null) {
@@ -54,8 +55,8 @@ public class RecallEffectStartedappliedProcedure {
 						"execute store result entity @s ForgeData.spawnZ int 1 run data get entity @s SpawnZ");
 			}
 		}
-		if ((entity instanceof PlayerEntity)) {
-			if ((((entity.getPersistentData().getDouble("spawnX")) == 0) && ((entity.getPersistentData().getDouble("spawnZ")) == 0))) {
+		if (entity instanceof PlayerEntity) {
+			if (entity.getPersistentData().getDouble("spawnX") == 0 && entity.getPersistentData().getDouble("spawnZ") == 0) {
 				{
 					Entity _ent = entity;
 					_ent.setPositionAndUpdate((world.getWorldInfo().getSpawnX()), (world.getWorldInfo().getSpawnY()),
@@ -88,6 +89,7 @@ public class RecallEffectStartedappliedProcedure {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);
@@ -134,6 +136,7 @@ public class RecallEffectStartedappliedProcedure {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);

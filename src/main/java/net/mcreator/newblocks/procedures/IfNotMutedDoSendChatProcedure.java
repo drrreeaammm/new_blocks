@@ -33,6 +33,7 @@ public class IfNotMutedDoSendChatProcedure {
 			executeProcedure(dependencies);
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -40,7 +41,7 @@ public class IfNotMutedDoSendChatProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if (((entity.getPersistentData().getBoolean("muted")) == (true))) {
+		if (entity.getPersistentData().getBoolean("muted") == true) {
 			if (dependencies.get("event") != null) {
 				Object _obj = dependencies.get("event");
 				if (_obj instanceof Event) {

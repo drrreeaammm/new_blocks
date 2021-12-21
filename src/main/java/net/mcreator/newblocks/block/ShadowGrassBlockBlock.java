@@ -25,6 +25,7 @@ import java.util.Collections;
 public class ShadowGrassBlockBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:shadow_grass_block")
 	public static final Block block = null;
+
 	public ShadowGrassBlockBlock(NewBlocksModElements instance) {
 		super(instance, 1198);
 	}
@@ -34,6 +35,7 @@ public class ShadowGrassBlockBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(3f, 9f).setLightLevel(s -> 0).harvestLevel(0)

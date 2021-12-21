@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class RubyItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ruby")
 	public static final Item block = null;
+
 	public RubyItem(NewBlocksModElements instance) {
 		super(instance, 75);
 	}
@@ -23,6 +24,7 @@ public class RubyItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));

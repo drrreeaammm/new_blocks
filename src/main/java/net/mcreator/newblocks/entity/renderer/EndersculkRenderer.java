@@ -34,6 +34,7 @@ public class EndersculkRenderer {
 					{
 						this.addLayer(new GlowingLayer<>(this));
 					}
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/endersculk.png");
@@ -67,6 +68,7 @@ public class EndersculkRenderer {
 		private final ModelRenderer left_arm;
 		private final ModelRenderer right_leg;
 		private final ModelRenderer left_leg;
+
 		public Modelendersculk() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -118,6 +120,7 @@ public class EndersculkRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			this.headwear.rotateAngleY = f3 / (180F / (float) Math.PI);
@@ -128,4 +131,5 @@ public class EndersculkRenderer {
 			this.right_leg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

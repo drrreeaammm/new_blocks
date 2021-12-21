@@ -18,13 +18,16 @@ import net.minecraft.block.BlockState;
 import net.mcreator.newblocks.procedures.EnergyCheckerRightClickedOnBlockProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class EnergyCheckerItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:energy_checker")
 	public static final Item block = null;
+
 	public EnergyCheckerItem(NewBlocksModElements instance) {
 		super(instance, 223);
 	}
@@ -33,6 +36,7 @@ public class EnergyCheckerItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(1).rarity(Rarity.COMMON));
@@ -66,15 +70,11 @@ public class EnergyCheckerItem extends NewBlocksModElements.ModElement {
 			int y = pos.getY();
 			int z = pos.getZ();
 			ItemStack itemstack = context.getItem();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				EnergyCheckerRightClickedOnBlockProcedure.executeProcedure($_dependencies);
-			}
+
+			EnergyCheckerRightClickedOnBlockProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}

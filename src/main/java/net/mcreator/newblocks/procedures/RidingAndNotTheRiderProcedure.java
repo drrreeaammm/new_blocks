@@ -7,6 +7,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class RidingAndNotTheRiderProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -14,6 +15,6 @@ public class RidingAndNotTheRiderProcedure {
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		return (entity.isBeingRidden());
+		return entity.isBeingRidden();
 	}
 }

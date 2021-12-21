@@ -32,6 +32,7 @@ import java.util.Collections;
 public class GlowGrassBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:glow_grass")
 	public static final Block block = null;
+
 	public GlowGrassBlock(NewBlocksModElements instance) {
 		super(instance, 63);
 	}
@@ -41,6 +42,7 @@ public class GlowGrassBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ORGANIC).sound(SoundType.GROUND).hardnessAndResistance(0.7999999999999999f, 10f)

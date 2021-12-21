@@ -26,6 +26,7 @@ public class SquirrelRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(SquirrelEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelsquirrel(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/squirrel.png");
@@ -52,6 +53,7 @@ public class SquirrelRenderer {
 		private final ModelRenderer tail_sub_3;
 		private final ModelRenderer bone3;
 		private final ModelRenderer tail_sub_5;
+
 		public Modelsquirrel() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -126,6 +128,7 @@ public class SquirrelRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.right_arm.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 			this.left_foot.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
@@ -134,4 +137,5 @@ public class SquirrelRenderer {
 			this.left_arm.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

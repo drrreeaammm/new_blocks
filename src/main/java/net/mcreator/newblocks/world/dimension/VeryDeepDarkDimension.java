@@ -1,6 +1,7 @@
 
 package net.mcreator.newblocks.world.dimension;
 
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
@@ -25,9 +26,12 @@ import net.mcreator.newblocks.procedures.VeryDeepDarkPlayerEntersDimensionProced
 import net.mcreator.newblocks.block.DarkGrimstoneBlock;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Set;
 import java.util.Map;
+import java.util.HashSet;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 
@@ -42,14 +46,20 @@ public class VeryDeepDarkDimension extends NewBlocksModElements.ModElement {
 
 	@Override
 	public void init(FMLCommonSetupEvent event) {
+		Set<Block> replaceableBlocks = new HashSet<>();
+		replaceableBlocks.add(DarkGrimstoneBlock.block);
+		replaceableBlocks.add(ForgeRegistries.BIOMES.getValue(new ResourceLocation("new_blocks:very_deep_dark_biome")).getGenerationSettings()
+				.getSurfaceBuilder().get().getConfig().getTop().getBlock());
+		replaceableBlocks.add(ForgeRegistries.BIOMES.getValue(new ResourceLocation("new_blocks:very_deep_dark_biome")).getGenerationSettings()
+				.getSurfaceBuilder().get().getConfig().getUnder().getBlock());
 		DeferredWorkQueue.runLater(() -> {
 			try {
 				ObfuscationReflectionHelper.setPrivateValue(WorldCarver.class, WorldCarver.CAVE, new ImmutableSet.Builder<Block>()
 						.addAll((Set<Block>) ObfuscationReflectionHelper.getPrivateValue(WorldCarver.class, WorldCarver.CAVE, "field_222718_j"))
-						.add(DarkGrimstoneBlock.block).build(), "field_222718_j");
+						.addAll(replaceableBlocks).build(), "field_222718_j");
 				ObfuscationReflectionHelper.setPrivateValue(WorldCarver.class, WorldCarver.CANYON, new ImmutableSet.Builder<Block>()
 						.addAll((Set<Block>) ObfuscationReflectionHelper.getPrivateValue(WorldCarver.class, WorldCarver.CANYON, "field_222718_j"))
-						.add(DarkGrimstoneBlock.block).build(), "field_222718_j");
+						.addAll(replaceableBlocks).build(), "field_222718_j");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -89,15 +99,11 @@ public class VeryDeepDarkDimension extends NewBlocksModElements.ModElement {
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		if (event.getTo() == RegistryKey.getOrCreateKey(Registry.WORLD_KEY, new ResourceLocation("new_blocks:very_deep_dark"))) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				VeryDeepDarkPlayerEntersDimensionProcedure.executeProcedure($_dependencies);
-			}
+
+			VeryDeepDarkPlayerEntersDimensionProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

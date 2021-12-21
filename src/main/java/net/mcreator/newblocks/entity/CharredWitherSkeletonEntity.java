@@ -49,15 +49,18 @@ import net.mcreator.newblocks.item.AshSwordItem;
 import net.mcreator.newblocks.entity.renderer.CharredWitherSkeletonRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class CharredWitherSkeletonEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
 			.size(0.6f, 1.8f)).build("charred_wither_skeleton").setRegistryName("charred_wither_skeleton");
+
 	public CharredWitherSkeletonEntity(NewBlocksModElements instance) {
 		super(instance, 7);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new CharredWitherSkeletonRenderer.ModelRegisterHandler());
@@ -89,6 +92,7 @@ public class CharredWitherSkeletonEntity extends NewBlocksModElements.ModElement
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -166,11 +170,9 @@ public class CharredWitherSkeletonEntity extends NewBlocksModElements.ModElement
 			double z = this.getPosZ();
 			Entity entity = this;
 			Entity sourceentity = source.getTrueSource();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				CharredWitherSkeletonEntityIsHurtProcedure.executeProcedure($_dependencies);
-			}
+
+			CharredWitherSkeletonEntityIsHurtProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			if (source == DamageSource.WITHER)
 				return false;
 			if (source.getDamageType().equals("witherSkull"))
@@ -186,15 +188,11 @@ public class CharredWitherSkeletonEntity extends NewBlocksModElements.ModElement
 			double z = this.getPosZ();
 			Entity sourceentity = source.getTrueSource();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				CharredWitherSkeletonEntityDiesProcedure.executeProcedure($_dependencies);
-			}
+
+			CharredWitherSkeletonEntityDiesProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override
@@ -204,11 +202,9 @@ public class CharredWitherSkeletonEntity extends NewBlocksModElements.ModElement
 			double x = this.getPosX();
 			double y = this.getPosY();
 			double z = this.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				CharredWitherSkeletonPlayerCollidesWithThisEntityProcedure.executeProcedure($_dependencies);
-			}
+
+			CharredWitherSkeletonPlayerCollidesWithThisEntityProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		public void livingTick() {

@@ -27,6 +27,7 @@ import java.util.Collections;
 public class GlowSlabBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:glow_slab")
 	public static final Block block = null;
+
 	public GlowSlabBlock(NewBlocksModElements instance) {
 		super(instance, 43);
 	}
@@ -36,6 +37,7 @@ public class GlowSlabBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends SlabBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.55f, 3.3000000000000003f)

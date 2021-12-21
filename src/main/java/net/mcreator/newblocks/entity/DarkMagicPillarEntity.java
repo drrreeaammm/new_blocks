@@ -20,7 +20,7 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.entity.projectile.PotionEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -38,14 +38,17 @@ import net.mcreator.newblocks.NewBlocksModElements;
 
 import javax.annotation.Nullable;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class DarkMagicPillarEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
 			.size(0.9f, 4.2f)).build("dark_magic_pillar").setRegistryName("dark_magic_pillar");
+
 	public DarkMagicPillarEntity(NewBlocksModElements instance) {
 		super(instance, 1269);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new DarkMagicPillarRenderer.ModelRegisterHandler());
@@ -62,6 +65,7 @@ public class DarkMagicPillarEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -94,6 +98,7 @@ public class DarkMagicPillarEntity extends NewBlocksModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
+
 		}
 
 		@Override
@@ -113,7 +118,7 @@ public class DarkMagicPillarEntity extends NewBlocksModElements.ModElement {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source.getImmediateSource() instanceof ArrowEntity)
+			if (source.getImmediateSource() instanceof AbstractArrowEntity)
 				return false;
 			if (source.getImmediateSource() instanceof PotionEntity)
 				return false;
@@ -148,12 +153,10 @@ public class DarkMagicPillarEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("world", world);
-				DarkMagicPillarOnInitialEntitySpawnProcedure.executeProcedure($_dependencies);
-			}
+
+			DarkMagicPillarOnInitialEntitySpawnProcedure
+					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}

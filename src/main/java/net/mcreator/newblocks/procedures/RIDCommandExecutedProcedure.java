@@ -15,19 +15,20 @@ import java.util.Random;
 import java.util.Map;
 
 public class RIDCommandExecutedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure RIDCommandExecuted!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure RIDCommandExecuted!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure RIDCommandExecuted!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		entity.getPersistentData().putDouble("ID1", ((new Random()).nextInt((int) 9 + 1)));
 		entity.getPersistentData().putDouble("ID2", ((new Random()).nextInt((int) 9 + 1)));
 		entity.getPersistentData().putDouble("ID3", ((new Random()).nextInt((int) 9 + 1)));
@@ -38,6 +39,7 @@ public class RIDCommandExecutedProcedure {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -55,10 +57,11 @@ public class RIDCommandExecutedProcedure {
 
 			private void run() {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Your new ID is") + ""
-							+ ((entity.getPersistentData().getDouble("ID1"))) + "" + ((entity.getPersistentData().getDouble("ID2"))) + ""
-							+ ((entity.getPersistentData().getDouble("ID3"))) + "" + ((entity.getPersistentData().getDouble("ID4"))) + ""
-							+ ((entity.getPersistentData().getDouble("ID5"))) + "" + ((entity.getPersistentData().getDouble("ID6"))))), (false));
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
+							("Your new ID is" + entity.getPersistentData().getDouble("ID1") + entity.getPersistentData().getDouble("ID2")
+									+ entity.getPersistentData().getDouble("ID3") + entity.getPersistentData().getDouble("ID4")
+									+ entity.getPersistentData().getDouble("ID5") + entity.getPersistentData().getDouble("ID6"))),
+							(false));
 				}
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
@@ -67,6 +70,7 @@ public class RIDCommandExecutedProcedure {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -83,10 +87,10 @@ public class RIDCommandExecutedProcedure {
 			}
 
 			private void run() {
-				NewBlocksMod.LOGGER.info((("Changed ID of ") + "" + ((entity.getDisplayName().getString())) + "" + ("to") + ""
-						+ ((entity.getPersistentData().getDouble("ID1"))) + "" + ((entity.getPersistentData().getDouble("ID2"))) + ""
-						+ ((entity.getPersistentData().getDouble("ID3"))) + "" + ((entity.getPersistentData().getDouble("ID4"))) + ""
-						+ ((entity.getPersistentData().getDouble("ID5"))) + "" + ((entity.getPersistentData().getDouble("ID6")))));
+				NewBlocksMod.LOGGER.info(("Changed ID of " + entity.getDisplayName().getString() + "to" + entity.getPersistentData().getDouble("ID1")
+						+ entity.getPersistentData().getDouble("ID2") + entity.getPersistentData().getDouble("ID3")
+						+ entity.getPersistentData().getDouble("ID4") + entity.getPersistentData().getDouble("ID5")
+						+ entity.getPersistentData().getDouble("ID6")));
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
 		}.start(world, (int) 15);

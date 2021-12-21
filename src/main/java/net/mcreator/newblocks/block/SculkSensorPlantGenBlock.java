@@ -54,16 +54,19 @@ import net.minecraft.block.Block;
 import net.mcreator.newblocks.procedures.SculkSensorPlantGenAdditionalGenerationConditionProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
+import java.util.Map;
 import java.util.List;
+import java.util.HashMap;
 import java.util.Collections;
-
-import com.google.common.collect.ImmutableMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class SculkSensorPlantGenBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:sculk_sensor_plant_gen")
 	public static final Block block = null;
+
 	public SculkSensorPlantGenBlock(NewBlocksModElements instance) {
 		super(instance, 1009);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -81,8 +84,10 @@ public class SculkSensorPlantGenBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static Feature<BlockClusterFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
 		public void registerFeature(RegistryEvent.Register<Feature<?>> event) {
@@ -103,7 +108,8 @@ public class SculkSensorPlantGenBlock extends NewBlocksModElements.ModElement {
 					int x = pos.getX();
 					int y = pos.getY();
 					int z = pos.getZ();
-					if (!SculkSensorPlantGenAdditionalGenerationConditionProcedure.executeProcedure(ImmutableMap.of("y", y)))
+					if (!SculkSensorPlantGenAdditionalGenerationConditionProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("y", y))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 						return false;
 					return super.generate(world, generator, random, pos, config);
 				}
@@ -117,10 +123,12 @@ public class SculkSensorPlantGenBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:sculk_sensor_plant_gen"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> configuredFeature);
 	}
+
 	public static class BlockCustomFlower extends FlowerBlock {
 		public BlockCustomFlower() {
 			super(Effects.UNLUCK, 14, Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.PLANT)
@@ -129,9 +137,18 @@ public class SculkSensorPlantGenBlock extends NewBlocksModElements.ModElement {
 		}
 
 		@Override
+		public int getStewEffectDuration() {
+			return 14;
+		}
+
+		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
-			return VoxelShapes.or(makeCuboidShape(0, 0, 0, 16, 7, 16)).withOffset(offset.x, offset.y, offset.z);
+			return VoxelShapes.or(makeCuboidShape(0, 0, 0, 16, 7, 16)
+
+			)
+
+					.withOffset(offset.x, offset.y, offset.z);
 		}
 
 		@Override
@@ -171,7 +188,11 @@ public class SculkSensorPlantGenBlock extends NewBlocksModElements.ModElement {
 		public boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 			Block ground = state.getBlock();
 			return (ground == SculkChuteBlock.block || ground == SkulkBlockBlock.block || ground == SculkVineBlock.block
-					|| ground == GrimstoneBlock.block || ground == SculkStoneBlock.block || ground == DarkGrimstoneBlock.block);
+					|| ground == GrimstoneBlock.block || ground == SculkStoneBlock.block || ground == DarkGrimstoneBlock.block
+
+			)
+
+			;
 		}
 
 		@Override

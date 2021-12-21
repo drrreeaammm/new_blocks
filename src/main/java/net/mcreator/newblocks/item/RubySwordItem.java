@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class RubySwordItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ruby_sword")
 	public static final Item block = null;
+
 	public RubySwordItem(NewBlocksModElements instance) {
 		super(instance, 19);
 	}

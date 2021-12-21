@@ -27,6 +27,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class GoldPlantStage3Block extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:gold_plant_stage_3")
 	public static final Block block = null;
+
 	public GoldPlantStage3Block(NewBlocksModElements instance) {
 		super(instance, 450);
 	}
@@ -42,6 +43,7 @@ public class GoldPlantStage3Block extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.PLANTS).sound(SoundType.CROP).hardnessAndResistance(0f, 0f).setLightLevel(s -> 0)

@@ -18,8 +18,10 @@ import net.mcreator.newblocks.procedures.IceShardLivingEntityIsHitWithItemProced
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import com.google.common.collect.Multimap;
 import com.google.common.collect.ImmutableMultimap;
@@ -28,6 +30,7 @@ import com.google.common.collect.ImmutableMultimap;
 public class IceShardItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ice_shard")
 	public static final Item block = null;
+
 	public IceShardItem(NewBlocksModElements instance) {
 		super(instance, 130);
 	}
@@ -36,6 +39,7 @@ public class IceShardItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxDamage(86).rarity(Rarity.COMMON));
@@ -77,11 +81,9 @@ public class IceShardItem extends NewBlocksModElements.ModElement {
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
 			World world = entity.world;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				IceShardLivingEntityIsHitWithItemProcedure.executeProcedure($_dependencies);
-			}
+
+			IceShardLivingEntityIsHitWithItemProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}

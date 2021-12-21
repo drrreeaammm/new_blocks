@@ -49,7 +49,13 @@ public class FlyAndPopProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FlyAndPop!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FlyAndPop!");
@@ -60,15 +66,10 @@ public class FlyAndPopProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure FlyAndPop!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FlyAndPop!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((sourceentity instanceof BalloonEntity.CustomEntity)) {
+		if (sourceentity instanceof BalloonEntity.CustomEntity) {
 			sourceentity.startRiding(entity);
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.LEVITATION, (int) 160, (int) 3, (false), (false)));
@@ -76,6 +77,7 @@ public class FlyAndPopProcedure {
 				private int ticks = 0;
 				private float waitTicks;
 				private IWorld world;
+
 				public void start(IWorld world, int waitTicks) {
 					this.waitTicks = waitTicks;
 					MinecraftForge.EVENT_BUS.register(this);

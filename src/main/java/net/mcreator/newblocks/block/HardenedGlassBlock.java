@@ -30,6 +30,7 @@ import java.util.Collections;
 public class HardenedGlassBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:hardened_glass")
 	public static final Block block = null;
+
 	public HardenedGlassBlock(NewBlocksModElements instance) {
 		super(instance, 109);
 	}
@@ -45,6 +46,7 @@ public class HardenedGlassBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(1.45f, 6f).setLightLevel(s -> 0).notSolid()

@@ -25,10 +25,11 @@ import java.util.Random;
 import java.util.Map;
 
 public class FrogOnInitialEntitySpawnProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FrogOnInitialEntitySpawn!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FrogOnInitialEntitySpawn!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -46,17 +47,17 @@ public class FrogOnInitialEntitySpawnProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure FrogOnInitialEntitySpawn!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure FrogOnInitialEntitySpawn!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure FrogOnInitialEntitySpawn!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((new Random()).nextInt((int) 7 + 1)) == 0)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if ((new Random()).nextInt((int) 7 + 1) == 0) {
 			if (!entity.world.isRemote())
 				entity.remove();
 			if (world instanceof ServerWorld) {
@@ -67,7 +68,7 @@ public class FrogOnInitialEntitySpawnProcedure {
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
 			}
-		} else if ((((new Random()).nextInt((int) 7 + 1)) == 1)) {
+		} else if ((new Random()).nextInt((int) 7 + 1) == 1) {
 			if (!entity.world.isRemote())
 				entity.remove();
 			if (world instanceof ServerWorld) {
@@ -78,7 +79,7 @@ public class FrogOnInitialEntitySpawnProcedure {
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
 			}
-		} else if ((((new Random()).nextInt((int) 7 + 1)) == 2)) {
+		} else if ((new Random()).nextInt((int) 7 + 1) == 2) {
 			if (!entity.world.isRemote())
 				entity.remove();
 			if (world instanceof ServerWorld) {
@@ -89,7 +90,7 @@ public class FrogOnInitialEntitySpawnProcedure {
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
 			}
-		} else if ((((new Random()).nextInt((int) 7 + 1)) == 3)) {
+		} else if ((new Random()).nextInt((int) 7 + 1) == 3) {
 			if (!entity.world.isRemote())
 				entity.remove();
 			if (world instanceof ServerWorld) {
@@ -100,7 +101,7 @@ public class FrogOnInitialEntitySpawnProcedure {
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
 			}
-		} else if ((((new Random()).nextInt((int) 7 + 1)) == 4)) {
+		} else if ((new Random()).nextInt((int) 7 + 1) == 4) {
 			if (!entity.world.isRemote())
 				entity.remove();
 			if (world instanceof ServerWorld) {
@@ -111,7 +112,7 @@ public class FrogOnInitialEntitySpawnProcedure {
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
 			}
-		} else if ((((new Random()).nextInt((int) 7 + 1)) == 5)) {
+		} else if ((new Random()).nextInt((int) 7 + 1) == 5) {
 			if (!entity.world.isRemote())
 				entity.remove();
 			if (world instanceof ServerWorld) {
@@ -122,7 +123,7 @@ public class FrogOnInitialEntitySpawnProcedure {
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
 			}
-		} else if ((((new Random()).nextInt((int) 7 + 1)) == 6)) {
+		} else if ((new Random()).nextInt((int) 7 + 1) == 6) {
 			if (!entity.world.isRemote())
 				entity.remove();
 			if (world instanceof ServerWorld) {
@@ -133,7 +134,7 @@ public class FrogOnInitialEntitySpawnProcedure {
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
 			}
-		} else if ((((new Random()).nextInt((int) 7 + 1)) == 7)) {
+		} else if ((new Random()).nextInt((int) 7 + 1) == 7) {
 			if (!entity.world.isRemote())
 				entity.remove();
 			if (world instanceof ServerWorld) {
@@ -144,7 +145,7 @@ public class FrogOnInitialEntitySpawnProcedure {
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
 			}
-		} else if ((((new Random()).nextInt((int) 11 + 1)) == 8)) {
+		} else if ((new Random()).nextInt((int) 11 + 1) == 8) {
 			if (!entity.world.isRemote())
 				entity.remove();
 			if (world instanceof ServerWorld) {
@@ -155,7 +156,7 @@ public class FrogOnInitialEntitySpawnProcedure {
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
 			}
-		} else if ((((new Random()).nextInt((int) 14 + 1)) == 9)) {
+		} else if ((new Random()).nextInt((int) 14 + 1) == 9) {
 			if (!entity.world.isRemote())
 				entity.remove();
 			if (world instanceof ServerWorld) {

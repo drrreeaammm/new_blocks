@@ -55,6 +55,7 @@ import java.util.Collections;
 public class EnderGrassBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ender_grass")
 	public static final Block block = null;
+
 	public EnderGrassBlock(NewBlocksModElements instance) {
 		super(instance, 271);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -72,8 +73,10 @@ public class EnderGrassBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static Feature<BlockClusterFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
 		public void registerFeature(RegistryEvent.Register<Feature<?>> event) {
@@ -103,10 +106,12 @@ public class EnderGrassBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:ender_grass"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> configuredFeature);
 	}
+
 	public static class BlockCustomFlower extends FlowerBlock {
 		public BlockCustomFlower() {
 			super(Effects.SATURATION, 0, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().sound(SoundType.PLANT)
@@ -135,7 +140,11 @@ public class EnderGrassBlock extends NewBlocksModElements.ModElement {
 		@Override
 		public boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 			Block ground = state.getBlock();
-			return (ground == EnderGrassBlockBlock.block);
+			return (ground == EnderGrassBlockBlock.block
+
+			)
+
+			;
 		}
 
 		@Override

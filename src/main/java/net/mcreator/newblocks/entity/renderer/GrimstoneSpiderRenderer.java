@@ -21,6 +21,7 @@ public class GrimstoneSpiderRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(GrimstoneSpiderEntity.entity,
 					renderManager -> new MobRenderer(renderManager, new SpiderModel(), 0.5f) {
+
 						@Override
 						public ResourceLocation getEntityTexture(Entity entity) {
 							return new ResourceLocation("new_blocks:textures/grimstone_spider.png");

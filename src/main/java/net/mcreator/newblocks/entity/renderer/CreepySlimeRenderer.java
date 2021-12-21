@@ -25,6 +25,7 @@ public class CreepySlimeRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(CreepySlimeEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelcreepyslime(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/creepyslime.png");
@@ -42,6 +43,7 @@ public class CreepySlimeRenderer {
 		private final ModelRenderer right_eye;
 		private final ModelRenderer left_eye;
 		private final ModelRenderer mouth;
+
 		public Modelcreepyslime() {
 			textureWidth = 64;
 			textureHeight = 32;
@@ -75,6 +77,8 @@ public class CreepySlimeRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

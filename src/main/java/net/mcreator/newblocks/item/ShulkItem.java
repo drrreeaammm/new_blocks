@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class ShulkItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:shulk")
 	public static final Item block = null;
+
 	public ShulkItem(NewBlocksModElements instance) {
 		super(instance, 189);
 	}
@@ -23,6 +24,7 @@ public class ShulkItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new MusicDiscItemCustom());
 	}
+
 	public static class MusicDiscItemCustom extends MusicDiscItem {
 		public MusicDiscItemCustom() {
 			super(0, NewBlocksModElements.sounds.get(new ResourceLocation("new_blocks:shulk_disc")),

@@ -19,7 +19,13 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class StealLmaoBulletHitsLivingEntityProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure StealLmaoBulletHitsLivingEntity!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure StealLmaoBulletHitsLivingEntity!");
@@ -30,14 +36,9 @@ public class StealLmaoBulletHitsLivingEntityProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure StealLmaoBulletHitsLivingEntity!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure StealLmaoBulletHitsLivingEntity!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		IWorld world = (IWorld) dependencies.get("world");
 		if (sourceentity instanceof PlayerEntity) {
 			ItemStack _setstack = (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).copy());
 			_setstack.setCount((int) 1);
@@ -48,6 +49,7 @@ public class StealLmaoBulletHitsLivingEntityProcedure {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);

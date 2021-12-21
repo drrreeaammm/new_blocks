@@ -47,6 +47,7 @@ public class GoldenRoosterEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.AMBIENT)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.42f, 0.71f)).build("golden_rooster").setRegistryName("golden_rooster");
+
 	public GoldenRoosterEntity(NewBlocksModElements instance) {
 		super(instance, 1090);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new GoldenRoosterRenderer.ModelRegisterHandler());
@@ -63,6 +64,7 @@ public class GoldenRoosterEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

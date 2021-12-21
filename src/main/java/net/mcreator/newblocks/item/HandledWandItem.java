@@ -16,13 +16,16 @@ import net.minecraft.block.BlockState;
 import net.mcreator.newblocks.procedures.WandHandledRightClickProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class HandledWandItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:handled_wand")
 	public static final Item block = null;
+
 	public HandledWandItem(NewBlocksModElements instance) {
 		super(instance, 1337);
 	}
@@ -31,6 +34,7 @@ public class HandledWandItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxDamage(37).rarity(Rarity.COMMON));
@@ -59,12 +63,10 @@ public class HandledWandItem extends NewBlocksModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("itemstack", itemstack);
-				WandHandledRightClickProcedure.executeProcedure($_dependencies);
-			}
+
+			WandHandledRightClickProcedure.executeProcedure(
+					Stream.of(new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return ar;
 		}
 	}

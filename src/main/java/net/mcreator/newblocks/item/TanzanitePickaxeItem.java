@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class TanzanitePickaxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:tanzanite_pickaxe")
 	public static final Item block = null;
+
 	public TanzanitePickaxeItem(NewBlocksModElements instance) {
 		super(instance, 30);
 	}

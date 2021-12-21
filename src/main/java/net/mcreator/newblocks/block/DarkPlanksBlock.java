@@ -30,6 +30,7 @@ import java.util.Collections;
 public class DarkPlanksBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:dark_planks")
 	public static final Block block = null;
+
 	public DarkPlanksBlock(NewBlocksModElements instance) {
 		super(instance, 919);
 	}
@@ -45,6 +46,7 @@ public class DarkPlanksBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.9999999999999998f, 3f).setLightLevel(s -> 0)

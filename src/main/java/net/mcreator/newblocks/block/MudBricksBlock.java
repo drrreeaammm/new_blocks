@@ -25,6 +25,7 @@ import java.util.Collections;
 public class MudBricksBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mud_bricks")
 	public static final Block block = null;
+
 	public MudBricksBlock(NewBlocksModElements instance) {
 		super(instance, 882);
 	}
@@ -34,6 +35,7 @@ public class MudBricksBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.8f, 5.5f).setLightLevel(s -> 0)

@@ -17,6 +17,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class FlintAxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:flint_axe")
 	public static final Item block = null;
+
 	public FlintAxeItem(NewBlocksModElements instance) {
 		super(instance, 832);
 	}

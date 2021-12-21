@@ -44,15 +44,18 @@ import net.mcreator.newblocks.item.FireballItem;
 import net.mcreator.newblocks.entity.renderer.BlazeSpiderRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class BlazeSpiderEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
 			.size(0.6f, 1.5f)).build("blaze_spider").setRegistryName("blaze_spider");
+
 	public BlazeSpiderEntity(NewBlocksModElements instance) {
 		super(instance, 133);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BlazeSpiderRenderer.ModelRegisterHandler());
@@ -82,6 +85,7 @@ public class BlazeSpiderEntity extends NewBlocksModElements.ModElement {
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				MonsterEntity::canMonsterSpawn);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -153,11 +157,9 @@ public class BlazeSpiderEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				BlazeSpiderOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
-			}
+
+			BlazeSpiderOnEntityTickUpdateProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {

@@ -14,6 +14,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class SlashEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:slash")
 	public static final Enchantment enchantment = null;
+
 	public SlashEnchantment(NewBlocksModElements instance) {
 		super(instance, 388);
 	}
@@ -22,6 +23,7 @@ public class SlashEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("slash"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.UNCOMMON, EnchantmentType.WEAPON, slots);

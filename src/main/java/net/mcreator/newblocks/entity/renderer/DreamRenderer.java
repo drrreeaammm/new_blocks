@@ -26,6 +26,7 @@ public class DreamRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(DreamEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modeldream(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/2021_04_04_dream--original--17354159.png");
@@ -45,6 +46,7 @@ public class DreamRenderer {
 		private final ModelRenderer LeftArm;
 		private final ModelRenderer RightLeg;
 		private final ModelRenderer LeftLeg;
+
 		public Modeldream() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -97,6 +99,7 @@ public class DreamRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 			this.RightArm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
 			this.LeftLeg.rotateAngleX = MathHelper.cos(f * 1.0F) * -1.0F * f1;
 			this.Head.rotateAngleY = f3 / (180F / (float) Math.PI);
@@ -105,4 +108,5 @@ public class DreamRenderer {
 			this.RightLeg.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
 		}
 	}
+
 }

@@ -25,6 +25,7 @@ import java.util.Collections;
 public class MangroveWoodStairsBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mangrove_wood_stairs")
 	public static final Block block = null;
+
 	public MangroveWoodStairsBlock(NewBlocksModElements instance) {
 		super(instance, 1050);
 	}
@@ -34,6 +35,7 @@ public class MangroveWoodStairsBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends StairsBlock {
 		public CustomBlock() {
 			super(() -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2f, 4f).setLightLevel(s -> 0))

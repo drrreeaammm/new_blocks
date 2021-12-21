@@ -39,10 +39,12 @@ public class RainbowWaterBlock extends NewBlocksModElements.ModElement {
 	public static FlowingFluid flowing = null;
 	public static FlowingFluid still = null;
 	private ForgeFlowingFluid.Properties fluidproperties = null;
+
 	public RainbowWaterBlock(NewBlocksModElements instance) {
 		super(instance, 196);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new FluidRegisterHandler());
 	}
+
 	private static class FluidRegisterHandler {
 		@SubscribeEvent
 		public void registerFluids(RegistryEvent.Register<Fluid> event) {
@@ -50,6 +52,7 @@ public class RainbowWaterBlock extends NewBlocksModElements.ModElement {
 			event.getRegistry().register(flowing);
 		}
 	}
+
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void clientLoad(FMLClientSetupEvent event) {
@@ -61,8 +64,11 @@ public class RainbowWaterBlock extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		fluidproperties = new ForgeFlowingFluid.Properties(() -> still, () -> flowing, FluidAttributes
 				.builder(new ResourceLocation("new_blocks:blocks/rainbow_water_still"), new ResourceLocation("new_blocks:blocks/rainbow_water_flow"))
-				.luminosity(0).density(1000).viscosity(1000).temperature(300).rarity(Rarity.COMMON)).explosionResistance(100f).tickRate(5)
-						.levelDecreasePerBlock(1).slopeFindDistance(4).bucket(() -> bucket).block(() -> block);
+				.luminosity(0).density(1000).viscosity(1000).temperature(300)
+
+				.rarity(Rarity.COMMON)).explosionResistance(100f)
+
+						.tickRate(5).levelDecreasePerBlock(1).slopeFindDistance(4).bucket(() -> bucket).block(() -> block);
 		still = (FlowingFluid) new ForgeFlowingFluid.Source(fluidproperties).setRegistryName("rainbow_water");
 		flowing = (FlowingFluid) new ForgeFlowingFluid.Flowing(fluidproperties).setRegistryName("rainbow_water_flowing");
 		elements.blocks

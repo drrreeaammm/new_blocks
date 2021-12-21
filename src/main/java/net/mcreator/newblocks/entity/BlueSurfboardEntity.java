@@ -36,14 +36,17 @@ import net.mcreator.newblocks.procedures.SurfboardOnEntityTickUpdateProcedure;
 import net.mcreator.newblocks.entity.renderer.BlueSurfboardRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class BlueSurfboardEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(1.6f, 0.2f)).build("blue_surfboard").setRegistryName("blue_surfboard");
+
 	public BlueSurfboardEntity(NewBlocksModElements instance) {
 		super(instance, 619);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BlueSurfboardRenderer.ModelRegisterHandler());
@@ -60,6 +63,7 @@ public class BlueSurfboardEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -125,11 +129,9 @@ public class BlueSurfboardEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				SurfboardOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
-			}
+
+			SurfboardOnEntityTickUpdateProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override

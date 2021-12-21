@@ -6,22 +6,16 @@
     "texture": "iron_wrench",
     "customModelName": "Normal",
     "name": "Iron Wrench",
-    "specialInfo": [
-      "Has a chance to mess",
-      "up and do wrong",
-      "direction",
-      "but gold one does",
-      "not"
-    ],
+    "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:Newblocks"
     },
     "toolType": "Sword",
     "harvestLevel": 2,
-    "efficiency": 1.0,
-    "attackSpeed": 1.1,
+    "efficiency": 0.0,
+    "attackSpeed": 1.0,
     "enchantability": 2,
-    "damageVsEntity": 0.8,
+    "damageVsEntity": 0.7,
     "usageCount": 45,
     "blocksAffected": [],
     "hasGlow": false,

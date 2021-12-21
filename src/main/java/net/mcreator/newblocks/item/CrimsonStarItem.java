@@ -17,6 +17,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class CrimsonStarItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:crimson_star")
 	public static final Item block = null;
+
 	public CrimsonStarItem(NewBlocksModElements instance) {
 		super(instance, 1317);
 	}
@@ -25,6 +26,7 @@ public class CrimsonStarItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).isImmuneToFire().rarity(Rarity.COMMON));

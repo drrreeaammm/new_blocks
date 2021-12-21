@@ -35,6 +35,7 @@ public class PlayerMakeManaGoUpProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -42,17 +43,17 @@ public class PlayerMakeManaGoUpProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((Math.random() < 0.4)) {
-			if ((Math.random() < 0.4)) {
-				if ((Math.random() < 0.4)) {
-					if ((Math.random() < 0.4)) {
-						if ((Math.random() < 0.6)) {
-							if ((Math.random() < 0.7)) {
-								if ((Math.random() < 0.7)) {
-									if ((Math.random() < 0.7)) {
+		if (Math.random() < 0.4) {
+			if (Math.random() < 0.4) {
+				if (Math.random() < 0.4) {
+					if (Math.random() < 0.4) {
+						if (Math.random() < 0.6) {
+							if (Math.random() < 0.7) {
+								if (Math.random() < 0.7) {
+									if (Math.random() < 0.7) {
 										{
-											double _setval = (double) (((entity.getCapability(NewBlocksModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-													.orElse(new NewBlocksModVariables.PlayerVariables())).mana) + 0.4);
+											double _setval = ((entity.getCapability(NewBlocksModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+													.orElse(new NewBlocksModVariables.PlayerVariables())).mana + 0.4);
 											entity.getCapability(NewBlocksModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 												capability.mana = _setval;
 												capability.syncPlayerVariables(entity);

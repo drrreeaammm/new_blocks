@@ -23,6 +23,7 @@ import java.util.List;
 public class FireUpgradeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:fire_upgrade")
 	public static final Item block = null;
+
 	public FireUpgradeItem(NewBlocksModElements instance) {
 		super(instance, 106);
 	}
@@ -31,6 +32,7 @@ public class FireUpgradeItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));

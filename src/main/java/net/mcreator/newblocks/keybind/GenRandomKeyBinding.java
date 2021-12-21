@@ -18,20 +18,23 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.Minecraft;
 
-import net.mcreator.newblocks.procedures.WorldInformationOnKeyPressedProcedure;
+import net.mcreator.newblocks.procedures.GenRandomOnKeyPressedProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 import net.mcreator.newblocks.NewBlocksMod;
 
+import java.util.stream.Stream;
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
-public class WorldInformationKeyBinding extends NewBlocksModElements.ModElement {
+public class GenRandomKeyBinding extends NewBlocksModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	private KeyBinding keys;
-	public WorldInformationKeyBinding(NewBlocksModElements instance) {
-		super(instance, 1014);
+
+	public GenRandomKeyBinding(NewBlocksModElements instance) {
+		super(instance, 1378);
 		elements.addNetworkMessage(KeyBindingPressedMessage.class, KeyBindingPressedMessage::buffer, KeyBindingPressedMessage::new,
 				KeyBindingPressedMessage::handler);
 	}
@@ -39,7 +42,7 @@ public class WorldInformationKeyBinding extends NewBlocksModElements.ModElement 
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
-		keys = new KeyBinding("key.new_blocks.world_information", GLFW.GLFW_KEY_Y, "key.categories.creative");
+		keys = new KeyBinding("key.new_blocks.gen_random", GLFW.GLFW_KEY_Y, "key.categories.misc");
 		ClientRegistry.registerKeyBinding(keys);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -56,8 +59,10 @@ public class WorldInformationKeyBinding extends NewBlocksModElements.ModElement 
 			}
 		}
 	}
+
 	public static class KeyBindingPressedMessage {
 		int type, pressedms;
+
 		public KeyBindingPressedMessage(int type, int pressedms) {
 			this.type = type;
 			this.pressedms = pressedms;
@@ -81,6 +86,7 @@ public class WorldInformationKeyBinding extends NewBlocksModElements.ModElement 
 			context.setPacketHandled(true);
 		}
 	}
+
 	private static void pressAction(PlayerEntity entity, int type, int pressedms) {
 		World world = entity.world;
 		double x = entity.getPosX();
@@ -90,12 +96,10 @@ public class WorldInformationKeyBinding extends NewBlocksModElements.ModElement 
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
 		if (type == 0) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("world", world);
-				WorldInformationOnKeyPressedProcedure.executeProcedure($_dependencies);
-			}
+
+			GenRandomOnKeyPressedProcedure
+					.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

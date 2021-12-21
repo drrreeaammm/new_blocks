@@ -46,16 +46,17 @@ import net.mcreator.newblocks.procedures.SandWormNaturalEntitySpawningConditionP
 import net.mcreator.newblocks.entity.renderer.SandWormRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
-
-import com.google.common.collect.ImmutableMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class SandWormEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.AMBIENT)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(2.5f, 1.1f)).build("sand_worm").setRegistryName("sand_worm");
+
 	public SandWormEntity(NewBlocksModElements instance) {
 		super(instance, 203);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new SandWormRenderer.ModelRegisterHandler());
@@ -91,9 +92,11 @@ public class SandWormEntity extends NewBlocksModElements.ModElement {
 					int x = pos.getX();
 					int y = pos.getY();
 					int z = pos.getZ();
-					return SandWormNaturalEntitySpawningConditionProcedure.executeProcedure(ImmutableMap.of("world", world));
+					return SandWormNaturalEntitySpawningConditionProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				});
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -173,19 +176,19 @@ public class SandWormEntity extends NewBlocksModElements.ModElement {
 			double x = this.getPosX();
 			double y = this.getPosY();
 			double z = this.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("sourceentity", sourceentity);
-				SandWormPlayerCollidesWithThisEntityProcedure.executeProcedure($_dependencies);
-			}
+
+			SandWormPlayerCollidesWithThisEntityProcedure.executeProcedure(
+					Stream.of(new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("sourceentity", sourceentity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override
 		public boolean isNonBoss() {
 			return false;
 		}
+
 		private final ServerBossInfo bossInfo = new ServerBossInfo(this.getDisplayName(), BossInfo.Color.WHITE, BossInfo.Overlay.PROGRESS);
+
 		@Override
 		public void addTrackingPlayer(ServerPlayerEntity player) {
 			super.addTrackingPlayer(player);

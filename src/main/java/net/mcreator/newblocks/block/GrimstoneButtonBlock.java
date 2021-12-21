@@ -29,6 +29,7 @@ import java.util.Collections;
 public class GrimstoneButtonBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:grimstone_button")
 	public static final Block block = null;
+
 	public GrimstoneButtonBlock(NewBlocksModElements instance) {
 		super(instance, 813);
 	}
@@ -44,6 +45,7 @@ public class GrimstoneButtonBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends StoneButtonBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.8f, 4f).setLightLevel(s -> 0).harvestLevel(1)

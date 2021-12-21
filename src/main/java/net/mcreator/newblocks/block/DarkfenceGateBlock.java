@@ -29,6 +29,7 @@ import java.util.Collections;
 public class DarkfenceGateBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:darkfence_gate")
 	public static final Block block = null;
+
 	public DarkfenceGateBlock(NewBlocksModElements instance) {
 		super(instance, 922);
 	}
@@ -44,6 +45,7 @@ public class DarkfenceGateBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends FenceGateBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.9999999999999998f, 3f).setLightLevel(s -> 0)

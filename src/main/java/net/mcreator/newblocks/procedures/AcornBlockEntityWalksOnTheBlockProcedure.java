@@ -11,6 +11,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class AcornBlockEntityWalksOnTheBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -18,7 +19,7 @@ public class AcornBlockEntityWalksOnTheBlockProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((entity instanceof SquirrelEntity.CustomEntity)) {
+		if (entity instanceof SquirrelEntity.CustomEntity) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.REGENERATION, (int) 60, (int) 3, (false), (false)));
 		}

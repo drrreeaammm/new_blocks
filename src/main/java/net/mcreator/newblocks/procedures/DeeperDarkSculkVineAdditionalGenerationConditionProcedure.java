@@ -5,6 +5,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class DeeperDarkSculkVineAdditionalGenerationConditionProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("y") == null) {
 			if (!dependencies.containsKey("y"))
@@ -12,6 +13,6 @@ public class DeeperDarkSculkVineAdditionalGenerationConditionProcedure {
 			return false;
 		}
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
-		return (y < 120);
+		return y < 120;
 	}
 }

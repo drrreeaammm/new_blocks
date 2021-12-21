@@ -43,8 +43,7 @@ public class ZombiesTagTickUpdateProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((EntityTypeTags.getCollection().getTagByID(new ResourceLocation(("new_blocks:zombie_tags").toLowerCase(java.util.Locale.ENGLISH)))
-				.contains(entity.getType()))) {
+		if (EntityTypeTags.getCollection().getTagByID(new ResourceLocation("new_blocks:zombie_tags")).contains(entity.getType())) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 9999, (int) 0, (false), (false)));
 		}

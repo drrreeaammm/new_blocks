@@ -37,6 +37,7 @@ import java.util.Collections;
 public class RottenTomato1Block extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:rotten_tomato_1")
 	public static final Block block = null;
+
 	public RottenTomato1Block(NewBlocksModElements instance) {
 		super(instance, 1240);
 	}
@@ -52,6 +53,7 @@ public class RottenTomato1Block extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class BlockCustomFlower extends FlowerBlock {
 		public BlockCustomFlower() {
 			super(Effects.SPEED, 5, Block.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.CROP)
@@ -60,9 +62,18 @@ public class RottenTomato1Block extends NewBlocksModElements.ModElement {
 		}
 
 		@Override
+		public int getStewEffectDuration() {
+			return 5;
+		}
+
+		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
-			return VoxelShapes.or(makeCuboidShape(0.2, 0, 0.2, 16, 16, 16)).withOffset(offset.x, offset.y, offset.z);
+			return VoxelShapes.or(makeCuboidShape(0.2, 0, 0.2, 16, 16, 16)
+
+			)
+
+					.withOffset(offset.x, offset.y, offset.z);
 		}
 
 		@Override

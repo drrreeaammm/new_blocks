@@ -25,6 +25,7 @@ public class MeteorEntityRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(MeteorEntityEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelmeteor(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/meteor.png");
@@ -46,6 +47,7 @@ public class MeteorEntityRenderer {
 		private final ModelRenderer cube_r1;
 		private final ModelRenderer side4;
 		private final ModelRenderer cube_r2;
+
 		public Modelmeteor() {
 			textureWidth = 64;
 			textureHeight = 64;
@@ -107,6 +109,8 @@ public class MeteorEntityRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

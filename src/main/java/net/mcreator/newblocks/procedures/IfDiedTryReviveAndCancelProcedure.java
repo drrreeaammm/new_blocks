@@ -45,23 +45,22 @@ public class IfDiedTryReviveAndCancelProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure IfDiedTryReviveAndCancel!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure IfDiedTryReviveAndCancel!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure IfDiedTryReviveAndCancel!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((EnchantmentHelper.getEnchantmentLevel(SecondChanceEnchantment.enchantment,
-				((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-						: ItemStack.EMPTY))) == 1)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (EnchantmentHelper.getEnchantmentLevel(SecondChanceEnchantment.enchantment,
+				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY)) == 1) {
 			if (dependencies.get("event") != null) {
 				Object _obj = dependencies.get("event");
 				if (_obj instanceof Event) {
@@ -71,22 +70,19 @@ public class IfDiedTryReviveAndCancelProcedure {
 				}
 			}
 			{
-				Map<Enchantment, Integer> _enchantments = EnchantmentHelper.getEnchantments(((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-						: ItemStack.EMPTY));
+				Map<Enchantment, Integer> _enchantments = EnchantmentHelper.getEnchantments(
+						((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY));
 				if (_enchantments.containsKey(SecondChanceEnchantment.enchantment)) {
 					_enchantments.remove(SecondChanceEnchantment.enchantment);
 					EnchantmentHelper.setEnchantments(_enchantments,
 							((entity instanceof LivingEntity)
-									? ((LivingEntity) entity)
-											.getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
+									? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST)
 									: ItemStack.EMPTY));
 				}
 			}
 			if (world.isRemote()) {
-				Minecraft.getInstance().gameRenderer.displayItemActivation(((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-						: ItemStack.EMPTY));
+				Minecraft.getInstance().gameRenderer.displayItemActivation(
+						((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY));
 			}
 		}
 	}

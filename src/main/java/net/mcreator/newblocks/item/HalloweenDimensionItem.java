@@ -16,6 +16,7 @@ import net.mcreator.newblocks.world.dimension.HalloweenDimensionDimension;
 public class HalloweenDimensionItem extends Item {
 	@ObjectHolder("new_blocks:halloween_dimension")
 	public static final Item block = null;
+
 	public HalloweenDimensionItem() {
 		super(new Item.Properties().group(null).maxDamage(64));
 	}

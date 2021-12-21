@@ -17,15 +17,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class WardenEntityIsHurtProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure WardenEntityIsHurt!");
-			return;
-		}
-		if (dependencies.get("sourceentity") == null) {
-			if (!dependencies.containsKey("sourceentity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure WardenEntityIsHurt!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure WardenEntityIsHurt!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -43,17 +39,22 @@ public class WardenEntityIsHurtProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure WardenEntityIsHurt!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure WardenEntityIsHurt!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure WardenEntityIsHurt!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		Entity sourceentity = (Entity) dependencies.get("sourceentity");
+		if (dependencies.get("sourceentity") == null) {
+			if (!dependencies.containsKey("sourceentity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure WardenEntityIsHurt!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		Entity sourceentity = (Entity) dependencies.get("sourceentity");
 		if (world instanceof ServerWorld) {
 			((ServerWorld) world).spawnParticle(SculkParticle.particle, x, y, z, (int) 5, 3, 3, 3, 1);
 		}
@@ -68,6 +69,7 @@ public class WardenEntityIsHurtProcedure {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -95,11 +97,12 @@ public class WardenEntityIsHurtProcedure {
 				MinecraftForge.EVENT_BUS.unregister(this);
 			}
 		}.start(world, (int) 260);
-		entity.getPersistentData().putDouble("wardenAnger", ((entity.getPersistentData().getDouble("wardenAnger")) + 1));
+		entity.getPersistentData().putDouble("wardenAnger", (entity.getPersistentData().getDouble("wardenAnger") + 1));
 		new Object() {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -116,10 +119,10 @@ public class WardenEntityIsHurtProcedure {
 			}
 
 			private void run() {
-				if (((entity.getPersistentData().getDouble("wardenAnger")) == 1)) {
+				if (entity.getPersistentData().getDouble("wardenAnger") == 1) {
 					if (entity instanceof LivingEntity)
 						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 165, (int) 0, (false), (false)));
-				} else if (((entity.getPersistentData().getDouble("wardenAnger")) == 2)) {
+				} else if (entity.getPersistentData().getDouble("wardenAnger") == 2) {
 					if (entity instanceof LivingEntity)
 						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SPEED, (int) 165, (int) 1, (false), (false)));
 				}
@@ -130,6 +133,7 @@ public class WardenEntityIsHurtProcedure {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);

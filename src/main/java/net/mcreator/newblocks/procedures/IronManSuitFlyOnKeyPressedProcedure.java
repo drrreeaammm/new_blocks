@@ -12,6 +12,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class IronManSuitFlyOnKeyPressedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -19,9 +20,8 @@ public class IronManSuitFlyOnKeyPressedProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((((entity instanceof LivingEntity)
-				? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 0))
-				: ItemStack.EMPTY).getItem() == IronManItem.boots)) {
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.FEET) : ItemStack.EMPTY)
+				.getItem() == IronManItem.boots) {
 			if (entity instanceof PlayerEntity) {
 				((PlayerEntity) entity).abilities.allowFlying = (true);
 				((PlayerEntity) entity).sendPlayerAbilities();

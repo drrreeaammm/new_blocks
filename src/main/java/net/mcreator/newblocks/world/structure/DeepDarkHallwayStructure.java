@@ -30,14 +30,17 @@ import net.minecraft.util.Mirror;
 
 import net.mcreator.newblocks.procedures.DeepDarkHallwayOnStructureInstanceGeneratedProcedure;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @Mod.EventBusSubscriber
 public class DeepDarkHallwayStructure {
 	private static Feature<NoFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
@@ -74,14 +77,11 @@ public class DeepDarkHallwayStructure {
 									new PlacementSettings().setRotation(rotation).setRandom(random).setMirror(mirror)
 											.addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK).setChunk(null).setIgnoreEntities(false),
 									random);
-							{
-								Map<String, Object> $_dependencies = new HashMap<>();
-								$_dependencies.put("x", x);
-								$_dependencies.put("y", y);
-								$_dependencies.put("z", z);
-								$_dependencies.put("world", world);
-								DeepDarkHallwayOnStructureInstanceGeneratedProcedure.executeProcedure($_dependencies);
-							}
+
+							DeepDarkHallwayOnStructureInstanceGeneratedProcedure.executeProcedure(Stream
+									.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+											new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+									.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 						}
 					}
 					return true;
@@ -93,6 +93,7 @@ public class DeepDarkHallwayStructure {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:deep_dark_hallway"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public static void addFeatureToBiomes(BiomeLoadingEvent event) {
 		event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_STRUCTURES).add(() -> configuredFeature);

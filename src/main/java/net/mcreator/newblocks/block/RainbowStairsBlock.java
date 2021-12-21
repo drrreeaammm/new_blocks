@@ -31,6 +31,7 @@ import java.util.Collections;
 public class RainbowStairsBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:rainbow_stairs")
 	public static final Block block = null;
+
 	public RainbowStairsBlock(NewBlocksModElements instance) {
 		super(instance, 121);
 	}
@@ -46,6 +47,7 @@ public class RainbowStairsBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends StairsBlock {
 		public CustomBlock() {
 			super(() -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.95f, 6.5f)

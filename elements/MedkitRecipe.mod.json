@@ -5,36 +5,36 @@
     "recipeType": "Crafting",
     "xpReward": 0.0,
     "cookingTime": 200,
-    "recipeRetstackSize": 5,
+    "recipeRetstackSize": 3,
     "group": "",
     "recipeShapeless": false,
     "recipeSlots": [
       {
-        "value": "Items.GOLD_NUGGET"
-      },
-      {
-        "value": "Items.IRON_INGOT"
-      },
-      {
-        "value": "Items.GOLD_NUGGET"
+        "value": ""
       },
       {
         "value": "Items.PAPER"
       },
       {
-        "value": "Items.DIAMOND"
+        "value": ""
       },
       {
         "value": "Items.PAPER"
       },
       {
-        "value": "Items.GOLD_NUGGET"
+        "value": "Items.GOLDEN_APPLE#0"
       },
       {
-        "value": "Items.IRON_INGOT"
+        "value": "Items.PAPER"
       },
       {
-        "value": "Items.GOLD_NUGGET"
+        "value": ""
+      },
+      {
+        "value": "Items.PAPER"
+      },
+      {
+        "value": ""
       }
     ],
     "recipeReturnStack": {

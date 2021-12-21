@@ -15,7 +15,13 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class DeepDarkHallwayOnStructureInstanceGeneratedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DeepDarkHallwayOnStructureInstanceGenerated!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency x for procedure DeepDarkHallwayOnStructureInstanceGenerated!");
@@ -31,16 +37,11 @@ public class DeepDarkHallwayOnStructureInstanceGeneratedProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure DeepDarkHallwayOnStructureInstanceGenerated!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure DeepDarkHallwayOnStructureInstanceGenerated!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((Math.random() < 0.9)) {
+		if (Math.random() < 0.9) {
 			if (world instanceof ServerWorld) {
 				Template template = ((ServerWorld) world).getStructureTemplateManager()
 						.getTemplateDefaulted(new ResourceLocation("new_blocks", "deep_dark_city_random_ground1"));
@@ -50,7 +51,7 @@ public class DeepDarkHallwayOnStructureInstanceGeneratedProcedure {
 							((World) world).rand);
 				}
 			}
-		} else if ((Math.random() < 0.9)) {
+		} else if (Math.random() < 0.9) {
 			if (world instanceof ServerWorld) {
 				Template template = ((ServerWorld) world).getStructureTemplateManager()
 						.getTemplateDefaulted(new ResourceLocation("new_blocks", "deep_dark_city_random_ground1"));

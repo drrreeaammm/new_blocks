@@ -26,6 +26,7 @@ import java.util.Collections;
 public class DeepDarkLogBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:deep_dark_log")
 	public static final Block block = null;
+
 	public DeepDarkLogBlock(NewBlocksModElements instance) {
 		super(instance, 40);
 	}
@@ -35,6 +36,7 @@ public class DeepDarkLogBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.8f, 2f).setLightLevel(s -> 0));

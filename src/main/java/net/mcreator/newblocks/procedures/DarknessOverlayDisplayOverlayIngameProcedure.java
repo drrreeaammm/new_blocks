@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Collection;
 
 public class DarknessOverlayDisplayOverlayIngameProcedure {
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -18,7 +19,7 @@ public class DarknessOverlayDisplayOverlayIngameProcedure {
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		return (new Object() {
+		return new Object() {
 			boolean check(Entity _entity) {
 				if (_entity instanceof LivingEntity) {
 					Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
@@ -29,6 +30,6 @@ public class DarknessOverlayDisplayOverlayIngameProcedure {
 				}
 				return false;
 			}
-		}.check(entity));
+		}.check(entity);
 	}
 }

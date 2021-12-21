@@ -18,7 +18,13 @@ import java.util.Random;
 import java.util.Map;
 
 public class HeartRightClickedInAirProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure HeartRightClickedInAir!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure HeartRightClickedInAir!");
@@ -29,18 +35,13 @@ public class HeartRightClickedInAirProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure HeartRightClickedInAir!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure HeartRightClickedInAir!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
-		IWorld world = (IWorld) dependencies.get("world");
 		if (entity instanceof PlayerEntity)
-			((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 1200);
+			((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 1200);
 		{
-			ItemStack _ist = (itemstack);
+			ItemStack _ist = itemstack;
 			if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 				_ist.shrink(1);
 				_ist.setDamage(0);
@@ -56,6 +57,7 @@ public class HeartRightClickedInAirProcedure {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);

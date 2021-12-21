@@ -41,6 +41,7 @@ public class GiveRecipesProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -48,8 +49,8 @@ public class GiveRecipesProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(GoldPlateItem.block)) : false)) {
-			if ((!(new Object() {
+		if ((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(GoldPlateItem.block)) : false) {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -57,13 +58,13 @@ public class GiveRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_chestplate_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_chestplate_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity)
 							.unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:iron_man_chestplate_recipe")});
 				}
 			}
-			if ((!(new Object() {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -71,12 +72,12 @@ public class GiveRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_boots_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_boots_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity).unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:iron_man_boots_recipe")});
 				}
 			}
-			if ((!(new Object() {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -84,12 +85,12 @@ public class GiveRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_leggings_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_leggings_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity).unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:iron_man_leggings_recipe")});
 				}
 			}
-			if ((!(new Object() {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -97,12 +98,12 @@ public class GiveRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_helmet_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_helmet_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity).unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:iron_man_helmet_recipe")});
 				}
 			}
-			if ((!(new Object() {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -110,15 +111,15 @@ public class GiveRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_shooter_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_shooter_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity).unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:iron_man_shooter_recipe")});
 				}
 			}
-		} else if (((entity instanceof PlayerEntity)
+		} else if ((entity instanceof PlayerEntity)
 				? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(RedstonePlateItem.block))
-				: false)) {
-			if ((!(new Object() {
+				: false) {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -126,13 +127,13 @@ public class GiveRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_chestplate_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_chestplate_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity)
 							.unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:iron_man_chestplate_recipe")});
 				}
 			}
-			if ((!(new Object() {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -140,12 +141,12 @@ public class GiveRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_boots_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_boots_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity).unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:iron_man_boots_recipe")});
 				}
 			}
-			if ((!(new Object() {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -153,12 +154,12 @@ public class GiveRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_leggings_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_leggings_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity).unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:iron_man_leggings_recipe")});
 				}
 			}
-			if ((!(new Object() {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -166,12 +167,12 @@ public class GiveRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_helmet_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_helmet_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity).unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:iron_man_helmet_recipe")});
 				}
 			}
-			if ((!(new Object() {
+			if (!(new Object() {
 				public boolean hasRecipe(Entity _ent, ResourceLocation recipe) {
 					if (_ent instanceof ServerPlayerEntity)
 						return ((ServerPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
@@ -179,7 +180,7 @@ public class GiveRecipesProcedure {
 						return ((ClientPlayerEntity) _ent).getRecipeBook().isUnlocked(recipe);
 					return false;
 				}
-			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_shooter_recipe"))))) {
+			}.hasRecipe(entity, new ResourceLocation("new_blocks:iron_man_shooter_recipe")))) {
 				if (entity instanceof ServerPlayerEntity) {
 					((ServerPlayerEntity) entity).unlockRecipes(new ResourceLocation[]{new ResourceLocation("new_blocks:iron_man_shooter_recipe")});
 				}

@@ -32,6 +32,7 @@ import java.util.Collections;
 public class RainbowSlabBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:rainbow_slab")
 	public static final Block block = null;
+
 	public RainbowSlabBlock(NewBlocksModElements instance) {
 		super(instance, 120);
 	}
@@ -47,6 +48,7 @@ public class RainbowSlabBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends SlabBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.9000000000000001f, 10f).setLightLevel(s -> 0)

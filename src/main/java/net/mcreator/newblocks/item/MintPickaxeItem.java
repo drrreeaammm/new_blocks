@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class MintPickaxeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:mint_pickaxe")
 	public static final Item block = null;
+
 	public MintPickaxeItem(NewBlocksModElements instance) {
 		super(instance, 258);
 	}

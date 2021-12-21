@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class RubyHoeItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:ruby_hoe")
 	public static final Item block = null;
+
 	public RubyHoeItem(NewBlocksModElements instance) {
 		super(instance, 23);
 	}

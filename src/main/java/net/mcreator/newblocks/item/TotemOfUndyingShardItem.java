@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class TotemOfUndyingShardItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:totem_of_undying_shard")
 	public static final Item block = null;
+
 	public TotemOfUndyingShardItem(NewBlocksModElements instance) {
 		super(instance, 79);
 	}
@@ -23,6 +24,7 @@ public class TotemOfUndyingShardItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxStackSize(64).rarity(Rarity.EPIC));

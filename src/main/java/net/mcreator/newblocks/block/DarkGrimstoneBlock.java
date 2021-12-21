@@ -32,6 +32,7 @@ import java.util.Collections;
 public class DarkGrimstoneBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:dark_grimstone")
 	public static final Block block = null;
+
 	public DarkGrimstoneBlock(NewBlocksModElements instance) {
 		super(instance, 988);
 	}
@@ -42,8 +43,10 @@ public class DarkGrimstoneBlock extends NewBlocksModElements.ModElement {
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(DeepDarkTabItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4.25f, 6f).setLightLevel(s -> 0).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).setRequiresTool());

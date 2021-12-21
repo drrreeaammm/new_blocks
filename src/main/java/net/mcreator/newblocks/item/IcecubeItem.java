@@ -42,6 +42,7 @@ public class IcecubeItem extends NewBlocksModElements.ModElement {
 	public static final EntityType arrow = (EntityType.Builder.<ArrowCustomEntity>create(ArrowCustomEntity::new, EntityClassification.MISC)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(ArrowCustomEntity::new)
 			.size(0.5f, 0.5f)).build("entitybulleticecube").setRegistryName("entitybulleticecube");
+
 	public IcecubeItem(NewBlocksModElements instance) {
 		super(instance, 789);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new IcecubeRenderer.ModelRegisterHandler());
@@ -52,6 +53,7 @@ public class IcecubeItem extends NewBlocksModElements.ModElement {
 		elements.items.add(() -> new ItemRanged());
 		elements.entities.add(() -> arrow);
 	}
+
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
 			super(new Item.Properties().group(null).maxDamage(100));
@@ -144,6 +146,7 @@ public class IcecubeItem extends NewBlocksModElements.ModElement {
 			}
 		}
 	}
+
 	public static ArrowCustomEntity shoot(World world, LivingEntity entity, Random random, float power, double damage, int knockback) {
 		ArrowCustomEntity entityarrow = new ArrowCustomEntity(arrow, entity, world);
 		entityarrow.shoot(entity.getLookVec().x, entity.getLookVec().y, entity.getLookVec().z, power * 2, 0);

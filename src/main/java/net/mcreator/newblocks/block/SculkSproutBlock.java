@@ -55,6 +55,7 @@ import java.util.Collections;
 public class SculkSproutBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:sculk_sprout")
 	public static final Block block = null;
+
 	public SculkSproutBlock(NewBlocksModElements instance) {
 		super(instance, 908);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -73,8 +74,10 @@ public class SculkSproutBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static Feature<BlockClusterFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
+
 	private static class FeatureRegisterHandler {
 		@SubscribeEvent
 		public void registerFeature(RegistryEvent.Register<Feature<?>> event) {
@@ -104,10 +107,12 @@ public class SculkSproutBlock extends NewBlocksModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("new_blocks:sculk_sprout"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> configuredFeature);
 	}
+
 	public static class BlockCustomFlower extends FlowerBlock {
 		public BlockCustomFlower() {
 			super(Effects.MINING_FATIGUE, 8,
@@ -115,6 +120,11 @@ public class SculkSproutBlock extends NewBlocksModElements.ModElement {
 							.hardnessAndResistance(0.2f, 0f).setNeedsPostProcessing((bs, br, bp) -> true).setEmmisiveRendering((bs, br, bp) -> true)
 							.setLightLevel(s -> 7));
 			setRegistryName("sculk_sprout");
+		}
+
+		@Override
+		public int getStewEffectDuration() {
+			return 8;
 		}
 
 		@Override
@@ -139,7 +149,11 @@ public class SculkSproutBlock extends NewBlocksModElements.ModElement {
 		public boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 			Block ground = state.getBlock();
 			return (ground == SculkChuteBlock.block || ground == SkulkBlockBlock.block || ground == SculkStoneBlock.block
-					|| ground == GrimstoneBlock.block || ground == SculkTrapBlock.block);
+					|| ground == GrimstoneBlock.block || ground == SculkTrapBlock.block
+
+			)
+
+			;
 		}
 
 		@Override

@@ -37,6 +37,7 @@ public class GooEndermanEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.5f, 1.5f)).build("goo_enderman").setRegistryName("goo_enderman");
+
 	public GooEndermanEntity(NewBlocksModElements instance) {
 		super(instance, 184);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new GooEndermanRenderer.ModelRegisterHandler());
@@ -53,6 +54,7 @@ public class GooEndermanEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

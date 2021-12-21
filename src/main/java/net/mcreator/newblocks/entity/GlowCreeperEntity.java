@@ -36,14 +36,17 @@ import net.mcreator.newblocks.procedures.GlowCreeperPlayerCollidesWithThisEntity
 import net.mcreator.newblocks.entity.renderer.GlowCreeperRenderer;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class GlowCreeperEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 1.7f)).build("glow_creeper").setRegistryName("glow_creeper");
+
 	public GlowCreeperEntity(NewBlocksModElements instance) {
 		super(instance, 168);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new GlowCreeperRenderer.ModelRegisterHandler());
@@ -61,6 +64,7 @@ public class GlowCreeperEntity extends NewBlocksModElements.ModElement {
 	public void init(FMLCommonSetupEvent event) {
 		DungeonHooks.addDungeonMob(entity, 180);
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -121,14 +125,11 @@ public class GlowCreeperEntity extends NewBlocksModElements.ModElement {
 			double x = this.getPosX();
 			double y = this.getPosY();
 			double z = this.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				GlowCreeperPlayerCollidesWithThisEntityProcedure.executeProcedure($_dependencies);
-			}
+
+			GlowCreeperPlayerCollidesWithThisEntityProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

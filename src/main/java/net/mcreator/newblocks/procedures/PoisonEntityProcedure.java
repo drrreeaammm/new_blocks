@@ -48,7 +48,13 @@ public class PoisonEntityProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PoisonEntity!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure PoisonEntity!");
@@ -59,22 +65,18 @@ public class PoisonEntityProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency sourceentity for procedure PoisonEntity!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure PoisonEntity!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((sourceentity instanceof BlackPoisonFrogEntity.CustomEntity)) {
+		if (sourceentity instanceof BlackPoisonFrogEntity.CustomEntity) {
 			if (entity instanceof LivingEntity)
 				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.POISON, (int) 100, (int) 1, (false), (true)));
-			if ((((new Random()).nextInt((int) 3 + 1)) == 0)) {
+			if ((new Random()).nextInt((int) 3 + 1) == 0) {
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -96,11 +98,12 @@ public class PoisonEntityProcedure {
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 800);
-			} else if ((((new Random()).nextInt((int) 3 + 1)) == 1)) {
+			} else if ((new Random()).nextInt((int) 3 + 1) == 1) {
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -122,11 +125,12 @@ public class PoisonEntityProcedure {
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 650);
-			} else if ((((new Random()).nextInt((int) 3 + 1)) == 2)) {
+			} else if ((new Random()).nextInt((int) 3 + 1) == 2) {
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);
@@ -148,11 +152,12 @@ public class PoisonEntityProcedure {
 						MinecraftForge.EVENT_BUS.unregister(this);
 					}
 				}.start(world, (int) 1200);
-			} else if ((((new Random()).nextInt((int) 3 + 1)) == 3)) {
+			} else if ((new Random()).nextInt((int) 3 + 1) == 3) {
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;
 					private IWorld world;
+
 					public void start(IWorld world, int waitTicks) {
 						this.waitTicks = waitTicks;
 						MinecraftForge.EVENT_BUS.register(this);

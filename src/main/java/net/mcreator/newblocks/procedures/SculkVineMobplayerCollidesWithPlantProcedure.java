@@ -13,6 +13,7 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class SculkVineMobplayerCollidesWithPlantProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -20,9 +21,9 @@ public class SculkVineMobplayerCollidesWithPlantProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if (((!(entity instanceof WardenEntity.CustomEntity)) && ((!(entity instanceof SculkerEntity.CustomEntity))
-				&& ((!(entity instanceof EndersculkEntity.CustomEntity)) && (!(entity instanceof VeryAngryWardenEntity.CustomEntity)))))) {
-			if ((Math.random() < 0.2)) {
+		if (!(entity instanceof WardenEntity.CustomEntity) && !(entity instanceof SculkerEntity.CustomEntity)
+				&& !(entity instanceof EndersculkEntity.CustomEntity) && !(entity instanceof VeryAngryWardenEntity.CustomEntity)) {
+			if (Math.random() < 0.2) {
 				if (entity instanceof LivingEntity) {
 					((LivingEntity) entity).attackEntityFrom(new DamageSource("skulk.vine.death").setDamageBypassesArmor(), (float) 3);
 				}

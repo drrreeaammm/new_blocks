@@ -51,6 +51,7 @@ public class HamsterEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.4f, 0.3f)).build("hamster").setRegistryName("hamster");
+
 	public HamsterEntity(NewBlocksModElements instance) {
 		super(instance, 186);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new HamsterRenderer.ModelRegisterHandler());
@@ -66,6 +67,7 @@ public class HamsterEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

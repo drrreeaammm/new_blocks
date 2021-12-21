@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class TheEndItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:the_end")
 	public static final Item block = null;
+
 	public TheEndItem(NewBlocksModElements instance) {
 		super(instance, 78);
 	}
@@ -23,6 +24,7 @@ public class TheEndItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new MusicDiscItemCustom());
 	}
+
 	public static class MusicDiscItemCustom extends MusicDiscItem {
 		public MusicDiscItemCustom() {
 			super(0, NewBlocksModElements.sounds.get(new ResourceLocation("new_blocks:tall")),

@@ -25,6 +25,7 @@ public class WillOWispRenderer {
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(WillOWispEntity.entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelwill_o_wisp(), 0.5f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/jellyfishclear.png");
@@ -39,6 +40,7 @@ public class WillOWispRenderer {
 	// Paste this class into your mod and generate all required imports
 	public static class Modelwill_o_wisp extends EntityModel<Entity> {
 		private final ModelRenderer body;
+
 		public Modelwill_o_wisp() {
 			textureWidth = 32;
 			textureHeight = 32;
@@ -60,6 +62,8 @@ public class WillOWispRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+
 		}
 	}
+
 }

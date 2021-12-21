@@ -27,6 +27,7 @@ import java.util.Collections;
 public class GlowFenceBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:glow_fence")
 	public static final Block block = null;
+
 	public GlowFenceBlock(NewBlocksModElements instance) {
 		super(instance, 42);
 	}
@@ -36,6 +37,7 @@ public class GlowFenceBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends FenceBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1.4f, 3.3000000000000003f)

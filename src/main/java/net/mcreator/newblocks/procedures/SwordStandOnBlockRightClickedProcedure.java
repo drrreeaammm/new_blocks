@@ -20,10 +20,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class SwordStandOnBlockRightClickedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SwordStandOnBlockRightClicked!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SwordStandOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -41,18 +42,18 @@ public class SwordStandOnBlockRightClickedProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure SwordStandOnBlockRightClicked!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SwordStandOnBlockRightClicked!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SwordStandOnBlockRightClicked!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-				.getItem() == ThunderbladeItem.block)) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+				.getItem() == ThunderbladeItem.block) {
 			if (entity instanceof LivingEntity) {
 				ItemStack _setstack = new ItemStack(Blocks.AIR);
 				_setstack.setCount((int) 1);
@@ -61,8 +62,8 @@ public class SwordStandOnBlockRightClickedProcedure {
 					((ServerPlayerEntity) entity).inventory.markDirty();
 			}
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), SwordStandThunderbladeBlock.block.getDefaultState(), 3);
-		} else if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-				.getItem() == FrostbladeItem.block)) {
+		} else if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+				.getItem() == FrostbladeItem.block) {
 			if (entity instanceof LivingEntity) {
 				ItemStack _setstack = new ItemStack(Blocks.AIR);
 				_setstack.setCount((int) 1);
@@ -71,8 +72,8 @@ public class SwordStandOnBlockRightClickedProcedure {
 					((ServerPlayerEntity) entity).inventory.markDirty();
 			}
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), SwordStandFrostbladeBlock.block.getDefaultState(), 3);
-		} else if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-				.getItem() == FlamebladeItem.block)) {
+		} else if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+				.getItem() == FlamebladeItem.block) {
 			if (entity instanceof LivingEntity) {
 				ItemStack _setstack = new ItemStack(Blocks.AIR);
 				_setstack.setCount((int) 1);

@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class OthersideDiscItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:otherside_disc")
 	public static final Item block = null;
+
 	public OthersideDiscItem(NewBlocksModElements instance) {
 		super(instance, 965);
 	}
@@ -23,6 +24,7 @@ public class OthersideDiscItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new MusicDiscItemCustom());
 	}
+
 	public static class MusicDiscItemCustom extends MusicDiscItem {
 		public MusicDiscItemCustom() {
 			super(0, NewBlocksModElements.sounds.get(new ResourceLocation("new_blocks:otherside")),

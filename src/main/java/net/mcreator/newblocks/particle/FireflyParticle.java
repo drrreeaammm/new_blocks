@@ -21,6 +21,7 @@ import net.minecraft.client.Minecraft;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class FireflyParticle {
 	public static final BasicParticleType particle = new BasicParticleType(false);
+
 	@SubscribeEvent
 	public static void registerParticleType(RegistryEvent.Register<ParticleType<?>> event) {
 		event.getRegistry().register(particle.setRegistryName("firefly"));
@@ -31,9 +32,11 @@ public class FireflyParticle {
 	public static void registerParticle(ParticleFactoryRegisterEvent event) {
 		Minecraft.getInstance().particles.registerFactory(particle, CustomParticleFactory::new);
 	}
+
 	@OnlyIn(Dist.CLIENT)
 	private static class CustomParticle extends SpriteTexturedParticle {
 		private final IAnimatedSprite spriteSet;
+
 		protected CustomParticle(ClientWorld world, double x, double y, double z, double vx, double vy, double vz, IAnimatedSprite spriteSet) {
 			super(world, x, y, z);
 			this.spriteSet = spriteSet;
@@ -57,7 +60,7 @@ public class FireflyParticle {
 		public void tick() {
 			super.tick();
 			if (!this.isExpired) {
-				this.setSprite(this.spriteSet.get((this.age / 9) % 2 + 1, 2));
+				this.setSprite(this.spriteSet.get((this.age / 9) % 29 + 1, 29));
 			}
 		}
 	}
@@ -65,6 +68,7 @@ public class FireflyParticle {
 	@OnlyIn(Dist.CLIENT)
 	private static class CustomParticleFactory implements IParticleFactory<BasicParticleType> {
 		private final IAnimatedSprite spriteSet;
+
 		public CustomParticleFactory(IAnimatedSprite spriteSet) {
 			this.spriteSet = spriteSet;
 		}

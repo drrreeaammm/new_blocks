@@ -28,6 +28,7 @@ public class RubyArmorItem extends NewBlocksModElements.ModElement {
 	public static final Item legs = null;
 	@ObjectHolder("new_blocks:ruby_armor_boots")
 	public static final Item boots = null;
+
 	public RubyArmorItem(NewBlocksModElements instance) {
 		super(instance, 18);
 	}
@@ -101,4 +102,5 @@ public class RubyArmorItem extends NewBlocksModElements.ModElement {
 			}
 		}.setRegistryName("ruby_armor_boots"));
 	}
+
 }

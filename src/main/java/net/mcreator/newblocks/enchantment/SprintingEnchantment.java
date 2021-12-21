@@ -15,6 +15,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class SprintingEnchantment extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:sprinting")
 	public static final Enchantment enchantment = null;
+
 	public SprintingEnchantment(NewBlocksModElements instance) {
 		super(instance, 630);
 	}
@@ -23,6 +24,7 @@ public class SprintingEnchantment extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("sprinting"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.RARE, EnchantmentType.ARMOR_FEET, slots);

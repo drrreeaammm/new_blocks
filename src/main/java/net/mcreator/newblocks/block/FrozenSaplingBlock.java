@@ -29,6 +29,7 @@ import java.util.Collections;
 public class FrozenSaplingBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:frozen_sapling")
 	public static final Block block = null;
+
 	public FrozenSaplingBlock(NewBlocksModElements instance) {
 		super(instance, 96);
 	}
@@ -44,6 +45,7 @@ public class FrozenSaplingBlock extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ORGANIC).sound(SoundType.PLANT).hardnessAndResistance(0f, 0f).setLightLevel(s -> 0)

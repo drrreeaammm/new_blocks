@@ -45,6 +45,7 @@ public class KnockingEnchantmentProcedureProcedure {
 			}
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -58,37 +59,29 @@ public class KnockingEnchantmentProcedureProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		if (((EnchantmentHelper.getEnchantmentLevel(KnockingEnchantment.enchantment,
-				((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-						: ItemStack.EMPTY))) == 1)) {
-			if ((Math.random() < 0.5)) {
-				sourceentity.setMotion((0 - Math.sin(((sourceentity.rotationYaw) * (Math.PI / (-180))))), (-0.1),
-						Math.cos(((sourceentity.rotationYaw) * (Math.PI / (-180)))));
+		if (EnchantmentHelper.getEnchantmentLevel(KnockingEnchantment.enchantment,
+				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY)) == 1) {
+			if (Math.random() < 0.5) {
+				sourceentity.setMotion((0 - Math.sin(sourceentity.rotationYaw * Math.PI / (-180))), (-0.1),
+						Math.cos(sourceentity.rotationYaw * Math.PI / (-180)));
 			}
-		} else if (((EnchantmentHelper.getEnchantmentLevel(KnockingEnchantment.enchantment,
-				((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-						: ItemStack.EMPTY))) == 2)) {
-			if ((Math.random() < 0.6)) {
-				sourceentity.setMotion((0 - Math.sin(((sourceentity.rotationYaw) * (Math.PI / (-180))))), (-0.2),
-						Math.cos(((sourceentity.rotationYaw) * (Math.PI / (-180)))));
+		} else if (EnchantmentHelper.getEnchantmentLevel(KnockingEnchantment.enchantment,
+				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY)) == 2) {
+			if (Math.random() < 0.6) {
+				sourceentity.setMotion((0 - Math.sin(sourceentity.rotationYaw * Math.PI / (-180))), (-0.2),
+						Math.cos(sourceentity.rotationYaw * Math.PI / (-180)));
 			}
-		} else if (((EnchantmentHelper.getEnchantmentLevel(KnockingEnchantment.enchantment,
-				((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-						: ItemStack.EMPTY))) == 3)) {
-			if ((Math.random() < 0.7)) {
-				sourceentity.setMotion((0 - Math.sin(((sourceentity.rotationYaw) * (Math.PI / (-180))))), (-0.3),
-						Math.cos(((sourceentity.rotationYaw) * (Math.PI / (-180)))));
+		} else if (EnchantmentHelper.getEnchantmentLevel(KnockingEnchantment.enchantment,
+				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY)) == 3) {
+			if (Math.random() < 0.7) {
+				sourceentity.setMotion((0 - Math.sin(sourceentity.rotationYaw * Math.PI / (-180))), (-0.3),
+						Math.cos(sourceentity.rotationYaw * Math.PI / (-180)));
 			}
-		} else if (((EnchantmentHelper.getEnchantmentLevel(KnockingEnchantment.enchantment,
-				((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-						: ItemStack.EMPTY))) == 4)) {
-			if ((Math.random() < 0.8)) {
-				sourceentity.setMotion((0 - Math.sin(((sourceentity.rotationYaw) * (Math.PI / (-180))))), (-0.4),
-						Math.cos(((sourceentity.rotationYaw) * (Math.PI / (-180)))));
+		} else if (EnchantmentHelper.getEnchantmentLevel(KnockingEnchantment.enchantment,
+				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY)) == 4) {
+			if (Math.random() < 0.8) {
+				sourceentity.setMotion((0 - Math.sin(sourceentity.rotationYaw * Math.PI / (-180))), (-0.4),
+						Math.cos(sourceentity.rotationYaw * Math.PI / (-180)));
 			}
 		}
 	}

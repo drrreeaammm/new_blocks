@@ -21,7 +21,7 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
-import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -41,6 +41,7 @@ public class PlaneEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire()
 			.size(1.4f, 2f)).build("plane").setRegistryName("plane");
+
 	public PlaneEntity(NewBlocksModElements instance) {
 		super(instance, 1187);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new PlaneRenderer.ModelRegisterHandler());
@@ -56,6 +57,7 @@ public class PlaneEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
@@ -88,6 +90,7 @@ public class PlaneEntity extends NewBlocksModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
+
 		}
 
 		@Override
@@ -112,7 +115,7 @@ public class PlaneEntity extends NewBlocksModElements.ModElement {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source.getImmediateSource() instanceof ArrowEntity)
+			if (source.getImmediateSource() instanceof AbstractArrowEntity)
 				return false;
 			if (source == DamageSource.FALL)
 				return false;

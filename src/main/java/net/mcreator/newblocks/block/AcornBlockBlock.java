@@ -20,15 +20,18 @@ import net.mcreator.newblocks.procedures.AcornBlockEntityWalksOnTheBlockProcedur
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class AcornBlockBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:acorn_block")
 	public static final Block block = null;
+
 	public AcornBlockBlock(NewBlocksModElements instance) {
 		super(instance, 1025);
 	}
@@ -38,6 +41,7 @@ public class AcornBlockBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.WOOD).hardnessAndResistance(0.75f, 1f).setLightLevel(s -> 0));
@@ -64,11 +68,9 @@ public class AcornBlockBlock extends NewBlocksModElements.ModElement {
 			int y = pos.getY();
 			int z = pos.getZ();
 			BlockState blockstate = world.getBlockState(pos);
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				AcornBlockEntityWalksOnTheBlockProcedure.executeProcedure($_dependencies);
-			}
+
+			AcornBlockEntityWalksOnTheBlockProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

@@ -11,10 +11,11 @@ import java.util.Random;
 import java.util.Map;
 
 public class AshSwordRightClickedOnBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure AshSwordRightClickedOnBlock!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure AshSwordRightClickedOnBlock!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -32,19 +33,19 @@ public class AshSwordRightClickedOnBlockProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure AshSwordRightClickedOnBlock!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure AshSwordRightClickedOnBlock!");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure AshSwordRightClickedOnBlock!");
 			return;
 		}
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		world.setBlockState(new BlockPos((int) x, (int) (y + 1), (int) z), Blocks.FIRE.getDefaultState(), 3);
 		{
-			ItemStack _ist = (itemstack);
+			ItemStack _ist = itemstack;
 			if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
 				_ist.shrink(1);
 				_ist.setDamage(0);

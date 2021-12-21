@@ -22,15 +22,11 @@ import net.mcreator.newblocks.NewBlocksMod;
 import java.util.Map;
 
 public class SniperRifileRangedItemUsedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SniperRifileRangedItemUsed!");
-			return;
-		}
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure SniperRifileRangedItemUsed!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SniperRifileRangedItemUsed!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -48,21 +44,27 @@ public class SniperRifileRangedItemUsedProcedure {
 				NewBlocksMod.LOGGER.warn("Failed to load dependency z for procedure SniperRifileRangedItemUsed!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				NewBlocksMod.LOGGER.warn("Failed to load dependency world for procedure SniperRifileRangedItemUsed!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency entity for procedure SniperRifileRangedItemUsed!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
+		if (dependencies.get("itemstack") == null) {
+			if (!dependencies.containsKey("itemstack"))
+				NewBlocksMod.LOGGER.warn("Failed to load dependency itemstack for procedure SniperRifileRangedItemUsed!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		new Object() {
 			private int ticks = 0;
 			private float waitTicks;
 			private IWorld world;
+
 			public void start(IWorld world, int waitTicks) {
 				this.waitTicks = waitTicks;
 				MinecraftForge.EVENT_BUS.register(this);
@@ -79,21 +81,21 @@ public class SniperRifileRangedItemUsedProcedure {
 			}
 
 			private void run() {
-				if (((entity instanceof PlayerEntity)
+				if ((entity instanceof PlayerEntity)
 						? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(SniperBulletItem.block))
-						: false)) {
-					if ((!((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack)) != 0)))) {
+						: false) {
+					if (!(EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, itemstack) != 0)) {
 						if (entity instanceof PlayerEntity)
-							((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 21);
-					} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 1)) {
+							((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 21);
+					} else if (EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, itemstack) == 1) {
 						if (entity instanceof PlayerEntity)
-							((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 18);
-					} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 2)) {
+							((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 18);
+					} else if (EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, itemstack) == 2) {
 						if (entity instanceof PlayerEntity)
-							((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 13);
-					} else if (((EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, (itemstack))) == 3)) {
+							((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 13);
+					} else if (EnchantmentHelper.getEnchantmentLevel(ReloadingEnchantment.enchantment, itemstack) == 3) {
 						if (entity instanceof PlayerEntity)
-							((PlayerEntity) entity).getCooldownTracker().setCooldown((itemstack).getItem(), (int) 10);
+							((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 10);
 					}
 					if (world instanceof World && !world.isRemote()) {
 						((World) world)

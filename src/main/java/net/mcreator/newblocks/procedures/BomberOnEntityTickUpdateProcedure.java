@@ -12,6 +12,7 @@ import java.util.Random;
 import java.util.Map;
 
 public class BomberOnEntityTickUpdateProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -20,16 +21,16 @@ public class BomberOnEntityTickUpdateProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		boolean sz = false;
-		if ((((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity)) {
-			if ((Math.random() < 0.7)) {
-				if ((Math.random() < 0.7)) {
-					if ((Math.random() < 0.7)) {
-						if ((Math.random() < 0.7)) {
-							if ((Math.random() < 0.7)) {
-								if ((Math.random() < 0.7)) {
-									if ((Math.random() < 0.7)) {
-										if ((Math.random() < 0.7)) {
-											if ((Math.random() < 0.7)) {
+		if (((entity instanceof MobEntity) ? ((MobEntity) entity).getAttackTarget() : null) instanceof LivingEntity) {
+			if (Math.random() < 0.7) {
+				if (Math.random() < 0.7) {
+					if (Math.random() < 0.7) {
+						if (Math.random() < 0.7) {
+							if (Math.random() < 0.7) {
+								if (Math.random() < 0.7) {
+									if (Math.random() < 0.7) {
+										if (Math.random() < 0.7) {
+											if (Math.random() < 0.7) {
 												if (entity instanceof LivingEntity) {
 													Entity _ent = entity;
 													if (!_ent.world.isRemote()) {

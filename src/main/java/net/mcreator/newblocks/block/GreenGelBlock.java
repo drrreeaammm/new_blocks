@@ -25,6 +25,7 @@ import java.util.Collections;
 public class GreenGelBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:green_gel")
 	public static final Block block = null;
+
 	public GreenGelBlock(NewBlocksModElements instance) {
 		super(instance, 113);
 	}
@@ -34,6 +35,7 @@ public class GreenGelBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.BASALT).hardnessAndResistance(0.55f, 1.5f).setLightLevel(s -> 0)

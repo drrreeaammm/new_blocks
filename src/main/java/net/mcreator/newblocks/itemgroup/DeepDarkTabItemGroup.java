@@ -31,5 +31,6 @@ public class DeepDarkTabItemGroup extends NewBlocksModElements.ModElement {
 			}
 		};
 	}
+
 	public static ItemGroup tab;
 }

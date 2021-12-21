@@ -14,6 +14,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class LightningTextureItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:lightning_texture")
 	public static final Item block = null;
+
 	public LightningTextureItem(NewBlocksModElements instance) {
 		super(instance, 484);
 	}
@@ -22,6 +23,7 @@ public class LightningTextureItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(null).maxStackSize(64).rarity(Rarity.COMMON));

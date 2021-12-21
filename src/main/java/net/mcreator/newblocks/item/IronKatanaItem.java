@@ -16,13 +16,16 @@ import net.mcreator.newblocks.procedures.IronKatanaLivingEntityIsHitWithToolProc
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class IronKatanaItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:iron_katana")
 	public static final Item block = null;
+
 	public IronKatanaItem(NewBlocksModElements instance) {
 		super(instance, 83);
 	}
@@ -61,12 +64,10 @@ public class IronKatanaItem extends NewBlocksModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				World world = entity.world;
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("sourceentity", sourceentity);
-					$_dependencies.put("itemstack", itemstack);
-					IronKatanaLivingEntityIsHitWithToolProcedure.executeProcedure($_dependencies);
-				}
+
+				IronKatanaLivingEntityIsHitWithToolProcedure.executeProcedure(
+						Stream.of(new AbstractMap.SimpleEntry<>("sourceentity", sourceentity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+								.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("iron_katana"));

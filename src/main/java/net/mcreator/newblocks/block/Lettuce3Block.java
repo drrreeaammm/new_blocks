@@ -43,6 +43,7 @@ import java.util.Collections;
 public class Lettuce3Block extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:lettuce_3")
 	public static final Block block = null;
+
 	public Lettuce3Block(NewBlocksModElements instance) {
 		super(instance, 1230);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BlockColorRegisterHandler());
@@ -59,6 +60,7 @@ public class Lettuce3Block extends NewBlocksModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	private static class BlockColorRegisterHandler {
 		@OnlyIn(Dist.CLIENT)
 		@SubscribeEvent
@@ -77,9 +79,18 @@ public class Lettuce3Block extends NewBlocksModElements.ModElement {
 		}
 
 		@Override
+		public int getStewEffectDuration() {
+			return 5;
+		}
+
+		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
-			return VoxelShapes.or(makeCuboidShape(0, 0, 0, 16, 6.6, 16)).withOffset(offset.x, offset.y, offset.z);
+			return VoxelShapes.or(makeCuboidShape(0, 0, 0, 16, 6.6, 16)
+
+			)
+
+					.withOffset(offset.x, offset.y, offset.z);
 		}
 
 		@Override
@@ -103,7 +114,11 @@ public class Lettuce3Block extends NewBlocksModElements.ModElement {
 		@Override
 		public boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 			Block ground = state.getBlock();
-			return (ground == Blocks.FARMLAND || ground == Blocks.GRASS_BLOCK);
+			return (ground == Blocks.FARMLAND || ground == Blocks.GRASS_BLOCK
+
+			)
+
+			;
 		}
 
 		@Override

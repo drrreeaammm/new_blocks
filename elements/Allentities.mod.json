@@ -1,0 +1,380 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Entities",
+    "items": [],
+    "blocks": [],
+    "functions": [],
+    "entities": [
+      {
+        "value": "EntityAreaEffectCloud"
+      },
+      {
+        "value": "EntityArmorStand"
+      },
+      {
+        "value": "EntityArrow"
+      },
+      {
+        "value": "EntityBat"
+      },
+      {
+        "value": "EntityBee"
+      },
+      {
+        "value": "EntityBlaze"
+      },
+      {
+        "value": "EntityBoat"
+      },
+      {
+        "value": "EntityCat"
+      },
+      {
+        "value": "EntityCaveSpider"
+      },
+      {
+        "value": "EntityChicken"
+      },
+      {
+        "value": "EntityCod"
+      },
+      {
+        "value": "EntityCow"
+      },
+      {
+        "value": "EntityCreature"
+      },
+      {
+        "value": "EntityCreeper"
+      },
+      {
+        "value": "EntityDolphin"
+      },
+      {
+        "value": "EntityDonkey"
+      },
+      {
+        "value": "EntityDragon"
+      },
+      {
+        "value": "EntityDragonFireball"
+      },
+      {
+        "value": "EntityDrowned"
+      },
+      {
+        "value": "EntityEgg"
+      },
+      {
+        "value": "EntityElderGuardian"
+      },
+      {
+        "value": "EntityEnderCrystal"
+      },
+      {
+        "value": "EntityEnderPearl"
+      },
+      {
+        "value": "EntityEnderman"
+      },
+      {
+        "value": "EntityEndermite"
+      },
+      {
+        "value": "EntityEvoker"
+      },
+      {
+        "value": "EntityEvokerFangs"
+      },
+      {
+        "value": "EntityExpBottle"
+      },
+      {
+        "value": "EntityXPOrb"
+      },
+      {
+        "value": "EntityEnderEye"
+      },
+      {
+        "value": "EntityFallingBlock"
+      },
+      {
+        "value": "EntityFireball"
+      },
+      {
+        "value": "EntityFireworkRocket"
+      },
+      {
+        "value": "EntityFishHook"
+      },
+      {
+        "value": "EntityFlying"
+      },
+      {
+        "value": "EntityFox"
+      },
+      {
+        "value": "EntityGhast"
+      },
+      {
+        "value": "EntityGiantZombie"
+      },
+      {
+        "value": "EntityGolem"
+      },
+      {
+        "value": "EntityGuardian"
+      },
+      {
+        "value": "EntityHanging"
+      },
+      {
+        "value": "EntityHoglin"
+      },
+      {
+        "value": "EntityHorse"
+      },
+      {
+        "value": "EntityHusk"
+      },
+      {
+        "value": "EntityIllusionIllager"
+      },
+      {
+        "value": "EntityIronGolem"
+      },
+      {
+        "value": "EntityItem"
+      },
+      {
+        "value": "EntityItemFrame"
+      },
+      {
+        "value": "EntityLeashKnot"
+      },
+      {
+        "value": "EntityLightningBolt"
+      },
+      {
+        "value": "EntityLiving"
+      },
+      {
+        "value": "EntityLlama"
+      },
+      {
+        "value": "EntityLlamaSpit"
+      },
+      {
+        "value": "EntityMagmaCube"
+      },
+      {
+        "value": "EntityMinecart"
+      },
+      {
+        "value": "EntityMinecartChest"
+      },
+      {
+        "value": "EntityMinecartCommandBlock"
+      },
+      {
+        "value": "EntityMinecartContainer"
+      },
+      {
+        "value": "EntityMinecartFurnace"
+      },
+      {
+        "value": "EntityMinecartHopper"
+      },
+      {
+        "value": "EntityMinecartMobSpawner"
+      },
+      {
+        "value": "EntityMinecartTNT"
+      },
+      {
+        "value": "EntityMob"
+      },
+      {
+        "value": "EntityMonster"
+      },
+      {
+        "value": "EntityMooshroom"
+      },
+      {
+        "value": "EntityMule"
+      },
+      {
+        "value": "EntityOcelot"
+      },
+      {
+        "value": "EntityPainting"
+      },
+      {
+        "value": "EntityPanda"
+      },
+      {
+        "value": "EntityParrot"
+      },
+      {
+        "value": "EntityPhantom"
+      },
+      {
+        "value": "EntityPig"
+      },
+      {
+        "value": "EntityPiglin"
+      },
+      {
+        "value": "EntityPiglinBrute"
+      },
+      {
+        "value": "EntityPillager"
+      },
+      {
+        "value": "EntityPlayer"
+      },
+      {
+        "value": "EntityPolarBear"
+      },
+      {
+        "value": "EntityPotion"
+      },
+      {
+        "value": "EntityPufferfish"
+      },
+      {
+        "value": "EntityRabbit"
+      },
+      {
+        "value": "EntityRavager"
+      },
+      {
+        "value": "EntitySalmon"
+      },
+      {
+        "value": "EntityPlayerMP"
+      },
+      {
+        "value": "EntitySheep"
+      },
+      {
+        "value": "EntityShoulderRiding"
+      },
+      {
+        "value": "EntityShulker"
+      },
+      {
+        "value": "EntityShulkerBullet"
+      },
+      {
+        "value": "EntitySilverfish"
+      },
+      {
+        "value": "EntitySkeleton"
+      },
+      {
+        "value": "EntitySkeletonHorse"
+      },
+      {
+        "value": "EntitySlime"
+      },
+      {
+        "value": "EntitySmallFireball"
+      },
+      {
+        "value": "EntitySnowman"
+      },
+      {
+        "value": "EntitySnowball"
+      },
+      {
+        "value": "EntitySpectralArrow"
+      },
+      {
+        "value": "EntitySpellcasterIllager"
+      },
+      {
+        "value": "EntitySpider"
+      },
+      {
+        "value": "EntitySquid"
+      },
+      {
+        "value": "EntityStray"
+      },
+      {
+        "value": "EntityStrider"
+      },
+      {
+        "value": "EntityTameable"
+      },
+      {
+        "value": "EntityThrowable"
+      },
+      {
+        "value": "EntityTNTPrimed"
+      },
+      {
+        "value": "EntityTraderLlama"
+      },
+      {
+        "value": "EntityTrident"
+      },
+      {
+        "value": "EntityTropicalFish"
+      },
+      {
+        "value": "EntityTurtle"
+      },
+      {
+        "value": "EntityVex"
+      },
+      {
+        "value": "EntityVillager"
+      },
+      {
+        "value": "EntityVindicator"
+      },
+      {
+        "value": "EntityWanderingTrader"
+      },
+      {
+        "value": "EntityWaterMob"
+      },
+      {
+        "value": "EntityWitch"
+      },
+      {
+        "value": "EntityWither"
+      },
+      {
+        "value": "EntityWitherSkeleton"
+      },
+      {
+        "value": "EntityWitherSkull"
+      },
+      {
+        "value": "EntityWolf"
+      },
+      {
+        "value": "EntityZoglin"
+      },
+      {
+        "value": "EntityZombie"
+      },
+      {
+        "value": "EntityZombieHorse"
+      },
+      {
+        "value": "EntityZombieVillager"
+      },
+      {
+        "value": "EntityPigZombie"
+      }
+    ],
+    "name": "allentities",
+    "namespace": "minecraft"
+  }
+}

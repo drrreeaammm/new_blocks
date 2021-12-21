@@ -16,6 +16,7 @@ import net.mcreator.newblocks.NewBlocksModElements;
 public class PlatinumShovelItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:platinum_shovel")
 	public static final Item block = null;
+
 	public PlatinumShovelItem(NewBlocksModElements instance) {
 		super(instance, 1045);
 	}

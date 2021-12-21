@@ -17,13 +17,16 @@ import net.mcreator.newblocks.procedures.DiamondAppleFoodEatenProcedure;
 import net.mcreator.newblocks.itemgroup.NewblocksItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class DiamondAppleItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:diamond_apple")
 	public static final Item block = null;
+
 	public DiamondAppleItem(NewBlocksModElements instance) {
 		super(instance, 71);
 	}
@@ -32,10 +35,13 @@ public class DiamondAppleItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(NewblocksItemGroup.tab).maxStackSize(64).rarity(Rarity.EPIC)
-					.food((new Food.Builder()).hunger(5).saturation(2.6f).setAlwaysEdible().build()));
+					.food((new Food.Builder()).hunger(5).saturation(2.6f).setAlwaysEdible()
+
+							.build()));
 			setRegistryName("diamond_apple");
 		}
 
@@ -56,11 +62,9 @@ public class DiamondAppleItem extends NewBlocksModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				DiamondAppleFoodEatenProcedure.executeProcedure($_dependencies);
-			}
+
+			DiamondAppleFoodEatenProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}

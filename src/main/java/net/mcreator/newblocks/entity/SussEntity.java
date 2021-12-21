@@ -37,6 +37,7 @@ public class SussEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(0.6f, 1.8f)).build("suss").setRegistryName("suss");
+
 	public SussEntity(NewBlocksModElements instance) {
 		super(instance, 202);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new SussRenderer.ModelRegisterHandler());
@@ -52,6 +53,7 @@ public class SussEntity extends NewBlocksModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {

@@ -17,13 +17,16 @@ import net.minecraft.entity.LivingEntity;
 import net.mcreator.newblocks.procedures.PotionOfLevitationFoodEatenProcedure;
 import net.mcreator.newblocks.NewBlocksModElements;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class PotionOfLevitationItem extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:potion_of_levitation")
 	public static final Item block = null;
+
 	public PotionOfLevitationItem(NewBlocksModElements instance) {
 		super(instance, 273);
 	}
@@ -32,10 +35,13 @@ public class PotionOfLevitationItem extends NewBlocksModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new FoodItemCustom());
 	}
+
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(ItemGroup.BREWING).maxStackSize(0).rarity(Rarity.COMMON)
-					.food((new Food.Builder()).hunger(0).saturation(0f).setAlwaysEdible().build()));
+					.food((new Food.Builder()).hunger(0).saturation(0f).setAlwaysEdible()
+
+							.build()));
 			setRegistryName("potion_of_levitation");
 		}
 
@@ -61,11 +67,9 @@ public class PotionOfLevitationItem extends NewBlocksModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				PotionOfLevitationFoodEatenProcedure.executeProcedure($_dependencies);
-			}
+
+			PotionOfLevitationFoodEatenProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			if (itemstack.isEmpty()) {
 				return retval;
 			} else {

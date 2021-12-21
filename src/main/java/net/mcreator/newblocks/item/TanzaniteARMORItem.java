@@ -28,6 +28,7 @@ public class TanzaniteARMORItem extends NewBlocksModElements.ModElement {
 	public static final Item legs = null;
 	@ObjectHolder("new_blocks:tanzanite_armor_boots")
 	public static final Item boots = null;
+
 	public TanzaniteARMORItem(NewBlocksModElements instance) {
 		super(instance, 28);
 	}
@@ -101,4 +102,5 @@ public class TanzaniteARMORItem extends NewBlocksModElements.ModElement {
 			}
 		}.setRegistryName("tanzanite_armor_boots"));
 	}
+
 }

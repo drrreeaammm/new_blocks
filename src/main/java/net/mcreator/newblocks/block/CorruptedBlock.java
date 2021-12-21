@@ -24,6 +24,7 @@ import java.util.Collections;
 public class CorruptedBlock extends NewBlocksModElements.ModElement {
 	@ObjectHolder("new_blocks:corrupted")
 	public static final Block block = null;
+
 	public CorruptedBlock(NewBlocksModElements instance) {
 		super(instance, 1024);
 	}
@@ -33,6 +34,7 @@ public class CorruptedBlock extends NewBlocksModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NewblocksItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).hardnessAndResistance(0.7000000000000001f, 7.5f)
