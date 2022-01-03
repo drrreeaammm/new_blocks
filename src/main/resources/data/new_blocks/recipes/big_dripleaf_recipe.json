@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 12",
+    "34 ",
+    " 7 "
+  ],
+  "key": {
+    "1": {
+      "item": "new_blocks:moss"
+    },
+    "2": {
+      "item": "new_blocks:moss"
+    },
+    "3": {
+      "item": "new_blocks:spore_blossom"
+    },
+    "4": {
+      "item": "minecraft:feather"
+    },
+    "7": {
+      "item": "new_blocks:moss"
+    }
+  },
+  "result": {
+    "item": "new_blocks:big_dripleaf",
+    "count": 3
+  }
+}

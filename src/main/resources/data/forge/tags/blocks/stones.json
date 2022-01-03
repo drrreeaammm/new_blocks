@@ -1,0 +1,33 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:diorite",
+    "new_blocks:platinum_ore",
+    "minecraft:emerald_ore",
+    "minecraft:granite",
+    "minecraft:gold_ore",
+    "new_blocks:darkite_ore",
+    "minecraft:lapis_ore",
+    "new_blocks:darkstone",
+    "minecraft:iron_ore",
+    "minecraft:mossy_cobblestone",
+    "new_blocks:fake_diamond_ore",
+    "minecraft:redstone_ore",
+    "minecraft:diamond_ore",
+    "new_blocks:moss",
+    "new_blocks:spore_blossom",
+    "new_blocks:plutonium_ore",
+    "minecraft:nether_quartz_ore",
+    "minecraft:stone",
+    "minecraft:coal_ore",
+    "new_blocks:randomite_ore",
+    "new_blocks:deepslate",
+    "minecraft:andesite",
+    "new_blocks:grimstone",
+    "new_blocks:dark_grimstone",
+    "minecraft:nether_gold_ore",
+    "minecraft:infested_stone",
+    "new_blocks:tanzanite_ore",
+    "new_blocks:purple_quartz_ore"
+  ]
+}

@@ -122,7 +122,7 @@
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onTickUpdate": {
-      "name": "SculkSensorActiveUpdateTick"
+      "name": "SculkSensorActiveBlockAdded"
     },
     "spawnWorldTypes": [
       "CUSTOM:DeepDark"

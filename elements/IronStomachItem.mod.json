@@ -1,0 +1,21 @@
+{
+  "_fv": 24,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Potion of Iron Stomach",
+    "splashName": "Splash Potion of Iron Stomach",
+    "lingeringName": "Lingering Potion of Iron Stomach",
+    "arrowName": "Arrow of Iron Stomach",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:IronStomach"
+        },
+        "duration": 2800,
+        "amplifier": 0,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

@@ -15,6 +15,6 @@ public class WardenOnInitialEntitySpawnProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		entity.getPersistentData().putBoolean("isAngry", (true));
+		entity.getPersistentData().putBoolean("isAngry", (false));
 	}
 }

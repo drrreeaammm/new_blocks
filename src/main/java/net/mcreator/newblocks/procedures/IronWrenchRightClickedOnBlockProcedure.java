@@ -136,5 +136,7 @@ public class IronWrenchRightClickedOnBlockProcedure {
 				}
 			}
 		}
+		if (entity instanceof PlayerEntity)
+			((PlayerEntity) entity).getCooldownTracker().setCooldown(itemstack.getItem(), (int) 15);
 	}
 }

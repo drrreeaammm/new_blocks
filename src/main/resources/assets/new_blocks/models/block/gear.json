@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "new_blocks:blocks/gear",
+    "particle": "new_blocks:blocks/gear"
+  }
+}

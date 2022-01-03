@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
-    "new_blocks:sculk_vine"
+    "new_blocks:cave_plant_middle_lit",
+    "new_blocks:sculk_vine",
+    "new_blocks:cave_plant_lit",
+    "new_blocks:big_sculk_vine",
+    "new_blocks:cave_plant_middle_unlit",
+    "new_blocks:cave_plant"
   ]
 }

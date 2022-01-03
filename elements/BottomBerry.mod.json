@@ -1,0 +1,26 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "CUSTOM:CavePlantLit"
+      },
+      {
+        "value": "CUSTOM:CavePlant"
+      },
+      {
+        "value": "CUSTOM:PurpleCavePlantL"
+      },
+      {
+        "value": "CUSTOM:RedCavePlantBottom"
+      }
+    ],
+    "functions": [],
+    "entities": [],
+    "name": "bottom_berry",
+    "namespace": "mod"
+  }
+}

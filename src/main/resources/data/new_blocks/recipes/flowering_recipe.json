@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "new_blocks:purple_glow_berries"
+    },
+    {
+      "item": "new_blocks:purple_glow_berries"
+    },
+    {
+      "item": "new_blocks:purple_glow_berries"
+    },
+    {
+      "item": "new_blocks:purple_glow_berries"
+    },
+    {
+      "item": "new_blocks:azalea"
+    }
+  ],
+  "result": {
+    "item": "new_blocks:flowering_azalea",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "new_blocks:block/dripleaf_stem"
+    },
+    "facing=east": {
+      "model": "new_blocks:block/dripleaf_stem",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "new_blocks:block/dripleaf_stem",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "new_blocks:block/dripleaf_stem",
+      "y": 270
+    }
+  }
+}

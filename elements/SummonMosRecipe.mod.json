@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 2,
+    "group": "",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      {
+        "value": "Blocks.SAPLING"
+      },
+      {
+        "value": "Blocks.SAPLING"
+      },
+      {
+        "value": "Blocks.TALLGRASS#1"
+      },
+      {
+        "value": "CUSTOM:FloweringAzaleaLeaves"
+      },
+      {
+        "value": "CUSTOM:FloweringAzaleaLeaves"
+      },
+      {
+        "value": "CUSTOM:HangingRoots"
+      },
+      {
+        "value": "Blocks.TALLGRASS#1"
+      },
+      {
+        "value": "CUSTOM:FloweringAzaleaLeaves"
+      },
+      {
+        "value": "Blocks.SAPLING"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:SummonTheBlocks"
+    },
+    "name": "summon_mos_recipe",
+    "namespace": "mod"
+  }
+}

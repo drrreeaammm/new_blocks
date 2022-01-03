@@ -222,6 +222,7 @@ public class NewBlocksModElements {
 		sounds.put(new ResourceLocation("new_blocks", "aaaa"), new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "aaaa")));
 		sounds.put(new ResourceLocation("new_blocks", "breakingtheconditoning"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "breakingtheconditoning")));
+		sounds.put(new ResourceLocation("new_blocks", "pixie_"), new net.minecraft.util.SoundEvent(new ResourceLocation("new_blocks", "pixie_")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("new_blocks").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

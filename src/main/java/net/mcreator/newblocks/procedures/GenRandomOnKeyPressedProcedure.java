@@ -1,9 +1,11 @@
 package net.mcreator.newblocks.procedures;
 
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.common.MinecraftForge;
+
 import net.minecraft.world.IWorld;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.entity.Entity;
-import net.minecraft.block.Blocks;
 
 import net.mcreator.newblocks.NewBlocksMod;
 
@@ -24,34 +26,35 @@ public class GenRandomOnKeyPressedProcedure {
 		}
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
-		if (Math.random() < 0.9) {
-			world.setBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ())),
-					Blocks.GRASS_BLOCK.getDefaultState(), 3);
-			world.setBlockState(new BlockPos((int) (entity.getPosX() + 2), (int) (entity.getPosY()), (int) (entity.getPosZ())),
-					Blocks.GRASS_BLOCK.getDefaultState(), 3);
-			world.setBlockState(new BlockPos((int) (entity.getPosX() + 3), (int) (entity.getPosY()), (int) (entity.getPosZ())),
-					Blocks.GRASS_BLOCK.getDefaultState(), 3);
-			world.setBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ() + 1)),
-					Blocks.GRASS_BLOCK.getDefaultState(), 3);
-			world.setBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ() + 2)),
-					Blocks.GRASS_BLOCK.getDefaultState(), 3);
-			if (Math.random() < 0.6) {
-				world.setBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ() + 3)),
-						Blocks.GRASS_BLOCK.getDefaultState(), 3);
-				if (Math.random() < 0.7) {
-					world.setBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ() + 4)),
-							Blocks.GRASS_BLOCK.getDefaultState(), 3);
-					world.setBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ() + 5)),
-							Blocks.GRASS_BLOCK.getDefaultState(), 3);
-				}
-			} else {
-				world.setBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY() - 1), (int) (entity.getPosZ() + 5)),
-						Blocks.GRASS_BLOCK.getDefaultState(), 3);
-				world.setBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY() - 1), (int) (entity.getPosZ() + 4)),
-						Blocks.GRASS_BLOCK.getDefaultState(), 3);
-				world.setBlockState(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY() - 1), (int) (entity.getPosZ() + 3)),
-						Blocks.GRASS_BLOCK.getDefaultState(), 3);
+		boolean found = false;
+		double sx = 0;
+		double sy = 0;
+		double sz = 0;
+		entity.setMotion((entity.getMotion().getX()), (entity.getMotion().getY() + 0.8), (entity.getMotion().getZ()));
+		new Object() {
+			private int ticks = 0;
+			private float waitTicks;
+			private IWorld world;
+
+			public void start(IWorld world, int waitTicks) {
+				this.waitTicks = waitTicks;
+				MinecraftForge.EVENT_BUS.register(this);
+				this.world = world;
 			}
-		}
+
+			@SubscribeEvent
+			public void tick(TickEvent.ServerTickEvent event) {
+				if (event.phase == TickEvent.Phase.END) {
+					this.ticks += 1;
+					if (this.ticks >= this.waitTicks)
+						run();
+				}
+			}
+
+			private void run() {
+				entity.setMotion((0 - Math.sin(entity.rotationYaw * Math.PI / 180)), 0.62, Math.cos(entity.rotationYaw * Math.PI / 180));
+				MinecraftForge.EVENT_BUS.unregister(this);
+			}
+		}.start(world, (int) 15);
 	}
 }

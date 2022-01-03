@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "new_blocks:cave_plant_lit",
+    "new_blocks:purple_cave_plant_l",
+    "new_blocks:red_cave_plant_bottom",
+    "new_blocks:cave_plant"
+  ]
+}

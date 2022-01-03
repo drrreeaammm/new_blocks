@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "new_blocks:blocks/cave_vines_lit",
+    "particle": "new_blocks:blocks/cave_vines_lit"
+  }
+}

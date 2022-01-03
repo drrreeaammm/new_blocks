@@ -34,6 +34,7 @@ public class WardenRenderer {
 					{
 						this.addLayer(new GlowingLayer<>(this));
 					}
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/warden.png");
@@ -68,6 +69,7 @@ public class WardenRenderer {
 		private final ModelRenderer left_arm;
 		private final ModelRenderer left_leg;
 		private final ModelRenderer right_leg;
+
 		public Modelwarden() {
 			textureWidth = 128;
 			textureHeight = 64;
@@ -142,4 +144,5 @@ public class WardenRenderer {
 			this.head.rotateAngleX = MathHelper.cos(f * 0.2F) * -0.2F * f1;
 		}
 	}
+
 }

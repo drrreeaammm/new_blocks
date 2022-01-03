@@ -7,6 +7,21 @@
     "blocks": [
       {
         "value": "CUSTOM:SculkVine"
+      },
+      {
+        "value": "CUSTOM:CavePlant"
+      },
+      {
+        "value": "CUSTOM:CavePlantMiddleUnlit"
+      },
+      {
+        "value": "CUSTOM:CavePlantMiddleLit"
+      },
+      {
+        "value": "CUSTOM:CavePlantLit"
+      },
+      {
+        "value": "CUSTOM:BigSculkVine"
       }
     ],
     "functions": [],

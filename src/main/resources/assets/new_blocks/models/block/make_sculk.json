@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/strawberry_crop_stage0",
+    "up": "new_blocks:blocks/strawberry_crop_stage0",
+    "north": "new_blocks:blocks/strawberry_crop_stage0",
+    "east": "new_blocks:blocks/sculk_block_1_1",
+    "south": "new_blocks:blocks/strawberry_crop_stage0",
+    "west": "new_blocks:blocks/strawberry_crop_stage0",
+    "particle": "new_blocks:blocks/strawberry_crop_stage0"
+  }
+}

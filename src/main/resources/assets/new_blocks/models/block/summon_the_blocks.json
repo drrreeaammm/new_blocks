@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/azalea_side",
+    "up": "new_blocks:blocks/mud",
+    "north": "new_blocks:blocks/sculk_sensor_top",
+    "east": "new_blocks:blocks/creeper",
+    "south": "new_blocks:blocks/mangrove_log",
+    "west": "new_blocks:blocks/chlorinestill",
+    "particle": "new_blocks:blocks/azalea_side"
+  }
+}

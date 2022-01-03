@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/stop",
+    "up": "new_blocks:blocks/stop",
+    "north": "new_blocks:blocks/stop",
+    "east": "new_blocks:blocks/stop",
+    "south": "new_blocks:blocks/stop",
+    "west": "new_blocks:blocks/stop",
+    "particle": "new_blocks:blocks/stop"
+  }
+}

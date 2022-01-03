@@ -1,0 +1,21 @@
+{
+  "_fv": 24,
+  "_type": "potion",
+  "definition": {
+    "potionName": "Potion of Weight",
+    "splashName": "Splash Potion of Weight",
+    "lingeringName": "Lingering Potion of Weight",
+    "arrowName": "Arrow of Weight",
+    "effects": [
+      {
+        "effect": {
+          "value": "CUSTOM:Weight"
+        },
+        "duration": 2100,
+        "amplifier": 1,
+        "ambient": false,
+        "showParticles": true
+      }
+    ]
+  }
+}

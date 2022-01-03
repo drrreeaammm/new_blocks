@@ -45,7 +45,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
-import net.mcreator.newblocks.procedures.SculkSensorActiveUpdateTickProcedure;
+import net.mcreator.newblocks.procedures.SculkSensorActiveBlockAddedProcedure;
 import net.mcreator.newblocks.itemgroup.DeepDarkTabItemGroup;
 import net.mcreator.newblocks.NewBlocksModElements;
 
@@ -163,7 +163,7 @@ public class SculkSensorActiveBlock extends NewBlocksModElements.ModElement {
 			int y = pos.getY();
 			int z = pos.getZ();
 
-			SculkSensorActiveUpdateTickProcedure.executeProcedure(Stream
+			SculkSensorActiveBlockAddedProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));

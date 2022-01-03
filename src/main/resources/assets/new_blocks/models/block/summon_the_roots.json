@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "new_blocks:blocks/big_dripleaf_side",
+    "up": "new_blocks:blocks/grenade_held",
+    "north": "new_blocks:blocks/strawberry_crop_stage0",
+    "east": "new_blocks:blocks/sculk_stone",
+    "south": "new_blocks:blocks/big_dripleaf_top",
+    "west": "new_blocks:blocks/lucky_block",
+    "particle": "new_blocks:blocks/big_dripleaf_side"
+  }
+}

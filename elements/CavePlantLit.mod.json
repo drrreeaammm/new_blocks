@@ -1,0 +1,170 @@
+{
+  "_fv": 24,
+  "_type": "block",
+  "definition": {
+    "texture": "cave_vines_lit",
+    "textureTop": "moss_block",
+    "textureLeft": "moss_block",
+    "textureFront": "moss_block",
+    "textureRight": "moss_block",
+    "textureBack": "moss_block",
+    "renderType": 12,
+    "customModelName": "Cross model",
+    "rotationMode": 0,
+    "emissiveRendering": false,
+    "displayFluidOverlay": false,
+    "itemTexture": "",
+    "particleTexture": "",
+    "tintType": "No tint",
+    "isItemTinted": false,
+    "hasTransparency": true,
+    "connectedSides": false,
+    "transparencyType": "SOLID",
+    "disableOffset": false,
+    "boundingBoxes": [
+      {
+        "mx": 1.0,
+        "my": 0.0,
+        "mz": 1.0,
+        "Mx": 15.0,
+        "My": 16.0,
+        "Mz": 15.0,
+        "subtract": false
+      }
+    ],
+    "name": "Gloazale",
+    "specialInfo": [],
+    "hardness": 0.1,
+    "resistance": 0.1,
+    "hasGravity": false,
+    "isWaterloggable": false,
+    "creativeTab": {
+      "value": "No creative tab entry"
+    },
+    "destroyTool": "Not specified",
+    "customDrop": {
+      "value": "CUSTOM:GlowBerries"
+    },
+    "dropAmount": 1,
+    "useLootTableForDrops": false,
+    "enchantPowerBonus": 0.0,
+    "plantsGrowOn": true,
+    "canRedstoneConnect": false,
+    "lightOpacity": 0,
+    "material": {
+      "value": "LEAVES"
+    },
+    "tickRate": 10,
+    "tickRandomly": true,
+    "isReplaceable": false,
+    "canProvidePower": false,
+    "emittedRedstonePower": {
+      "fixedValue": 15.0
+    },
+    "colorOnMap": "DEFAULT",
+    "creativePickItem": {
+      "value": ""
+    },
+    "offsetType": "NONE",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "isLadder": false,
+    "slipperiness": 0.6,
+    "speedFactor": 1.0,
+    "jumpFactor": 1.0,
+    "reactionToPushing": "NORMAL",
+    "isNotColidable": true,
+    "isCustomSoundType": false,
+    "soundOnStep": {
+      "value": "WET_GRASS"
+    },
+    "breakSound": {
+      "value": ""
+    },
+    "stepSound": {
+      "value": ""
+    },
+    "placeSound": {
+      "value": ""
+    },
+    "hitSound": {
+      "value": ""
+    },
+    "fallSound": {
+      "value": ""
+    },
+    "luminance": 5,
+    "unbreakable": false,
+    "breakHarvestLevel": 1,
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "CUSTOM:Sculk"
+    },
+    "particleSpawningShape": "Spread",
+    "particleSpawningRadious": 0.5,
+    "particleAmount": 4,
+    "hasInventory": false,
+    "guiBoundTo": "<NONE>",
+    "openGUIOnRightClick": false,
+    "inventorySize": 9,
+    "inventoryStackSize": 64,
+    "inventoryDropWhenDestroyed": true,
+    "inventoryComparatorPower": true,
+    "inventoryOutSlotIDs": [],
+    "inventoryInSlotIDs": [],
+    "hasEnergyStorage": false,
+    "energyInitial": 0,
+    "energyCapacity": 400000,
+    "energyMaxReceive": 200,
+    "energyMaxExtract": 200,
+    "isFluidTank": false,
+    "fluidCapacity": 8000,
+    "fluidRestrictions": [],
+    "onRightClicked": {
+      "name": "CavePlantLitOnBlockRightClicked"
+    },
+    "onBlockAdded": {
+      "name": "CavePlantBlockAdded"
+    },
+    "onTickUpdate": {
+      "name": "CavePlantUpdateTick"
+    },
+    "spawnWorldTypes": [],
+    "restrictionBiomes": [
+      {
+        "value": "CUSTOM:LushCaves"
+      }
+    ],
+    "blocksToReplace": [
+      {
+        "value": "Blocks.STONE#1"
+      },
+      {
+        "value": "Blocks.STONE#3"
+      },
+      {
+        "value": "Blocks.STONE#5"
+      },
+      {
+        "value": "Blocks.STONE#0"
+      },
+      {
+        "value": "CUSTOM:Grimstone"
+      },
+      {
+        "value": "CUSTOM:Deepslate"
+      },
+      {
+        "value": "CUSTOM:Darkstone"
+      }
+    ],
+    "frequencyPerChunks": 28,
+    "frequencyOnChunk": 18,
+    "minGenerateHeight": 13,
+    "maxGenerateHeight": 56,
+    "generateCondition": {
+      "name": "MossAdditionalGenerationCondition"
+    }
+  }
+}

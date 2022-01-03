@@ -11,17 +11,23 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.common.MinecraftForge;
 
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.network.IPacket;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.RandomSwimmingGoal;
@@ -29,15 +35,19 @@ import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
-import net.minecraft.entity.ai.goal.AvoidEntityGoal;
+import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.entity.AgeableEntity;
+import net.minecraft.block.Blocks;
 
 import net.mcreator.newblocks.procedures.FrogOnEntityTickUpdateProcedure;
 import net.mcreator.newblocks.entity.renderer.YellowFrogRenderer;
@@ -96,7 +106,7 @@ public class YellowFrogEntity extends NewBlocksModElements.ModElement {
 		}
 	}
 
-	public static class CustomEntity extends MonsterEntity {
+	public static class CustomEntity extends AnimalEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -118,12 +128,13 @@ public class YellowFrogEntity extends NewBlocksModElements.ModElement {
 			this.goalSelector.addGoal(1, new RandomWalkingGoal(this, 0.9));
 			this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false));
 			this.goalSelector.addGoal(3, new RandomSwimmingGoal(this, 1.2, 40));
-			this.goalSelector.addGoal(4, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(5, new AvoidEntityGoal(this, PlayerEntity.class, (float) 8, 1.1, 1.3));
+			this.goalSelector.addGoal(4, new TemptGoal(this, 1, Ingredient.fromItems(Blocks.BLUE_ORCHID.asItem()), false));
+			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(6, new SwimGoal(this));
-			this.targetSelector.addGoal(7, new NearestAttackableTargetGoal(this, SpiderEntity.class, false, true));
+			this.targetSelector.addGoal(7, new NearestAttackableTargetGoal(this, SpiderEntity.class, false, false));
 			this.goalSelector.addGoal(8, new SwimGoal(this));
 			this.goalSelector.addGoal(9, new LeapAtTargetGoal(this, (float) 0.5));
+			this.goalSelector.addGoal(10, new BreedGoal(this, 1.2));
 		}
 
 		@Override
@@ -138,12 +149,12 @@ public class YellowFrogEntity extends NewBlocksModElements.ModElement {
 
 		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:frog_croak"));
 		}
 
 		@Override
 		public net.minecraft.util.SoundEvent getDeathSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:frog_croak"));
 		}
 
 		@Override
@@ -155,9 +166,26 @@ public class YellowFrogEntity extends NewBlocksModElements.ModElement {
 			Entity entity = this;
 
 			FrogOnEntityTickUpdateProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
-							new AbstractMap.SimpleEntry<>("entity", entity))
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+
+		@Override
+		public AgeableEntity func_241840_a(ServerWorld serverWorld, AgeableEntity ageable) {
+			CustomEntity retval = (CustomEntity) entity.create(serverWorld);
+			retval.onInitialSpawn(serverWorld, serverWorld.getDifficultyForLocation(new BlockPos(retval.getPosition())), SpawnReason.BREEDING,
+					(ILivingEntityData) null, (CompoundNBT) null);
+			return retval;
+		}
+
+		@Override
+		public boolean isBreedingItem(ItemStack stack) {
+			if (stack == null)
+				return false;
+			if (Blocks.BLUE_ORCHID.asItem() == stack.getItem())
+				return true;
+			return false;
 		}
 	}
 }

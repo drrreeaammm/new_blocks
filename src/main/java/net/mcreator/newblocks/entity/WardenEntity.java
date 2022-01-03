@@ -57,16 +57,17 @@ import net.mcreator.newblocks.NewBlocksModElements;
 
 import javax.annotation.Nullable;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
-
-import com.google.common.collect.ImmutableMap;
+import java.util.AbstractMap;
 
 @NewBlocksModElements.ModElement.Tag
 public class WardenEntity extends NewBlocksModElements.ModElement {
 	public static EntityType entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(94).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new)
 			.size(1.2f, 2.8f)).build("warden").setRegistryName("warden");
+
 	public WardenEntity(NewBlocksModElements instance) {
 		super(instance, 166);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new WardenRenderer.ModelRegisterHandler());
@@ -86,11 +87,9 @@ public class WardenEntity extends NewBlocksModElements.ModElement {
 		boolean biomeCriteria = false;
 		if (new ResourceLocation("new_blocks:deep_dark_biome").equals(event.getName()))
 			biomeCriteria = true;
-		if (new ResourceLocation("new_blocks:modified_deep_dark").equals(event.getName()))
-			biomeCriteria = true;
 		if (new ResourceLocation("new_blocks:sculk_vine_caves").equals(event.getName()))
 			biomeCriteria = true;
-		if (new ResourceLocation("new_blocks:deep_dark_mountains").equals(event.getName()))
+		if (new ResourceLocation("new_blocks:big_sculk_caverns").equals(event.getName()))
 			biomeCriteria = true;
 		if (!biomeCriteria)
 			return;
@@ -104,17 +103,21 @@ public class WardenEntity extends NewBlocksModElements.ModElement {
 					int x = pos.getX();
 					int y = pos.getY();
 					int z = pos.getZ();
-					return WardenNaturalEntitySpawningConditionProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+					return WardenNaturalEntitySpawningConditionProcedure.executeProcedure(Stream
+							.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+									new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				});
 	}
+
 	private static class EntityAttributesRegisterHandler {
 		@SubscribeEvent
 		public void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
 			AttributeModifierMap.MutableAttribute ammma = MobEntity.func_233666_p_();
-			ammma = ammma.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3);
-			ammma = ammma.createMutableAttribute(Attributes.MAX_HEALTH, 260);
+			ammma = ammma.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.29);
+			ammma = ammma.createMutableAttribute(Attributes.MAX_HEALTH, 360);
 			ammma = ammma.createMutableAttribute(Attributes.ARMOR, 8.9);
-			ammma = ammma.createMutableAttribute(Attributes.ATTACK_DAMAGE, 34);
+			ammma = ammma.createMutableAttribute(Attributes.ATTACK_DAMAGE, 36);
 			ammma = ammma.createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 0.7);
 			ammma = ammma.createMutableAttribute(Attributes.ATTACK_KNOCKBACK, 1.0999999999999999);
 			ammma = ammma.createMutableAttribute(Attributes.FOLLOW_RANGE, 185);
@@ -152,8 +155,10 @@ public class WardenEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute()
-							&& IsThePlayerNearProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+					return super.shouldExecute() && IsThePlayerNearProcedure.executeProcedure(Stream
+							.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+									new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 			this.goalSelector.addGoal(6, new SwimGoal(this));
@@ -164,15 +169,17 @@ public class WardenEntity extends NewBlocksModElements.ModElement {
 					double y = CustomEntity.this.getPosY();
 					double z = CustomEntity.this.getPosZ();
 					Entity entity = CustomEntity.this;
-					return super.shouldExecute()
-							&& WardenShouldAttackEntityProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+					return super.shouldExecute() && WardenShouldAttackEntityProcedure.executeProcedure(Stream
+							.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+									new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				}
 			});
 		}
 
 		@Override
 		public CreatureAttribute getCreatureAttribute() {
-			return CreatureAttribute.UNDEAD;
+			return CreatureAttribute.UNDEFINED;
 		}
 
 		@Override
@@ -198,7 +205,7 @@ public class WardenEntity extends NewBlocksModElements.ModElement {
 
 		@Override
 		public net.minecraft.util.SoundEvent getDeathSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("new_blocks:sculk_crystal_summon"));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
 		}
 
 		@Override
@@ -208,16 +215,12 @@ public class WardenEntity extends NewBlocksModElements.ModElement {
 			double z = this.getPosZ();
 			Entity entity = this;
 			Entity sourceentity = source.getTrueSource();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("sourceentity", sourceentity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				WardenEntityIsHurtProcedure.executeProcedure($_dependencies);
-			}
+
+			WardenEntityIsHurtProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity),
+							new AbstractMap.SimpleEntry<>("sourceentity", sourceentity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return super.attackEntityFrom(source, amount);
 		}
 
@@ -229,11 +232,9 @@ public class WardenEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				WardenOnInitialEntitySpawnProcedure.executeProcedure($_dependencies);
-			}
+
+			WardenOnInitialEntitySpawnProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 
@@ -244,15 +245,11 @@ public class WardenEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity sourceentity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("sourceentity", sourceentity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				WardenThisEntityKillsAnotherOneProcedure.executeProcedure($_dependencies);
-			}
+
+			WardenThisEntityKillsAnotherOneProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("sourceentity", sourceentity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override
@@ -262,15 +259,11 @@ public class WardenEntity extends NewBlocksModElements.ModElement {
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				WardenOnEntityTickUpdateProcedure.executeProcedure($_dependencies);
-			}
+
+			WardenOnEntityTickUpdateProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

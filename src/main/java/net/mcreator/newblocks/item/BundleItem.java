@@ -172,6 +172,10 @@ public class BundleItem extends NewBlocksModElements.ModElement {
 				public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
 					return stack.getItem() != block;
 				}
+
+				@Override
+				public void setSize(int size) {
+				}
 			};
 		}
 

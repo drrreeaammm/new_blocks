@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "new_blocks:block/gear"
+    },
+    "facing=east": {
+      "model": "new_blocks:block/gear",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "new_blocks:block/gear",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "new_blocks:block/gear",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "new_blocks:block/gear",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "new_blocks:block/gear",
+      "x": 90
+    }
+  }
+}

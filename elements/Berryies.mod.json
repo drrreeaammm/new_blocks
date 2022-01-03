@@ -1,0 +1,38 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "CUSTOM:CavePlant"
+      },
+      {
+        "value": "CUSTOM:CavePlantMiddleUnlit"
+      },
+      {
+        "value": "CUSTOM:CavePlantMiddleLit"
+      },
+      {
+        "value": "CUSTOM:CavePlantLit"
+      },
+      {
+        "value": "CUSTOM:PurpleCavePlant"
+      },
+      {
+        "value": "CUSTOM:PurpleCavePlantL"
+      },
+      {
+        "value": "CUSTOM:RedCavePlantMiddle"
+      },
+      {
+        "value": "CUSTOM:RedCavePlantBottom"
+      }
+    ],
+    "functions": [],
+    "entities": [],
+    "name": "berryies",
+    "namespace": "forge"
+  }
+}

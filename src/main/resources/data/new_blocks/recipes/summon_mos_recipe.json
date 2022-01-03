@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:saplings"
+    },
+    {
+      "tag": "minecraft:saplings"
+    },
+    {
+      "item": "minecraft:grass"
+    },
+    {
+      "item": "new_blocks:flowering_azalea_leaves"
+    },
+    {
+      "item": "new_blocks:flowering_azalea_leaves"
+    },
+    {
+      "item": "new_blocks:hanging_roots"
+    },
+    {
+      "item": "minecraft:grass"
+    },
+    {
+      "item": "new_blocks:flowering_azalea_leaves"
+    },
+    {
+      "tag": "minecraft:saplings"
+    }
+  ],
+  "result": {
+    "item": "new_blocks:summon_the_blocks",
+    "count": 2
+  }
+}

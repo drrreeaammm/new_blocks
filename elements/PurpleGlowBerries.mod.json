@@ -1,0 +1,35 @@
+{
+  "_fv": 24,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "purple_glow_berries",
+    "customModelName": "Normal",
+    "name": "Purple Glow Berries",
+    "rarity": "COMMON",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "FOOD"
+    },
+    "stackSize": 64,
+    "nutritionalValue": 2,
+    "saturation": 0.13,
+    "eatingSpeed": 23,
+    "resultItem": {
+      "value": ""
+    },
+    "forDogs": false,
+    "isAlwaysEdible": false,
+    "animation": "eat",
+    "hasGlow": false,
+    "onRightClickedOnBlock": {
+      "name": "GlowBerriesRightClickedOnBlock"
+    },
+    "onEaten": {
+      "name": "GlowBerriesFoodEaten"
+    },
+    "onItemInInventoryTick": {
+      "name": "PurpleGlowBerriesItemInInventoryTick"
+    }
+  }
+}

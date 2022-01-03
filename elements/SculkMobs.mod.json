@@ -1,0 +1,26 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Entities",
+    "items": [],
+    "blocks": [],
+    "functions": [],
+    "entities": [
+      {
+        "value": "CUSTOM:Endersculk"
+      },
+      {
+        "value": "CUSTOM:Sculker"
+      },
+      {
+        "value": "CUSTOM:VeryAngryWarden"
+      },
+      {
+        "value": "CUSTOM:Warden"
+      }
+    ],
+    "name": "sculk_mobs",
+    "namespace": "mod"
+  }
+}

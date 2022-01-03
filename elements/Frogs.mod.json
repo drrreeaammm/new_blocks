@@ -1,0 +1,29 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Entities",
+    "items": [],
+    "blocks": [],
+    "functions": [],
+    "entities": [
+      {
+        "value": "CUSTOM:DarkGreenFrog"
+      },
+      {
+        "value": "CUSTOM:Frog"
+      },
+      {
+        "value": "CUSTOM:MintFrog"
+      },
+      {
+        "value": "CUSTOM:MudFrog"
+      },
+      {
+        "value": "CUSTOM:YellowFrog"
+      }
+    ],
+    "name": "frogs",
+    "namespace": "mod"
+  }
+}

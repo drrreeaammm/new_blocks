@@ -1,0 +1,11 @@
+{
+  "parent": "new_blocks:custom/big_dripleaf_tilt",
+  "textures": {
+    "all": "new_blocks:blocks/big_dripleaf_top",
+    "particle": "new_blocks:blocks/big_dripleaf_top",
+    "0": "new_blocks:blocks/big_dripleaf_side",
+    "1": "new_blocks:blocks/big_dripleaf_stem",
+    "2": "new_blocks:blocks/big_dripleaf_tip",
+    "3": "new_blocks:blocks/big_dripleaf_top"
+  }
+}

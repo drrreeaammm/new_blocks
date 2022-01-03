@@ -1,0 +1,104 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "Blocks.STONE#3"
+      },
+      {
+        "value": "Blocks.STONE#5"
+      },
+      {
+        "value": "Blocks.STONE#1"
+      },
+      {
+        "value": "Blocks.MOSSY_COBBLESTONE"
+      },
+      {
+        "value": "CUSTOM:Grimstone"
+      },
+      {
+        "value": "CUSTOM:Darkstone"
+      },
+      {
+        "value": "Blocks.MONSTER_EGG#0"
+      },
+      {
+        "value": "CUSTOM:Deepslate"
+      },
+      {
+        "value": "Blocks.STONE#0"
+      },
+      {
+        "value": "CUSTOM:Moss"
+      },
+      {
+        "value": "CUSTOM:DarkGrimstone"
+      },
+      {
+        "value": "CUSTOM:RubyOre"
+      },
+      {
+        "value": "CUSTOM:FakeDiamondOre"
+      },
+      {
+        "value": "CUSTOM:RandomiteOre"
+      },
+      {
+        "value": "CUSTOM:PlutoniumOre"
+      },
+      {
+        "value": "CUSTOM:TanzaniteOre"
+      },
+      {
+        "value": "CUSTOM:PurpleQuartzOre"
+      },
+      {
+        "value": "CUSTOM:SporeBlossom"
+      },
+      {
+        "value": "CUSTOM:DarkiteOre"
+      },
+      {
+        "value": "CUSTOM:PlatinumOre"
+      },
+      {
+        "value": "Blocks.COAL_ORE"
+      },
+      {
+        "value": "Blocks.IRON_ORE"
+      },
+      {
+        "value": "Blocks.REDSTONE_ORE"
+      },
+      {
+        "value": "Blocks.LIT_REDSTONE_ORE"
+      },
+      {
+        "value": "Blocks.GOLD_ORE"
+      },
+      {
+        "value": "Blocks.LAPIS_ORE"
+      },
+      {
+        "value": "Blocks.DIAMOND_ORE"
+      },
+      {
+        "value": "Blocks.EMERALD_ORE"
+      },
+      {
+        "value": "Blocks.QUARTZ_ORE"
+      },
+      {
+        "value": "Blocks.NETHER_GOLD_ORE"
+      }
+    ],
+    "functions": [],
+    "entities": [],
+    "name": "stones",
+    "namespace": "forge"
+  }
+}

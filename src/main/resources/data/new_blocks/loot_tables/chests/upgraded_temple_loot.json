@@ -95,7 +95,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "new_blocks:ruby",
+          "name": "new_blocks:deleted_mod_element",
           "weight": 4,
           "functions": [
             {

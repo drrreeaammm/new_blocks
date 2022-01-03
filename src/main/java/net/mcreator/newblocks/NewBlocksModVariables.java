@@ -82,6 +82,8 @@ public class NewBlocksModVariables {
 		public double playerdeath1 = 0;
 		public double playerdeath2 = 0;
 		public double player3 = 0;
+		public String UUIDOFBREEDER = "\"\"";
+		public double levely = 0;
 
 		public WorldVariables() {
 			super(DATA_NAME);
@@ -105,6 +107,8 @@ public class NewBlocksModVariables {
 			playerdeath1 = nbt.getDouble("playerdeath1");
 			playerdeath2 = nbt.getDouble("playerdeath2");
 			player3 = nbt.getDouble("player3");
+			UUIDOFBREEDER = nbt.getString("UUIDOFBREEDER");
+			levely = nbt.getDouble("levely");
 		}
 
 		@Override
@@ -121,6 +125,8 @@ public class NewBlocksModVariables {
 			nbt.putDouble("playerdeath1", playerdeath1);
 			nbt.putDouble("playerdeath2", playerdeath2);
 			nbt.putDouble("player3", player3);
+			nbt.putString("UUIDOFBREEDER", UUIDOFBREEDER);
+			nbt.putDouble("levely", levely);
 			return nbt;
 		}
 

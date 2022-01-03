@@ -25,7 +25,8 @@ public class TadpoleRenderer {
 		@OnlyIn(Dist.CLIENT)
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(TadpoleEntity.entity, renderManager -> {
-				return new MobRenderer(renderManager, new Modeltadpole(), 0.5f) {
+				return new MobRenderer(renderManager, new Modeltadpole(), 0.06f) {
+
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("new_blocks:textures/tadpole.png");
@@ -35,21 +36,22 @@ public class TadpoleRenderer {
 		}
 	}
 
-	// Made with Blockbench 4.0.1
+	// Made with Blockbench 4.0.5
 	// Exported for Minecraft version 1.15 - 1.16 with MCP mappings
 	// Paste this class into your mod and generate all required imports
 	public static class Modeltadpole extends EntityModel<Entity> {
 		private final ModelRenderer body;
 		private final ModelRenderer tail;
+
 		public Modeltadpole() {
 			textureWidth = 16;
-			textureHeight = 8;
+			textureHeight = 16;
 			body = new ModelRenderer(this);
 			body.setRotationPoint(0.0F, 24.0F, 0.0F);
-			body.setTextureOffset(0, 0).addBox(-1.5F, -2.0F, -5.0F, 3.0F, 2.0F, 3.0F, 0.0F, false);
+			body.setTextureOffset(0, 0).addBox(-1.5F, -2.0F, -1.5F, 3.0F, 2.0F, 3.0F, 0.0F, false);
 			tail = new ModelRenderer(this);
-			tail.setRotationPoint(0.0F, 23.0F, -2.0F);
-			tail.setTextureOffset(0, -2).addBox(0.0F, -1.0F, 0.0F, 0.0F, 2.0F, 7.0F, 0.0F, false);
+			tail.setRotationPoint(0.0F, 23.0F, 1.5F);
+			tail.setTextureOffset(0, 0).addBox(0.0F, -1.0F, 0.0F, 0.0F, 2.0F, 7.0F, 0.0F, false);
 		}
 
 		@Override
@@ -66,7 +68,8 @@ public class TadpoleRenderer {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
-			this.tail.rotateAngleY = MathHelper.cos(f * 1.0F) * 1.0F * f1;
+			this.tail.rotateAngleY = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
 		}
 	}
+
 }

@@ -8,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -97,6 +98,23 @@ public class WardenOnEntityTickUpdateProcedure {
 								}
 							}
 						}
+					}
+				}
+			}
+		}
+		{
+			List<Entity> _entfound = world
+					.getEntitiesWithinAABB(Entity.class,
+							new AxisAlignedBB(x - (18 / 2d), y - (18 / 2d), z - (18 / 2d), x + (18 / 2d), y + (18 / 2d), z + (18 / 2d)), null)
+					.stream().sorted(new Object() {
+						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+						}
+					}.compareDistOf(x, y, z)).collect(Collectors.toList());
+			for (Entity entityiterator : _entfound) {
+				if (!EntityTypeTags.getCollection().getTagByID(new ResourceLocation("new_blocks:sculk_mobs")).contains(entityiterator.getType())) {
+					if ((entityiterator.getMotion().getX() > 0.5 || entityiterator.getMotion().getZ() > 0.5) && !entityiterator.isSneaking()) {
+						entity.getPersistentData().putBoolean("beingDetected", (true));
 					}
 				}
 			}

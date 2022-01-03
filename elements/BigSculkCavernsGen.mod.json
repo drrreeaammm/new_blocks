@@ -114,9 +114,7 @@
     "onBlockAdded": {
       "name": "BigSculkCavernsGenBlockAdded"
     },
-    "spawnWorldTypes": [
-      "CUSTOM:DeepDark"
-    ],
+    "spawnWorldTypes": [],
     "restrictionBiomes": [
       {
         "value": "CUSTOM:BigSculkCaverns"

@@ -896,5 +896,14 @@
         "stream": false
       }
     ]
+  },
+  "pixie_": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "new_blocks:pixie",
+        "stream": false
+      }
+    ]
   }
 }

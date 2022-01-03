@@ -54,7 +54,7 @@
     "material": {
       "value": "MISCELLANEOUS"
     },
-    "tickRate": 9,
+    "tickRate": 1,
     "tickRandomly": false,
     "isReplaceable": false,
     "canProvidePower": true,
@@ -121,6 +121,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onTickUpdate": {
+      "name": "SculkSensorOnUpdateTick"
+    },
     "onEntityWalksOn": {
       "name": "SculkSensorEntityWalksOnTheBlock"
     },

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "new_blocks:mud_frog",
+    "new_blocks:mint_frog",
+    "new_blocks:dark_green_frog",
+    "new_blocks:frog",
+    "new_blocks:yellow_frog"
+  ]
+}

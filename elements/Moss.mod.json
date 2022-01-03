@@ -121,9 +121,13 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "spawnWorldTypes": [
-      "Surface"
-    ],
+    "onDestroyedByPlayer": {
+      "name": "MossBlockDestroyedByPlayer"
+    },
+    "onStartToDestroy": {
+      "name": "MossPlayerStartsToDestroy"
+    },
+    "spawnWorldTypes": [],
     "restrictionBiomes": [
       {
         "value": "CUSTOM:LushCaves"
